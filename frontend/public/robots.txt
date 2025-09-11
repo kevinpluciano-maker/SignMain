@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+Sitemap: https://78cdd8dc-3c6a-4e4f-9f85-841f2f509702.lovableproject.com/sitemap.xml
