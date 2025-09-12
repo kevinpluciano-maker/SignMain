@@ -168,13 +168,13 @@ const ModernNavigation = () => {
     : "flex items-center space-x-2 text-foreground hover:bg-accent/50";
 
   const mobileDropdownClasses = isHomePage
-    ? "absolute left-0 right-0 top-full bg-black/90 backdrop-blur-sm border-b border-white/20 shadow-lg z-[90] max-h-[80vh] overflow-y-auto"
+    ? "absolute left-0 right-0 top-full bg-black/95 border-b border-white/30 shadow-lg z-[90] max-h-[80vh] overflow-y-auto"
     : "absolute left-0 right-0 top-full bg-background/98 backdrop-blur-md border-b border-border/40 shadow-lg z-[90] max-h-[80vh] overflow-y-auto";
 
-  const mobileTextClasses = isHomePage ? "text-white" : "text-foreground";
-  const mobileMutedTextClasses = isHomePage ? "text-white/90" : "text-foreground/90";
+  const mobileTextClasses = isHomePage ? "text-white font-semibold" : "text-foreground";
+  const mobileMutedTextClasses = isHomePage ? "text-white font-medium" : "text-foreground/90";
   const mobileItemClasses = isHomePage
-    ? "w-full justify-start h-auto p-2 font-normal text-sm text-white/70 hover:text-white hover:bg-white/20 rounded-md"
+    ? "w-full justify-start h-auto p-2 font-medium text-sm text-white hover:text-white hover:bg-white/20 rounded-md"
     : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md";
 
   return (
