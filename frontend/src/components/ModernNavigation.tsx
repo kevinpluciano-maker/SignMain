@@ -156,11 +156,11 @@ const ModernNavigation = () => {
     : "h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg";
 
   const dropdownClasses = isHomePage
-    ? "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-black/90 backdrop-blur-sm border border-white/20 rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]"
+    ? "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-black/95 border border-white/30 rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]"
     : "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-background border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]";
 
   const dropdownItemClasses = isHomePage
-    ? "w-full justify-start h-auto p-3 font-normal text-sm text-white/80 hover:text-white hover:bg-white/20 rounded-lg transition-all duration-150 border-0"
+    ? "w-full justify-start h-auto p-3 font-medium text-sm text-white hover:text-white hover:bg-white/20 rounded-lg transition-all duration-150 border-0"
     : "w-full justify-start h-auto p-3 font-normal text-sm text-foreground/80 hover:text-foreground hover:bg-accent/60 rounded-lg transition-all duration-150 border-0";
 
   const mobileButtonClasses = isHomePage
