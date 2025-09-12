@@ -3,60 +3,6 @@ import { Play, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import InlineEditor from "@/components/editor/InlineEditor";
 import { useEditor } from "@/contexts/EditorContext";
-import { useEffect, useRef } from "react";
-
-const HeroSection = () => {
-  const { isEditing, isPreviewing } = useEditor();
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleTitleSave = (newTitle: string) => {
-    console.log('Hero title updated:', newTitle);
-  };
-
-  const handleDescriptionSave = (newDescription: string) => {
-    console.log('Hero description updated:', newDescription);
-  };
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Ensure video plays
-      const playVideo = async () => {
-        try {
-          await video.play();
-          console.log('Video started playing successfully');
-        } catch (error) {
-          console.error('Video autoplay failed:', error);
-        }
-      };
-
-      // Try to play video when component mounts
-      playVideo();
-
-      // Also try to play on user interaction
-      const handleUserInteraction = () => {
-        playVideo();
-        document.removeEventListener('click', handleUserInteraction);
-        document.removeEventListener('touchstart', handleUserInteraction);
-      };
-
-      document.addEventListener('click', handleUserInteraction);
-      document.addEventListener('touchstart', handleUserInteraction);
-
-      return () => {
-        document.removeEventListener('click', handleUserInteraction);
-        document.removeEventListener('touchstart', handleUserInteraction);
-      };
-    }
-  }, []);
-
-  return (
-    <section className="relative h-screen overflow-hidden" id="main-content">
-import { Button } from "@/components/ui/button";
-import { Play, ShoppingBag } from "lucide-react";
-import { Link } from "react-router-dom";
-import InlineEditor from "@/components/editor/InlineEditor";
-import { useEditor } from "@/contexts/EditorContext";
 import { useEffect, useRef, useState } from "react";
 
 const HeroSection = () => {
@@ -76,10 +22,9 @@ const HeroSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Ensure video plays
       const playVideo = async () => {
         try {
-          video.muted = true; // Ensure muted for autoplay
+          video.muted = true;
           await video.play();
           console.log('Video started playing successfully');
           setVideoLoaded(true);
@@ -89,7 +34,6 @@ const HeroSection = () => {
         }
       };
 
-      // Handle video events
       const handleCanPlay = () => {
         console.log('Video can play');
         playVideo();
@@ -109,8 +53,7 @@ const HeroSection = () => {
       video.addEventListener('loadeddata', handleLoadedData);
       video.addEventListener('error', handleError);
 
-      // Try to play video when component mounts
-      if (video.readyState >= 3) { // HAVE_FUTURE_DATA
+      if (video.readyState >= 3) {
         playVideo();
       }
 
@@ -136,7 +79,6 @@ const HeroSection = () => {
           disablePictureInPicture
           className="w-full h-full object-cover"
           preload="metadata"
-          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23374151'/%3E%3C/svg%3E"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -144,12 +86,7 @@ const HeroSection = () => {
         
         {/* Fallback background if video fails */}
         {videoError && (
-          <div 
-            className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900"
-            style={{
-              backgroundImage: `linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><linearGradient id="shimmer" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="%23374151"/><stop offset="50%" stop-color="%234B5563"/><stop offset="100%" stop-color="%23374151"/></linearGradient></defs><rect width="100" height="20" fill="url(%23shimmer)"/></svg>')`
-            }}
-          />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900" />
         )}
         
         {/* Dark overlay for better text readability */}
