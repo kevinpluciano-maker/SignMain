@@ -148,11 +148,11 @@ const ModernNavigation = () => {
 
   // Dynamic styling based on page
   const navClasses = isHomePage 
-    ? "bg-transparent backdrop-blur-sm absolute top-0 left-0 right-0 z-40 text-white mt-20 md:mt-24 lg:mt-28"
+    ? "bg-black/30 backdrop-blur-none absolute top-0 left-0 right-0 z-40 text-white mt-20 md:mt-24 lg:mt-28"
     : "bg-background/98 backdrop-blur-md border-b border-border/40 shadow-sm sticky top-0 z-[60]";
 
   const buttonClasses = isHomePage
-    ? "h-12 px-4 font-medium text-sm text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg"
+    ? "h-12 px-4 font-semibold text-sm text-white hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg text-shadow-sm"
     : "h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg";
 
   const dropdownClasses = isHomePage
