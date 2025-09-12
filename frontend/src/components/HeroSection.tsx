@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Play, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import InlineEditor from "@/components/editor/InlineEditor";
 import { useEditor } from "@/contexts/EditorContext";
@@ -90,13 +90,13 @@ const HeroSection = () => {
         )}
         
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-        <div className="max-w-2xl text-white">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+      {/* Hero Content - Better positioned */}
+      <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
+        <div className="max-w-4xl text-center text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <InlineEditor
               value="Professional Signage Solutions"
               onSave={handleTitleSave}
@@ -107,7 +107,7 @@ const HeroSection = () => {
               required
             />
           </h1>
-          <p className="text-lg mb-8 text-white/90">
+          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
             <InlineEditor
               value="Discover our comprehensive collection of door numbers, office signs, and architectural signage designed for modern workspaces."
               onSave={handleDescriptionSave}
@@ -119,26 +119,17 @@ const HeroSection = () => {
               required
             />
           </p>
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex justify-center">
             <Link to="/products">
               <Button 
                 size="lg" 
-                className="bg-white text-black hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 w-full sm:w-auto"
+                className="bg-white text-black hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 px-8 py-3 text-lg font-semibold"
                 aria-label="Browse our complete product collection"
               >
                 <ShoppingBag className="h-5 w-5 mr-2" aria-hidden="true" />
                 View All Products
               </Button>
             </Link>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-black focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 w-full sm:w-auto"
-              aria-label="Watch introduction video about our signage solutions"
-            >
-              <Play className="h-4 w-4 mr-2" aria-hidden="true" />
-              Watch Video
-            </Button>
           </div>
         </div>
       </div>

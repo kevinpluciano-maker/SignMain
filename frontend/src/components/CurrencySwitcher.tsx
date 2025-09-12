@@ -8,7 +8,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useCurrency } from "@/contexts/CurrencyContext";
 
-const CurrencySwitcher = () => {
+interface CurrencySwitcherProps {
+  isHomePage?: boolean;
+}
+
+const CurrencySwitcher = ({ isHomePage = false }: CurrencySwitcherProps) => {
   const { selectedCurrency, setCurrency } = useCurrency();
 
   const currencies = [
@@ -28,32 +32,47 @@ const CurrencySwitcher = () => {
 
   const currentCurrency = currencies.find(c => c.code === selectedCurrency);
 
+  const buttonClasses = isHomePage
+    ? "bg-white/10 border-white/30 text-white shadow-sm hover:bg-white/20 hover:shadow-md transition-all duration-200 backdrop-blur-sm"
+    : "bg-background border shadow-sm hover:shadow-md transition-all duration-200";
+
+  const dropdownClasses = isHomePage
+    ? "w-48 bg-black/90 backdrop-blur-sm border-white/20 shadow-lg z-[100] text-white"
+    : "w-48 bg-background border shadow-lg z-[100]";
+
+  const itemClasses = isHomePage
+    ? "flex items-center space-x-3 cursor-pointer hover:bg-white/20 text-white"
+    : "flex items-center space-x-3 cursor-pointer hover:bg-muted";
+
+  const textClasses = isHomePage ? "text-white" : "text-foreground";
+  const mutedTextClasses = isHomePage ? "text-white/70" : "text-muted-foreground";
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline" 
           size="sm"
-          className="bg-white/10 border-white/30 text-white shadow-sm hover:bg-white/20 hover:shadow-md transition-all duration-200 backdrop-blur-sm"
+          className={buttonClasses}
         >
           <img 
             src={currentCurrency?.flagImage} 
             alt={`${currentCurrency?.name} flag`}
             className="w-4 h-3 mr-2 object-cover rounded-sm"
           />
-          <span className="hidden sm:inline text-white">{selectedCurrency}</span>
+          <span className={`hidden sm:inline ${textClasses}`}>{selectedCurrency}</span>
           <ChevronDown className="ml-1 h-3 w-3" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent 
         align="end" 
-        className="w-48 bg-black/90 backdrop-blur-sm border-white/20 shadow-lg z-[100] text-white"
+        className={dropdownClasses}
       >
         {currencies.map((currency) => (
           <DropdownMenuItem
             key={currency.code}
             onClick={() => setCurrency(currency.code)}
-            className="flex items-center space-x-3 cursor-pointer hover:bg-white/20 text-white"
+            className={itemClasses}
           >
             <img 
               src={currency.flagImage} 
@@ -61,11 +80,11 @@ const CurrencySwitcher = () => {
               className="w-6 h-4 object-cover rounded-sm"
             />
             <div className="flex flex-col">
-              <span className="font-medium text-white">{currency.code}</span>
-              <span className="text-xs text-white/70">{currency.name}</span>
+              <span className={`font-medium ${textClasses}`}>{currency.code}</span>
+              <span className={`text-xs ${mutedTextClasses}`}>{currency.name}</span>
             </div>
             {selectedCurrency === currency.code && (
-              <div className="ml-auto w-2 h-2 bg-white rounded-full" />
+              <div className={`ml-auto w-2 h-2 rounded-full ${isHomePage ? 'bg-white' : 'bg-primary'}`} />
             )}
           </DropdownMenuItem>
         ))}

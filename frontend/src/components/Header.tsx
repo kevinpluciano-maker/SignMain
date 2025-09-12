@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Search, ShoppingCart, User, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import signassistLogo from "@/assets/signassist-logo.png";
 import InlineEditor from "@/components/editor/InlineEditor";
 import ImageEditor from "@/components/editor/ImageEditor";
@@ -18,6 +18,10 @@ const Header = ({ showFilters = false }: HeaderProps) => {
   const [cartItems] = useState(3);
   const { headerData, updateHeaderData } = useEditor();
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Check if we're on the home page
+  const isHomePage = location.pathname === '/';
 
   const navigationItems = [
     {
@@ -47,16 +51,28 @@ const Header = ({ showFilters = false }: HeaderProps) => {
     { label: "Installation Guide", path: "/installation-guide" }
   ];
 
+  // Dynamic styling based on page
+  const headerClasses = isHomePage 
+    ? "bg-transparent backdrop-blur-sm absolute top-0 left-0 right-0 z-50 text-white"
+    : "bg-background border-b sticky top-0 z-50";
+
+  const topBarClasses = isHomePage
+    ? "bg-black/20 backdrop-blur-sm py-2 hidden md:block"
+    : "bg-muted/50 py-2 hidden md:block";
+
+  const textClasses = isHomePage ? "text-white" : "text-foreground";
+  const mutedTextClasses = isHomePage ? "text-white/90" : "text-muted-foreground";
+
   return (
-    <header className="bg-transparent backdrop-blur-sm absolute top-0 left-0 right-0 z-50 text-white">
+    <header className={headerClasses}>
       {/* Top Bar - Hidden on mobile */}
-      <div className="bg-black/20 backdrop-blur-sm py-2 hidden md:block">
+      <div className={topBarClasses}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center text-sm">
             <InlineEditor
               value={headerData.topBarText}
               onSave={(value) => updateHeaderData({ topBarText: value })}
-              className="text-white/90"
+              className={mutedTextClasses}
               placeholder="Top bar promotional text"
             />
           </div>
@@ -76,7 +92,7 @@ const Header = ({ showFilters = false }: HeaderProps) => {
                 src={headerData.logo || signassistLogo}
                 alt="Company Logo"
                 onSave={(newSrc) => updateHeaderData({ logo: newSrc })}
-                className="h-10 md:h-14 lg:h-16 w-auto transition-transform group-hover:scale-105 brightness-0 invert"
+                className={`h-10 md:h-14 lg:h-16 w-auto transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-0 invert' : ''}`}
                 placeholder="Click to change logo"
               />
             </a>
@@ -84,26 +100,26 @@ const Header = ({ showFilters = false }: HeaderProps) => {
 
           {/* Desktop Contact Info - Better organized */}
           <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
-            <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-              <div className="p-1.5 bg-white/20 rounded-full">
-                <Phone className="h-3.5 w-3.5 text-white" />
+            <div className={`flex items-center space-x-3 text-sm px-4 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm' : 'bg-muted/30'}`}>
+              <div className={`p-1.5 rounded-full ${isHomePage ? 'bg-white/20' : 'bg-primary/10'}`}>
+                <Phone className={`h-3.5 w-3.5 ${isHomePage ? 'text-white' : 'text-primary'}`} />
               </div>
               <InlineEditor
                 value={headerData.phone}
                 onSave={(value) => updateHeaderData({ phone: value })}
                 placeholder="Phone number"
-                className="font-medium text-white"
+                className={`font-medium ${textClasses}`}
               />
             </div>
-            <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-              <div className="p-1.5 bg-white/20 rounded-full">
-                <Mail className="h-3.5 w-3.5 text-white" />
+            <div className={`flex items-center space-x-3 text-sm px-4 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm' : 'bg-muted/30'}`}>
+              <div className={`p-1.5 rounded-full ${isHomePage ? 'bg-white/20' : 'bg-primary/10'}`}>
+                <Mail className={`h-3.5 w-3.5 ${isHomePage ? 'text-white' : 'text-primary'}`} />
               </div>
               <InlineEditor
                 value={headerData.email}
                 onSave={(value) => updateHeaderData({ email: value })}
                 placeholder="Email address" 
-                className="font-medium text-white"
+                className={`font-medium ${textClasses}`}
               />
             </div>
           </div>
@@ -112,19 +128,19 @@ const Header = ({ showFilters = false }: HeaderProps) => {
           <div className="flex items-center space-x-3 md:space-x-4">
             {/* Currency Switcher - Desktop */}
             <div className="hidden md:block">
-              <CurrencySwitcher />
+              <CurrencySwitcher isHomePage={isHomePage} />
             </div>
             
             {/* Desktop Hours - Better styling */}
-            <div className="hidden lg:block text-right bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg">
-              <div className="text-xs font-medium text-white">
+            <div className={`hidden lg:block text-right px-3 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm' : 'bg-muted/20'}`}>
+              <div className={`text-xs font-medium ${textClasses}`}>
                 <InlineEditor
                   value={headerData.businessHours}
                   onSave={(value) => updateHeaderData({ businessHours: value })}
                   placeholder="Business hours"
                 />
               </div>
-              <div className="text-xs text-white/80 mt-0.5">
+              <div className={`text-xs mt-0.5 ${mutedTextClasses}`}>
                 <InlineEditor
                   value={headerData.quickLinks}
                   onSave={(value) => updateHeaderData({ quickLinks: value })}
@@ -136,18 +152,18 @@ const Header = ({ showFilters = false }: HeaderProps) => {
             {/* Action Buttons - Better styling */}
             <div className="flex items-center space-x-2">
               {/* Search - Hidden on mobile, shown in menu */}
-              <Button variant="ghost" size="sm" className="hidden md:flex hover:bg-white/20 text-white">
+              <Button variant="ghost" size="sm" className={`hidden md:flex ${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}>
                 <Search className="h-4 w-4" />
               </Button>
 
               {/* Account - Hidden on mobile */}
-              <Button variant="ghost" size="sm" className="hidden md:flex hover:bg-white/20 text-white">
+              <Button variant="ghost" size="sm" className={`hidden md:flex ${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}>
                 <User className="h-4 w-4 mr-2" />
                 <span className="text-sm">Account</span>
               </Button>
 
               {/* Cart - Always visible with better styling */}
-              <Button variant="ghost" size="sm" className="relative hover:bg-white/20 text-white">
+              <Button variant="ghost" size="sm" className={`relative ${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}>
                 <ShoppingCart className="h-4 w-4 md:mr-2" />
                 <span className="hidden md:inline text-sm">Cart</span>
                 {cartItems > 0 && (
