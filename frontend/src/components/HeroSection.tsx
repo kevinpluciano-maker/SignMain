@@ -3,9 +3,11 @@ import { Play, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import InlineEditor from "@/components/editor/InlineEditor";
 import { useEditor } from "@/contexts/EditorContext";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const { isEditing, isPreviewing } = useEditor();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleTitleSave = (newTitle: string) => {
     console.log('Hero title updated:', newTitle);
@@ -15,11 +17,45 @@ const HeroSection = () => {
     console.log('Hero description updated:', newDescription);
   };
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Ensure video plays
+      const playVideo = async () => {
+        try {
+          await video.play();
+          console.log('Video started playing successfully');
+        } catch (error) {
+          console.error('Video autoplay failed:', error);
+        }
+      };
+
+      // Try to play video when component mounts
+      playVideo();
+
+      // Also try to play on user interaction
+      const handleUserInteraction = () => {
+        playVideo();
+        document.removeEventListener('click', handleUserInteraction);
+        document.removeEventListener('touchstart', handleUserInteraction);
+      };
+
+      document.addEventListener('click', handleUserInteraction);
+      document.addEventListener('touchstart', handleUserInteraction);
+
+      return () => {
+        document.removeEventListener('click', handleUserInteraction);
+        document.removeEventListener('touchstart', handleUserInteraction);
+      };
+    }
+  }, []);
+
   return (
     <section className="relative h-screen overflow-hidden" id="main-content">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
