@@ -24,8 +24,14 @@ const HeroSection = () => {
           loop
           muted
           playsInline
+          controls={false}
+          disablePictureInPicture
           className="w-full h-full object-cover"
           preload="auto"
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlay={() => console.log('Video can play')}
+          onPlay={() => console.log('Video started playing')}
+          onError={(e) => console.error('Video error:', e)}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
