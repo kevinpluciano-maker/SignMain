@@ -3,8 +3,6 @@ import { Play, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import InlineEditor from "@/components/editor/InlineEditor";
 import { useEditor } from "@/contexts/EditorContext";
-import { OptimizedImage } from "@/hooks/useImageOptimization";
-import heroOffice from "@/assets/hero-office.jpg";
 
 const HeroSection = () => {
   const { isEditing, isPreviewing } = useEditor();
@@ -19,18 +17,21 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen overflow-hidden" id="main-content">
-      {/* Hero Background */}
+      {/* Video Background */}
       <div className="absolute inset-0">
-        <OptimizedImage
-          src={heroOffice}
-          alt="Modern office space with professional signage solutions"
-          width={1920}
-          height={1080}
-          priority={true}
-          sizes="100vw"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30" />
+          preload="auto"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Hero Content */}
