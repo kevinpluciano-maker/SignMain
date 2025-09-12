@@ -1,113 +1,116 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Eye, Edit3, Save, X, RotateCcw } from "lucide-react";
-import { useEditor } from "@/contexts/EditorContext";
-import { toast } from "sonner";
+import React from 'react';
+import { Edit3, Eye, Save, Upload, Settings } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useEditor } from '@/contexts/EditorContext';
+import { cn } from '@/lib/utils';
 
-const EditorToolbar = () => {
+const EditorToolbar: React.FC = () => {
   const { 
     isEditing, 
     isPreviewing, 
-    setIsEditing, 
-    setIsPreviewing, 
-    publishChanges, 
-    discardChanges 
+    toggleEditing, 
+    togglePreviewing, 
+    saveChanges, 
+    publishChanges 
   } = useEditor();
 
-  const handleEditMode = () => {
-    setIsEditing(true);
-    setIsPreviewing(false);
-    toast.info("Edit mode activated. Drag sections to reorder and click products to edit.");
+  const [isSaving, setIsSaving] = React.useState(false);
+  const [isPublishing, setIsPublishing] = React.useState(false);
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    try {
+      await saveChanges();
+      console.log('✅ Changes saved successfully');
+    } catch (error) {
+      console.error('❌ Save failed:', error);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
-  const handlePreviewMode = () => {
-    setIsPreviewing(true);
-    setIsEditing(false);
-    toast.info("Preview mode activated. See how your changes will look.");
+  const handlePublish = async () => {
+    setIsPublishing(true);
+    try {
+      await publishChanges();
+      console.log('🚀 Changes published successfully');
+    } catch (error) {
+      console.error('❌ Publish failed:', error);
+    } finally {
+      setIsPublishing(false);
+    }
   };
-
-  const handlePublish = () => {
-    publishChanges();
-    toast.success("Changes published successfully!");
-  };
-
-  const handleDiscard = () => {
-    discardChanges();
-    toast.info("Changes discarded.");
-  };
-
-  const handleExitMode = () => {
-    setIsEditing(false);
-    setIsPreviewing(false);
-  };
-
-  if (!isEditing && !isPreviewing) {
-    return (
-      <div className="fixed top-4 right-4 z-50">
-        <Button onClick={handleEditMode} size="sm" className="shadow-lg">
-          <Edit3 className="h-4 w-4 mr-2" />
-          Edit Page
-        </Button>
-      </div>
-    );
-  }
 
   return (
-    <div className="fixed top-4 right-4 z-50 bg-background border rounded-lg shadow-lg p-3 space-y-2">
-      <div className="flex items-center space-x-2 mb-2">
-        <Badge variant={isEditing ? "default" : "secondary"}>
-          {isEditing ? "Editing" : "Previewing"}
-        </Badge>
-      </div>
-      
-      <div className="flex space-x-2">
-        {isEditing && (
-          <Button 
-            onClick={handlePreviewMode} 
-            variant="outline" 
-            size="sm"
-          >
-            <Eye className="h-4 w-4 mr-1" />
-            Preview
-          </Button>
+    <div className="fixed top-4 right-4 z-[100] bg-white/95 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg p-2 flex items-center gap-2">
+      {/* Edit Toggle */}
+      <Button
+        variant={isEditing ? "default" : "outline"}
+        size="sm"
+        onClick={toggleEditing}
+        className={cn(
+          "flex items-center gap-2 font-medium transition-all",
+          isEditing && "bg-blue-600 hover:bg-blue-700 text-white"
         )}
-        
-        {isPreviewing && (
-          <Button 
-            onClick={handleEditMode} 
-            variant="outline" 
-            size="sm"
-          >
-            <Edit3 className="h-4 w-4 mr-1" />
-            Edit
-          </Button>
+      >
+        <Edit3 className="h-4 w-4" />
+        {isEditing ? 'Exit Edit' : 'Edit Page'}
+      </Button>
+
+      {/* Preview Toggle */}
+      <Button
+        variant={isPreviewing ? "default" : "outline"}
+        size="sm"
+        onClick={togglePreviewing}
+        className={cn(
+          "flex items-center gap-2 font-medium transition-all",
+          isPreviewing && "bg-green-600 hover:bg-green-700 text-white"
         )}
-        
-        <Button 
-          onClick={handlePublish} 
-          size="sm"
-          className="bg-green-600 hover:bg-green-700"
-        >
-          <Save className="h-4 w-4 mr-1" />
-          Publish
-        </Button>
-        
-        <Button 
-          onClick={handleDiscard} 
-          variant="outline" 
-          size="sm"
-        >
-          <RotateCcw className="h-4 w-4 mr-1" />
-          Discard
-        </Button>
-        
-        <Button 
-          onClick={handleExitMode} 
-          variant="ghost" 
-          size="sm"
-        >
-          <X className="h-4 w-4" />
-        </Button>
+      >
+        <Eye className="h-4 w-4" />
+        {isPreviewing ? 'Exit Preview' : 'Preview'}
+      </Button>
+
+      {/* Save Button */}
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={handleSave}
+        disabled={isSaving || (!isEditing && !isPreviewing)}
+        className="flex items-center gap-2 font-medium hover:bg-yellow-50 hover:border-yellow-300 transition-all"
+      >
+        <Save className={cn("h-4 w-4", isSaving && "animate-spin")} />
+        {isSaving ? 'Saving...' : 'Save'}
+      </Button>
+
+      {/* Publish Button */}
+      <Button
+        variant="default"
+        size="sm"
+        onClick={handlePublish}
+        disabled={isPublishing}
+        className="flex items-center gap-2 font-bold bg-purple-600 hover:bg-purple-700 text-white transition-all"
+      >
+        <Upload className={cn("h-4 w-4", isPublishing && "animate-spin")} />
+        {isPublishing ? 'Publishing...' : 'Publish'}
+      </Button>
+
+      {/* Settings */}
+      <Button
+        variant="ghost"
+        size="sm"
+        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all"
+      >
+        <Settings className="h-4 w-4" />
+      </Button>
+
+      {/* Status Indicator */}
+      <div className="ml-2 pl-2 border-l border-gray-200">
+        <div className={cn(
+          "w-2 h-2 rounded-full transition-all",
+          isEditing ? "bg-blue-500 animate-pulse" : 
+          isPreviewing ? "bg-green-500" : "bg-gray-400"
+        )} />
       </div>
     </div>
   );
