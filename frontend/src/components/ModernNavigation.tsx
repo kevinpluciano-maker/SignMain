@@ -143,7 +143,7 @@ const ModernNavigation = () => {
   ];
 
   return (
-    <nav ref={navRef} className="bg-background/98 backdrop-blur-md border-b border-border/40 shadow-sm sticky top-0 z-[60]">
+    <nav ref={navRef} className="bg-transparent backdrop-blur-sm absolute top-0 left-0 right-0 z-40 text-white mt-20 md:mt-24 lg:mt-28">
       <div className="container mx-auto px-4">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-center h-16">
@@ -157,7 +157,7 @@ const ModernNavigation = () => {
               >
                 <Button
                   variant="ghost"
-                  className="h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg"
+                  className="h-12 px-4 font-medium text-sm text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg"
                   onClick={() => handleCategoryClick(category.title)}
                 >
                   {category.title}
@@ -170,7 +170,7 @@ const ModernNavigation = () => {
                 {/* Enhanced Dropdown with better positioning and styling */}
                 <div 
                   className={cn(
-                    "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-background border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]",
+                    "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-black/90 backdrop-blur-sm border border-white/20 rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]",
                     activeDropdown === category.title 
                       ? "opacity-100 visible translate-y-0" 
                       : "opacity-0 invisible -translate-y-2 pointer-events-none"
@@ -178,13 +178,13 @@ const ModernNavigation = () => {
                   onMouseEnter={() => handleMouseEnter(category.title)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <div className="p-3 bg-muted/10">
+                  <div className="p-3">
                     <div className="grid gap-1">
                       {category.items.map((item) => (
                         <Button
                           key={item}
                           variant="ghost"
-                          className="w-full justify-start h-auto p-3 font-normal text-sm text-foreground/80 hover:text-foreground hover:bg-accent/60 rounded-lg transition-all duration-150 border-0"
+                          className="w-full justify-start h-auto p-3 font-normal text-sm text-white/80 hover:text-white hover:bg-white/20 rounded-lg transition-all duration-150 border-0"
                           onClick={() => handleItemClick(item)}
                         >
                           {item}
@@ -201,7 +201,7 @@ const ModernNavigation = () => {
               <Button
                 key={item}
                 variant="ghost"
-                className="h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg"
+                className="h-12 px-4 font-medium text-sm text-white/90 hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg"
                 onClick={() => handleCategoryClick(item)}
               >
                 {item}
@@ -217,7 +217,7 @@ const ModernNavigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex items-center space-x-2 text-foreground hover:bg-accent/50"
+              className="flex items-center space-x-2 text-white hover:bg-white/20"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               <span className="font-medium">Categories</span>
@@ -226,12 +226,12 @@ const ModernNavigation = () => {
 
           {/* Mobile Dropdown Menu */}
           {isMobileMenuOpen && (
-            <div className="absolute left-0 right-0 top-full bg-background/98 backdrop-blur-md border-b border-border/40 shadow-lg z-[90] max-h-[80vh] overflow-y-auto">
+            <div className="absolute left-0 right-0 top-full bg-black/90 backdrop-blur-sm border-b border-white/20 shadow-lg z-[90] max-h-[80vh] overflow-y-auto">
               <div className="container mx-auto px-4 py-4">
                 <div className="space-y-3">
                   {navItems.map((category) => (
-                    <div key={category.title} className="border-b border-border/20 pb-3 last:border-b-0">
-                      <h3 className="font-semibold text-sm text-foreground/90 mb-2 px-2">
+                    <div key={category.title} className="border-b border-white/20 pb-3 last:border-b-0">
+                      <h3 className="font-semibold text-sm text-white/90 mb-2 px-2">
                         {category.title}
                       </h3>
                       <div className="grid gap-1">
@@ -239,7 +239,7 @@ const ModernNavigation = () => {
                           <Button
                             key={item}
                             variant="ghost"
-                            className="w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"
+                            className="w-full justify-start h-auto p-2 font-normal text-sm text-white/70 hover:text-white hover:bg-white/20 rounded-md"
                             onClick={() => handleItemClick(item)}
                           >
                             {item}
@@ -249,8 +249,8 @@ const ModernNavigation = () => {
                     </div>
                   ))}
                   
-                  <div className="pt-2 border-t border-border/20">
-                    <h3 className="font-semibold text-sm text-foreground/90 mb-2 px-2">
+                  <div className="pt-2 border-t border-white/20">
+                    <h3 className="font-semibold text-sm text-white/90 mb-2 px-2">
                       Additional Categories
                     </h3>
                     <div className="grid gap-1">
@@ -258,7 +258,7 @@ const ModernNavigation = () => {
                         <Button
                           key={item}
                           variant="ghost"
-                          className="w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"
+                          className="w-full justify-start h-auto p-2 font-normal text-sm text-white/70 hover:text-white hover:bg-white/20 rounded-md"
                           onClick={() => handleCategoryClick(item)}
                         >
                           {item}

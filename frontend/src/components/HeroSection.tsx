@@ -66,8 +66,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden" id="main-content">
-      {/* Video Background */}
+    <section className="relative h-[60vh] min-h-[500px] overflow-hidden" id="main-content">
+      {/* Video Background - Smaller and positioned at top */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -90,13 +90,13 @@ const HeroSection = () => {
         )}
         
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Hero Content */}
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
         <div className="max-w-2xl text-white">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             <InlineEditor
               value="Professional Signage Solutions"
               onSave={handleTitleSave}
@@ -107,7 +107,7 @@ const HeroSection = () => {
               required
             />
           </h1>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-lg mb-8 text-white/90">
             <InlineEditor
               value="Discover our comprehensive collection of door numbers, office signs, and architectural signage designed for modern workspaces."
               onSave={handleDescriptionSave}
@@ -123,7 +123,7 @@ const HeroSection = () => {
             <Link to="/products">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 w-full sm:w-auto"
+                className="bg-white text-black hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 w-full sm:w-auto"
                 aria-label="Browse our complete product collection"
               >
                 <ShoppingBag className="h-5 w-5 mr-2" aria-hidden="true" />
@@ -133,7 +133,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 w-full sm:w-auto"
+              className="border-white text-white hover:bg-white hover:text-black focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 w-full sm:w-auto"
               aria-label="Watch introduction video about our signage solutions"
             >
               <Play className="h-4 w-4 mr-2" aria-hidden="true" />
