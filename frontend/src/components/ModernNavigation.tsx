@@ -152,7 +152,7 @@ const ModernNavigation = () => {
     : "bg-background/98 backdrop-blur-md border-b border-border/40 shadow-sm sticky top-0 z-[60]";
 
   const buttonClasses = isHomePage
-    ? "h-12 px-4 font-semibold text-sm text-white hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg text-shadow-sm"
+    ? "h-12 px-4 font-semibold text-sm text-white hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg text-shadow-sm text-crisp"
     : "h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg";
 
   const dropdownClasses = isHomePage
