@@ -111,31 +111,6 @@ const ModernNavigation = () => {
         "Elevator Signs",
         "Wi-Fi Signs"
       ]
-    },
-    {
-      title: "Prohibitory Signs",
-      items: [
-        "No Smoking Signs",
-        "Staff Only Signs",
-        "Do Not Enter Signs",
-        "Employees Only Signs",
-        "No Food Or Drink Signs",
-        "Quiet Please Signs",
-        "No Soliciting Signs",
-        "Keep Door Closed Signs"
-      ]
-    },
-    {
-      title: "Directional Signs",
-      items: [
-        "Directional Exit Signs",
-        "Church Directional Signs",
-        "Office Directional Signs",
-        "Restroom Directional Signs",
-        "Hospital Directional Signs",
-        "Interior Directional Signs",
-        "Hotel Directional Signs"
-      ]
     }
   ];
 
@@ -146,39 +121,25 @@ const ModernNavigation = () => {
     'Desk Signs'
   ];
 
-  // Dynamic styling based on page
+  // Sharp, readable styling for home page
   const navClasses = isHomePage 
-    ? "bg-black/30 backdrop-blur-none absolute top-0 left-0 right-0 z-40 text-white mt-20 md:mt-24 lg:mt-28"
+    ? "bg-black/50 absolute top-0 left-0 right-0 z-40 text-white mt-20 md:mt-24 lg:mt-28"
     : "bg-background/98 backdrop-blur-md border-b border-border/40 shadow-sm sticky top-0 z-[60]";
 
   const buttonClasses = isHomePage
-    ? "h-12 px-4 font-semibold text-sm text-white hover:text-white hover:bg-white/20 transition-all duration-200 rounded-lg text-shadow-sm text-crisp"
+    ? "h-12 px-4 font-bold text-base text-white hover:text-white hover:bg-white/30 transition-all duration-200 rounded-lg"
     : "h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg";
 
   const dropdownClasses = isHomePage
-    ? "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-black/95 border border-white/30 rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]"
+    ? "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-black/95 border border-white/40 rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]"
     : "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-background border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]";
 
   const dropdownItemClasses = isHomePage
-    ? "w-full justify-start h-auto p-3 font-medium text-sm text-white hover:text-white hover:bg-white/20 rounded-lg transition-all duration-150 border-0 text-crisp"
+    ? "w-full justify-start h-auto p-3 font-semibold text-base text-white hover:text-white hover:bg-white/30 rounded-lg transition-all duration-150 border-0"
     : "w-full justify-start h-auto p-3 font-normal text-sm text-foreground/80 hover:text-foreground hover:bg-accent/60 rounded-lg transition-all duration-150 border-0";
 
-  const mobileButtonClasses = isHomePage
-    ? "flex items-center space-x-2 text-white hover:bg-white/20"
-    : "flex items-center space-x-2 text-foreground hover:bg-accent/50";
-
-  const mobileDropdownClasses = isHomePage
-    ? "absolute left-0 right-0 top-full bg-black/95 border-b border-white/30 shadow-lg z-[90] max-h-[80vh] overflow-y-auto"
-    : "absolute left-0 right-0 top-full bg-background/98 backdrop-blur-md border-b border-border/40 shadow-lg z-[90] max-h-[80vh] overflow-y-auto";
-
-  const mobileTextClasses = isHomePage ? "text-white font-semibold text-shadow-sm text-crisp" : "text-foreground";
-  const mobileMutedTextClasses = isHomePage ? "text-white font-medium text-crisp" : "text-foreground/90";
-  const mobileItemClasses = isHomePage
-    ? "w-full justify-start h-auto p-2 font-medium text-sm text-white hover:text-white hover:bg-white/20 rounded-md text-crisp"
-    : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md";
-
   return (
-    <nav ref={navRef} className={navClasses}>
+    <nav ref={navRef} className={navClasses} style={isHomePage ? {textShadow: '2px 2px 4px rgba(0,0,0,0.8)'} : {}}>
       <div className="container mx-auto px-4">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-center h-16">
@@ -194,6 +155,7 @@ const ModernNavigation = () => {
                   variant="ghost"
                   className={buttonClasses}
                   onClick={() => handleCategoryClick(category.title)}
+                  style={isHomePage ? {textShadow: '2px 2px 4px rgba(0,0,0,0.8)'} : {}}
                 >
                   {category.title}
                   <ChevronDown className={cn(
@@ -202,7 +164,6 @@ const ModernNavigation = () => {
                   )} />
                 </Button>
 
-                {/* Enhanced Dropdown with better positioning and styling */}
                 <div 
                   className={cn(
                     dropdownClasses,
@@ -221,6 +182,7 @@ const ModernNavigation = () => {
                           variant="ghost"
                           className={dropdownItemClasses}
                           onClick={() => handleItemClick(item)}
+                          style={isHomePage ? {textShadow: '1px 1px 2px rgba(0,0,0,0.8)'} : {}}
                         >
                           {item}
                         </Button>
@@ -231,13 +193,13 @@ const ModernNavigation = () => {
               </div>
             ))}
             
-            {/* Additional Menu Items */}
             {additionalItems.map((item) => (
               <Button
                 key={item}
                 variant="ghost"
                 className={buttonClasses}
                 onClick={() => handleCategoryClick(item)}
+                style={isHomePage ? {textShadow: '2px 2px 4px rgba(0,0,0,0.8)'} : {}}
               >
                 {item}
               </Button>
@@ -245,28 +207,28 @@ const ModernNavigation = () => {
           </div>
         </div>
 
-        {/* Mobile & Tablet Navigation */}
+        {/* Mobile Navigation - Optimized */}
         <div className="lg:hidden">
           <div className="flex items-center justify-between h-12">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={mobileButtonClasses}
+              className={isHomePage ? "flex items-center space-x-2 text-white hover:bg-white/30 font-bold" : "flex items-center space-x-2 text-foreground hover:bg-accent/50"}
+              style={isHomePage ? {textShadow: '2px 2px 4px rgba(0,0,0,0.8)'} : {}}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              <span className="font-medium">Categories</span>
+              <span className="font-bold">Categories</span>
             </Button>
           </div>
 
-          {/* Mobile Dropdown Menu */}
           {isMobileMenuOpen && (
-            <div className={mobileDropdownClasses}>
+            <div className={isHomePage ? "absolute left-0 right-0 top-full bg-black/95 border-b border-white/40 shadow-lg z-[90] max-h-[80vh] overflow-y-auto" : "absolute left-0 right-0 top-full bg-background/98 backdrop-blur-md border-b border-border/40 shadow-lg z-[90] max-h-[80vh] overflow-y-auto"}>
               <div className="container mx-auto px-4 py-4">
                 <div className="space-y-3">
                   {navItems.map((category) => (
-                    <div key={category.title} className={`border-b pb-3 last:border-b-0 ${isHomePage ? 'border-white/20' : 'border-border/20'}`}>
-                      <h3 className={`font-semibold text-sm mb-2 px-2 ${mobileMutedTextClasses}`}>
+                    <div key={category.title} className={`border-b pb-3 last:border-b-0 ${isHomePage ? 'border-white/40' : 'border-border/20'}`}>
+                      <h3 className={`font-bold text-sm mb-2 px-2 ${isHomePage ? 'text-white' : 'text-foreground/90'}`} style={isHomePage ? {textShadow: '1px 1px 2px rgba(0,0,0,0.8)'} : {}}>
                         {category.title}
                       </h3>
                       <div className="grid gap-1">
@@ -274,8 +236,9 @@ const ModernNavigation = () => {
                           <Button
                             key={item}
                             variant="ghost"
-                            className={mobileItemClasses}
+                            className={isHomePage ? "w-full justify-start h-auto p-2 font-semibold text-sm text-white hover:text-white hover:bg-white/30 rounded-md" : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"}
                             onClick={() => handleItemClick(item)}
+                            style={isHomePage ? {textShadow: '1px 1px 2px rgba(0,0,0,0.8)'} : {}}
                           >
                             {item}
                           </Button>
@@ -284,8 +247,8 @@ const ModernNavigation = () => {
                     </div>
                   ))}
                   
-                  <div className={`pt-2 border-t ${isHomePage ? 'border-white/20' : 'border-border/20'}`}>
-                    <h3 className={`font-semibold text-sm mb-2 px-2 ${mobileMutedTextClasses}`}>
+                  <div className={`pt-2 border-t ${isHomePage ? 'border-white/40' : 'border-border/20'}`}>
+                    <h3 className={`font-bold text-sm mb-2 px-2 ${isHomePage ? 'text-white' : 'text-foreground/90'}`} style={isHomePage ? {textShadow: '1px 1px 2px rgba(0,0,0,0.8)'} : {}}>
                       Additional Categories
                     </h3>
                     <div className="grid gap-1">
@@ -293,8 +256,9 @@ const ModernNavigation = () => {
                         <Button
                           key={item}
                           variant="ghost"
-                          className={mobileItemClasses}
+                          className={isHomePage ? "w-full justify-start h-auto p-2 font-semibold text-sm text-white hover:text-white hover:bg-white/30 rounded-md" : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"}
                           onClick={() => handleCategoryClick(item)}
+                          style={isHomePage ? {textShadow: '1px 1px 2px rgba(0,0,0,0.8)'} : {}}
                         >
                           {item}
                         </Button>

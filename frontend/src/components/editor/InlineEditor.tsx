@@ -1,79 +1,87 @@
-import { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Check, X, Edit3 } from "lucide-react";
-import { useEditor } from "@/contexts/EditorContext";
-import { cn } from "@/lib/utils";
-import { toast } from "sonner";
+import React, { useState, useRef, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { useEditor } from '@/contexts/EditorContext';
 
 interface InlineEditorProps {
   value: string;
   onSave: (value: string) => void;
   placeholder?: string;
-  multiline?: boolean;
   className?: string;
   editClassName?: string;
+  multiline?: boolean;
   maxLength?: number;
   required?: boolean;
 }
 
-const InlineEditor = ({ 
-  value, 
-  onSave, 
-  placeholder, 
+const InlineEditor: React.FC<InlineEditorProps> = ({
+  value,
+  onSave,
+  placeholder = "Click to edit",
+  className = "",
+  editClassName = "",
   multiline = false,
-  className,
-  editClassName,
-  maxLength,
+  maxLength = 500,
   required = false
-}: InlineEditorProps) => {
-  const { isEditing } = useEditor();
-  const [isEditingField, setIsEditingField] = useState(false);
-  const [editValue, setEditValue] = useState(value);
+}) => {
+  const { isEditing, saveChanges } = useEditor();
+  const [isLocalEditing, setIsLocalEditing] = useState(false);
+  const [localValue, setLocalValue] = useState(value);
+  const [hasChanges, setHasChanges] = useState(false);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    setEditValue(value);
+    setLocalValue(value);
   }, [value]);
 
   useEffect(() => {
-    if (isEditingField && inputRef.current) {
+    if (isLocalEditing && inputRef.current) {
       inputRef.current.focus();
-      if (!multiline) {
-        (inputRef.current as HTMLInputElement).select();
+      if (inputRef.current instanceof HTMLInputElement) {
+        inputRef.current.select();
+      } else if (inputRef.current instanceof HTMLTextAreaElement) {
+        inputRef.current.select();
       }
     }
-  }, [isEditingField, multiline]);
+  }, [isLocalEditing]);
 
-  const handleEdit = () => {
-    if (!isEditing) return;
-    setIsEditingField(true);
+  const handleClick = () => {
+    if (isEditing) {
+      setIsLocalEditing(true);
+    }
   };
 
-  const handleSave = () => {
-    if (required && !editValue.trim()) {
-      toast.error("This field is required");
-      return;
-    }
-    
-    if (maxLength && editValue.length > maxLength) {
-      toast.error(`Maximum ${maxLength} characters allowed`);
+  const handleSave = async () => {
+    if (required && !localValue.trim()) {
+      alert('This field is required');
       return;
     }
 
-    onSave(editValue);
-    setIsEditingField(false);
-    toast.success("Changes saved");
+    if (localValue !== value) {
+      onSave(localValue);
+      setHasChanges(true);
+      
+      // Auto-save changes
+      try {
+        await saveChanges();
+        console.log('✅ Inline edit saved and published');
+      } catch (error) {
+        console.error('❌ Error saving inline edit:', error);
+      }
+    }
+    
+    setIsLocalEditing(false);
   };
 
   const handleCancel = () => {
-    setEditValue(value);
-    setIsEditingField(false);
+    setLocalValue(value);
+    setIsLocalEditing(false);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !multiline) {
+      e.preventDefault();
+      handleSave();
+    } else if (e.key === 'Enter' && e.ctrlKey && multiline) {
       e.preventDefault();
       handleSave();
     } else if (e.key === 'Escape') {
@@ -81,70 +89,75 @@ const InlineEditor = ({
     }
   };
 
+  const handleBlur = () => {
+    // Small delay to allow for clicking save button
+    setTimeout(() => {
+      if (isLocalEditing) {
+        handleSave();
+      }
+    }, 150);
+  };
+
   if (!isEditing) {
-    return <span className={className}>{value}</span>;
+    return (
+      <span className={cn(className, hasChanges && "bg-green-100 border border-green-300 rounded px-1")}>
+        {value || placeholder}
+      </span>
+    );
   }
 
-  if (isEditingField) {
+  if (isLocalEditing) {
+    const Component = multiline ? 'textarea' : 'input';
+    
     return (
-      <div className="space-y-2">
-        {multiline ? (
-          <Textarea
-            ref={inputRef as React.RefObject<HTMLTextAreaElement>}
-            value={editValue}
-            onChange={(e) => setEditValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder={placeholder}
-            className={cn("min-h-[100px]", editClassName)}
-            maxLength={maxLength}
-          />
-        ) : (
-          <Input
-            ref={inputRef as React.RefObject<HTMLInputElement>}
-            value={editValue}
-            onChange={(e) => setEditValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder={placeholder}
-            className={editClassName}
-            maxLength={maxLength}
-          />
-        )}
-        
-        {maxLength && (
-          <div className="text-xs text-muted-foreground text-right">
-            {editValue.length}/{maxLength}
-          </div>
-        )}
-        
-        <div className="flex space-x-2">
-          <Button size="sm" onClick={handleSave}>
-            <Check className="h-3 w-3 mr-1" />
+      <div className="relative inline-block">
+        <Component
+          ref={inputRef as any}
+          value={localValue}
+          onChange={(e) => setLocalValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
+          maxLength={maxLength}
+          placeholder={placeholder}
+          className={cn(
+            "border border-blue-500 rounded px-2 py-1 bg-white text-black min-w-[100px]",
+            multiline && "min-h-[60px] resize-vertical",
+            editClassName
+          )}
+          style={{
+            width: multiline ? '300px' : `${Math.max(localValue.length * 8 + 40, 120)}px`
+          }}
+        />
+        <div className="absolute top-full left-0 mt-1 flex gap-1 z-50">
+          <button
+            onClick={handleSave}
+            className="bg-blue-500 text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition-colors"
+          >
             Save
-          </Button>
-          <Button size="sm" variant="outline" onClick={handleCancel}>
-            <X className="h-3 w-3 mr-1" />
+          </button>
+          <button
+            onClick={handleCancel}
+            className="bg-gray-500 text-white px-2 py-1 rounded text-xs hover:bg-gray-600 transition-colors"
+          >
             Cancel
-          </Button>
+          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <div 
-      onClick={handleEdit}
+    <span
+      onClick={handleClick}
       className={cn(
-        "group relative cursor-pointer hover:bg-muted/20 rounded p-1 -m-1 transition-colors",
-        className
+        className,
+        "cursor-pointer hover:bg-blue-100 hover:border hover:border-blue-300 rounded px-1 transition-colors",
+        hasChanges && "bg-green-100 border border-green-300"
       )}
+      title="Click to edit"
     >
-      <span>{value || placeholder}</span>
-      <div className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity">
-        <div className="bg-primary text-primary-foreground rounded p-1">
-          <Edit3 className="h-3 w-3" />
-        </div>
-      </div>
-    </div>
+      {value || placeholder}
+    </span>
   );
 };
 
