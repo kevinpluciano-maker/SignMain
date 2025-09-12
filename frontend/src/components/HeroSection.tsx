@@ -52,6 +52,78 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen overflow-hidden" id="main-content">
+import { Button } from "@/components/ui/button";
+import { Play, ShoppingBag } from "lucide-react";
+import { Link } from "react-router-dom";
+import InlineEditor from "@/components/editor/InlineEditor";
+import { useEditor } from "@/contexts/EditorContext";
+import { useEffect, useRef, useState } from "react";
+
+const HeroSection = () => {
+  const { isEditing, isPreviewing } = useEditor();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  const handleTitleSave = (newTitle: string) => {
+    console.log('Hero title updated:', newTitle);
+  };
+
+  const handleDescriptionSave = (newDescription: string) => {
+    console.log('Hero description updated:', newDescription);
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Ensure video plays
+      const playVideo = async () => {
+        try {
+          video.muted = true; // Ensure muted for autoplay
+          await video.play();
+          console.log('Video started playing successfully');
+          setVideoLoaded(true);
+        } catch (error) {
+          console.error('Video autoplay failed:', error);
+          setVideoError(true);
+        }
+      };
+
+      // Handle video events
+      const handleCanPlay = () => {
+        console.log('Video can play');
+        playVideo();
+      };
+
+      const handleLoadedData = () => {
+        console.log('Video data loaded');
+        setVideoLoaded(true);
+      };
+
+      const handleError = (e: any) => {
+        console.error('Video loading error:', e);
+        setVideoError(true);
+      };
+
+      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('loadeddata', handleLoadedData);
+      video.addEventListener('error', handleError);
+
+      // Try to play video when component mounts
+      if (video.readyState >= 3) { // HAVE_FUTURE_DATA
+        playVideo();
+      }
+
+      return () => {
+        video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('loadeddata', handleLoadedData);
+        video.removeEventListener('error', handleError);
+      };
+    }
+  }, []);
+
+  return (
+    <section className="relative h-screen overflow-hidden" id="main-content">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
@@ -63,15 +135,23 @@ const HeroSection = () => {
           controls={false}
           disablePictureInPicture
           className="w-full h-full object-cover"
-          preload="auto"
-          onLoadStart={() => console.log('Video loading started')}
-          onCanPlay={() => console.log('Video can play')}
-          onPlay={() => console.log('Video started playing')}
-          onError={(e) => console.error('Video error:', e)}
+          preload="metadata"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23374151'/%3E%3C/svg%3E"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        
+        {/* Fallback background if video fails */}
+        {videoError && (
+          <div 
+            className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900"
+            style={{
+              backgroundImage: `linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><linearGradient id="shimmer" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="%23374151"/><stop offset="50%" stop-color="%234B5563"/><stop offset="100%" stop-color="%23374151"/></linearGradient></defs><rect width="100" height="20" fill="url(%23shimmer)"/></svg>')`
+            }}
+          />
+        )}
+        
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40" />
       </div>
