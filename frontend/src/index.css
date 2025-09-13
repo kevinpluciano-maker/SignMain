@@ -2,15 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ultra Performance & Sharp Text Optimizations */
+/* Import premium fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Ultra Performance & Luxurious Typography */
 @layer utilities {
-  .ultra-sharp {
+  .luxury-text {
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     font-kerning: normal;
-    text-shadow: 0 0 1px rgba(0,0,0,0.3);
+  }
+  
+  .futuristic-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  
+  .luxury-shadow {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
   }
   
   .performance-optimized {
@@ -24,15 +37,12 @@
     backface-visibility: hidden;
   }
   
-  .sharp-text {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    font-display: swap;
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-/* Critical Performance Styles */
+/* Premium Design System */
 @layer base {
   :root {
     --background: 220 15% 97%;
@@ -55,6 +65,11 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.75rem;
+    
+    /* Luxury color palette */
+    --luxury-gradient: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    --glass-effect: blur(20px) saturate(180%);
+    --premium-shadow: 0 20px 40px rgba(0,0,0,0.3);
   }
 
   * {
@@ -67,17 +82,46 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    line-height: 1.5;
+    @apply bg-background text-foreground luxury-text;
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1, "liga" 1;
+    line-height: 1.6;
     -webkit-text-size-adjust: 100%;
   }
 }
 
-/* Performance: Reduce layout shifts */
+/* Luxury animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.shimmer-effect {
+  animation: shimmer 2s infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Performance optimizations */
 img, video {
   max-width: 100%;
   height: auto;
@@ -85,7 +129,6 @@ img, video {
   contain-intrinsic-size: 300px 200px;
 }
 
-/* Optimize critical elements */
 .hero-video {
   contain: strict;
   content-visibility: auto;
@@ -101,13 +144,26 @@ img, video {
   content-visibility: auto;
 }
 
-/* Remove layout shifts */
 .container {
   contain: layout style;
 }
 
-/* Reduce motion for better performance */
+/* Premium spacing system */
+.spacing-luxury {
+  padding: clamp(1rem, 4vw, 3rem);
+  margin: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* Smooth scrolling for luxury feel */
+html {
+  scroll-behavior: smooth;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
   *,
   *::before,
   *::after {
@@ -116,31 +172,18 @@ img, video {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
-  .animate-spin {
-    animation: none;
-  }
-  
-  .animate-bounce {
-    animation: none;
-  }
-  
-  .animate-pulse {
-    animation: none;
-  }
 }
 
-/* Critical loading optimizations */
-@supports (content-visibility: auto) {
-  .lazy-section {
-    content-visibility: auto;
-    contain-intrinsic-size: 500px;
-  }
-}
-
-/* Text sharpening for all browsers */
+/* Advanced text rendering for premium feel */
 * {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury focus states */
+*:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
