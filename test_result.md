@@ -146,3 +146,5 @@
 ## agent_communication:
     - agent: "main"
       message: "Successfully set up BSign Store application. Backend API working with MongoDB, frontend displaying correctly. Ready for next tasks."
+    - agent: "main"
+      message: "CRITICAL ISSUE IDENTIFIED: LazySection component causing blank pages on product/category navigation and scrolling. Fixed LazySection intersection observer logic. Identified additional issues with PageEditor/DraggableSection components in AllProducts and Collections pages. Created working simplified product page as temporary solution."
