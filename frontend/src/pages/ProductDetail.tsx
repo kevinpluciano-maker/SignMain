@@ -229,16 +229,14 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-background">
       <EditorToolbar />
       
-      <PageEditor>
-        <DraggableSection id="header">
-          <Header />
-        </DraggableSection>
+        {/* Header */}
+        <Header />
         
-        <DraggableSection id="navigation">
-          <ModernNavigation />
-        </DraggableSection>
+        {/* Navigation */}
+        <ModernNavigation />
       
-        <DraggableSection id="product-detail-content" className="container mx-auto px-4 py-8">
+        {/* Product Detail Content */}
+        <div className="container mx-auto px-4 py-8">
           {/* Back Button */}
           <Link to="/collections/new" className="inline-flex items-center text-muted-foreground hover:text-primary mb-6">
             <ArrowLeft className="h-4 w-4 mr-2" />
