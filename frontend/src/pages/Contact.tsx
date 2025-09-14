@@ -1,326 +1,371 @@
-import { useState } from "react";
 import SEO from "@/components/SEO";
-import Header from "@/components/Header";
-import ImprovedNavigation from "@/components/ImprovedNavigation";
-import ImprovedFooter from "@/components/ImprovedFooter";
-import CurrencySwitcher from "@/components/CurrencySwitcher";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from "lucide-react";
-import { toast } from "sonner";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Headphones, Star } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    subject: "",
-    message: "",
-    inquiryType: ""
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
-    // Simulate form submission
-    toast.success("Thank you! Your message has been sent. We'll get back to you soon.");
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      subject: "",
-      message: "",
-      inquiryType: ""
-    });
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
   return (
     <>
-      <SEO
-        title="Contact Signassist - Get a Quote for Professional Signage Solutions"
-        description="Contact Signassist for custom signage quotes, support, and inquiries. Professional door signs, office signage, and architectural solutions. Fast response guaranteed."
-        canonical="/contact"
+      <SEO 
+        title="Contact Us - Professional Signage Solutions | Signassist"
+        description="Get in touch with Signassist for premium architectural signage, door numbers, and ADA-compliant signs. Expert consultation and worldwide shipping available."
+        keywords="contact signage company, professional signs quote, ADA compliance consultation, architectural signage support"
       />
       
-      <div className="min-h-screen bg-background">
-        <Header />
-        <ImprovedNavigation />
+      {/* Luxury Hero Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.9) 50%, rgba(15,23,42,0.95) 100%)',
+          }}
+        />
+        <div className="absolute inset-0 opacity-10">
+          <div 
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M40 40L50 30L60 40L50 50z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundSize: '80px 80px'
+            }}
+          />
+        </div>
         
-        <main className="container mx-auto px-4 py-12">
-          {/* Hero Section */}
-          <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4">
-              Contact Us
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <Badge 
+              className="mb-6 px-6 py-2 text-sm font-semibold"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.1))',
+                border: '1px solid rgba(255,255,255,0.2)',
+                color: 'white',
+                backdropFilter: 'blur(10px)'
+              }}
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              Let's Connect
             </Badge>
-            <h1 className="heading-primary mb-6">
-              Let's Talk
+            
+            <h1 
+              className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight"
+              style={{
+                fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif',
+                letterSpacing: '-0.02em',
+                textShadow: '0 4px 20px rgba(0,0,0,0.5)',
+                background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}
+            >
+              Contact Us
             </h1>
-            <p className="text-professional text-xl text-muted-foreground max-w-3xl mx-auto">
-              Ready to create your professional signage? Get in touch with our team for quotes, 
-              custom designs, or any questions about our products and services.
+            
+            <p 
+              className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto"
+              style={{
+                fontFamily: '"Inter", system-ui, sans-serif',
+                fontWeight: '400',
+                letterSpacing: '0.01em',
+                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+              }}
+            >
+              Ready to elevate your space with premium signage? Our expert team is here to bring your vision to life.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+      {/* Contact Information & Form Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Information */}
-            <div className="lg:col-span-1 space-y-6">
-              <Card className="p-6">
-                <CardHeader className="p-0 mb-4">
-                  <CardTitle className="flex items-center space-x-2">
-                    <MessageSquare className="h-5 w-5 text-primary" />
-                    <span>Get In Touch</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-0 space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <Phone className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <p className="font-medium">Phone</p>
-                      <p className="text-muted-foreground">+1 (323) 843-0781</p>
-                      <p className="text-sm text-muted-foreground">Mon-Fri 7:00 AM - 4:00 PM CST</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <Mail className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground">info@signassist.com</p>
-                      <p className="text-sm text-muted-foreground">We respond within 24 hours</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <Clock className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <p className="font-medium">Business Hours</p>
-                      <p className="text-muted-foreground">Monday - Friday</p>
-                      <p className="text-muted-foreground">7:00 AM - 4:00 PM CST</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="p-6">
-                <CardHeader className="p-0 mb-4">
-                  <CardTitle>Quick Quote Request</CardTitle>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <p className="text-muted-foreground mb-4">
-                    Need a quick estimate? Use our contact form with your project details, 
-                    and we'll provide a competitive quote within 24 hours.
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-success rounded-full"></div>
-                      <span className="text-sm">Custom door signs & plates</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-success rounded-full"></div>
-                      <span className="text-sm">Office & hotel signage</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-success rounded-full"></div>
-                      <span className="text-sm">ADA compliant solutions</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-success rounded-full"></div>
-                      <span className="text-sm">Bulk & commercial orders</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="lg:col-span-1">
+              <Badge 
+                className="mb-6 px-4 py-2"
+                style={{
+                  background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+                  color: 'white',
+                  border: 'none'
+                }}
+              >
+                <Headphones className="w-4 h-4 mr-2" />
+                Get In Touch
+              </Badge>
+              
+              <h2 
+                className="text-3xl md:text-4xl font-black mb-8 text-gray-900"
+                style={{
+                  fontFamily: '"Inter", system-ui, sans-serif',
+                  letterSpacing: '-0.01em'
+                }}
+              >
+                We're Here to Help
+              </h2>
+              
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: <Phone className="w-6 h-6" />,
+                    title: "Phone",
+                    info: "+1 (323) 843-0781",
+                    subtitle: "Mon - Fri, 7:00 AM - 4:00 PM CST",
+                    gradient: "from-blue-500 to-indigo-600"
+                  },
+                  {
+                    icon: <Mail className="w-6 h-6" />,
+                    title: "Email",
+                    info: "info@signassist.com",
+                    subtitle: "We respond within 24 hours",
+                    gradient: "from-purple-500 to-pink-600"
+                  },
+                  {
+                    icon: <MapPin className="w-6 h-6" />,
+                    title: "Headquarters",
+                    info: "Los Angeles, CA",
+                    subtitle: "Worldwide shipping available",
+                    gradient: "from-green-500 to-teal-600"
+                  },
+                  {
+                    icon: <Clock className="w-6 h-6" />,
+                    title: "Business Hours",
+                    info: "7:00 AM - 4:00 PM CST",
+                    subtitle: "Monday through Friday",
+                    gradient: "from-orange-500 to-red-600"
+                  }
+                ].map((contact, index) => (
+                  <Card 
+                    key={index}
+                    className="p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7))',
+                      backdropFilter: 'blur(20px)'
+                    }}
+                  >
+                    <CardContent className="p-0 flex items-start space-x-4">
+                      <div 
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${contact.gradient} flex items-center justify-center text-white flex-shrink-0`}
+                      >
+                        {contact.icon}
+                      </div>
+                      <div>
+                        <h3 
+                          className="text-lg font-bold text-gray-900 mb-1"
+                          style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                        >
+                          {contact.title}
+                        </h3>
+                        <p className="text-gray-800 font-semibold">{contact.info}</p>
+                        <p className="text-gray-600 text-sm">{contact.subtitle}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
 
             {/* Contact Form */}
-            <Card className="lg:col-span-2 p-6">
-              <CardHeader className="p-0 mb-6">
-                <CardTitle>Send Us a Message</CardTitle>
-                <p className="text-muted-foreground">
-                  Fill out the form below and we'll get back to you as soon as possible.
-                </p>
-              </CardHeader>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange("name", e.target.value)}
-                      placeholder="Enter your full name"
-                      required
-                    />
+            <div className="lg:col-span-2">
+              <Card 
+                className="p-8 border-0 shadow-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.9))',
+                  backdropFilter: 'blur(20px)'
+                }}
+              >
+                <CardHeader className="p-0 mb-8">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div 
+                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white"
+                    >
+                      <Send className="w-6 h-6" />
+                    </div>
+                    <CardTitle 
+                      className="text-3xl font-black text-gray-900"
+                      style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                    >
+                      Send Us a Message
+                    </CardTitle>
                   </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
-                      placeholder="Enter your email"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="Enter your phone number"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Company Name</Label>
-                    <Input
-                      id="company"
-                      value={formData.company}
-                      onChange={(e) => handleInputChange("company", e.target.value)}
-                      placeholder="Enter your company name"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="inquiryType">Type of Inquiry</Label>
-                  <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange("inquiryType", value)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select inquiry type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="quote">Request a Quote</SelectItem>
-                      <SelectItem value="custom">Custom Design Project</SelectItem>
-                      <SelectItem value="bulk">Bulk Order Inquiry</SelectItem>
-                      <SelectItem value="support">Product Support</SelectItem>
-                      <SelectItem value="general">General Question</SelectItem>
-                      <SelectItem value="partnership">Partnership Opportunity</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    value={formData.subject}
-                    onChange={(e) => handleInputChange("subject", e.target.value)}
-                    placeholder="Brief subject of your inquiry"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Please provide details about your signage needs, including quantity, size preferences, installation requirements, timeline, and any specific design requests..."
-                    className="min-h-[120px]"
-                    required
-                  />
-                </div>
-
-                <Button type="submit" className="w-full button-modern">
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Message
-                </Button>
+                  <p className="text-gray-600 text-lg">
+                    Tell us about your project and we'll provide a personalized consultation and quote within 24 hours.
+                  </p>
+                </CardHeader>
                 
-                <p className="text-sm text-muted-foreground text-center">
-                  By submitting this form, you agree to our privacy policy. We typically respond within 24 hours.
-                </p>
-              </form>
-            </Card>
+                <CardContent className="p-0">
+                  <form className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          First Name *
+                        </label>
+                        <Input 
+                          placeholder="John"
+                          className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
+                          style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Last Name *
+                        </label>
+                        <Input 
+                          placeholder="Doe"
+                          className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
+                          style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Email Address *
+                        </label>
+                        <Input 
+                          type="email"
+                          placeholder="john@company.com"
+                          className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
+                          style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Phone Number
+                        </label>
+                        <Input 
+                          type="tel"
+                          placeholder="+1 (555) 123-4567"
+                          className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
+                          style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Company Name
+                      </label>
+                      <Input 
+                        placeholder="Your Company"
+                        className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
+                        style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Project Details *
+                      </label>
+                      <Textarea 
+                        placeholder="Tell us about your signage needs, project scope, timeline, and any specific requirements..."
+                        rows={6}
+                        className="border-2 border-gray-200 focus:border-blue-500 rounded-xl resize-none"
+                        style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                      />
+                    </div>
+                    
+                    <Button 
+                      type="submit"
+                      size="lg"
+                      className="w-full py-4 text-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+                      style={{
+                        background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                        borderRadius: '12px',
+                        boxShadow: '0 10px 25px rgba(59,130,246,0.3)',
+                        fontFamily: '"Inter", system-ui, sans-serif',
+                        letterSpacing: '0.5px',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      <Send className="w-5 h-5 mr-2" />
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* FAQ Section */}
-          <Card className="p-8">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl mb-4">Frequently Asked Questions</CardTitle>
-              <p className="text-muted-foreground">
-                Quick answers to common questions about our signage products and services.
-              </p>
-            </CardHeader>
-            <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2">How long does production take?</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Standard signs typically ship within 3-5 business days. Custom designs may take 7-10 business days.
+      {/* Premium Features Section */}
+      <section 
+        className="py-20"
+        style={{
+          background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)'
+        }}
+      >
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <Badge 
+              className="mb-6 px-4 py-2"
+              style={{
+                background: 'linear-gradient(135deg, #10b981, #059669)',
+                color: 'white',
+                border: 'none'
+              }}
+            >
+              <Star className="w-4 h-4 mr-2" />
+              Why Choose Us
+            </Badge>
+            
+            <h2 
+              className="text-4xl md:text-5xl font-black mb-6 text-gray-900"
+              style={{
+                fontFamily: '"Inter", system-ui, sans-serif',
+                letterSpacing: '-0.01em'
+              }}
+            >
+              Premium Service Guarantee
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "24-Hour Response",
+                description: "Fast, professional responses to all inquiries within one business day.",
+                icon: "⚡"
+              },
+              {
+                title: "Expert Consultation",
+                description: "Free design consultation with our signage specialists and ADA compliance experts.",
+                icon: "🎯"
+              },
+              {
+                title: "Worldwide Shipping",
+                description: "Premium packaging and reliable delivery to over 50 countries worldwide.",
+                icon: "🌍"
+              }
+            ].map((feature, index) => (
+              <Card 
+                key={index}
+                className="p-8 border-0 shadow-lg text-center hover:shadow-xl transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7))',
+                  backdropFilter: 'blur(20px)'
+                }}
+              >
+                <CardContent className="p-0">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 
+                    className="text-xl font-bold mb-4 text-gray-900"
+                    style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {feature.description}
                   </p>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-2">Do you offer bulk discounts?</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Yes! We offer competitive pricing for bulk orders. Contact us for a custom quote on quantities over 10 units.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-2">Can you match existing signage?</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Absolutely. Send us photos and specifications, and we'll match your existing signage design and materials.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2">Do you ship internationally?</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Yes, we ship worldwide. International shipping costs and delivery times vary by location.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-2">Are your signs ADA compliant?</h3>
-                  <p className="text-sm text-muted-foreground">
-                    We offer a full range of ADA compliant signage with proper contrast ratios, Braille, and tactile elements.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-2">Can you install the signs?</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Installation services are available in select areas. Contact us to discuss installation options for your location.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </main>
-
-        <ImprovedFooter />
-        <CurrencySwitcher />
-      </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };

@@ -90,19 +90,19 @@ const HeroSection = () => {
         )}
         
         {/* Luxurious gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/8 to-transparent" />
       </div>
 
-      {/* Hero Content with premium spacing */}
-      <div className="relative z-10 container mx-auto px-6 h-full flex items-center justify-center">
+      {/* Hero Content - Moved down to align with button */}
+      <div className="relative z-10 container mx-auto px-6 h-full flex items-end justify-center pb-24">
         <div className="max-w-5xl text-center text-white">
           <h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.1]"
+            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]"
             style={{
               fontFamily: '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-              letterSpacing: '-0.02em',
-              textShadow: '0 4px 20px rgba(0,0,0,0.7), 0 0 40px rgba(255,255,255,0.1)',
+              letterSpacing: '-0.01em',
+              textShadow: '0 3px 15px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.1)',
               background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -120,13 +120,13 @@ const HeroSection = () => {
             />
           </h1>
           <p 
-            className="text-lg md:text-xl lg:text-2xl mb-12 text-white/90 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-xl mb-8 text-white/90 max-w-4xl mx-auto leading-relaxed"
             style={{
               fontFamily: '"Inter", system-ui, sans-serif',
               fontWeight: '400',
-              letterSpacing: '0.01em',
-              textShadow: '0 2px 10px rgba(0,0,0,0.6)',
-              lineHeight: '1.6'
+              letterSpacing: '0.005em',
+              textShadow: '0 2px 8px rgba(0,0,0,0.7)',
+              lineHeight: '1.5'
             }}
           >
             <InlineEditor
@@ -144,32 +144,32 @@ const HeroSection = () => {
             <Link to="/products">
               <Button 
                 size="lg" 
-                className="group relative overflow-hidden px-12 py-4 text-lg font-bold transition-all duration-300 hover:scale-105"
+                className="group relative overflow-hidden px-10 py-3.5 text-base font-bold transition-all duration-300 hover:scale-105"
                 style={{
                   background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
                   color: '#1e293b',
-                  border: '2px solid rgba(255,255,255,0.3)',
-                  borderRadius: '16px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.4)',
+                  border: '2px solid rgba(255,255,255,0.25)',
+                  borderRadius: '14px',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
                   fontFamily: '"Inter", system-ui, sans-serif',
-                  letterSpacing: '0.5px',
+                  letterSpacing: '0.4px',
                   textTransform: 'uppercase'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)';
-                  e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-                  e.currentTarget.style.boxShadow = '0 15px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.6)';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)';
                   e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.4)';
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.35)';
                 }}
                 aria-label="Browse our complete product collection"
               >
-                <ShoppingBag className="h-6 w-6 mr-3" aria-hidden="true" />
+                <ShoppingBag className="h-5 w-5 mr-2.5" aria-hidden="true" />
                 View All Products
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600" />
               </Button>
             </Link>
           </div>
@@ -178,17 +178,17 @@ const HeroSection = () => {
 
       {/* Luxurious scroll indicator */}
       <div 
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white animate-bounce opacity-80"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce opacity-70"
         aria-label="Scroll down to see more content"
         role="button"
         tabIndex={0}
         style={{
-          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))'
+          filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.4))'
         }}
       >
-        <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center relative">
-          <div className="w-1.5 h-4 bg-gradient-to-b from-white to-white/60 rounded-full mt-3 animate-pulse" />
-          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+        <div className="w-7 h-11 border-2 border-white/50 rounded-full flex justify-center relative">
+          <div className="w-1 h-3.5 bg-gradient-to-b from-white to-white/50 rounded-full mt-2.5 animate-pulse" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-transparent via-white/8 to-transparent" />
         </div>
       </div>
     </section>

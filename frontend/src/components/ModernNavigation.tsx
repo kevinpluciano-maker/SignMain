@@ -119,71 +119,71 @@ const ModernNavigation = () => {
     'Desk Signs'
   ];
 
-  // Luxurious futuristic styling for home page - moved down for better visibility
+  // Reduced size luxury styling for home page - moved down for better visibility
   const navClasses = isHomePage 
     ? "absolute top-0 left-0 right-0 z-40 text-white mt-32 md:mt-36 lg:mt-40"
     : "bg-background/98 backdrop-blur-md border-b border-border/40 shadow-sm sticky top-0 z-[60]";
 
   const luxuryNavBackground = isHomePage ? {
-    background: 'linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(30,41,59,0.9) 50%, rgba(0,0,0,0.85) 100%)',
-    backdropFilter: 'blur(20px) saturate(180%)',
-    borderTop: '1px solid rgba(255,255,255,0.1)',
-    borderBottom: '1px solid rgba(255,255,255,0.2)',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+    background: 'linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(30,41,59,0.88) 50%, rgba(0,0,0,0.82) 100%)',
+    backdropFilter: 'blur(16px) saturate(160%)',
+    borderTop: '1px solid rgba(255,255,255,0.08)',
+    borderBottom: '1px solid rgba(255,255,255,0.15)',
+    boxShadow: '0 6px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)'
   } : {};
 
   const premiumTextStyle = isHomePage ? {
     fontFamily: '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-    fontWeight: '700',
-    fontSize: '15px',
-    letterSpacing: '0.8px',
+    fontWeight: '600',
+    fontSize: '13px',
+    letterSpacing: '0.6px',
     textTransform: 'uppercase' as const,
-    textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.1)',
+    textShadow: '0 1px 6px rgba(0,0,0,0.7), 0 0 15px rgba(255,255,255,0.08)',
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale',
     textRendering: 'optimizeLegibility'
   } : {};
 
   const buttonClasses = isHomePage
-    ? "h-14 px-6 font-bold text-white hover:text-white transition-all duration-300 rounded-xl relative overflow-hidden group"
+    ? "h-11 px-4 font-semibold text-white hover:text-white transition-all duration-300 rounded-lg relative overflow-hidden group"
     : "h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg";
 
   const luxuryButtonStyle = isHomePage ? {
-    background: 'linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))',
-    border: '1px solid rgba(255,255,255,0.15)',
-    backdropFilter: 'blur(10px)',
+    background: 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))',
+    border: '1px solid rgba(255,255,255,0.12)',
+    backdropFilter: 'blur(8px)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     position: 'relative' as const
   } : {};
 
   const dropdownClasses = isHomePage
-    ? "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-96 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 z-[100] border"
+    ? "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-xl shadow-xl overflow-hidden transition-all duration-300 z-[100] border"
     : "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-background border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]";
 
   const luxuryDropdownStyle = isHomePage ? {
-    background: 'linear-gradient(145deg, rgba(0,0,0,0.95) 0%, rgba(15,23,42,0.95) 50%, rgba(0,0,0,0.95) 100%)',
-    backdropFilter: 'blur(20px) saturate(180%)',
-    border: '1px solid rgba(255,255,255,0.2)',
-    boxShadow: '0 20px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)'
+    background: 'linear-gradient(145deg, rgba(0,0,0,0.92) 0%, rgba(15,23,42,0.92) 50%, rgba(0,0,0,0.92) 100%)',
+    backdropFilter: 'blur(16px) saturate(160%)',
+    border: '1px solid rgba(255,255,255,0.15)',
+    boxShadow: '0 16px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)'
   } : {};
 
   const dropdownItemClasses = isHomePage
-    ? "w-full justify-start h-auto p-4 font-semibold text-sm text-white hover:text-white rounded-xl transition-all duration-200 border-0 relative overflow-hidden group"
+    ? "w-full justify-start h-auto p-3 font-medium text-sm text-white hover:text-white rounded-lg transition-all duration-200 border-0 relative overflow-hidden group"
     : "w-full justify-start h-auto p-3 font-normal text-sm text-foreground/80 hover:text-foreground hover:bg-accent/60 rounded-lg transition-all duration-150 border-0";
 
   const luxuryItemStyle = isHomePage ? {
     background: 'transparent',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-    borderRadius: '12px',
-    letterSpacing: '0.5px'
+    borderRadius: '8px',
+    letterSpacing: '0.3px'
   } : {};
 
   return (
     <nav ref={navRef} className={navClasses} style={luxuryNavBackground}>
-      <div className="container mx-auto px-6">
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center justify-center h-20 py-4">
-          <div className="flex items-center space-x-2">
+      <div className="container mx-auto px-4">
+        {/* Desktop Navigation - Reduced Size */}
+        <div className="hidden lg:flex items-center justify-center h-14 py-2">
+          <div className="flex items-center space-x-1">
             {navItems.map((category) => (
               <div
                 key={category.title}
@@ -198,14 +198,14 @@ const ModernNavigation = () => {
                   style={{...luxuryButtonStyle, ...premiumTextStyle}}
                   onMouseEnter={(e) => {
                     if (isHomePage) {
-                      e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1))';
-                      e.currentTarget.style.transform = 'translateY(-2px)';
-                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
+                      e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
+                      e.currentTarget.style.transform = 'translateY(-1px)';
+                      e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (isHomePage) {
-                      e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))';
+                      e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
                       e.currentTarget.style.transform = 'translateY(0)';
                       e.currentTarget.style.boxShadow = 'none';
                     }
@@ -213,11 +213,11 @@ const ModernNavigation = () => {
                 >
                   {category.title}
                   <ChevronDown className={cn(
-                    "ml-2 h-4 w-4 transition-transform duration-300",
+                    "ml-1.5 h-3.5 w-3.5 transition-transform duration-300",
                     activeDropdown === category.title && "rotate-180"
                   )} />
                   {isHomePage && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600" />
                   )}
                 </Button>
 
@@ -226,14 +226,14 @@ const ModernNavigation = () => {
                     dropdownClasses,
                     activeDropdown === category.title 
                       ? "opacity-100 visible translate-y-0 scale-100" 
-                      : "opacity-0 invisible translate-y-2 scale-95 pointer-events-none"
+                      : "opacity-0 invisible translate-y-1 scale-98 pointer-events-none"
                   )}
                   style={luxuryDropdownStyle}
                   onMouseEnter={() => handleMouseEnter(category.title)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <div className="p-6">
-                    <div className="grid gap-2">
+                  <div className="p-4">
+                    <div className="grid gap-1">
                       {category.items.map((item, index) => (
                         <Button
                           key={item}
@@ -242,14 +242,14 @@ const ModernNavigation = () => {
                           onClick={() => handleItemClick(item)}
                           style={{
                             ...luxuryItemStyle,
-                            animationDelay: `${index * 50}ms`,
+                            animationDelay: `${index * 40}ms`,
                             fontFamily: '"Inter", system-ui, sans-serif',
-                            letterSpacing: '0.3px'
+                            letterSpacing: '0.2px'
                           }}
                           onMouseEnter={(e) => {
                             if (isHomePage) {
-                              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
-                              e.currentTarget.style.transform = 'translateX(4px)';
+                              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06))';
+                              e.currentTarget.style.transform = 'translateX(3px)';
                             }
                           }}
                           onMouseLeave={(e) => {
@@ -261,7 +261,7 @@ const ModernNavigation = () => {
                         >
                           {item}
                           {isHomePage && (
-                            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/40 to-transparent group-hover:opacity-100 opacity-0 transition-opacity duration-300" />
+                            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/30 to-transparent group-hover:opacity-100 opacity-0 transition-opacity duration-300" />
                           )}
                         </Button>
                       ))}
@@ -280,14 +280,14 @@ const ModernNavigation = () => {
                 style={{...luxuryButtonStyle, ...premiumTextStyle}}
                 onMouseEnter={(e) => {
                   if (isHomePage) {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1))';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (isHomePage) {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
                     e.currentTarget.style.transform = 'translateY(0)';
                     e.currentTarget.style.boxShadow = 'none';
                   }
@@ -295,71 +295,71 @@ const ModernNavigation = () => {
               >
                 {item}
                 {isHomePage && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600" />
                 )}
               </Button>
             ))}
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Reduced Size */}
         <div className="lg:hidden">
-          <div className="flex items-center justify-between h-16 py-3">
+          <div className="flex items-center justify-between h-12 py-2">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={isHomePage ? "flex items-center space-x-3 text-white font-bold px-4 py-3 rounded-xl" : "flex items-center space-x-2 text-foreground hover:bg-accent/50"}
+              className={isHomePage ? "flex items-center space-x-2 text-white font-semibold px-3 py-2 rounded-lg" : "flex items-center space-x-2 text-foreground hover:bg-accent/50"}
               style={isHomePage ? {
                 ...luxuryButtonStyle,
                 ...premiumTextStyle,
-                fontSize: '14px'
+                fontSize: '12px'
               } : {}}
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              <span className="font-bold">Categories</span>
+              {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              <span className="font-semibold">Categories</span>
             </Button>
           </div>
 
           {isMobileMenuOpen && (
             <div 
-              className={isHomePage ? "absolute left-0 right-0 top-full shadow-2xl z-[90] max-h-[80vh] overflow-y-auto rounded-b-2xl" : "absolute left-0 right-0 top-full bg-background/98 backdrop-blur-md border-b border-border/40 shadow-lg z-[90] max-h-[80vh] overflow-y-auto"}
+              className={isHomePage ? "absolute left-0 right-0 top-full shadow-xl z-[90] max-h-[70vh] overflow-y-auto rounded-b-xl" : "absolute left-0 right-0 top-full bg-background/98 backdrop-blur-md border-b border-border/40 shadow-lg z-[90] max-h-[80vh] overflow-y-auto"}
               style={isHomePage ? {
-                background: 'linear-gradient(145deg, rgba(0,0,0,0.95) 0%, rgba(15,23,42,0.95) 100%)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.1)'
+                background: 'linear-gradient(145deg, rgba(0,0,0,0.92) 0%, rgba(15,23,42,0.92) 100%)',
+                backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(255,255,255,0.08)'
               } : {}}
             >
-              <div className="container mx-auto px-6 py-6">
-                <div className="space-y-6">
+              <div className="container mx-auto px-4 py-4">
+                <div className="space-y-4">
                   {navItems.map((category) => (
-                    <div key={category.title} className={`pb-4 last:pb-0 ${isHomePage ? 'border-b border-white/10' : 'border-b border-border/20'}`}>
+                    <div key={category.title} className={`pb-3 last:pb-0 ${isHomePage ? 'border-b border-white/8' : 'border-b border-border/20'}`}>
                       <h3 
-                        className={`font-bold text-base mb-4 px-2 ${isHomePage ? 'text-white' : 'text-foreground/90'}`} 
+                        className={`font-semibold text-sm mb-3 px-2 ${isHomePage ? 'text-white' : 'text-foreground/90'}`} 
                         style={isHomePage ? {
                           fontFamily: '"Inter", system-ui, sans-serif',
-                          letterSpacing: '0.8px',
+                          letterSpacing: '0.6px',
                           textTransform: 'uppercase',
-                          fontSize: '13px'
+                          fontSize: '11px'
                         } : {}}
                       >
                         {category.title}
                       </h3>
-                      <div className="grid gap-2">
+                      <div className="grid gap-1">
                         {category.items.map((item) => (
                           <Button
                             key={item}
                             variant="ghost"
-                            className={isHomePage ? "w-full justify-start h-auto p-3 font-semibold text-sm text-white hover:text-white rounded-lg transition-all duration-300" : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"}
+                            className={isHomePage ? "w-full justify-start h-auto p-2.5 font-medium text-sm text-white hover:text-white rounded-md transition-all duration-300" : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"}
                             onClick={() => handleItemClick(item)}
                             style={isHomePage ? {
-                              letterSpacing: '0.3px',
+                              letterSpacing: '0.2px',
                               fontFamily: '"Inter", system-ui, sans-serif'
                             } : {}}
                             onMouseEnter={(e) => {
                               if (isHomePage) {
-                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))';
-                                e.currentTarget.style.transform = 'translateX(4px)';
+                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
+                                e.currentTarget.style.transform = 'translateX(2px)';
                               }
                             }}
                             onMouseLeave={(e) => {
@@ -376,33 +376,33 @@ const ModernNavigation = () => {
                     </div>
                   ))}
                   
-                  <div className={`pt-4 ${isHomePage ? 'border-t border-white/10' : 'border-t border-border/20'}`}>
+                  <div className={`pt-3 ${isHomePage ? 'border-t border-white/8' : 'border-t border-border/20'}`}>
                     <h3 
-                      className={`font-bold text-base mb-4 px-2 ${isHomePage ? 'text-white' : 'text-foreground/90'}`}
+                      className={`font-semibold text-sm mb-3 px-2 ${isHomePage ? 'text-white' : 'text-foreground/90'}`}
                       style={isHomePage ? {
                         fontFamily: '"Inter", system-ui, sans-serif',
-                        letterSpacing: '0.8px',
+                        letterSpacing: '0.6px',
                         textTransform: 'uppercase',
-                        fontSize: '13px'
+                        fontSize: '11px'
                       } : {}}
                     >
                       Premium Solutions
                     </h3>
-                    <div className="grid gap-2">
+                    <div className="grid gap-1">
                       {additionalItems.map((item) => (
                         <Button
                           key={item}
                           variant="ghost"
-                          className={isHomePage ? "w-full justify-start h-auto p-3 font-semibold text-sm text-white hover:text-white rounded-lg transition-all duration-300" : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"}
+                          className={isHomePage ? "w-full justify-start h-auto p-2.5 font-medium text-sm text-white hover:text-white rounded-md transition-all duration-300" : "w-full justify-start h-auto p-2 font-normal text-sm text-foreground/70 hover:text-foreground hover:bg-accent/40 rounded-md"}
                           onClick={() => handleCategoryClick(item)}
                           style={isHomePage ? {
-                            letterSpacing: '0.3px',
+                            letterSpacing: '0.2px',
                             fontFamily: '"Inter", system-ui, sans-serif'
                           } : {}}
                           onMouseEnter={(e) => {
                             if (isHomePage) {
-                              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))';
-                              e.currentTarget.style.transform = 'translateX(4px)';
+                              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
+                              e.currentTarget.style.transform = 'translateX(2px)';
                             }
                           }}
                           onMouseLeave={(e) => {
