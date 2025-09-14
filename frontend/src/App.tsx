@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import AllProducts from "./pages/AllProducts";
 import AllProductsDebug from "./pages/AllProductsDebug";
+import AllProductsSimple from "./pages/AllProductsSimple";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
