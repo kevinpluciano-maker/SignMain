@@ -557,12 +557,9 @@ const ProductDetail = () => {
             </TabsContent>
           </Tabs>
         </div>
-        </DraggableSection>
 
-        <DraggableSection id="footer">
-          <ImprovedFooter />
-        </DraggableSection>
-      </PageEditor>
+        {/* Footer */}
+        <ImprovedFooter />
       </div>
     </>
   );
