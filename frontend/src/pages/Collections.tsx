@@ -6,8 +6,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ImprovedSidebar from "@/components/ImprovedSidebar";
 import ProductGrid from "@/components/ProductGrid";
 import ImprovedFooter from "@/components/ImprovedFooter";
-import PageEditor from "@/components/editor/PageEditor";
-import DraggableSection from "@/components/editor/DraggableSection";
 import EditorToolbar from "@/components/editor/EditorToolbar";
 import { getCategoryProducts, getCategoryTitle, getAllProducts } from "@/data/productsData";
 import { bestSellersProducts } from "@/data/bestSellersProducts";
