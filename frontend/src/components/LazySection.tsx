@@ -53,7 +53,7 @@ export const LazySection: React.FC<LazySectionProps> = ({
 
   return (
     <div ref={setRef} className={className}>
-      {isIntersecting ? children : fallback}
+      {hasIntersected ? children : fallback}
     </div>
   );
 };
