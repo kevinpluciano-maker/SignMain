@@ -11,6 +11,7 @@ import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import AllProducts from "./pages/AllProducts";
+import AllProductsDebug from "./pages/AllProductsDebug";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
