@@ -10,11 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import ModernNavigation from "@/components/ModernNavigation";
 import ImprovedFooter from "@/components/ImprovedFooter";
-import PageEditor from "@/components/editor/PageEditor";
-import DraggableSection from "@/components/editor/DraggableSection";
 import EditorToolbar from "@/components/editor/EditorToolbar";
-import InlineEditor from "@/components/editor/InlineEditor";
-import ProductContentEditor from "@/components/product/ProductContentEditor";
 
 import CustomSizeRequest from "@/components/CustomSizeRequest";
 import ImageGallery from "@/components/ImageGallery";
