@@ -33,10 +33,10 @@ export const LazySection: React.FC<LazySectionProps> = ({
       
       const observer = new IntersectionObserver(
         ([entry]) => {
+          setIsIntersecting(entry.isIntersecting);
           if (entry.isIntersecting && !hasIntersected) {
-            setIsIntersecting(true);
             setHasIntersected(true);
-            observer.disconnect();
+            // Keep observer active for better UX - don't disconnect
           }
         },
         {
