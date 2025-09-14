@@ -557,6 +557,7 @@ const ProductDetail = () => {
             </TabsContent>
           </Tabs>
         </div>
+        </div>
 
         {/* Footer */}
         <ImprovedFooter />
