@@ -96,20 +96,17 @@ const Collections = () => {
       <div className="min-h-screen bg-background">
       <EditorToolbar />
       
-      <PageEditor>
-        <DraggableSection id="header">
-          <Header showFilters={true} />
-        </DraggableSection>
+        {/* Header */}
+        <Header showFilters={true} />
         
-        <DraggableSection id="navigation">
-          <ImprovedNavigation />
-        </DraggableSection>
+        {/* Navigation */}
+        <ImprovedNavigation />
         
-        <DraggableSection id="breadcrumb">
-          <Breadcrumb />
-        </DraggableSection>
+        {/* Breadcrumb */}
+        <Breadcrumb />
         
-        <DraggableSection id="main-content" className="container mx-auto px-4">
+        {/* Main Content */}
+        <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 md:gap-8">
             {/* Desktop Sidebar - Only visible on desktop */}
             <div className="hidden md:block">
