@@ -132,12 +132,10 @@ const Collections = () => {
               <ProductGrid products={products} />
             </div>
           </div>
-        </DraggableSection>
+        </div>
         
-        <DraggableSection id="footer">
-          <ImprovedFooter />
-        </DraggableSection>
-      </PageEditor>
+        {/* Footer */}
+        <ImprovedFooter />
       </div>
     </>
   );
