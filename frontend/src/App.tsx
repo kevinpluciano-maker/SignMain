@@ -28,6 +28,9 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import ModernContact from "./pages/ModernContact";
 import ModernAbout from "./pages/ModernAbout";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Account from "./pages/Account";
 
 const queryClient = new QueryClient();
 
