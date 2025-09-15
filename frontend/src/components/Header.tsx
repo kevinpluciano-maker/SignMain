@@ -124,11 +124,7 @@ const Header = ({ showFilters = false }: HeaderProps) => {
             {/* Desktop Hours - Better styling */}
             <div className={`hidden lg:block text-right px-3 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm' : 'bg-muted/20'}`}>
               <div className={`text-xs font-medium ${textClasses}`}>
-                <InlineEditor
-                  value={headerData.businessHours}
-                  onSave={(value) => updateHeaderData({ businessHours: value })}
-                  placeholder="Business hours"
-                />
+                <span>{headerData.businessHours}</span>
               </div>
               <div className={`text-xs mt-0.5 ${mutedTextClasses}`}>
                 <InlineEditor
