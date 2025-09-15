@@ -13,7 +13,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 # Configuration
-BACKEND_URL = "https://init-project-4.preview.emergentagent.com/api"
+BACKEND_URL = "http://localhost:8001/api"
 TEST_CLIENT_NAME = "BSignStore_TestClient"
 
 class BSignBackendTester:
