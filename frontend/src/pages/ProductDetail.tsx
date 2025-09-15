@@ -425,9 +425,19 @@ const ProductDetail = () => {
 
             {/* Add to Cart */}
             <div className="space-y-4">
-              <Button size="lg" className="w-full">
+              <Button 
+                size="lg" 
+                className="w-full"
+                onClick={() => addToCart(product, {
+                  quantity,
+                  selectedSize,
+                  selectedColor,
+                  selectedBraille,
+                  selectedShape: selectedShapeOption
+                })}
+              >
                 <ShoppingCart className="h-5 w-5 mr-2" />
-                Add to Cart - ${(totalPrice * quantity).toFixed(2)}
+                {isInCart(product.id) ? 'Add More to Cart' : 'Add to Cart'} - ${(totalPrice * quantity).toFixed(2)}
               </Button>
               
               {/* Custom Size Request Button */}
