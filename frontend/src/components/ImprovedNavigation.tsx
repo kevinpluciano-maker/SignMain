@@ -28,78 +28,32 @@ const ImprovedNavigation = () => {
     {
       title: "Door Number Signs",
       items: [
-        "Office Door Numbers",
-        "House Number Signs", 
-        "Hotel Door Numbers",
-        "Room Door Numbers",
-        "Apartment Door Numbers",
-        "Interior Door Numbers",
-        "Elegant Door Numbers",
-        "Round Door Numbers"
+        "Modern Door Numbers",
+        "Wood & Stainless Steel Door Numbers"
       ]
     },
     {
-      title: "Door Signs",
+      title: "Restroom Signs", 
       items: [
-        "Interior Door Signs",
-        "Room Door Signs",
-        "Hotel Door Signs", 
-        "School Door Signs",
-        "Office Door Signs",
-        "Medical Office Door Signs",
-        "Receptionist Signs",
-        "Bespoke House Signs"
-      ]
-    },
-    {
-      title: "Restroom Signs",
-      items: [
-        "Women Restroom Signs",
-        "Men Restroom Signs",
-        "Unisex Restroom Signs", 
-        "Wheelchair Restroom Signs",
         "All-Gender Restroom Signs",
-        "Clean Restroom Signs",
-        "Shower Signs",
-        "Washroom Signs"
+        "Staff ADA Signs",
+        "Acrylic All-Gender Signs",
+        "Stainless Steel All-Gender Signs"
       ]
     },
     {
       title: "Info Signs",
       items: [
-        "Fire Information Signs",
-        "Stairs Information Signs",
-        "Dining Room Signs",
-        "Cleaning Room Signs",
-        "Cafeteria Signs",
-        "Lobby Signs",
-        "Elevator Signs",
-        "Wi-Fi Signs"
+        "Exam Room Signs",
+        "Meeting Room ADA Signs",
+        "Reception Signs"
       ]
     },
     {
       title: "Prohibitory Signs",
       items: [
-        "No Smoking Signs",
-        "Staff Only Signs",
-        "Do Not Enter Signs",
-        "Employees Only Signs",
-        "No Food Or Drink Signs",
-        "Quiet Please Signs",
-        "No Soliciting Signs",
-        "Keep Door Closed Signs"
-      ]
-    },
-    {
-      title: "Directional Signs",
-      items: [
-        "Directional Exit Signs",
-        "Church Directional Signs",
-        "Office Directional Signs",
-        "Restroom Directional Signs",
-        "Hospital Directional Signs",
-        "Interior Directional Signs",
-        "Hotel Directional Signs"
+        "No Bicycles Signs",
+        "No Guns Allowed Signs"
       ]
     }
   ];
