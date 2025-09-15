@@ -46,8 +46,18 @@ const EditorToolbar: React.FC = () => {
     }
   };
 
+  // Only show toolbar to admin users
+  if (!isAdmin) {
+    return null;
+  }
+
   return (
     <div className="fixed top-4 right-4 z-[100] bg-white/95 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg p-2 flex items-center gap-2">
+      {/* Admin Only Badge */}
+      <div className="flex items-center space-x-2 px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">
+        <Lock className="h-3 w-3" />
+        <span>Admin Only</span>
+      </div>
       {/* Edit Toggle */}
       <Button
         variant={isEditing ? "default" : "outline"}
