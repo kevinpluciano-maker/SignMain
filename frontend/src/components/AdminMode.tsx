@@ -48,6 +48,17 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [changesCount, setChangesCount] = useState(0);
   
+  // Product editing state
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isProductEditorOpen, setIsProductEditorOpen] = useState(false);
+  
+  // Initialize products
+  useEffect(() => {
+    const products = getAllProducts();
+    setAllProducts(products);
+  }, []);
+  
   // Local state for form fields
   const [formData, setFormData] = useState({
     // Header fields
