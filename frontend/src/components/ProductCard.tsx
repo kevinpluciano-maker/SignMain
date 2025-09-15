@@ -44,6 +44,46 @@ const ProductCard = ({
   const displayReviews = reviews || reviewCount || 0;
   const [isAdding, setIsAdding] = useState(false);
 
+  const handleAddToCart = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    setIsAdding(true);
+    
+    try {
+      // Create a basic product object for the cart
+      const productForCart = {
+        id,
+        name,
+        image,
+        price: price.toString(),
+        rating,
+        reviews: displayReviews,
+        slug: id,
+        category: 'products',
+        description: `Professional ${name.toLowerCase()}`,
+        materials: [],
+        designs: [],
+        sizeOptions: [],
+        colorOptions: [],
+        shapeOptions: [],
+        brailleOptions: []
+      };
+      
+      // Add to cart with default quantity of 1
+      addToCart(productForCart, {
+        quantity: 1
+      });
+      
+      // Small delay for UX
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
   const renderStars = (rating: number) => {
     const stars = [];
     const fullStars = Math.floor(rating);
