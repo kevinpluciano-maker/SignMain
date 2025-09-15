@@ -17,6 +17,7 @@ interface HeaderProps {
 const Header = ({ showFilters = false }: HeaderProps) => {
   const { totalItems } = useCart();
   const { headerData, updateHeaderData } = useEditor();
+  const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   
