@@ -26,26 +26,7 @@ const ImprovedFooter = () => {
   return (
     <footer className="bg-muted/30 border-t mt-16">
       <div className="container mx-auto px-4 py-12">
-        {/* Newsletter Section */}
-        <div className="text-center mb-12">
-          <h3 className="text-xl font-semibold mb-2">
-            Stay Updated
-          </h3>
-          <p className="text-muted-foreground mb-4">
-            Get the latest updates on new products and exclusive offers.
-          </p>
-          <div className="flex max-w-md mx-auto">
-            <Input 
-              placeholder="Enter your email" 
-              className="rounded-r-none"
-            />
-            <Button className="rounded-l-none button-modern">
-              Subscribe
-            </Button>
-          </div>
-        </div>
-
-        <Separator className="mb-12" />
+        {/* Newsletter Section Removed as per requirements */}
 
         {/* Main Footer Content - Simplified & Clean */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
