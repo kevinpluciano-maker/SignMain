@@ -40,7 +40,9 @@ const ProductCard = ({
   glbUrl
 }: ProductCardProps) => {
   const { convertPrice, selectedCurrency } = useCurrency();
+  const { addToCart, isInCart, totalItems } = useCart();
   const displayReviews = reviews || reviewCount || 0;
+  const [isAdding, setIsAdding] = useState(false);
 
   const renderStars = (rating: number) => {
     const stars = [];
