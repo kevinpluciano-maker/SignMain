@@ -125,8 +125,8 @@ const ProductCard = ({
         )}
         
         <CardContent className="p-0">
-          {/* Product Image */}
-          <div className="aspect-square overflow-hidden bg-gradient-to-br from-muted/30 to-muted/10 relative">
+          {/* Product Image - No white borders */}
+          <div className="relative overflow-hidden bg-transparent aspect-square">
             <OptimizedImage
               src={image}
               alt={name}
