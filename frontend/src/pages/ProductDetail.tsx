@@ -27,6 +27,7 @@ const ProductDetail = () => {
   const [searchParams] = useSearchParams();
   const { isEditing, productData: editorProductData, updateProductData } = useEditor();
   const { convertPrice, selectedCurrency } = useCurrency();
+  const { addToCart, isInCart } = useCart();
   const showContentEditor = searchParams.get('edit') === 'content';
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("");
