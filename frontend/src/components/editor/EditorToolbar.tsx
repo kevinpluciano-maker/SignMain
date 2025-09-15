@@ -15,6 +15,8 @@ const EditorToolbar: React.FC = () => {
     saveChanges, 
     publishChanges 
   } = useEditor();
+  
+  const { isAdmin, isAuthenticated } = useAuth();
 
   const [isSaving, setIsSaving] = useState(false);
   const [isPublishing, setIsPublishing] = useState(false);
