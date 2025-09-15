@@ -60,19 +60,11 @@ const ImprovedFooter = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <InlineEditor
-                  value={footerData.phone}
-                  onSave={(value) => updateFooterData({ phone: value })}
-                  placeholder="Phone number"
-                />
+                <span>{footerData.phone}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-primary" />
-                <InlineEditor
-                  value={footerData.email}
-                  onSave={(value) => updateFooterData({ email: value })}
-                  placeholder="Email address"
-                />
+                <span>{footerData.email}</span>
               </div>
             </div>
           </div>
