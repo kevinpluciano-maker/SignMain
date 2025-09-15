@@ -82,7 +82,7 @@ const Header = ({ showFilters = false }: HeaderProps) => {
       <div className="container mx-auto px-4 py-4 md:py-6">
         <div className="flex items-center justify-between gap-4 md:gap-8">
           {/* Mobile Menu Button - Uses UnifiedMobileNavigation with conditional filters */}
-          <UnifiedMobileNavigation cartItems={cartItems} showFilters={showFilters} />
+          <UnifiedMobileNavigation cartItems={totalItems} showFilters={showFilters} />
 
           {/* Logo Section */}
           <div className="flex-1 flex justify-center md:justify-start md:flex-none">
