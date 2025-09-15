@@ -68,12 +68,9 @@ const Header = ({ showFilters = false }: HeaderProps) => {
       <div className={topBarClasses}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center text-sm">
-            <InlineEditor
-              value={headerData.topBarText}
-              onSave={(value) => updateHeaderData({ topBarText: value })}
-              className={mutedTextClasses}
-              placeholder="Top bar promotional text"
-            />
+            <span className={mutedTextClasses}>
+              {headerData.topBarText}
+            </span>
           </div>
         </div>
       </div>
