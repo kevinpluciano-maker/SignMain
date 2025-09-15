@@ -108,12 +108,9 @@ const Header = ({ showFilters = false }: HeaderProps) => {
               <div className={`p-1.5 rounded-full ${isHomePage ? 'bg-white/20' : 'bg-primary/10'}`}>
                 <Mail className={`h-3.5 w-3.5 ${isHomePage ? 'text-white' : 'text-primary'}`} />
               </div>
-              <InlineEditor
-                value={headerData.email}
-                onSave={(value) => updateHeaderData({ email: value })}
-                placeholder="Email address" 
-                className={`font-medium ${textClasses}`}
-              />
+              <span className={`font-medium ${textClasses}`}>
+                {headerData.email}
+              </span>
             </div>
           </div>
 
