@@ -29,18 +29,10 @@ const ImprovedFooter = () => {
         {/* Newsletter Section */}
         <div className="text-center mb-12">
           <h3 className="text-xl font-semibold mb-2">
-            <InlineEditor
-              value={footerData.newsletter.title}
-              onSave={(value) => updateFooterData({ newsletter: { ...footerData.newsletter, title: value } })}
-              placeholder="Newsletter title"
-            />
+            Stay Updated
           </h3>
           <p className="text-muted-foreground mb-4">
-            <InlineEditor
-              value={footerData.newsletter.description}
-              onSave={(value) => updateFooterData({ newsletter: { ...footerData.newsletter, description: value } })}
-              placeholder="Newsletter description"
-            />
+            Get the latest updates on new products and exclusive offers.
           </p>
           <div className="flex max-w-md mx-auto">
             <Input 
