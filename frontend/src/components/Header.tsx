@@ -4,9 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate, useLocation } from "react-router-dom";
 import signassistLogo from "@/assets/signassist-logo.png";
-import InlineEditor from "@/components/editor/InlineEditor";
-import ImageEditor from "@/components/editor/ImageEditor";
 import { useEditor } from "@/contexts/EditorContext";
+import { useCart } from "@/contexts/CartContext";
 import CurrencySwitcher from "@/components/CurrencySwitcher";
 import UnifiedMobileNavigation from "@/components/UnifiedMobileNavigation";
 
