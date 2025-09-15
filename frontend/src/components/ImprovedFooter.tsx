@@ -2,7 +2,6 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import InlineEditor from "@/components/editor/InlineEditor";
 import { useEditor } from "@/contexts/EditorContext";
 import { useNavigate } from "react-router-dom";
 
