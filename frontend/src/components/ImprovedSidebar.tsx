@@ -7,7 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import CurrencySwitcher from "@/components/CurrencySwitcher";
 
 const ImprovedSidebar = () => {
-  const [expandedSections, setExpandedSections] = useState<string[]>(["product-type"]);
+  const [expandedSections, setExpandedSections] = useState<string[]>(["price"]);
   const [priceRange, setPriceRange] = useState([6, 152]);
 
   const toggleSection = (section: string) => {
