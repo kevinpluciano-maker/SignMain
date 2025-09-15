@@ -123,7 +123,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
           sizes={sizes}
           onLoad={handleLoad}
           onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-300 bg-transparent ${
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ backgroundColor: 'transparent' }}
