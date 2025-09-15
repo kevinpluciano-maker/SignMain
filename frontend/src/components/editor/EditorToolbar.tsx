@@ -125,6 +125,12 @@ const EditorToolbar: React.FC = () => {
           isPreviewing ? "bg-green-500" : "bg-gray-400"
         )} />
       </div>
+      
+      {/* Admin Mode Modal */}
+      <AdminMode 
+        isOpen={showAdminMode} 
+        onClose={() => setShowAdminMode(false)} 
+      />
     </div>
   );
 };
