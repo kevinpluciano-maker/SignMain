@@ -97,6 +97,17 @@ const EditorToolbar: React.FC = () => {
         {isPublishing ? 'Publishing...' : 'Publish'}
       </Button>
 
+      {/* Admin Mode */}
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => setShowAdminMode(true)}
+        className="flex items-center gap-2 text-purple-600 hover:text-purple-900 hover:bg-purple-50 transition-all font-medium"
+      >
+        <Wand2 className="h-4 w-4" />
+        <span className="hidden md:inline">Admin</span>
+      </Button>
+
       {/* Settings */}
       <Button
         variant="ghost"
