@@ -23,6 +23,8 @@ import Privacy from "./pages/Privacy";
 import Shipping from "./pages/Shipping";
 import Returns from "./pages/Returns";
 import NotFound from "./pages/NotFound";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 const queryClient = new QueryClient();
 
