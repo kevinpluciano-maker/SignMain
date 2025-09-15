@@ -492,13 +492,7 @@ const ProductDetail = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-4">Product Description</h3>
                 <div className="text-muted-foreground leading-relaxed mb-6">
-                  <InlineEditor
-                    value={displayDescription}
-                    onSave={handleDescriptionSave}
-                    placeholder="Enter product description"
-                    multiline
-                    maxLength={500}
-                  />
+                  {displayDescription}
                 </div>
                 
                 <h4 className="font-medium mb-3">Key Features:</h4>
