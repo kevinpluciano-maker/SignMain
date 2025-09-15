@@ -162,12 +162,17 @@ const Header = ({ showFilters = false }: HeaderProps) => {
               </Button>
 
               {/* Cart - Always visible with better styling */}
-              <Button variant="ghost" size="sm" className={`relative ${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className={`relative ${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}
+                onClick={() => navigate('/cart')}
+              >
                 <ShoppingCart className="h-4 w-4 md:mr-2" />
                 <span className="hidden md:inline text-sm">Cart</span>
-                {cartItems > 0 && (
+                {totalItems > 0 && (
                   <Badge variant="destructive" className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs font-bold">
-                    {cartItems}
+                    {totalItems}
                   </Badge>
                 )}
               </Button>
