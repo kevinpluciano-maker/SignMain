@@ -1,7 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { cn } from '@/lib/utils';
-import { useEditor } from '@/contexts/EditorContext';
-import { Check, X, Edit3 } from 'lucide-react';
+import React from 'react';
 
 interface InlineEditorProps {
   value: string;
