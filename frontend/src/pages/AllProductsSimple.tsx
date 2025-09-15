@@ -12,8 +12,8 @@ const AllProductsSimple = () => {
         <h1 className="text-4xl font-bold mb-8 text-center">All Products</h1>
         <p className="text-center mb-8">Showing {allProducts.length} products</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {allProducts.map((product) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-fr">
+          {allProducts.map((product, index) => (
             <ProductCard
               key={product.id}
               id={product.id}
@@ -25,6 +25,7 @@ const AllProductsSimple = () => {
               reviews={product.reviews}
               badges={product.badges}
               isNew={false}
+              lazy={index > 3}
             />
           ))}
         </div>
