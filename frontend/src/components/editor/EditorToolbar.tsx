@@ -15,8 +15,9 @@ const EditorToolbar: React.FC = () => {
     publishChanges 
   } = useEditor();
 
-  const [isSaving, setIsSaving] = React.useState(false);
-  const [isPublishing, setIsPublishing] = React.useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [showAdminMode, setShowAdminMode] = useState(false);
 
   const handleSave = async () => {
     setIsSaving(true);
