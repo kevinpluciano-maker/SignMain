@@ -392,16 +392,10 @@ export const getProductById = (id: string): Product | undefined => {
 
 export const getCategoryTitle = (category: string): string => {
   const titles: Record<string, string> = {
-    'custom-door-plates': 'Custom Door Plates',
-    'door-number-signs': 'Door Number Signs',
-    'door-signs': 'Door Signs',
+    'door-number-signs': 'Door Number Signs', 
     'restroom-signs': 'Restroom Signs',
     'info-signs': 'Info Signs',
     'prohibitory-signs': 'Prohibitory Signs',
-    'directional-signs': 'Directional Signs',
-    'ada-signs': 'ADA Signs',
-    'room-signs': 'Room Signs',
-    'desk-signs': 'Desk Signs',
     'best-sellers': 'Best Sellers',
     'new': 'New Products'
   };
