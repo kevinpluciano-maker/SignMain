@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import signassistLogo from "@/assets/signassist-logo.png";
 import { useEditor } from "@/contexts/EditorContext";
 import { useCart } from "@/contexts/CartContext";
+import { useAuth } from "@/contexts/AuthContext";
 import CurrencySwitcher from "@/components/CurrencySwitcher";
 import UnifiedMobileNavigation from "@/components/UnifiedMobileNavigation";
 
