@@ -23,6 +23,7 @@ interface ProductCardProps {
   materials?: string[];
   designs?: string[];
   glbUrl?: string;
+  lazy?: boolean;
 }
 
 const ProductCard = ({
