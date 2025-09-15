@@ -84,12 +84,10 @@ const Header = ({ showFilters = false }: HeaderProps) => {
           {/* Logo Section */}
           <div className="flex-1 flex justify-center md:justify-start md:flex-none">
             <a href="/" className="group">
-              <ImageEditor
+              <img
                 src={headerData.logo || signassistLogo}
                 alt="Company Logo"
-                onSave={(newSrc) => updateHeaderData({ logo: newSrc })}
                 className={`h-10 md:h-14 lg:h-16 w-auto transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-0 invert' : ''}`}
-                placeholder="Click to change logo"
               />
             </a>
           </div>
