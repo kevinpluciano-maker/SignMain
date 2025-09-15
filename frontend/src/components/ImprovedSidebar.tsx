@@ -50,41 +50,6 @@ const ImprovedSidebar = () => {
 
       <Separator />
 
-      {/* Product Type */}
-      <div>
-        <Button
-          variant="ghost"
-          className="w-full justify-between p-0 h-auto font-medium text-left"
-          onClick={() => toggleSection("product-type")}
-        >
-          PRODUCT TYPE
-          {expandedSections.includes("product-type") ? (
-            <ChevronDown className="h-4 w-4" />
-          ) : (
-            <ChevronRight className="h-4 w-4" />
-          )}
-        </Button>
-        
-        {expandedSections.includes("product-type") && (
-          <div className="mt-3 space-y-3">
-            {productTypes.map((type) => (
-              <div key={type.id} className="flex items-center space-x-2">
-                <Checkbox id={type.id} />
-                <label
-                  htmlFor={type.id}
-                  className="text-sm text-muted-foreground cursor-pointer hover:text-foreground flex-1"
-                >
-                  {type.label}
-                </label>
-                <span className="text-xs text-muted-foreground">({type.count})</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <Separator />
-
       {/* Price */}
       <div>
         <Button
