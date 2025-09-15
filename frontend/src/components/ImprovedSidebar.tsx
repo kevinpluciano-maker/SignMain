@@ -18,15 +18,6 @@ const ImprovedSidebar = () => {
     );
   };
 
-  const productTypes = [
-    { id: "door-numbers", label: "Door Numbers Signs", count: 245 },
-    { id: "door-signs", label: "Door Signs", count: 189 },
-    { id: "restroom-signs", label: "Restroom Signs", count: 156 },
-    { id: "info-signs", label: "Information Signs", count: 134 },
-    { id: "house-numbers", label: "House Numbers", count: 98 },
-    { id: "world-clock", label: "World Clock Signs", count: 23 }
-  ];
-
   return (
     <div className="w-full md:w-80 bg-background border-r-0 md:border-r p-4 md:p-6 space-y-6">
       {/* Mobile Currency Switcher */}
