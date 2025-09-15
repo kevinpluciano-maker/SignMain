@@ -185,19 +185,20 @@ const ProductCard = ({
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-2">
+            <div className="flex gap-2 mt-auto pt-2">
               <Button 
-                className="flex-1 py-3 font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform disabled:opacity-50" 
+                className="flex-1 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50" 
                 onClick={handleAddToCart}
                 disabled={isAdding}
               >
-                <ShoppingCart className="h-4 w-4 mr-2" />
+                <ShoppingCart className="h-4 w-4 mr-1" />
                 {isAdding ? 'Adding...' : isInCart(id) ? 'Add More' : 'Add to Cart'}
               </Button>
               <Link to={`/products/${id}`}>
                 <Button 
                   variant="outline"
-                  className="py-3 px-4 rounded-xl border-2 border-gray-300 hover:border-gray-400 transition-all duration-300"
+                  size="sm"
+                  className="px-3 border-gray-300 hover:border-gray-400 transition-colors"
                 >
                   <Eye className="h-4 w-4" />
                 </Button>
