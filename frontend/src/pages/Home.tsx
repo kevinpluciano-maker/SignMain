@@ -25,7 +25,7 @@ const Home = () => {
         type="website"
       />
       <div className="min-h-screen bg-background">
-        <AccessibilityEnhancer />
+        {/* AccessibilityEnhancer removed per requirements */}
         <MobilePerformanceOptimizer />
         <EditorToolbar />
         
