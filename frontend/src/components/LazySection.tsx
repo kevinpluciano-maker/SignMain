@@ -47,7 +47,8 @@ export const LazySection: React.FC<LazySectionProps> = ({
       
       observer.observe(node);
       
-      return () => observer.disconnect();
+      // Store observer for cleanup - don't return cleanup function from callback ref
+      ref.current.setAttribute('data-observer', 'active');
     }
   }, [rootMargin, threshold, hasIntersected]);
 
