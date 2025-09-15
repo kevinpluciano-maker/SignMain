@@ -127,11 +127,7 @@ const Header = ({ showFilters = false }: HeaderProps) => {
                 <span>{headerData.businessHours}</span>
               </div>
               <div className={`text-xs mt-0.5 ${mutedTextClasses}`}>
-                <InlineEditor
-                  value={headerData.quickLinks}
-                  onSave={(value) => updateHeaderData({ quickLinks: value })}
-                  placeholder="Quick links"
-                />
+                <span>{headerData.quickLinks}</span>
               </div>
             </div>
             
