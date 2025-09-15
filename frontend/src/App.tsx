@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { EditorProvider } from "@/contexts/EditorContext";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import { CartProvider } from "@/contexts/CartContext";
+import { AuthProvider } from "@/contexts/AuthContext";
 import { MobilePerformanceOptimizer } from "@/components/MobilePerformanceOptimizer";
 import { PreloadManager } from "@/components/PreloadManager";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
