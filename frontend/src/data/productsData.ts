@@ -132,8 +132,8 @@ export const productsData: Record<string, Product[]> = {
           price: "$76.00"
         }
       ],
-      shapeOptions: ["Circle", "Square"],
-      brailleOptions: ["With Braille", "Without Braille"],
+      shapeOptions: ["Square", "Rectangle", "Circle"],
+      brailleOptions: ["No", "Yes"],
       gallery: [
         "/lovable-uploads/a1180aa1-483f-40b2-afbe-e89f615d60fe.png",
         "/lovable-uploads/f13a17ac-6d43-4677-aa5f-0151203c3e1a.png"
