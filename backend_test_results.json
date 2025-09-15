@@ -4,14 +4,14 @@
     "passed_tests": 10,
     "failed_tests": 0,
     "success_rate": 100.0,
-    "timestamp": "2025-09-15T12:16:32.503052"
+    "timestamp": "2025-09-15T16:06:00.919328"
   },
   "results": [
     {
       "test": "API Root Endpoint",
       "status": "\u2705 PASS",
       "message": "Root endpoint responding correctly",
-      "timestamp": "2025-09-15T12:16:31.159157",
+      "timestamp": "2025-09-15T16:06:00.873455",
       "details": {
         "response": {
           "message": "Hello World"
@@ -23,12 +23,12 @@
       "test": "Status POST Endpoint",
       "status": "\u2705 PASS",
       "message": "Status creation successful with correct data",
-      "timestamp": "2025-09-15T12:16:31.239661",
+      "timestamp": "2025-09-15T16:06:00.891613",
       "details": {
         "response": {
-          "id": "0733f2ad-65f7-4501-9de0-4f9087f3c9be",
+          "id": "7a47c7a9-511e-46ed-b838-47c00175780f",
           "client_name": "BSignStore_TestClient",
-          "timestamp": "2025-09-15T12:16:31.217563"
+          "timestamp": "2025-09-15T16:06:00.875657"
         },
         "status_code": 200
       }
@@ -36,10 +36,10 @@
     {
       "test": "Status GET Endpoint",
       "status": "\u2705 PASS",
-      "message": "Retrieved 2 status records, including our test record",
-      "timestamp": "2025-09-15T12:16:31.293726",
+      "message": "Retrieved 1 status records, including our test record",
+      "timestamp": "2025-09-15T16:06:00.895452",
       "details": {
-        "record_count": 2,
+        "record_count": 1,
         "found_test_record": true
       }
     },
@@ -47,7 +47,7 @@
       "test": "Cart System Integration",
       "status": "\u2705 PASS",
       "message": "Backend ready to support cart operations (localStorage-based frontend)",
-      "timestamp": "2025-09-15T12:16:31.343856",
+      "timestamp": "2025-09-15T16:06:00.897741",
       "details": {
         "backend_status": "ready",
         "cart_type": "localStorage"
@@ -57,13 +57,13 @@
       "test": "Contact Form Handling",
       "status": "\u2705 PASS",
       "message": "Backend can handle form submissions (tested via status endpoint)",
-      "timestamp": "2025-09-15T12:16:31.398812",
+      "timestamp": "2025-09-15T16:06:00.901185",
       "details": {
         "test_method": "status_endpoint_proxy",
         "response": {
-          "id": "db9cc960-dd67-4330-92c9-5c9e26a2d90a",
+          "id": "3306dd63-2916-49fc-bcf1-8c774ebe9be3",
           "client_name": "ContactForm_Test",
-          "timestamp": "2025-09-15T12:16:31.395674"
+          "timestamp": "2025-09-15T16:06:00.899482"
         }
       }
     },
@@ -71,13 +71,13 @@
       "test": "Product Categorization System",
       "status": "\u2705 PASS",
       "message": "Backend ready to support product categorization operations",
-      "timestamp": "2025-09-15T12:16:31.796264",
+      "timestamp": "2025-09-15T16:06:00.906519",
       "details": {
         "categorization_support": "ready",
         "test_response": {
-          "id": "68006f8c-2a79-4de9-b890-56b60ef21719",
+          "id": "d3aac039-c745-4c2e-b8c8-74ac4a2dc7b4",
           "client_name": "ProductCategorization_Test",
-          "timestamp": "2025-09-15T12:16:31.596556"
+          "timestamp": "2025-09-15T16:06:00.904989"
         }
       }
     },
@@ -85,31 +85,31 @@
       "test": "Admin Mode Auto-Save",
       "status": "\u2705 PASS",
       "message": "Backend supports admin mode auto-save operations with timestamps",
-      "timestamp": "2025-09-15T12:16:32.203108",
+      "timestamp": "2025-09-15T16:06:00.909624",
       "details": {
         "auto_save_support": "ready",
-        "timestamp": "2025-09-15T12:16:32.133869"
+        "timestamp": "2025-09-15T16:06:00.908228"
       }
     },
     {
       "test": "Database Connectivity",
       "status": "\u2705 PASS",
       "message": "MongoDB database connectivity confirmed (create and retrieve operations successful)",
-      "timestamp": "2025-09-15T12:16:32.400026",
+      "timestamp": "2025-09-15T16:06:00.915433",
       "details": {
         "database": "MongoDB",
         "operations": [
           "create",
           "retrieve"
         ],
-        "test_record_id": "11ad4f4a-3559-48ba-b31a-119a4db3d9fc"
+        "test_record_id": "2e81af23-113d-4116-b4d2-44014ee433cd"
       }
     },
     {
       "test": "CORS Configuration",
       "status": "\u2705 PASS",
       "message": "CORS headers configured for frontend integration",
-      "timestamp": "2025-09-15T12:16:32.449168",
+      "timestamp": "2025-09-15T16:06:00.917273",
       "details": {
         "cors_headers": {
           "Access-Control-Allow-Origin": null,
@@ -122,10 +122,10 @@
     {
       "test": "API Performance",
       "status": "\u2705 PASS",
-      "message": "API response time acceptable: 51.43ms",
-      "timestamp": "2025-09-15T12:16:32.501711",
+      "message": "API response time acceptable: 1.67ms",
+      "timestamp": "2025-09-15T16:06:00.919079",
       "details": {
-        "response_time_ms": 51.433563232421875,
+        "response_time_ms": 1.6658306121826172,
         "threshold_ms": 2000
       }
     }
