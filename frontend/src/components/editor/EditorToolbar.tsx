@@ -1,5 +1,6 @@
-import React from 'react';
-import { Edit3, Eye, Save, Upload, Settings } from 'lucide-react';
+import React, { useState } from 'react';
+import { Edit3, Eye, Save, Upload, Settings, Wand2 } from 'lucide-react';
+import AdminMode from '@/components/AdminMode';
 import { Button } from '@/components/ui/button';
 import { useEditor } from '@/contexts/EditorContext';
 import { cn } from '@/lib/utils';
