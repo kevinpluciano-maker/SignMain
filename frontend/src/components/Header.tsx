@@ -138,11 +138,28 @@ const Header = ({ showFilters = false }: HeaderProps) => {
                 <Search className="h-4 w-4" />
               </Button>
 
-              {/* Account - Hidden on mobile */}
-              <Button variant="ghost" size="sm" className={`hidden md:flex ${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}>
-                <User className="h-4 w-4 mr-2" />
-                <span className="text-sm">Account</span>
-              </Button>
+              {/* User Account */}
+              {isAuthenticated ? (
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className={`${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}
+                  onClick={() => navigate('/account')}
+                >
+                  <User className="h-4 w-4 md:mr-2" />
+                  <span className="hidden md:inline text-sm">{user?.name || 'Account'}</span>
+                </Button>
+              ) : (
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className={`${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}
+                  onClick={() => navigate('/login')}
+                >
+                  <LogIn className="h-4 w-4 md:mr-2" />
+                  <span className="hidden md:inline text-sm">Sign In</span>
+                </Button>
+              )}
 
               {/* Cart - Always visible with better styling */}
               <Button 
