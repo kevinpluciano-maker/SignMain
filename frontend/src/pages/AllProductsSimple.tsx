@@ -4,7 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
 const AllProductsSimple = () => {
-  const allProducts = getAllProducts();
+  const rawProducts = getAllProducts();
+  const allProducts = updateProductsWithCategories(rawProducts);
   
   return (
     <div className="min-h-screen bg-background p-8">
