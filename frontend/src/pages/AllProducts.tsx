@@ -195,7 +195,7 @@ const AllProducts = () => {
             {filteredAndSortedProducts.length > 0 ? (
               <div className={
                 viewMode === "grid" 
-                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 auto-rows-max"
+                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 auto-rows-fr [&>*]:h-full"
                   : "space-y-6"
               }>
                 {filteredAndSortedProducts.map((product, index) => (
