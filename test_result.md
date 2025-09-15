@@ -133,6 +133,66 @@
           agent: "main"
           comment: "BSign Store e-commerce application running successfully on port 3000. Features door signs, navigation, page editing capabilities"
 
+  - task: "Cart/Add-to-cart functionality"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/contexts/CartContext.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test: Adding products to cart from product cards on /products page, category pages, PDPs. Verify cart badge updates, state persistence, cart page displays."
+
+  - task: "Wishlist feature removal"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/ProductCard.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to verify: NO wishlist buttons exist on product cards or PDPs. Ensure only Share button remains in action areas."
+
+  - task: "Category pages functionality"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/Collections.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test: /collections/restroom-signs and /collections/door-number-signs load products correctly. Verify no blank pages, filtering/sorting, breadcrumbs."
+
+  - task: "Admin text editing mode"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/editor/EditorToolbar.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test: Edit Page button activates editing mode, Admin button opens admin panel, text editing functionality, save and publish."
+
+  - task: "Visual design consistency"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/ModernContact.tsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Need to test: Contact page (/contact) and About page (/about) visual design, consistent colors/spacing/typography, mobile responsiveness."
+
 ## metadata:
   created_by: "main_agent"
   version: "1.0"
