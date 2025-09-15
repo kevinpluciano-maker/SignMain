@@ -52,19 +52,10 @@ const ImprovedFooter = () => {
           {/* Company Info */}
           <div>
             <h3 className="font-semibold text-lg mb-4">
-              <InlineEditor
-                value={footerData.companyName}
-                onSave={(value) => updateFooterData({ companyName: value })}
-                placeholder="Company name"
-              />
+              {footerData.companyName}
             </h3>
             <p className="text-muted-foreground mb-4 text-sm">
-              <InlineEditor
-                value={footerData.companyDescription}
-                onSave={(value) => updateFooterData({ companyDescription: value })}
-                placeholder="Company description"
-                multiline
-              />
+              {footerData.companyDescription}
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
