@@ -1,4 +1,5 @@
-import { getAllProducts } from "@/data/productsData";
+import { getAllProducts, getCategoryTitle } from "@/data/productsData";
+import { updateProductsWithCategories, getCategoryInfo } from "@/utils/categoryUtils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
