@@ -124,11 +124,7 @@ const ImprovedFooter = () => {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
           <div className="text-muted-foreground mb-4 md:mb-0">
-            <InlineEditor
-              value={footerData.copyright}
-              onSave={(value) => updateFooterData({ copyright: value })}
-              placeholder="Copyright text"
-            />
+            © 2024 {footerData.companyName}. All rights reserved.
           </div>
           <div className="flex space-x-6">
             <Button variant="link" className="text-sm text-muted-foreground p-0 h-auto">
