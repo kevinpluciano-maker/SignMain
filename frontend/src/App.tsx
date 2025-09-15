@@ -25,6 +25,8 @@ import Returns from "./pages/Returns";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import ModernContact from "./pages/ModernContact";
+import ModernAbout from "./pages/ModernAbout";
 
 const queryClient = new QueryClient();
 
