@@ -10,6 +10,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { MobilePerformanceOptimizer } from "@/components/MobilePerformanceOptimizer";
 import { PreloadManager } from "@/components/PreloadManager";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
+import { PerformanceOptimizations, inlineCriticalCSS, monitorPerformance } from "@/components/PerformanceOptimizations";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import AllProducts from "./pages/AllProducts";
@@ -31,6 +32,12 @@ import ModernAbout from "./pages/ModernAbout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Account from "./pages/Account";
+
+// Initialize performance optimizations
+if (typeof window !== 'undefined') {
+  inlineCriticalCSS();
+  monitorPerformance();
+}
 
 const queryClient = new QueryClient();
 
