@@ -12,7 +12,7 @@ const AllProductsSimple = () => {
         <h1 className="text-4xl font-bold mb-8 text-center">All Products</h1>
         <p className="text-center mb-8">Showing {allProducts.length} products</p>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-fr">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 auto-rows-fr [&>*]:h-full">
           {allProducts.map((product, index) => (
             <ProductCard
               key={product.id}
