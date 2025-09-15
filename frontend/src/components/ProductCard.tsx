@@ -130,10 +130,10 @@ const ProductCard = ({
             <OptimizedImage
               src={image}
               alt={name}
-              width={400}
-              height={400}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              priority={false}
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300 bg-transparent"
+              priority={!lazy}
+              loading={lazy ? "lazy" : "eager"}
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
             />
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
