@@ -17,9 +17,13 @@ import {
   CheckCircle,
   AlertCircle,
   Edit3,
-  Wand2
+  Wand2,
+  Package,
+  ShoppingBag
 } from 'lucide-react';
 import { useEditor } from '@/contexts/EditorContext';
+import { getAllProducts, Product } from '@/data/productsData';
+import ProductEditorModal from '@/components/ProductEditorModal';
 
 interface AdminModeProps {
   isOpen: boolean;
