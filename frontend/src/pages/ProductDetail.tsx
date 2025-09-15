@@ -181,39 +181,7 @@ const ProductDetail = () => {
     window.location.reload();
   };
 
-  // Show content editor if in edit mode
-  if (showContentEditor) {
-    // Try to load saved content from localStorage
-    const savedContent = localStorage.getItem(`product_content_${product.id}`);
-    const parsedContent = savedContent ? JSON.parse(savedContent) : null;
-    
-    const initialContentData = {
-      images: parsedContent?.images || product.images.map((url, index) => ({
-        id: `default_${index}`,
-        url,
-        isPrimary: index === 0,
-        alt: `${product.name} image ${index + 1}`,
-        caption: ''
-      })),
-      description: parsedContent?.description || displayDescription,
-      specifications: parsedContent?.specifications || Object.entries(product.specifications).map(([key, value], index) => ({
-        id: `spec_${index}`,
-        key,
-        value: value as string,
-        type: 'text' as const
-      }))
-    };
-
-    return (
-      <ProductContentEditor
-        initialData={initialContentData}
-        productId={product.id}
-        productName={displayName}
-        onSave={handleContentSave}
-        onCancel={handleContentCancel}
-      />
-    );
-  }
+  // Editor functionality removed - always show normal product view
 
   return (
     <>
