@@ -270,13 +270,7 @@ const ProductDetail = () => {
                 )}
               </div>
               <h1 className="text-3xl font-bold mb-2">
-                <InlineEditor
-                  value={displayName}
-                  onSave={handleNameSave}
-                  placeholder="Enter product name"
-                  maxLength={150}
-                  required
-                />
+                {displayName}
               </h1>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex items-center">
