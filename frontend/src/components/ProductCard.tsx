@@ -124,9 +124,9 @@ const ProductCard = ({
           </div>
         )}
         
-        <CardContent className="p-0">
-          {/* Product Image - No white borders */}
-          <div className="relative overflow-hidden bg-transparent aspect-square">
+        <CardContent className="p-0 h-full flex flex-col">
+          {/* Product Image - No white borders, transparent background */}
+          <div className="relative overflow-hidden bg-transparent aspect-square flex-shrink-0">
             <OptimizedImage
               src={image}
               alt={name}
@@ -145,47 +145,49 @@ const ProductCard = ({
             </div>
           </div>
 
-          {/* Product Info */}
-          <div className="p-4 flex-1 flex flex-col">
-            {/* Product Name */}
-            <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2 min-h-[3rem]">
-              {name}
-            </h3>
+          {/* Product Info - Flex grow to fill remaining space */}
+          <div className="p-4 flex-1 flex flex-col justify-between">
+            <div className="flex-1">
+              {/* Product Name */}
+              <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2 min-h-[3.5rem] leading-tight">
+                {name}
+              </h3>
 
-            {/* Reviews */}
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-0.5">
-                {renderStars(rating)}
-              </div>
-              <span className="text-sm text-muted-foreground font-medium">
-                ({displayReviews})
-              </span>
-            </div>
-
-            {/* Price Display */}
-            <div className="space-y-2">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-black text-gray-900">
-                  {convertPrice(price)}
-                </span>
-                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
-                  {selectedCurrency}
+              {/* Reviews */}
+              <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-0.5">
+                  {renderStars(rating)}
+                </div>
+                <span className="text-sm text-muted-foreground font-medium">
+                  ({displayReviews})
                 </span>
               </div>
-              {originalPrice && (
-                <div className="flex items-center gap-2">
-                  <span className="text-base text-muted-foreground line-through">
-                    {convertPrice(originalPrice)}
+
+              {/* Price Display */}
+              <div className="space-y-2 mb-4">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl font-black text-gray-900">
+                    {convertPrice(price)}
                   </span>
-                  <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded-lg font-bold">
-                    Save {convertPrice(Number(originalPrice) - Number(price))}
+                  <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
+                    {selectedCurrency}
                   </span>
                 </div>
-              )}
+                {originalPrice && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-base text-muted-foreground line-through">
+                      {convertPrice(originalPrice)}
+                    </span>
+                    <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded-lg font-bold">
+                      Save {convertPrice(Number(originalPrice) - Number(price))}
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex gap-2 mt-auto pt-2">
+            {/* Action Buttons - Always at the bottom */}
+            <div className="flex gap-2 mt-auto">
               <Button 
                 className="flex-1 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50" 
                 onClick={handleAddToCart}
