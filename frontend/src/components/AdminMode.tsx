@@ -268,10 +268,11 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
         <div className="overflow-y-auto max-h-[calc(90vh-120px)]">
           <CardContent className="p-6">
             <Tabs defaultValue="header" className="w-full">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-5">
                 <TabsTrigger value="header">Header</TabsTrigger>
                 <TabsTrigger value="footer">Footer</TabsTrigger>
                 <TabsTrigger value="content">Content</TabsTrigger>
+                <TabsTrigger value="products">Products</TabsTrigger>
                 <TabsTrigger value="seo">SEO</TabsTrigger>
               </TabsList>
               
@@ -290,6 +291,47 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
               <TabsContent value="content" className="mt-6 space-y-4">
                 <div className="grid grid-cols-1 gap-4">
                   {getFieldsByCategory('content').map(renderField)}
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="products" className="mt-6 space-y-4">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Package className="h-5 w-5" />
+                    <h3 className="text-lg font-semibold">Product Management</h3>
+                    <Badge variant="outline">{allProducts.length} products</Badge>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 gap-3 max-h-96 overflow-y-auto">
+                    {allProducts.map((product) => (
+                      <div key={product.id} className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50">
+                        <div className="flex items-center gap-3">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-12 h-12 object-cover rounded"
+                          />
+                          <div>
+                            <h4 className="font-medium text-sm">{product.name}</h4>
+                            <p className="text-xs text-muted-foreground">{product.category}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="secondary">{product.price}</Badge>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => {
+                              setSelectedProduct(product);
+                              setIsProductEditorOpen(true);
+                            }}
+                          >
+                            <Edit3 className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </TabsContent>
               
