@@ -142,14 +142,25 @@ const ProductCard = ({
               )}
             </div>
 
-            {/* Action Button */}
-            <Button 
-              className="w-full mt-6 py-3 font-bold text-white bg-gray-900 hover:bg-gray-800 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform" 
-              onClick={(e) => e.preventDefault()}
-            >
-              <ShoppingCart className="h-4 w-4 mr-2" />
-              Select Options
-            </Button>
+            {/* Action Buttons */}
+            <div className="flex gap-2">
+              <Button 
+                className="flex-1 py-3 font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform disabled:opacity-50" 
+                onClick={handleAddToCart}
+                disabled={isAdding}
+              >
+                <ShoppingCart className="h-4 w-4 mr-2" />
+                {isAdding ? 'Adding...' : isInCart(id) ? 'Add More' : 'Add to Cart'}
+              </Button>
+              <Link to={`/products/${id}`}>
+                <Button 
+                  variant="outline"
+                  className="py-3 px-4 rounded-xl border-2 border-gray-300 hover:border-gray-400 transition-all duration-300"
+                >
+                  <Eye className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </CardContent>
       </Card>
