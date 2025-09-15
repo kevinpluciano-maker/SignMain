@@ -32,7 +32,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <CurrencyProvider>
-        <EditorProvider>
+        <CartProvider>
+          <EditorProvider>
           <MobilePerformanceOptimizer />
           <PreloadManager 
             criticalImages={[
