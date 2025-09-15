@@ -85,44 +85,6 @@ const ImprovedNavigation = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
             ))}
-            
-            {/* Additional Menu Items */}
-            <NavigationMenuItem>
-              <Button 
-                variant="ghost" 
-                className="h-16 px-6 hover:bg-muted/50 text-base font-medium"
-                onClick={() => handleCategoryClick('Custom Door Plates')}
-              >
-                Custom Door Plates
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button 
-                variant="ghost" 
-                className="h-16 px-6 hover:bg-muted/50 text-base font-medium"
-                onClick={() => handleCategoryClick('ADA Signs')}
-              >
-                ADA Signs
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button 
-                variant="ghost" 
-                className="h-16 px-6 hover:bg-muted/50 text-base font-medium"
-                onClick={() => handleCategoryClick('Room Signs')}
-              >
-                Room Signs
-              </Button>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Button 
-                variant="ghost" 
-                className="h-16 px-6 hover:bg-muted/50 text-base font-medium"
-                onClick={() => handleCategoryClick('Desk Signs')}
-              >
-                Desk Signs
-              </Button>
-            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </div>
