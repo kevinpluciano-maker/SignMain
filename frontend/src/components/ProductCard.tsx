@@ -109,8 +109,8 @@ const ProductCard = ({
 
 
   return (
-    <Link to={`/products/${id}`}>
-      <Card className="group relative overflow-hidden cursor-pointer border-0 bg-card shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 rounded-2xl backdrop-blur-sm border border-border/50">
+    <Link to={`/products/${id}`} className="block group h-full">
+      <Card className="group-hover:shadow-xl transition-all duration-300 h-full flex flex-col bg-white border border-gray-200 shadow-sm hover:shadow-lg overflow-hidden">
         {isNew && (
           <div className="absolute top-4 left-4 z-20 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
             New
