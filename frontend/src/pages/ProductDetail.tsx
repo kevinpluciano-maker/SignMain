@@ -16,6 +16,7 @@ import CustomSizeRequest from "@/components/CustomSizeRequest";
 import ImageGallery from "@/components/ImageGallery";
 import { useEditor } from "@/contexts/EditorContext";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { useCart } from "@/contexts/CartContext";
 import { getProductById } from "@/data/productsData";
 import doorSign395 from "@/assets/door-sign-395.jpg";
 import doorSign159 from "@/assets/door-sign-159.jpg";
