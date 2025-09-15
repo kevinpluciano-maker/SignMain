@@ -100,12 +100,9 @@ const Header = ({ showFilters = false }: HeaderProps) => {
               <div className={`p-1.5 rounded-full ${isHomePage ? 'bg-white/20' : 'bg-primary/10'}`}>
                 <Phone className={`h-3.5 w-3.5 ${isHomePage ? 'text-white' : 'text-primary'}`} />
               </div>
-              <InlineEditor
-                value={headerData.phone}
-                onSave={(value) => updateHeaderData({ phone: value })}
-                placeholder="Phone number"
-                className={`font-medium ${textClasses}`}
-              />
+              <span className={`font-medium ${textClasses}`}>
+                {headerData.phone}
+              </span>
             </div>
             <div className={`flex items-center space-x-3 text-sm px-4 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm' : 'bg-muted/30'}`}>
               <div className={`p-1.5 rounded-full ${isHomePage ? 'bg-white/20' : 'bg-primary/10'}`}>
