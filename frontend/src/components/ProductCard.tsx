@@ -38,7 +38,8 @@ const ProductCard = ({
   colors = [],
   isNew = false,
   badges = [],
-  glbUrl
+  glbUrl,
+  lazy = false
 }: ProductCardProps) => {
   const { convertPrice, selectedCurrency } = useCurrency();
   const { addToCart, isInCart, totalItems } = useCart();
