@@ -37,9 +37,10 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <CurrencyProvider>
-        <CartProvider>
-          <EditorProvider>
+      <AuthProvider>
+        <CurrencyProvider>
+          <CartProvider>
+            <EditorProvider>
           <MobilePerformanceOptimizer />
           <PreloadManager 
             criticalImages={[
