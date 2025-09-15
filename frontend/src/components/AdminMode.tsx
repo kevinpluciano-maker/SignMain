@@ -384,6 +384,22 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </Card>
+      
+      {/* Product Editor Modal */}
+      <ProductEditorModal
+        isOpen={isProductEditorOpen}
+        onClose={() => {
+          setIsProductEditorOpen(false);
+          setSelectedProduct(null);
+        }}
+        product={selectedProduct}
+        onSave={(updatedProduct) => {
+          // Update the product in the local state
+          setAllProducts(prev => prev.map(p => p.id === updatedProduct.id ? updatedProduct : p));
+          console.log('Product saved:', updatedProduct);
+          // In a real application, you would also save to the backend here
+        }}
+      />
     </div>
   );
 };
