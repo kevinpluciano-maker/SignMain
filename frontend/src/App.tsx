@@ -49,6 +49,7 @@ const App = () => (
           <CartProvider>
             <EditorProvider>
           <MobilePerformanceOptimizer />
+          <PerformanceOptimizations />
           <PreloadManager 
             criticalImages={[
               "/src/assets/hero-office.jpg",
