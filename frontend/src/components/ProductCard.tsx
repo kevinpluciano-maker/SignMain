@@ -146,9 +146,9 @@ const ProductCard = ({
           </div>
 
           {/* Product Info */}
-          <div className="p-6 space-y-4">
+          <div className="p-4 flex-1 flex flex-col">
             {/* Product Name */}
-            <h3 className="font-bold text-lg leading-tight group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem] text-gray-900">
+            <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2 min-h-[3rem]">
               {name}
             </h3>
 
