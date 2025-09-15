@@ -447,10 +447,6 @@ const ProductDetail = () => {
               
               <div className="flex space-x-3">
                 <Button variant="outline" size="sm" className="flex-1">
-                  <Heart className="h-4 w-4 mr-2" />
-                  Wishlist
-                </Button>
-                <Button variant="outline" size="sm" className="flex-1">
                   <Share2 className="h-4 w-4 mr-2" />
                   Share
                 </Button>
