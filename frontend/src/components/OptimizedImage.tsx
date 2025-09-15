@@ -101,15 +101,11 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   }
 
   return (
-    <div className={`relative ${className}`} style={{ width, height }}>
+    <div className={`relative overflow-hidden ${className}`} style={{ width, height }}>
       {/* Placeholder while loading */}
       {!isLoaded && (
-        <img
-          src={placeholder}
-          alt=""
-          width={width}
-          height={height}
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        <div
+          className="absolute inset-0 w-full h-full bg-gray-100 animate-pulse"
           aria-hidden="true"
         />
       )}
@@ -127,9 +123,10 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
           sizes={sizes}
           onLoad={handleLoad}
           onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover transition-opacity duration-300 bg-transparent ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
+          style={{ backgroundColor: 'transparent' }}
         />
       )}
     </div>
