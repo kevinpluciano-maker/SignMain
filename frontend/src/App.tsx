@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { EditorProvider } from "@/contexts/EditorContext";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
+import { CartProvider } from "@/contexts/CartContext";
 import { MobilePerformanceOptimizer } from "@/components/MobilePerformanceOptimizer";
 import { PreloadManager } from "@/components/PreloadManager";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
