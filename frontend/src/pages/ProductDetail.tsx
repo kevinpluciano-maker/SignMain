@@ -33,6 +33,7 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedBraille, setSelectedBraille] = useState("");
+  const [selectedShape, setSelectedShape] = useState("");
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [roomNumber, setRoomNumber] = useState("");
 
