@@ -57,6 +57,9 @@ const ProductDetail = () => {
       if (foundProduct.brailleOptions && foundProduct.brailleOptions.length > 0 && !selectedBraille) {
         setSelectedBraille(foundProduct.brailleOptions[0].toLowerCase().replace(' ', '-'));
       }
+      if (foundProduct.shapeOptions && foundProduct.shapeOptions.length > 0 && !selectedShape) {
+        setSelectedShape(foundProduct.shapeOptions[0].toLowerCase());
+      }
     }
   }, [foundProduct, selectedColor, selectedSize, selectedBraille]);
   
