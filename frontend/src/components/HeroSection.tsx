@@ -22,46 +22,57 @@ const HeroSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      const playVideo = async () => {
-        try {
-          video.muted = true;
-          await video.play();
-          console.log('Video started playing successfully');
-          setVideoLoaded(true);
-        } catch (error) {
-          console.error('Video autoplay failed:', error);
-          setVideoError(true);
-        }
-      };
+      // Lazy load video only when in viewport
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const playVideo = async () => {
+              try {
+                video.muted = true;
+                video.playsInline = true;
+                video.preload = "metadata"; // Only load metadata initially
+                await video.play();
+                console.log('Video started playing successfully');
+                setVideoLoaded(true);
+              } catch (error) {
+                console.error('Video autoplay failed:', error);
+                setVideoError(true);
+              }
+            };
 
-      const handleCanPlay = () => {
-        console.log('Video can play');
-        playVideo();
-      };
+            const handleCanPlay = () => {
+              console.log('Video can play');
+              playVideo();
+            };
 
-      const handleLoadedData = () => {
-        console.log('Video data loaded');
-        setVideoLoaded(true);
-      };
+            const handleLoadedData = () => {
+              console.log('Video data loaded');
+              setVideoLoaded(true);
+            };
 
-      const handleError = (e: any) => {
-        console.error('Video loading error:', e);
-        setVideoError(true);
-      };
-
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('loadeddata', handleLoadedData);
-      video.addEventListener('error', handleError);
-
-      if (video.readyState >= 3) {
-        playVideo();
-      }
-
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('loadeddata', handleLoadedData);
-        video.removeEventListener('error', handleError);
-      };
+            const handleError = (e: any) => {
+              console.error('Video loading error:', e);
+              setVideoError(true);
+            };
+            
+            video.addEventListener('canplay', handleCanPlay);
+            video.addEventListener('loadeddata', handleLoadedData);
+            video.addEventListener('error', handleError);
+            
+            observer.unobserve(video);
+            
+            return () => {
+              video.removeEventListener('canplay', handleCanPlay);
+              video.removeEventListener('loadeddata', handleLoadedData);
+              video.removeEventListener('error', handleError);
+            };
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      observer.observe(video);
+      
+      return () => observer.disconnect();
     }
   }, []);
 
