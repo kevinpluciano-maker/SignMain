@@ -11,6 +11,7 @@ import { MobilePerformanceOptimizer } from "@/components/MobilePerformanceOptimi
 import { PreloadManager } from "@/components/PreloadManager";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import { PerformanceOptimizations, inlineCriticalCSS, monitorPerformance } from "@/components/PerformanceOptimizations";
+import { ResponsiveOptimizations, addResponsiveCSS } from "@/components/ResponsiveOptimizations";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import AllProducts from "./pages/AllProducts";
