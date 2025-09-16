@@ -33,10 +33,14 @@ const FeaturedProducts = () => {
   const allProducts = getAllProducts();
   const newProducts = allProducts.filter(p => newArrivalsIds.includes(p.id));
   
-  // Get trending products (high rating, good review count) - reduced to make space
-  const trendingProducts = bestSellersProducts
-    .filter(p => p.rating >= 4.7 && p.reviewCount >= 10)
-    .slice(0, 3);
+  // Get trending products - specific products as requested
+  const trendingProductIds = [
+    "door-number-wood-stainless-steel",
+    "no-bicycles-stainless-steel-sign", 
+    "no-guns-allowed-stainless-steel-sign"
+  ];
+  
+  const trendingProducts = allProducts.filter(p => trendingProductIds.includes(p.id));
   
   // Get premium products (higher price range) - reduced to make space
   const premiumProducts = bestSellersProducts
