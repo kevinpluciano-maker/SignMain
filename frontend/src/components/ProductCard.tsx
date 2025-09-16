@@ -108,6 +108,12 @@ const ProductCard = ({
   };
 
 
+  const handleViewProduct = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.location.href = `/products/${id}`;
+  };
+
   return (
     <Link to={`/products/${id}`} className="block group h-full">
       <Card className="group-hover:shadow-xl transition-all duration-300 h-full flex flex-col bg-white border border-gray-200 shadow-sm hover:shadow-lg overflow-hidden">
@@ -190,21 +196,24 @@ const ProductCard = ({
             <div className="flex gap-2 mt-auto">
               <Button 
                 className="flex-1 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50" 
-                onClick={handleAddToCart}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleAddToCart(e);
+                }}
                 disabled={isAdding}
               >
                 <ShoppingCart className="h-4 w-4 mr-1" />
                 {isAdding ? 'Adding...' : isInCart(id) ? 'Add More' : 'Add to Cart'}
               </Button>
-              <Link to={`/products/${id}`}>
-                <Button 
-                  variant="outline"
-                  size="sm"
-                  className="px-3 border-gray-300 hover:border-gray-400 transition-colors"
-                >
-                  <Eye className="h-4 w-4" />
-                </Button>
-              </Link>
+              <Button 
+                variant="outline"
+                size="sm"
+                className="px-3 border-gray-300 hover:border-gray-400 transition-colors"
+                onClick={handleViewProduct}
+              >
+                <Eye className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         </CardContent>
