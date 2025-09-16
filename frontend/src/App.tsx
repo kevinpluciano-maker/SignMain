@@ -37,6 +37,7 @@ import Account from "./pages/Account";
 // Initialize performance optimizations
 if (typeof window !== 'undefined') {
   inlineCriticalCSS();
+  addResponsiveCSS();
   monitorPerformance();
 }
 
