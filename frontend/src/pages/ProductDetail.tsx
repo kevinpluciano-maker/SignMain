@@ -365,15 +365,15 @@ const ProductDetail = () => {
                       <button
                         key={index}
                         className={`p-3 text-center border rounded-md transition-all duration-200 hover:shadow-sm ${
-                          selectedBraille === shape.toLowerCase()
+                          selectedShape === shape.toLowerCase()
                             ? "border-primary bg-primary/8 shadow-sm" 
                             : "border-border hover:border-primary/60 hover:bg-muted/20"
                         }`}
-                        onClick={() => setSelectedBraille(shape.toLowerCase())}
+                        onClick={() => setSelectedShape(shape.toLowerCase())}
                       >
                         <div className="flex flex-col items-center space-y-1">
                           <span className="text-2xl text-primary">
-                            {shape === "Circle" ? "●" : "■"}
+                            {shape === "Circle" ? "●" : shape === "Rectangle" ? "▬" : "■"}
                           </span>
                           <span className="text-sm font-medium">{shape}</span>
                         </div>
