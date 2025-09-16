@@ -1,14 +1,27 @@
 import { getAllProducts, getCategoryTitle } from "@/data/productsData";
 import { updateProductsWithCategories, getCategoryInfo } from "@/utils/categoryUtils";
 import ProductCard from "@/components/ProductCard";
+import Header from "@/components/Header";
+import ImprovedNavigation from "@/components/ImprovedNavigation";
+import ImprovedFooter from "@/components/ImprovedFooter";
+import EditorToolbar from "@/components/editor/EditorToolbar";
 
 const AllProductsSimple = () => {
   const rawProducts = getAllProducts();
   const allProducts = updateProductsWithCategories(rawProducts);
   
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="container mx-auto">
+    <div className="min-h-screen bg-background">
+      <EditorToolbar />
+      
+      {/* Header */}
+      <Header showFilters={true} />
+      
+      {/* Navigation - Categories at the top */}
+      <ImprovedNavigation />
+      
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-8 text-center">All Products</h1>
         <p className="text-center mb-8">Showing {allProducts.length} products</p>
         
@@ -30,6 +43,9 @@ const AllProductsSimple = () => {
           ))}
         </div>
       </div>
+      
+      {/* Footer */}
+      <ImprovedFooter />
     </div>
   );
 };
