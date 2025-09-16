@@ -437,7 +437,7 @@ const ProductDetail = () => {
                   selectedSize,
                   selectedColor,
                   selectedBraille,
-                  selectedShape: selectedShapeOption
+                  selectedShape
                 })}
               >
                 <ShoppingCart className="h-5 w-5 mr-2" />
