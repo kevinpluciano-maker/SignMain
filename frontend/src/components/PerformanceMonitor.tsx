@@ -116,7 +116,11 @@ export const PerformanceMonitor = () => {
         const observer = new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
             const resource = entry as PerformanceResourceTiming;
-            if (resource.transferSize > 100000) { // Large resources > 100KB
+            // Only warn for resources > 500KB (not videos, fonts, or images expected to be large)
+            if (resource.transferSize > 500000 && 
+                !resource.name.includes('video') && 
+                !resource.name.includes('font') &&
+                !resource.name.includes('hero-office')) { 
               console.warn(`Large resource detected: ${resource.name} (${Math.round(resource.transferSize / 1024)}KB)`);
             }
           }
