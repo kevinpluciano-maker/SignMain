@@ -267,9 +267,6 @@ const ProductDetail = () => {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-muted-foreground">
-                Price includes base design. Additional charges may apply for size and color variants.
-              </p>
             </div>
 
             <Separator />
