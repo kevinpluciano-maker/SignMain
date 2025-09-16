@@ -61,7 +61,7 @@ const ProductDetail = () => {
         setSelectedShape(foundProduct.shapeOptions[0].toLowerCase());
       }
     }
-  }, [foundProduct, selectedColor, selectedSize, selectedBraille]);
+  }, [foundProduct, selectedColor, selectedSize, selectedBraille, selectedShape]);
   
   const product = foundProduct ? {
     id: foundProduct.id,
