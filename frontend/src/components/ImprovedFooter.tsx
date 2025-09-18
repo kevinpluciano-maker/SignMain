@@ -17,10 +17,10 @@ const ImprovedFooter = () => {
   ];
 
   const productCategories = [
-    { label: "Door Signs", path: "/collections/door-signs" },
-    { label: "Room Signs", path: "/collections/room-signs" },
-    { label: "Office Signs", path: "/collections/office-signs" },
-    { label: "Custom Signs", path: "/collections/custom-signs" }
+    { label: "Acrylic Braille Signs", path: "/collections/braille-signs" },
+    { label: "ADA Compliant Signs", path: "/collections/ada-signs" },
+    { label: "Restroom Braille Signs", path: "/collections/restroom-signs" },
+    { label: "Custom Braille Signs", path: "/collections/custom-signs" }
   ];
 
   return (
