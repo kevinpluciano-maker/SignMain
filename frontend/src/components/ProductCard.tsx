@@ -195,7 +195,7 @@ const ProductCard = ({
             {/* Action Buttons - Always at the bottom */}
             <div className="flex gap-2 mt-auto">
               <Button 
-                className="flex-1 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors disabled:opacity-50" 
+                className="flex-1 py-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 transition-all duration-300 disabled:opacity-50 border-0" 
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -209,7 +209,7 @@ const ProductCard = ({
               <Button 
                 variant="outline"
                 size="sm"
-                className="px-3 border-gray-300 hover:border-gray-400 transition-colors"
+                className="px-3 border-cyan-300 hover:border-cyan-400 hover:bg-cyan-50 transition-colors"
                 onClick={handleViewProduct}
               >
                 <Eye className="h-4 w-4" />
