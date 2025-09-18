@@ -113,15 +113,15 @@ const HeroSection = () => {
             style={{
               fontFamily: '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
               letterSpacing: '-0.01em',
-              textShadow: '0 3px 15px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.1)',
-              background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+              textShadow: '0 3px 15px rgba(0,0,0,0.8), 0 0 30px rgba(79,195,247,0.3)',
+              background: 'linear-gradient(135deg, #ffffff 0%, #4FC3F7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'
             }}
           >
             <InlineEditor
-              value="Professional Signage Solutions"
+              value="Professional Acrylic Braille Signs"
               onSave={handleTitleSave}
               placeholder="Enter hero title"
               className="inline-block"
@@ -141,13 +141,13 @@ const HeroSection = () => {
             }}
           >
             <InlineEditor
-              value="Discover our comprehensive collection of door numbers, office signs, and architectural signage designed for modern workspaces."
+              value="ADA compliant acrylic braille signage solutions with raised braille dots. Professional quality door signs, restroom signs, and custom architectural signage for modern workspaces."
               onSave={handleDescriptionSave}
               placeholder="Enter hero description"
               className="inline-block"
               editClassName="text-black"
               multiline
-              maxLength={200}
+              maxLength={250}
               required
             />
           </p>
@@ -157,26 +157,26 @@ const HeroSection = () => {
                 size="lg" 
                 className="group relative overflow-hidden px-10 py-3.5 text-base font-bold transition-all duration-300 hover:scale-105"
                 style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-                  color: '#1e293b',
-                  border: '2px solid rgba(255,255,255,0.25)',
+                  background: 'linear-gradient(135deg, #4FC3F7 0%, #2196F3 100%)',
+                  color: '#ffffff',
+                  border: '2px solid rgba(79,195,247,0.25)',
                   borderRadius: '14px',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
+                  boxShadow: '0 8px 24px rgba(79,195,247,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
                   fontFamily: '"Inter", system-ui, sans-serif',
                   letterSpacing: '0.4px',
                   textTransform: 'uppercase'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #2196F3 0%, #4FC3F7 100%)';
                   e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
-                  e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5)';
+                  e.currentTarget.style.boxShadow = '0 12px 32px rgba(79,195,247,0.35), inset 0 1px 0 rgba(255,255,255,0.5)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #4FC3F7 0%, #2196F3 100%)';
                   e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.35)';
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(79,195,247,0.25), inset 0 1px 0 rgba(255,255,255,0.35)';
                 }}
-                aria-label="Browse our complete product collection"
+                aria-label="Browse our complete ADA compliant braille signage collection"
               >
                 <ShoppingBag className="h-5 w-5 mr-2.5" aria-hidden="true" />
                 View All Products
