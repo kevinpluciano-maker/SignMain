@@ -27,6 +27,11 @@ const Collections = () => {
     // Handle hyphenated category URLs - convert back to original category keys
     const categoryKey = category.toLowerCase();
     
+    // For Info Signs subcategories, show all info-signs products
+    if (['exam-room-signs', 'meeting-room-ada-signs', 'reception-signs'].includes(categoryKey)) {
+      return getCategoryProducts('info-signs');
+    }
+    
     // Try direct match first
     let products = getCategoryProducts(categoryKey);
     
