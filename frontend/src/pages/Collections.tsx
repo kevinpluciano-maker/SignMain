@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import ImprovedNavigation from "@/components/ImprovedNavigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImprovedSidebar from "@/components/ImprovedSidebar";
+import ProductCard from "@/components/ProductCard";
 import ProductGrid from "@/components/ProductGrid";
 import ImprovedFooter from "@/components/ImprovedFooter";
 import EditorToolbar from "@/components/editor/EditorToolbar";
