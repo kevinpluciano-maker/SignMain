@@ -135,36 +135,21 @@ const Collections = () => {
               </div>
               
               {/* Products Grid - Wider Layout for Info Signs (3-4 per row) */}
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-fr [&>*]:h-full">
                 {products.map((product, index) => (
-                  <div key={product.id} className="h-full">
-                    <div className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                      {/* Product content would go here - using ProductCard component */}
-                      <div className="aspect-square overflow-hidden rounded-t-lg">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <div className="p-4 flex-1 flex flex-col">
-                        <h3 className="font-semibold text-lg mb-2 line-clamp-2">{product.name}</h3>
-                        <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
-                        <div className="mt-auto">
-                          <div className="flex items-center justify-between mb-3">
-                            <span className="text-xl font-bold text-gray-900">{product.price}</span>
-                            <div className="flex items-center gap-1">
-                              <span className="text-yellow-400">★</span>
-                              <span className="text-sm font-medium">{product.rating}</span>
-                            </div>
-                          </div>
-                          <button className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300">
-                            View Details
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    name={product.name}
+                    image={product.image}
+                    price={product.price}
+                    originalPrice={product.originalPrice}
+                    rating={product.rating}
+                    reviews={product.reviews}
+                    badges={product.badges}
+                    isNew={false}
+                    lazy={index > 8} // Lazy load after first 8 products
+                  />
                 ))}
               </div>
             </div>
