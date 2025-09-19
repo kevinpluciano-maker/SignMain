@@ -100,14 +100,9 @@ const ModernNavigation = () => {
     {
       title: "Info Signs",
       items: [
-        "Fire Information Signs",
-        "Stairs Information Signs",
-        "Dining Room Signs",
-        "Cleaning Room Signs",
-        "Cafeteria Signs",
-        "Lobby Signs",
-        "Elevator Signs",
-        "Wi-Fi Signs"
+        "Exam Room Signs",
+        "Meeting Room ADA Signs", 
+        "Reception Signs"
       ]
     }
   ];
