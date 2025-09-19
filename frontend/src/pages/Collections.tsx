@@ -82,6 +82,13 @@ const Collections = () => {
   const products = getProducts();
   const pageTitle = getPageTitle();
 
+  // Check if this is an Info Signs related page
+  const isInfoSignsPage = category === 'info-signs' || 
+                         category === 'exam-room-signs' || 
+                         category === 'meeting-room-ada-signs' || 
+                         category === 'reception-signs' ||
+                         (category && ['exam-room-signs', 'meeting-room-ada-signs', 'reception-signs'].includes(category));
+
   const getPageDescription = () => {
     if (category === "best-sellers") return "Our most popular professional signage solutions";
     if (category === "new") return "Discover our latest collection of professional signage solutions";
