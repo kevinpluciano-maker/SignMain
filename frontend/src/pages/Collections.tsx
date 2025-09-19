@@ -117,14 +117,9 @@ const Collections = () => {
         
         {/* Main Content */}
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-            {/* Desktop Sidebar - Only visible on desktop */}
-            <div className="hidden md:block">
-              <ImprovedSidebar />
-            </div>
-            
-            {/* Main Content Area */}
-            <div className="flex-1">
+          {isInfoSignsPage ? (
+            /* Info Signs - Full Width Layout (No Sidebar) */
+            <div className="w-full">
               {/* Page Header */}
               <div className="mb-6 md:mb-8">
                 <h1 className="text-2xl md:text-3xl font-bold mb-2">
@@ -138,10 +133,68 @@ const Collections = () => {
                 </div>
               </div>
               
-              {/* Products Grid */}
-              <ProductGrid products={products} />
+              {/* Products Grid - Wider Layout for Info Signs (3-4 per row) */}
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                {products.map((product, index) => (
+                  <div key={product.id} className="h-full">
+                    <div className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                      {/* Product content would go here - using ProductCard component */}
+                      <div className="aspect-square overflow-hidden rounded-t-lg">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="p-4 flex-1 flex flex-col">
+                        <h3 className="font-semibold text-lg mb-2 line-clamp-2">{product.name}</h3>
+                        <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
+                        <div className="mt-auto">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-xl font-bold text-gray-900">{product.price}</span>
+                            <div className="flex items-center gap-1">
+                              <span className="text-yellow-400">★</span>
+                              <span className="text-sm font-medium">{product.rating}</span>
+                            </div>
+                          </div>
+                          <button className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300">
+                            View Details
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            /* Other Categories - Standard Layout with Sidebar */
+            <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+              {/* Desktop Sidebar - Only visible on desktop */}
+              <div className="hidden md:block">
+                <ImprovedSidebar />
+              </div>
+              
+              {/* Main Content Area */}
+              <div className="flex-1">
+                {/* Page Header */}
+                <div className="mb-6 md:mb-8">
+                  <h1 className="text-2xl md:text-3xl font-bold mb-2">
+                    {pageTitle}
+                  </h1>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    {getPageDescription()}
+                  </p>
+                  <div className="mt-2 text-sm text-muted-foreground">
+                    {products.length} {products.length === 1 ? 'product' : 'products'} available
+                  </div>
+                </div>
+                
+                {/* Products Grid */}
+                <ProductGrid products={products} />
+              </div>
+            </div>
+          )}
         </div>
         
         {/* Footer */}
