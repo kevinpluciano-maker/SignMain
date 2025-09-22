@@ -88,15 +88,8 @@ const Collections = () => {
   const products = getProducts();
   const pageTitle = getPageTitle();
 
-  // Check if this should use the full-width layout (no sidebar)
-  const isFullWidthLayout = category === 'info-signs' || 
-                           category === 'exam-room-signs' || 
-                           category === 'meeting-room-ada-signs' || 
-                           category === 'reception-signs' ||
-                           category === 'door-number-signs' ||
-                           category === 'restroom-signs' ||
-                           category === 'prohibitory-signs' ||
-                           (category && ['exam-room-signs', 'meeting-room-ada-signs', 'reception-signs', 'best-sellers', 'new'].includes(category));
+  // Use full-width layout for ALL collection pages (no sidebar anywhere)
+  const isFullWidthLayout = true; // Always use clean, full-width layout
 
   const getPageDescription = () => {
     if (category === "best-sellers") return "Our most popular professional signage solutions";
