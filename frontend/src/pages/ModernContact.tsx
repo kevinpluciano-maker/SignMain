@@ -169,19 +169,19 @@ const ModernContact = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form - Enhanced Visibility */}
-            <Card className="bg-white shadow-2xl border border-gray-200 rounded-3xl overflow-hidden">
-              <CardContent className="p-8">
-                <div className="mb-8">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Start Your ADA Signage Project</h2>
-                  <p className="text-gray-600 text-lg">
-                    Tell us about your braille signage needs and we'll provide a custom ADA compliant quote within 24 hours.
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Streamlined Contact Form */}
+            <Card className="bg-white shadow-lg border border-gray-200 rounded-2xl">
+              <CardContent className="p-6">
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Start Your Project</h2>
+                  <p className="text-gray-600">
+                    Tell us about your braille signage needs and get a custom quote within 24 hours.
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="name" className="text-gray-900 mb-2 block font-semibold">
