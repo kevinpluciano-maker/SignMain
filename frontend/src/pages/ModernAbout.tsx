@@ -120,60 +120,60 @@ const ModernAbout = () => {
   return (
     <>
       <SEO
-        title="About Us | Leaders in Professional Signage Solutions | Bsign Store"
-        description="Discover our 15-year journey of creating premium door signs and architectural signage. Award-winning design, ADA compliance, and lifetime quality guarantee."
+        title="About Us | ADA Compliance Experts | Acrylic Braille Signs"
+        description="Discover our 15+ year journey specializing in ADA compliant acrylic braille signage. Award-winning accessibility solutions, nationwide service, and 100% compliance guarantee."
         canonical="/about"
         type="website"
       />
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-cyan-50">
         <Header />
         <ImprovedNavigation />
         
-        {/* Hero Section */}
+        {/* Hero Section - Enhanced Visibility */}
         <div className="relative overflow-hidden py-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-500/20"></div>
           <div className="container mx-auto px-4 relative">
             <div className="max-w-4xl mx-auto text-center">
-              <Badge className="mb-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                <Sparkles className="h-4 w-4 mr-2" />
-                Award-Winning Signage Experts
+              <Badge className="mb-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-0 px-8 py-3 text-sm font-bold tracking-wider">
+                <Sparkles className="h-5 w-5 mr-3" />
+                ADA COMPLIANCE SPECIALISTS SINCE 2008
               </Badge>
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Crafting the Future of
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {" "}Professional Signage
+              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                Leading the Future of
+                <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+                  {" "}ADA Braille Signage
                 </span>
               </h1>
-              <p className="text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
-                For over 15 years, we've been transforming spaces with precision-engineered signage that combines cutting-edge design with unmatched durability. Every sign tells a story – let us help you tell yours.
+              <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto font-medium">
+                For over 15 years, we've been creating accessible environments with premium acrylic braille signage that exceeds ADA requirements. Every sign we craft helps build a more inclusive world.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Stats Section */}
+        {/* Stats Section - Enhanced */}
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
             {stats.map((stat, index) => (
-              <Card key={index} className="bg-white/10 backdrop-blur-lg border-white/20 text-center hover:scale-105 transition-transform duration-300">
+              <Card key={index} className="bg-white border border-gray-200 shadow-xl text-center hover:scale-105 transition-all duration-300 rounded-2xl">
                 <CardContent className="p-6">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg`}>
                     <stat.icon className="h-8 w-8 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                  <div className="text-blue-200">{stat.label}</div>
+                  <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                  <div className="text-gray-600 font-medium">{stat.label}</div>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          {/* Mission Statement */}
+          {/* Mission Statement - Enhanced */}
           <div className="max-w-4xl mx-auto mb-20">
-            <Card className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-lg border-white/20">
+            <Card className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 shadow-2xl rounded-3xl">
               <CardContent className="p-12 text-center">
-                <h2 className="text-4xl font-bold text-white mb-6">Our Mission</h2>
-                <p className="text-xl text-blue-200 leading-relaxed">
-                  To revolutionize how businesses communicate through space by creating signage solutions that are not just functional, but inspiring. We believe every sign should be a perfect marriage of form, function, and innovation – elevating the spaces they inhabit while serving their intended purpose flawlessly.
+                <h2 className="text-4xl font-bold text-gray-900 mb-6">Our ADA Mission</h2>
+                <p className="text-xl text-gray-700 leading-relaxed font-medium">
+                  To create truly accessible environments through superior ADA compliant acrylic braille signage. We believe accessibility should never compromise design – every sign should be both functionally excellent and visually beautiful, helping organizations meet compliance requirements while enhancing their spaces.
                 </p>
               </CardContent>
             </Card>
