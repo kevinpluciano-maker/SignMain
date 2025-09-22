@@ -88,12 +88,15 @@ const Collections = () => {
   const products = getProducts();
   const pageTitle = getPageTitle();
 
-  // Check if this is an Info Signs related page
-  const isInfoSignsPage = category === 'info-signs' || 
-                         category === 'exam-room-signs' || 
-                         category === 'meeting-room-ada-signs' || 
-                         category === 'reception-signs' ||
-                         (category && ['exam-room-signs', 'meeting-room-ada-signs', 'reception-signs'].includes(category));
+  // Check if this should use the full-width layout (no sidebar)
+  const isFullWidthLayout = category === 'info-signs' || 
+                           category === 'exam-room-signs' || 
+                           category === 'meeting-room-ada-signs' || 
+                           category === 'reception-signs' ||
+                           category === 'door-number-signs' ||
+                           category === 'restroom-signs' ||
+                           category === 'prohibitory-signs' ||
+                           (category && ['exam-room-signs', 'meeting-room-ada-signs', 'reception-signs', 'best-sellers', 'new'].includes(category));
 
   const getPageDescription = () => {
     if (category === "best-sellers") return "Our most popular professional signage solutions";
