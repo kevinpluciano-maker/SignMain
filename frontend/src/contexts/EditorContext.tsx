@@ -63,10 +63,10 @@ const defaultHeaderData = {
 };
 
 const defaultFooterData = {
-  companyName: 'Signassist',
-  companyDescription: 'Professional signage solutions for offices, hotels, and commercial spaces. Quality guaranteed with worldwide shipping.',
+  companyName: 'Acrylic Braille Signs',
+  companyDescription: 'Professional ADA compliant acrylic braille signage solutions for offices, hospitals, and commercial spaces. Quality guaranteed with worldwide shipping.',
   phone: '+1 (323) 843-0781',
-  email: 'info@signassist.com',
+  email: 'info@acrylicbraillesigns.com',
   businessHours: 'Business Hours: 7:00 AM - 4:00 PM CST'
 };
 
