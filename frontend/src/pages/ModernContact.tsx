@@ -311,122 +311,92 @@ const ModernContact = () => {
               </CardContent>
             </Card>
 
-            {/* Contact Information - Enhanced Visibility */}
-            <div className="space-y-8">
-              {/* Contact Methods */}
-              <Card className="bg-white shadow-xl border border-gray-200 rounded-3xl">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Our ADA Experts</h3>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg shadow-lg">
-                        <Phone className="h-6 w-6 text-white" />
+            {/* Streamlined Contact Information */}
+            <div className="space-y-6">
+              {/* Contact Methods - Compact */}
+              <Card className="bg-white shadow-lg border border-gray-200 rounded-2xl">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Our Team</h3>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg">
+                        <Phone className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-gray-900 font-bold mb-1">Call Our ADA Specialists</h4>
-                        <p className="text-cyan-600 mb-2 text-lg font-semibold">+1 (323) 843-0781</p>
-                        <p className="text-sm text-gray-600">Available 24/7 for urgent ADA compliance projects</p>
+                        <h4 className="text-gray-900 font-semibold">Call Our Specialists</h4>
+                        <p className="text-cyan-600 font-semibold">+1 (323) 843-0781</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg shadow-lg">
-                        <Mail className="h-6 w-6 text-white" />
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg">
+                        <Mail className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-gray-900 font-bold mb-1">Email Our Team</h4>
-                        <p className="text-cyan-600 mb-2 text-lg font-semibold">info@acrylicbraillesigns.com</p>
-                        <p className="text-sm text-gray-600">Response within 4 hours, guaranteed</p>
+                        <h4 className="text-gray-900 font-semibold">Email Our Team</h4>
+                        <p className="text-cyan-600 font-semibold">info@acrylicbraillesigns.com</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg">
-                        <MessageCircle className="h-6 w-6 text-white" />
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg">
+                        <MapPin className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-gray-900 font-bold mb-1">Live Chat Support</h4>
-                        <p className="text-cyan-600 mb-2 text-lg font-semibold">Available on website</p>
-                        <p className="text-sm text-gray-600">Instant ADA consultation during business hours</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-lg">
-                        <MapPin className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-gray-900 font-bold mb-1">Showroom Visit</h4>
-                        <p className="text-cyan-600 mb-2 text-lg font-semibold">123 Business Ave, Suite 100</p>
-                        <p className="text-cyan-600 mb-2 text-lg font-semibold">Los Angeles, CA 90210</p>
-                        <p className="text-sm text-gray-600">See our ADA compliant samples - by appointment</p>
+                        <h4 className="text-gray-900 font-semibold">Visit Our Showroom</h4>
+                        <p className="text-cyan-600 font-semibold">Los Angeles, CA</p>
                       </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Business Hours - Enhanced */}
-              <Card className="bg-white shadow-xl border border-gray-200 rounded-3xl">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <Clock className="h-6 w-6 text-cyan-500" />
+              {/* Business Hours - Compact */}
+              <Card className="bg-white shadow-lg border border-gray-200 rounded-2xl">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-cyan-500" />
                     Business Hours
                   </h3>
-                  
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                      <span className="text-gray-600 font-medium">Monday - Friday</span>
-                      <span className="text-gray-900 font-bold">7:00 AM - 4:00 PM CST</span>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Monday - Friday</span>
+                      <span className="text-gray-900 font-semibold">7:00 AM - 4:00 PM CST</span>
                     </div>
-                    <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                      <span className="text-gray-600 font-medium">Saturday</span>
-                      <span className="text-gray-900 font-bold">9:00 AM - 2:00 PM CST</span>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Saturday</span>
+                      <span className="text-gray-900 font-semibold">9:00 AM - 2:00 PM CST</span>
                     </div>
-                    <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                      <span className="text-gray-600 font-medium">Sunday</span>
-                      <span className="text-gray-400 font-medium">Closed</span>
-                    </div>
-                    <div className="bg-cyan-50 border border-cyan-200 rounded-xl p-4 mt-6">
-                      <div className="flex items-center gap-3">
-                        <Star className="h-5 w-5 text-cyan-500" />
-                        <span className="text-sm text-cyan-700 font-semibold">Emergency ADA compliance support available 24/7</span>
-                      </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Sunday</span>
+                      <span className="text-gray-400">Closed</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Why Choose Us - Enhanced */}
-              <Card className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-3xl">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Acrylic Braille Signs?</h3>
+              {/* Why Choose Us - Compact */}
+              <Card className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Why Choose Us?</h3>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">15+ years of ADA compliance expertise</span>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-800">15+ years ADA expertise</span>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">100% ADA compliant braille signage</span>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-800">100% ADA compliant</span>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">Free ADA compliance consultation</span>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-800">Free consultation</span>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">Premium acrylic materials with raised braille</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">Fast nationwide shipping & installation</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">100% satisfaction guarantee</span>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-800">Fast shipping</span>
                     </div>
                   </div>
                 </CardContent>
