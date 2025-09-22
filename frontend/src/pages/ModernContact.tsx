@@ -172,13 +172,13 @@ const ModernContact = () => {
 
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20 shadow-2xl">
+            {/* Contact Form - Enhanced Visibility */}
+            <Card className="bg-white shadow-2xl border border-gray-200 rounded-3xl overflow-hidden">
               <CardContent className="p-8">
                 <div className="mb-8">
-                  <h2 className="text-3xl font-bold text-white mb-4">Start Your Project</h2>
-                  <p className="text-blue-200">
-                    Tell us about your signage needs and we'll provide a custom quote within 24 hours.
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Start Your ADA Signage Project</h2>
+                  <p className="text-gray-600 text-lg">
+                    Tell us about your braille signage needs and we'll provide a custom ADA compliant quote within 24 hours.
                   </p>
                 </div>
 
