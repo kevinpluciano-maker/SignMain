@@ -270,7 +270,7 @@ const SEO = ({
       
       {/* PWA Meta Tags */}
       <link rel="manifest" href="/manifest.json" />
-      <link rel="apple-touch-icon" href="/assets/signassist-logo.png" />
+      <link rel="apple-touch-icon" href="/assets/acrylic-braille-logo.png" />
       
       {/* Performance and SEO hints */}
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
