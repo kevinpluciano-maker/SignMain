@@ -258,14 +258,14 @@ const ModernContact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="urgency" className="text-white mb-2 block">
-                        Project Urgency
+                      <Label htmlFor="urgency" className="text-gray-900 mb-2 block font-semibold">
+                        Project Timeline
                       </Label>
                       <select
                         id="urgency"
                         value={formData.urgency}
                         onChange={(e) => handleInputChange('urgency', e.target.value)}
-                        className="w-full bg-white/10 border border-white/30 text-white rounded-md px-3 py-2 focus:border-blue-400 focus:outline-none"
+                        className="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-md px-3 py-3 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                       >
                         <option value="standard" className="text-gray-900">Standard (2-3 weeks)</option>
                         <option value="expedited" className="text-gray-900">Expedited (1 week)</option>
@@ -274,14 +274,14 @@ const ModernContact = () => {
                       </select>
                     </div>
                     <div>
-                      <Label htmlFor="budget" className="text-white mb-2 block">
+                      <Label htmlFor="budget" className="text-gray-900 mb-2 block font-semibold">
                         Budget Range
                       </Label>
                       <select
                         id="budget"
                         value={formData.budget}
                         onChange={(e) => handleInputChange('budget', e.target.value)}
-                        className="w-full bg-white/10 border border-white/30 text-white rounded-md px-3 py-2 focus:border-blue-400 focus:outline-none"
+                        className="w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-md px-3 py-3 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                       >
                         <option value="" className="text-gray-900">Select budget</option>
                         <option value="under-500" className="text-gray-900">Under $500</option>
@@ -295,15 +295,15 @@ const ModernContact = () => {
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-6 text-lg font-semibold"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 rounded-xl"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
-                      <>Processing...</>
+                      <>Processing Your Request...</>
                     ) : (
                       <>
                         <Send className="h-5 w-5 mr-2" />
-                        Get Professional Quote
+                        Get Your ADA Compliant Quote
                         <ArrowRight className="h-5 w-5 ml-2" />
                       </>
                     )}
@@ -312,12 +312,12 @@ const ModernContact = () => {
               </CardContent>
             </Card>
 
-            {/* Contact Information */}
+            {/* Contact Information - Enhanced Visibility */}
             <div className="space-y-8">
               {/* Contact Methods */}
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <Card className="bg-white shadow-xl border border-gray-200 rounded-3xl">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Our ADA Experts</h3>
                   
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
