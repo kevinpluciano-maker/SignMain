@@ -123,47 +123,47 @@ const ModernContact = () => {
   return (
     <>
       <SEO
-        title="Contact Us | Professional Signage Consultation | Bsign Store"
-        description="Get in touch with our signage experts for custom quotes, project consultation, and professional support. Available 24/7 for urgent projects."
+        title="Contact Us | Professional ADA Compliant Braille Signs | Acrylic Braille Signs"
+        description="Get in touch with our ADA compliance experts for custom acrylic braille signage quotes, project consultation, and professional support. Available 24/7 for urgent projects."
         canonical="/contact"
         type="website"
       />
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-cyan-50">
         <Header />
-        <ImprovedNavigation />
-        
-        {/* Hero Section */}
+        <ImprovedNavigation />{" "}
+
+        {/* Enhanced Hero Section with Better Visibility */}
         <div className="relative overflow-hidden py-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-500/20"></div>
           <div className="container mx-auto px-4 relative">
             <div className="max-w-4xl mx-auto text-center">
-              <Badge className="mb-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                <Zap className="h-4 w-4 mr-2" />
-                Expert Consultation Available
+              <Badge className="mb-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-0 px-6 py-3 text-sm font-bold tracking-wider">
+                <Zap className="h-5 w-5 mr-3" />
+                ADA COMPLIANCE EXPERTS AVAILABLE
               </Badge>
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Let's Create Your
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {" "}Perfect Signage
+              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                Get Your Custom
+                <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+                  {" "}Braille Signage Quote
                 </span>
               </h1>
-              <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-                Professional consultation, custom design, and rapid delivery. 
-                From concept to installation, we've got you covered.
+              <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-medium">
+                Professional ADA compliant acrylic braille signage consultation, custom design, and rapid delivery. 
+                From concept to installation, we're your trusted partner.
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white">
-                  <Clock className="h-4 w-4 text-green-400" />
-                  <span>24hr Response</span>
+                <div className="flex items-center gap-3 bg-white shadow-lg px-6 py-3 rounded-2xl text-gray-800 border border-cyan-200">
+                  <Clock className="h-5 w-5 text-green-500" />
+                  <span className="font-semibold">24hr Response</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white">
-                  <Shield className="h-4 w-4 text-blue-400" />
-                  <span>Quality Guaranteed</span>
+                <div className="flex items-center gap-3 bg-white shadow-lg px-6 py-3 rounded-2xl text-gray-800 border border-cyan-200">
+                  <Shield className="h-5 w-5 text-cyan-500" />
+                  <span className="font-semibold">ADA Compliant</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white">
-                  <Globe className="h-4 w-4 text-purple-400" />
-                  <span>Worldwide Shipping</span>
+                <div className="flex items-center gap-3 bg-white shadow-lg px-6 py-3 rounded-2xl text-gray-800 border border-cyan-200">
+                  <Globe className="h-5 w-5 text-blue-500" />
+                  <span className="font-semibold">Nationwide Shipping</span>
                 </div>
               </div>
             </div>
