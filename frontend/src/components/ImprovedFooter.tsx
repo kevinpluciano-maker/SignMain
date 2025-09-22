@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useEditor } from "@/contexts/EditorContext";
 import { useNavigate } from "react-router-dom";
+import acrylicBrailleLogo from "@/assets/acrylic-braille-logo.png";
 
 const ImprovedFooter = () => {
   const { footerData, updateFooterData } = useEditor();
