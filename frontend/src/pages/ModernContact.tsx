@@ -132,38 +132,37 @@ const ModernContact = () => {
         <Header />
         <ImprovedNavigation />{" "}
 
-        {/* Enhanced Hero Section with Better Visibility */}
-        <div className="relative overflow-hidden py-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-500/20"></div>
+        {/* Streamlined Hero Section - Smaller, Cleaner */}
+        <div className="relative overflow-hidden py-12">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-500/10"></div>
           <div className="container mx-auto px-4 relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <Badge className="mb-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-0 px-6 py-3 text-sm font-bold tracking-wider">
-                <Zap className="h-5 w-5 mr-3" />
-                ADA COMPLIANCE EXPERTS AVAILABLE
+            <div className="max-w-3xl mx-auto text-center">
+              <Badge className="mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-0 px-6 py-2 text-sm font-semibold">
+                <Zap className="h-4 w-4 mr-2" />
+                ADA EXPERTS AVAILABLE
               </Badge>
-              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                 Get Your Custom
                 <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
-                  {" "}Braille Signage Quote
+                  {" "}Braille Quote
                 </span>
               </h1>
-              <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-medium">
-                Professional ADA compliant acrylic braille signage consultation, custom design, and rapid delivery. 
-                From concept to installation, we're your trusted partner.
+              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                Professional ADA compliant signage consultation and rapid delivery.
               </p>
               
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
-                <div className="flex items-center gap-3 bg-white shadow-lg px-6 py-3 rounded-2xl text-gray-800 border border-cyan-200">
-                  <Clock className="h-5 w-5 text-green-500" />
-                  <span className="font-semibold">24hr Response</span>
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                <div className="flex items-center gap-2 bg-white shadow-md px-4 py-2 rounded-xl text-gray-700 text-sm">
+                  <Clock className="h-4 w-4 text-green-500" />
+                  <span className="font-medium">24hr Response</span>
                 </div>
-                <div className="flex items-center gap-3 bg-white shadow-lg px-6 py-3 rounded-2xl text-gray-800 border border-cyan-200">
-                  <Shield className="h-5 w-5 text-cyan-500" />
-                  <span className="font-semibold">ADA Compliant</span>
+                <div className="flex items-center gap-2 bg-white shadow-md px-4 py-2 rounded-xl text-gray-700 text-sm">
+                  <Shield className="h-4 w-4 text-cyan-500" />
+                  <span className="font-medium">ADA Compliant</span>
                 </div>
-                <div className="flex items-center gap-3 bg-white shadow-lg px-6 py-3 rounded-2xl text-gray-800 border border-cyan-200">
-                  <Globe className="h-5 w-5 text-blue-500" />
-                  <span className="font-semibold">Nationwide Shipping</span>
+                <div className="flex items-center gap-2 bg-white shadow-md px-4 py-2 rounded-xl text-gray-700 text-sm">
+                  <Globe className="h-4 w-4 text-blue-500" />
+                  <span className="font-medium">Nationwide</span>
                 </div>
               </div>
             </div>
