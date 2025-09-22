@@ -250,7 +250,7 @@ const ModernContact = () => {
                       rows={4}
                       value={formData.projectDetails}
                       onChange={(e) => handleInputChange('projectDetails', e.target.value)}
-                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 min-h-[120px]"
+                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 min-h-[100px]"
                       placeholder="Describe your ADA compliant braille signage needs: room types, quantities, mounting requirements, text specifications, etc."
                     />
                   </div>
