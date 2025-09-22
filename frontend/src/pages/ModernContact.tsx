@@ -234,7 +234,7 @@ const ModernContact = () => {
                         id="company"
                         value={formData.company}
                         onChange={(e) => handleInputChange('company', e.target.value)}
-                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-12"
+                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-10"
                         placeholder="Your Company"
                       />
                     </div>
