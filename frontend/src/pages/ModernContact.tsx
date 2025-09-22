@@ -192,7 +192,7 @@ const ModernContact = () => {
                         required
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
-                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-12"
+                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-10"
                         placeholder="John Smith"
                       />
                     </div>
