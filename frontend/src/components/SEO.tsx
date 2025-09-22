@@ -62,7 +62,7 @@ const SEO = ({
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${siteUrl}/assets/signassist-logo.png`,
+        url: `${siteUrl}/assets/acrylic-braille-logo.png`,
         width: 200,
         height: 200
       },
