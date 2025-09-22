@@ -185,7 +185,7 @@ const ModernContact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="name" className="text-white mb-2 block">
+                      <Label htmlFor="name" className="text-gray-900 mb-2 block font-semibold">
                         Full Name *
                       </Label>
                       <Input
@@ -193,12 +193,12 @@ const ModernContact = () => {
                         required
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
-                        className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-blue-400"
+                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-12"
                         placeholder="John Smith"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email" className="text-white mb-2 block">
+                      <Label htmlFor="email" className="text-gray-900 mb-2 block font-semibold">
                         Email Address *
                       </Label>
                       <Input
@@ -207,7 +207,7 @@ const ModernContact = () => {
                         required
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-blue-400"
+                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-12"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -215,7 +215,7 @@ const ModernContact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="phone" className="text-white mb-2 block">
+                      <Label htmlFor="phone" className="text-gray-900 mb-2 block font-semibold">
                         Phone Number
                       </Label>
                       <Input
@@ -223,27 +223,27 @@ const ModernContact = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
-                        className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-blue-400"
+                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-12"
                         placeholder="(555) 123-4567"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="company" className="text-white mb-2 block">
+                      <Label htmlFor="company" className="text-gray-900 mb-2 block font-semibold">
                         Company Name
                       </Label>
                       <Input
                         id="company"
                         value={formData.company}
                         onChange={(e) => handleInputChange('company', e.target.value)}
-                        className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-blue-400"
+                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-12"
                         placeholder="Your Company"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="projectDetails" className="text-white mb-2 block">
-                      Project Details *
+                    <Label htmlFor="projectDetails" className="text-gray-900 mb-2 block font-semibold">
+                      Braille Signage Requirements *
                     </Label>
                     <Textarea
                       id="projectDetails"
@@ -251,8 +251,8 @@ const ModernContact = () => {
                       rows={4}
                       value={formData.projectDetails}
                       onChange={(e) => handleInputChange('projectDetails', e.target.value)}
-                      className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-blue-400 resize-none"
-                      placeholder="Describe your signage needs, dimensions, materials, quantity, timeline, and any special requirements..."
+                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 min-h-[120px]"
+                      placeholder="Describe your ADA compliant braille signage needs: room types, quantities, mounting requirements, text specifications, etc."
                     />
                   </div>
 
