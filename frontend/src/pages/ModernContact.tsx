@@ -321,58 +321,58 @@ const ModernContact = () => {
                   
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg">
+                      <div className="p-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg shadow-lg">
                         <Phone className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold mb-1">Call Us</h4>
-                        <p className="text-blue-200 mb-2">+1 (323) 843-0781</p>
-                        <p className="text-sm text-blue-300">Available 24/7 for urgent projects</p>
+                        <h4 className="text-gray-900 font-bold mb-1">Call Our ADA Specialists</h4>
+                        <p className="text-cyan-600 mb-2 text-lg font-semibold">+1 (323) 843-0781</p>
+                        <p className="text-sm text-gray-600">Available 24/7 for urgent ADA compliance projects</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg">
+                      <div className="p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg shadow-lg">
                         <Mail className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold mb-1">Email Us</h4>
-                        <p className="text-blue-200 mb-2">info@signassist.com</p>
-                        <p className="text-sm text-blue-300">Response within 4 hours</p>
+                        <h4 className="text-gray-900 font-bold mb-1">Email Our Team</h4>
+                        <p className="text-cyan-600 mb-2 text-lg font-semibold">info@acrylicbraillesigns.com</p>
+                        <p className="text-sm text-gray-600">Response within 4 hours, guaranteed</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+                      <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg">
                         <MessageCircle className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold mb-1">Live Chat</h4>
-                        <p className="text-blue-200 mb-2">Available on website</p>
-                        <p className="text-sm text-blue-300">Instant support during business hours</p>
+                        <h4 className="text-gray-900 font-bold mb-1">Live Chat Support</h4>
+                        <p className="text-cyan-600 mb-2 text-lg font-semibold">Available on website</p>
+                        <p className="text-sm text-gray-600">Instant ADA consultation during business hours</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg">
+                      <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-lg">
                         <MapPin className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold mb-1">Visit Us</h4>
-                        <p className="text-blue-200 mb-2">123 Business Ave, Suite 100</p>
-                        <p className="text-blue-200 mb-2">Los Angeles, CA 90210</p>
-                        <p className="text-sm text-blue-300">By appointment only</p>
+                        <h4 className="text-gray-900 font-bold mb-1">Showroom Visit</h4>
+                        <p className="text-cyan-600 mb-2 text-lg font-semibold">123 Business Ave, Suite 100</p>
+                        <p className="text-cyan-600 mb-2 text-lg font-semibold">Los Angeles, CA 90210</p>
+                        <p className="text-sm text-gray-600">See our ADA compliant samples - by appointment</p>
                       </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Business Hours */}
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              {/* Business Hours - Enhanced */}
+              <Card className="bg-white shadow-xl border border-gray-200 rounded-3xl">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <Clock className="h-6 w-6 text-blue-400" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <Clock className="h-6 w-6 text-cyan-500" />
                     Business Hours
                   </h3>
                   
