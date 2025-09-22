@@ -376,54 +376,58 @@ const ModernContact = () => {
                     Business Hours
                   </h3>
                   
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-200">Monday - Friday</span>
-                      <span className="text-white font-semibold">7:00 AM - 4:00 PM CST</span>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                      <span className="text-gray-600 font-medium">Monday - Friday</span>
+                      <span className="text-gray-900 font-bold">7:00 AM - 4:00 PM CST</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-200">Saturday</span>
-                      <span className="text-white font-semibold">9:00 AM - 2:00 PM CST</span>
+                    <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                      <span className="text-gray-600 font-medium">Saturday</span>
+                      <span className="text-gray-900 font-bold">9:00 AM - 2:00 PM CST</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-200">Sunday</span>
-                      <span className="text-gray-400">Closed</span>
+                    <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                      <span className="text-gray-600 font-medium">Sunday</span>
+                      <span className="text-gray-400 font-medium">Closed</span>
                     </div>
-                    <div className="border-t border-white/20 pt-3 mt-4">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm text-blue-300">Emergency support available 24/7</span>
+                    <div className="bg-cyan-50 border border-cyan-200 rounded-xl p-4 mt-6">
+                      <div className="flex items-center gap-3">
+                        <Star className="h-5 w-5 text-cyan-500" />
+                        <span className="text-sm text-cyan-700 font-semibold">Emergency ADA compliance support available 24/7</span>
                       </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Why Choose Us */}
-              <Card className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-lg border-white/20">
+              {/* Why Choose Us - Enhanced */}
+              <Card className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-3xl">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">Why Choose Us?</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Acrylic Braille Signs?</h3>
                   
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
-                      <span className="text-white">15+ years of signage expertise</span>
+                    <div className="flex items-center gap-4">
+                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">15+ years of ADA compliance expertise</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
-                      <span className="text-white">ADA compliant designs</span>
+                    <div className="flex items-center gap-4">
+                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">100% ADA compliant braille signage</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
-                      <span className="text-white">Free design consultation</span>
+                    <div className="flex items-center gap-4">
+                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">Free ADA compliance consultation</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
-                      <span className="text-white">Lifetime quality guarantee</span>
+                    <div className="flex items-center gap-4">
+                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">Premium acrylic materials with raised braille</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
-                      <span className="text-white">Worldwide shipping available</span>
+                    <div className="flex items-center gap-4">
+                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">Fast nationwide shipping & installation</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">100% satisfaction guarantee</span>
                     </div>
                   </div>
                 </CardContent>
