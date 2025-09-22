@@ -345,7 +345,7 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
                         {formData.metaTitle}
                       </div>
                       <div className="text-green-700">
-                        signassist.com › Professional Door Signs
+                        acrylicbraillesigns.com › Professional ADA Braille Signs
                       </div>
                       <div className="text-gray-600 mt-1">
                         {formData.metaDescription}
