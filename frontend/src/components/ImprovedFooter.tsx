@@ -33,6 +33,13 @@ const ImprovedFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
+            <div className="mb-4">
+              <img
+                src={acrylicBrailleLogo}
+                alt="Acrylic Braille Signs"
+                className="h-10 w-auto max-w-[200px] mb-3"
+              />
+            </div>
             <h3 className="font-semibold text-lg mb-4">
               {footerData.companyName}
             </h3>
