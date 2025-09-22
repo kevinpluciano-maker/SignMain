@@ -24,28 +24,35 @@ const InstallationGuide = () => {
   return (
     <>
       <SEO
-        title="Installation Guide - Professional Sign Installation | Signassist"
-        description="Complete installation guide for door signs, office signage, and architectural signs. Step-by-step instructions, tools needed, and professional tips for perfect results."
+        title="ADA Braille Sign Installation Guide | Professional Mounting Instructions | Acrylic Braille Signs"
+        description="Complete ADA compliant installation guide for acrylic braille signs. Step-by-step mounting instructions, ADA height requirements, and professional tips for perfect accessibility compliance."
         canonical="/installation-guide"
       />
       
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-cyan-50">
         <Header />
         <ImprovedNavigation />
         
         <main className="container mx-auto px-4 py-12">
-          {/* Hero Section */}
-          <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4">
-              Installation Guide
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Professional Installation Guide
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Step-by-step instructions for installing your signage properly. 
-              Follow our professional guidelines for lasting, attractive results.
-            </p>
+          {/* Hero Section - Enhanced */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-3xl -z-10"></div>
+            <div className="py-16">
+              <Badge className="mb-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-0 px-8 py-3 text-sm font-bold tracking-wider">
+                <Wrench className="h-5 w-5 mr-3" />
+                ADA COMPLIANCE INSTALLATION GUIDE
+              </Badge>
+              <h1 className="text-4xl md:text-6xl font-bold mb-8 text-gray-900">
+                Professional
+                <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+                  {" "}ADA Installation
+                </span>
+              </h1>
+              <p className="text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed">
+                Complete step-by-step instructions for installing ADA compliant acrylic braille signs. 
+                Follow our expert guidelines to ensure perfect accessibility compliance and professional results.
+              </p>
+            </div>
           </div>
 
           {/* Tools & Materials */}
