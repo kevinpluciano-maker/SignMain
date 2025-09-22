@@ -71,7 +71,7 @@ const SEO = ({
           "@type": "ContactPoint",
           telephone: "+1-323-843-0781",
           contactType: "customer service",
-          email: "info@signassist.com",
+          email: "info@acrylicbraillesigns.com",
           availableLanguage: ["English"],
           areaServed: "Worldwide"
         }
