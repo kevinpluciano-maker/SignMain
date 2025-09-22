@@ -55,69 +55,124 @@ const InstallationGuide = () => {
             </div>
           </div>
 
-          {/* Tools & Materials */}
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Wrench className="h-5 w-5 text-primary" />
-                <span>Tools & Materials Needed</span>
+          {/* Tools & Materials - Enhanced */}
+          <Card className="mb-12 shadow-xl border border-gray-200 rounded-3xl overflow-hidden">
+            <CardHeader className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white p-8">
+              <CardTitle className="flex items-center space-x-3 text-2xl">
+                <Wrench className="h-7 w-7" />
+                <span>ADA Installation Tools & Materials</span>
               </CardTitle>
+              <p className="text-cyan-100 mt-2">Everything you need for ADA compliant braille sign installation</p>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <h3 className="font-semibold mb-3">Basic Tools</h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-center space-x-2">
-                      <Drill className="h-4 w-4 text-primary" />
-                      <span>Electric drill</span>
+            <CardContent className="p-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-2xl border border-cyan-200">
+                  <h3 className="font-bold mb-4 text-gray-900 text-lg flex items-center gap-2">
+                    <Drill className="h-5 w-5 text-cyan-600" />
+                    Essential Tools
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Electric drill with bits</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Hammer className="h-4 w-4 text-primary" />
-                      <span>Screwdriver set</span>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Precision level (ADA critical)</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <AlignCenter className="h-4 w-4 text-primary" />
-                      <span>Spirit level</span>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Measuring tape (metric & imperial)</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Ruler className="h-4 w-4 text-primary" />
-                      <span>Measuring tape</span>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Screwdriver set</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <Eye className="h-4 w-4 text-primary" />
-                      <span>Pencil for marking</span>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Pencil for precise marking</span>
                     </li>
                   </ul>
                 </div>
                 
-                <div>
-                  <h3 className="font-semibold mb-3">Hardware</h3>
-                  <ul className="space-y-2">
-                    <li>• Mounting screws (provided)</li>
-                    <li>• Wall anchors (if needed)</li>
-                    <li>• Appropriate drill bits</li>
-                    <li>• Washers (if applicable)</li>
-                    <li>• Double-sided tape (alternative)</li>
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-200">
+                  <h3 className="font-bold mb-4 text-gray-900 text-lg flex items-center gap-2">
+                    <Hammer className="h-5 w-5 text-green-600" />
+                    Mounting Hardware
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Stainless steel screws (included)</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Wall anchors for hollow walls</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Appropriate drill bits</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Washers (for secure mounting)</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">3M VHB tape (alternative method)</span>
+                    </li>
                   </ul>
                 </div>
                 
-                <div>
-                  <h3 className="font-semibold mb-3">Safety</h3>
-                  <ul className="space-y-2">
-                    <li>• Safety glasses</li>
-                    <li>• Work gloves</li>
-                    <li>• Dust mask</li>
-                    <li>• Step ladder (if needed)</li>
-                    <li>• Drop cloth</li>
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-2xl border border-orange-200">
+                  <h3 className="font-bold mb-4 text-gray-900 text-lg flex items-center gap-2">
+                    <Eye className="h-5 w-5 text-orange-600" />
+                    Safety Equipment
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Safety glasses (required)</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Work gloves</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Dust mask for drilling</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Step ladder (height compliance)</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                      <span className="text-gray-700 font-medium">Drop cloth protection</span>
+                    </li>
                   </ul>
+                </div>
+              </div>
+              
+              {/* ADA Height Requirements Call-out */}
+              <div className="mt-8 p-6 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-2xl text-white">
+                <div className="flex items-start gap-4">
+                  <AlertTriangle className="h-8 w-8 text-yellow-300 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-lg mb-2">🚨 Critical ADA Requirements</h4>
+                    <p className="text-cyan-100 leading-relaxed">
+                      <strong>Sign Height:</strong> 48" to 60" from floor to baseline of lowest braille character. 
+                      <strong>Door Clearance:</strong> 3" minimum from door frame. 
+                      <strong>Wall Mount:</strong> Must be on latch side of door for accessibility compliance.
+                    </p>
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Installation Types */}
-          <Tabs defaultValue="door-signs" className="mb-8">
+          {/* ADA Installation Types - Enhanced */}
+          <Tabs defaultValue="door-signs" className="mb-12">
             <TabsList className="grid w-full grid-cols-1 md:grid-cols-4">
               <TabsTrigger value="door-signs">Door Signs</TabsTrigger>
               <TabsTrigger value="wall-mounted">Wall Mounted</TabsTrigger>
