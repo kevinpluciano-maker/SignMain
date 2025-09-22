@@ -59,60 +59,60 @@ const ModernAbout = () => {
 
   const timeline = [
     {
-      year: "2009",
-      title: "Founded",
-      description: "Started as a small family business with a passion for quality signage."
+      year: "2008",
+      title: "Founded with ADA Focus",
+      description: "Started as specialists in ADA compliant braille signage, recognizing the critical need for accessible environments."
     },
     {
-      year: "2012",
-      title: "ADA Certification",
-      description: "Became certified ADA compliance specialists, pioneering accessible design."
+      year: "2011", 
+      title: "Acrylic Braille Innovation",
+      description: "Pioneered premium acrylic braille signage with superior tactile quality and durability."
     },
     {
-      year: "2015",
-      title: "International Expansion",
-      description: "Expanded worldwide shipping, serving clients across 6 continents."
+      year: "2014",
+      title: "Nationwide ADA Expertise",
+      description: "Expanded to serve all 50 states, becoming the trusted ADA compliance partner for major facilities."
     },
     {
-      year: "2018",
-      title: "Technology Integration",
-      description: "Launched advanced 3D modeling and virtual sign placement tools."
+      year: "2017",
+      title: "Advanced Braille Technology",
+      description: "Introduced precision CNC machining for perfect Grade 2 braille dots and consistent tactile quality."
     },
     {
-      year: "2021",
-      title: "Sustainability Initiative",
-      description: "Achieved carbon-neutral production and eco-friendly materials."
+      year: "2020",
+      title: "Digital ADA Consultation",
+      description: "Launched virtual ADA assessments and remote compliance verification services."
     },
     {
       year: "2024",
-      title: "AI-Powered Design",
-      description: "Introduced AI-assisted design optimization for maximum impact."
+      title: "AI-Powered ADA Compliance",
+      description: "Implemented AI-assisted design verification to ensure 100% ADA compliance on every project."
     }
   ];
 
   const team = [
     {
       name: "Sarah Chen",
-      role: "Founder & CEO",
-      bio: "15+ years in commercial design, former Tesla design engineer.",
+      role: "Founder & ADA Expert",
+      bio: "15+ years specializing in ADA compliance, former accessibility consultant for Fortune 500 companies.",
       image: "👩‍💼"
     },
     {
-      name: "Marcus Rodriguez",
-      role: "Head of Production",
-      bio: "Master craftsman with 20+ years in precision manufacturing.",
+      name: "Marcus Rodriguez", 
+      role: "Braille Production Director",
+      bio: "Master craftsman with 20+ years in precision braille manufacturing and tactile signage.",
       image: "👨‍🔧"
     },
     {
       name: "Dr. Emily Watson",
       role: "ADA Compliance Director",
-      bio: "PhD in Accessibility Design, published researcher in inclusive design.",
+      bio: "PhD in Accessibility Design, published researcher in braille standards and inclusive environments.",
       image: "👩‍🎓"
     },
     {
       name: "James Park",
-      role: "Customer Success Lead",
-      bio: "Former hospitality executive, obsessed with client satisfaction.",
+      role: "Client Success Manager",
+      bio: "ADA project specialist ensuring seamless compliance for healthcare, education, and commercial facilities.",
       image: "👨‍💼"
     }
   ];
