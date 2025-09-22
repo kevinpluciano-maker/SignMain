@@ -56,10 +56,10 @@ const defaultSections = [
 
 const defaultHeaderData = {
   phone: '+1 (323) 843-0781',
-  email: 'info@signassist.com',
+  email: 'info@acrylicbraillesigns.com',
   businessHours: '7:00 AM - 4:00 PM CST',
-  topBarText: 'Worldwide Shipping - Ready for Bulk Orders - Quality and Delivery Guarantee',
-  quickLinks: 'Catalog | Designs | Best sellers'
+  topBarText: 'Nationwide ADA Compliance - Expert Braille Signage - Premium Quality Guarantee',
+  quickLinks: 'ADA Guides | Braille Signs | Custom Projects'
 };
 
 const defaultFooterData = {
