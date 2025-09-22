@@ -24,30 +24,30 @@ import ImprovedFooter from "@/components/ImprovedFooter";
 
 const ModernAbout = () => {
   const stats = [
-    { icon: Users, label: "Happy Clients", value: "10,000+", color: "from-blue-500 to-cyan-500" },
-    { icon: Globe, label: "Countries Served", value: "50+", color: "from-green-500 to-emerald-500" },
-    { icon: Award, label: "Years Experience", value: "15+", color: "from-purple-500 to-violet-500" },
-    { icon: Star, label: "5-Star Reviews", value: "98%", color: "from-yellow-500 to-orange-500" }
+    { icon: Users, label: "ADA Projects Completed", value: "10,000+", color: "from-cyan-500 to-blue-500" },
+    { icon: Globe, label: "States Served", value: "50+", color: "from-green-500 to-emerald-500" },
+    { icon: Award, label: "Years ADA Expertise", value: "15+", color: "from-blue-500 to-purple-500" },
+    { icon: Star, label: "Client Satisfaction", value: "99.8%", color: "from-cyan-400 to-teal-500" }
   ];
 
   const values = [
     {
       icon: Target,
-      title: "Precision Engineering",
-      description: "Every sign is crafted with meticulous attention to detail, ensuring perfect alignment, spacing, and finish.",
-      color: "from-blue-500 to-purple-500"
+      title: "ADA Compliance Excellence",
+      description: "Every braille sign is crafted to exceed ADA requirements with precise raised braille, proper contrast ratios, and perfect mounting specifications.",
+      color: "from-cyan-500 to-blue-600"
     },
     {
       icon: Lightbulb,
-      title: "Innovation First",
-      description: "We constantly push the boundaries of signage technology, incorporating the latest materials and design trends.",
+      title: "Premium Acrylic Innovation",
+      description: "We use the highest quality acrylic materials with advanced tactile braille technology, ensuring durability and accessibility.",
       color: "from-green-500 to-teal-500"
     },
     {
       icon: Shield,
-      title: "Quality Guarantee",
-      description: "Lifetime warranty on all products. If you're not completely satisfied, we'll make it right.",
-      color: "from-purple-500 to-pink-500"
+      title: "100% ADA Guarantee",
+      description: "Lifetime warranty on ADA compliance. Every sign is inspected and certified to meet all federal accessibility requirements.",
+      color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Heart,
