@@ -126,8 +126,8 @@ const Collections = () => {
         
         {/* Main Content */}
         <div className="container mx-auto px-4">
-          {isInfoSignsPage ? (
-            /* Info Signs - Full Width Layout (No Sidebar) */
+          {isFullWidthLayout ? (
+            /* Full Width Layout (No Sidebar) - Clean & Spacious */
             <div className="w-full">
               {/* Page Header */}
               <div className="mb-6 md:mb-8">
@@ -142,7 +142,7 @@ const Collections = () => {
                 </div>
               </div>
               
-              {/* Products Grid - Wider Layout for Info Signs (3-4 per row) */}
+              {/* Products Grid - Full Width Layout (3-4 per row) */}
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-fr [&>*]:h-full">
                 {products.map((product, index) => (
                   <ProductCard
@@ -162,7 +162,7 @@ const Collections = () => {
               </div>
             </div>
           ) : (
-            /* Other Categories - Standard Layout with Sidebar */
+            /* Standard Layout with Sidebar - Only for specific categories that need filtering */
             <div className="flex flex-col md:flex-row gap-4 md:gap-8">
               {/* Desktop Sidebar - Only visible on desktop */}
               <div className="hidden md:block">
