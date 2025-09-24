@@ -440,6 +440,7 @@ const Checkout = () => {
                               Qty: {item.quantity}
                               {item.selectedSize && ` • Size: ${item.selectedSize}`}
                               {item.selectedColor && ` • Color: ${item.selectedColor}`}
+                              {item.customizations?.roomNumber && ` • ${item.category === "door-number-signs" ? "Door Number" : "Custom Number"}: ${item.customizations.roomNumber}`}
                             </div>
                           </div>
                           <div className="font-medium">
