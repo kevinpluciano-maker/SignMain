@@ -17,24 +17,36 @@ interface ProductCardProps extends Product {
   lazy?: boolean;
 }
 
-const ProductCard = ({
-  id,
-  name,
-  image,
-  price,
-  originalPrice,
-  rating,
-  reviews,
-  reviewCount,
-  colors = [],
-  isNew = false,
-  badges = [],
-  glbUrl,
-  lazy = false
-}: ProductCardProps) => {
+const ProductCard = (product: ProductCardProps) => {
+  const { 
+    id,
+    name,
+    image,
+    price,
+    originalPrice,
+    rating,
+    reviews,
+    colors = [],
+    isNew = false,
+    badges = [],
+    glbUrl,
+    lazy = false,
+    slug,
+    category,
+    description,
+    materials = [],
+    designs = [],
+    sizeOptions = [],
+    colorOptions = [],
+    shapeOptions = [],
+    brailleOptions = [],
+    hasCustomSize = false,
+    hasCustomNumberField = false
+  } = product;
+  
   const { convertPrice, selectedCurrency } = useCurrency();
   const { addToCart, isInCart, totalItems } = useCart();
-  const displayReviews = reviews || reviewCount || 0;
+  const displayReviews = reviews || 0;
   const [isAdding, setIsAdding] = useState(false);
 
   const handleAddToCart = async (e: React.MouseEvent) => {
@@ -44,23 +56,27 @@ const ProductCard = ({
     setIsAdding(true);
     
     try {
-      // Create a basic product object for the cart
-      const productForCart = {
+      // Use the full product object for the cart
+      const productForCart: Product = {
         id,
         name,
         image,
         price: price.toString(),
+        originalPrice: originalPrice?.toString(),
         rating,
         reviews: displayReviews,
-        slug: id,
-        category: 'products',
-        description: `Professional ${name.toLowerCase()}`,
-        materials: [],
-        designs: [],
-        sizeOptions: [],
-        colorOptions: [],
-        shapeOptions: [],
-        brailleOptions: []
+        slug: slug || id,
+        category: category || 'products',
+        description: description || `Professional ${name.toLowerCase()}`,
+        materials,
+        designs,
+        badges,
+        sizeOptions,
+        colorOptions,
+        shapeOptions,
+        brailleOptions,
+        hasCustomSize,
+        hasCustomNumberField
       };
       
       // Add to cart with default quantity of 1
