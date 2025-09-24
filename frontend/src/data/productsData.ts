@@ -374,6 +374,61 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/31a3ba54-4b02-427a-802c-d5a92f80eeca.png"
       ],
       hasCustomSize: true
+    },
+    {
+      id: "no-loitering-stainless-steel-sign",
+      name: "No Loitering Stainless Steel Sign",
+      image: "/assets/no-loitering-sign.png",
+      description: "Professional no loitering signage with premium stainless steel construction and optional braille. Perfect for commercial properties, parking areas, and retail spaces requiring clear access control messaging.",
+      price: "from $75.00",
+      originalPrice: "",
+      rating: 4.8,
+      reviews: 89,
+      category: "prohibitory-signs",
+      badges: ["ADA Compliant", "No Loitering", "Professional"],
+      sizeOptions: [
+        {
+          size: "9.8 x 5.9 in",
+          price: "$75.00"
+        },
+        {
+          size: "11.7 x 8.3 in",
+          price: "$110.00"
+        }
+      ],
+      brailleOptions: ["Yes", "No"],
+      gallery: [
+        "/assets/no-loitering-sign.png"
+      ],
+      hasCustomSize: false
+    },
+    {
+      id: "no-food-allowed-stainless-steel-sign",
+      name: "No Food Allowed Stainless Steel Sign",
+      image: "/assets/no-food-allowed-sign-1.png",
+      description: "Premium no food allowed signage with professional stainless steel finish and optional braille. Ideal for clean rooms, laboratories, computer areas, and facilities requiring food-free environments.",
+      price: "from $40.00",
+      originalPrice: "",
+      rating: 4.9,
+      reviews: 112,
+      category: "prohibitory-signs",
+      badges: ["ADA Compliant", "No Food", "Professional"],
+      sizeOptions: [
+        {
+          size: "4.7 x 4.7 in",
+          price: "$40.00"
+        },
+        {
+          size: "6.3 x 6.3 in",
+          price: "$52.00"
+        }
+      ],
+      brailleOptions: ["Yes", "No"],
+      gallery: [
+        "/assets/no-food-allowed-sign-1.png",
+        "/assets/no-food-allowed-sign-2.png"
+      ],
+      hasCustomSize: false
     }
   ]
 };
