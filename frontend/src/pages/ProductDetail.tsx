@@ -40,14 +40,16 @@ const ProductDetail = () => {
 
   // Buy Now handler
   const handleBuyNow = () => {
+    if (!foundProduct) return;
+    
     // First add to cart
-    addToCart(product, {
+    addToCart(foundProduct, {
       quantity,
       selectedSize,
       selectedColor,
       selectedBraille,
       selectedShape,
-      customizations: product.hasCustomNumberField ? { roomNumber } : undefined
+      customizations: foundProduct.hasCustomNumberField ? { roomNumber } : undefined
     });
     
     // Then navigate to checkout
