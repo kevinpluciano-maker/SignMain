@@ -181,24 +181,28 @@ const ModernAbout = () => {
 
           {/* Values Section */}
           <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">What Drives Us</h2>
-              <p className="text-xl text-blue-200">The core values that guide every decision we make</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {values.map((value, index) => (
-                <Card key={index} className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/15 transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className={`w-14 h-14 bg-gradient-to-r ${value.color} rounded-lg flex items-center justify-center mb-6`}>
-                      <value.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{value.title}</h3>
-                    <p className="text-blue-200 leading-relaxed">{value.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-2xl rounded-3xl">
+              <CardContent className="p-12">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl font-bold text-white mb-4">What Drives Us</h2>
+                  <p className="text-xl text-slate-300">The core values that guide every decision we make</p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {values.map((value, index) => (
+                    <Card key={index} className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/15 transition-all duration-300">
+                      <CardContent className="p-8">
+                        <div className={`w-14 h-14 bg-gradient-to-r ${value.color} rounded-lg flex items-center justify-center mb-6`}>
+                          <value.icon className="h-7 w-7 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-4">{value.title}</h3>
+                        <p className="text-slate-300 leading-relaxed">{value.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Timeline Section */}
