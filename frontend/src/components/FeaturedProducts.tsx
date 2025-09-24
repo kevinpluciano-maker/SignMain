@@ -43,10 +43,15 @@ const FeaturedProducts = () => {
   
   const trendingProducts = allProducts.filter(p => trendingProductIds.includes(p.id));
   
-  // Get premium products (higher price range) - reduced to make space
-  const premiumProducts = bestSellersProducts
+  // Get premium products - specific products with No Food Allowed first
+  const noFoodProduct = allProducts.find(p => p.id === "no-food-allowed-stainless-steel-sign");
+  const otherPremiumProducts = bestSellersProducts
     .filter(p => p.price >= 35)
-    .slice(0, 3);
+    .slice(0, 2); // Reduced to 2 to make room for No Food Allowed
+  
+  const premiumProducts = noFoodProduct 
+    ? [noFoodProduct, ...otherPremiumProducts]
+    : otherPremiumProducts;
   
   // Get budget-friendly options - reduced to make space
   const budgetProducts = bestSellersProducts
