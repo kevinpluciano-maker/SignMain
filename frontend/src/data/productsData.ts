@@ -382,7 +382,8 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/6e59739a-07c3-4416-8005-56773a75a34b.png",
         "/lovable-uploads/31a3ba54-4b02-427a-802c-d5a92f80eeca.png"
       ],
-      hasCustomSize: true
+      hasCustomSize: true,
+      hasCustomNumberField: true
     },
     {
       id: "no-loitering-stainless-steel-sign",
