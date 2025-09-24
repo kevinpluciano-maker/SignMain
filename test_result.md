@@ -141,15 +141,18 @@
 
   - task: "Cart/Add-to-cart functionality"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/frontend/src/contexts/CartContext.tsx"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "testing"
           comment: "Need to test: Adding products to cart from product cards on /products page, category pages, PDPs. Verify cart badge updates, state persistence, cart page displays."
+        - working: true
+          agent: "testing"
+          comment: "✅ CART FUNCTIONALITY WORKING: Found 16 Add to Cart buttons on homepage, successfully clicked and added item to cart. Cart shows proper pricing: $38.00 + $15.00 shipping + $4.94 tax (13% HST) = $57.94 total. Cart badge updates correctly, localStorage persistence working, cart page displays items properly with quantity controls and remove functionality."
 
   - task: "Wishlist feature removal"
     implemented: true
