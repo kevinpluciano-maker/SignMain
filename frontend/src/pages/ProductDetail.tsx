@@ -25,6 +25,7 @@ import conferenceRoomSign from "@/assets/conference-room-sign.jpg";
 const ProductDetail = () => {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const { isEditing, productData: editorProductData, updateProductData } = useEditor();
   const { convertPrice, selectedCurrency } = useCurrency();
   const { addToCart, isInCart } = useCart();
@@ -36,6 +37,22 @@ const ProductDetail = () => {
   const [selectedShape, setSelectedShape] = useState("");
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [roomNumber, setRoomNumber] = useState("");
+
+  // Buy Now handler
+  const handleBuyNow = () => {
+    // First add to cart
+    addToCart(product, {
+      quantity,
+      selectedSize,
+      selectedColor,
+      selectedBraille,
+      selectedShape,
+      customizations: product.hasCustomNumberField ? { roomNumber } : undefined
+    });
+    
+    // Then navigate to checkout
+    navigate('/checkout');
+  };
 
   // Scroll to top when component mounts
   useEffect(() => {
