@@ -207,38 +207,42 @@ const ModernAbout = () => {
 
           {/* Timeline Section */}
           <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">Our Journey</h2>
-              <p className="text-xl text-blue-200">Milestones that shaped our company</p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                {/* Timeline line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
-                
-                <div className="space-y-8">
-                  {timeline.map((item, index) => (
-                    <div key={index} className="relative flex items-start gap-8">
-                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
-                        {item.year.slice(-2)}
-                      </div>
-                      <Card className="flex-1 bg-white/10 backdrop-blur-lg border-white/20">
-                        <CardContent className="p-6">
-                          <div className="flex items-center gap-4 mb-3">
-                            <span className="text-2xl font-bold text-white">{item.year}</span>
-                            <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                              {item.title}
-                            </Badge>
-                          </div>
-                          <p className="text-blue-200">{item.description}</p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  ))}
+            <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-2xl rounded-3xl">
+              <CardContent className="p-12">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl font-bold text-white mb-4">Our Journey</h2>
+                  <p className="text-xl text-slate-300">Milestones that shaped our company</p>
                 </div>
-              </div>
-            </div>
+                
+                <div className="max-w-4xl mx-auto">
+                  <div className="relative">
+                    {/* Timeline line */}
+                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
+                    
+                    <div className="space-y-8">
+                      {timeline.map((item, index) => (
+                        <div key={index} className="relative flex items-start gap-8">
+                          <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg z-10">
+                            {item.year.slice(-2)}
+                          </div>
+                          <Card className="flex-1 bg-white/10 backdrop-blur-lg border-white/20">
+                            <CardContent className="p-6">
+                              <div className="flex items-center gap-4 mb-3">
+                                <span className="text-2xl font-bold text-white">{item.year}</span>
+                                <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
+                                  {item.title}
+                                </Badge>
+                              </div>
+                              <p className="text-slate-300">{item.description}</p>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Team Section */}
