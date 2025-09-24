@@ -345,7 +345,8 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/3621ad29-43c8-4cdd-9264-fe430c72044e.png",
         "/lovable-uploads/a562b8d1-1b48-405b-9d3c-4cb0d3fa3873.png"
       ],
-      hasCustomSize: true
+      hasCustomSize: true,
+      hasCustomNumberField: true
     },
     {
       id: "no-guns-allowed-stainless-steel-sign",
