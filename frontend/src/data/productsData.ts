@@ -259,7 +259,8 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/cf5ec2e9-71b7-4db9-8ad8-2b69a7da04e3.png",
         "/lovable-uploads/3d81cbd2-417e-419f-9600-ca34f6a09c4c.png"
       ],
-      hasCustomSize: true
+      hasCustomSize: true,
+      hasCustomNumberField: true
     },
     {
       id: "reception-ada-sign",
