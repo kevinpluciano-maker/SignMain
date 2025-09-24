@@ -397,19 +397,21 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {/* Room Number for Exam Room Sign */}
-              {foundProduct?.id === "acrylic-exam-room-sign" && (
+              {/* Custom Number Field for Door Number Products */}
+              {product.hasCustomNumberField && (
                 <div>
-                  <h3 className="text-sm font-semibold text-foreground mb-2">Room Number</h3>
+                  <h3 className="text-sm font-semibold text-foreground mb-2">
+                    {product.category === "door-number-signs" ? "Door Number" : "Custom Number"}
+                  </h3>
                   <input
                     type="text"
                     value={roomNumber}
                     onChange={(e) => setRoomNumber(e.target.value)}
-                    placeholder="Enter room number (e.g., 101, A-15)"
+                    placeholder={product.category === "door-number-signs" ? "Enter door number (e.g., 101, Suite A)" : "Enter room number (e.g., 101, A-15)"}
                     className="w-full p-2.5 text-sm border border-border rounded-md bg-background focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
                   />
                   <p className="text-xs text-muted-foreground mt-1">
-                    This will be printed on your exam room sign
+                    This will be printed on your {product.category === "door-number-signs" ? "door number sign" : "sign"}
                   </p>
                 </div>
               )}
