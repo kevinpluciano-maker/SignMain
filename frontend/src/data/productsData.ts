@@ -104,7 +104,8 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/54b498ee-7663-49ff-9ba3-62df22803645.png",
         "/lovable-uploads/fe031e77-6a52-4e48-aede-42c0fb9b37dc.png"
       ],
-      hasCustomSize: true
+      hasCustomSize: true,
+      hasCustomNumberField: true
     },
     {
       id: "all-gender-stainless-steel-sign",
