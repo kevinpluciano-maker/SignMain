@@ -22,6 +22,7 @@ export interface Product {
   brailleOptions?: string[];
   gallery?: string[];
   hasCustomSize?: boolean;
+  hasCustomNumberField?: boolean;
 }
 
 export const productsData: Record<string, Product[]> = {
