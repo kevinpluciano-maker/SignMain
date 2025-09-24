@@ -419,13 +419,17 @@ export const productsData: Record<string, Product[]> = {
     {
       id: "no-food-allowed-stainless-steel-sign",
       name: "No Food Allowed Stainless Steel Sign",
-      image: "/assets/no-food-allowed-sign-1.png",
+      image: "https://customer-assets.emergentagent.com/job_coderecon/artifacts/xtddtk3x_0548605f.jpg",
+      slug: "no-food-allowed-stainless-steel-sign",
       description: "Premium no food allowed signage with professional stainless steel finish and optional braille. Ideal for clean rooms, laboratories, computer areas, and facilities requiring food-free environments.",
       price: "from $40.00",
       originalPrice: "",
       rating: 4.9,
       reviews: 112,
       category: "prohibitory-signs",
+      subcategory: "no-food-signs",
+      materials: ["Stainless Steel", "Raised Characters", "Braille Dots"],
+      designs: ["ADA Compliant"],
       badges: ["ADA Compliant", "No Food", "Professional"],
       sizeOptions: [
         {
@@ -439,8 +443,8 @@ export const productsData: Record<string, Product[]> = {
       ],
       brailleOptions: ["Yes", "No"],
       gallery: [
-        "/assets/no-food-allowed-sign-1.png",
-        "/assets/no-food-allowed-sign-2.png"
+        "https://customer-assets.emergentagent.com/job_coderecon/artifacts/xtddtk3x_0548605f.jpg",
+        "https://customer-assets.emergentagent.com/job_coderecon/artifacts/7dsczgo3_7b01a990.jpg"
       ],
       hasCustomSize: false
     }
