@@ -201,15 +201,78 @@
 
   - task: "Visual design consistency"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/frontend/src/pages/ModernContact.tsx"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "testing"
           comment: "Need to test: Contact page (/contact) and About page (/about) visual design, consistent colors/spacing/typography, mobile responsiveness."
+        - working: true
+          agent: "testing"
+          comment: "✅ VISUAL DESIGN CONSISTENT: About page loads correctly with good color contrast and readability. Footer shows only one logo (correct), contact info synced between header and footer (2 phone instances, 2 email instances). Visual design appears consistent and professional."
+
+  - task: "New Product Placements - Homepage Sections"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/components/FeaturedProducts.tsx"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ CRITICAL: Product placements not implemented correctly. Found 'Trending Now' and 'Premium Collection' section headers, but specific products missing: Pull Door Sign and No Loitering NOT found in trending section. No Food Allowed and Roof Access NOT found in premium collection. Only Staff ADA Sign found in premium section. Product data exists in productsData.ts but not displaying in correct sections."
+
+  - task: "Door Number Personalization"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/pages/ProductDetail.tsx"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ CRITICAL: Custom number input field NOT found on Door Number product page (/products/door-number-wood-stainless-steel). Tested multiple selectors including input[placeholder*='door number'], input[placeholder*='number'], input[type='text'] but none found. hasCustomNumberField property exists in product data but UI component not rendering."
+
+  - task: "Buy Now Functionality"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/pages/ProductDetail.tsx"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ CRITICAL: Buy Now button found but does NOT redirect to checkout. Button exists and is clickable but URL remains on product page instead of navigating to /checkout. handleBuyNow function may not be working correctly."
+
+  - task: "About Page Canada/USA Service Mentions"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/pages/ModernAbout.tsx"
+    stuck_count: 1
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ About page missing Canada & USA service mentions. Found 0 Canada mentions and 0 USA mentions. Should mention service to Canada & USA only (no worldwide shipping). However, correctly shows no inappropriate worldwide/global shipping mentions."
+
+  - task: "JavaScript Error - Price String"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/contexts/CartContext.tsx"
+    stuck_count: 1
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ JavaScript error detected: 'priceString.replace is not a function' appearing on product pages. This error occurs in price processing logic and may affect cart functionality or price display. Error appears multiple times in console logs."
 
 ## metadata:
   created_by: "main_agent"
