@@ -44,15 +44,17 @@ const FeaturedProducts = () => {
   
   const trendingProducts = allProducts.filter(p => trendingProductIds.includes(p.id));
   
-  // Get premium products - specific products with No Food Allowed first
+  // Get premium products - specific products with No Food Allowed first, Staff ADA Sign, and Roof Access
   const noFoodProduct = allProducts.find(p => p.id === "no-food-allowed-stainless-steel-sign");
-  const otherPremiumProducts = bestSellersProducts
-    .filter(p => p.price >= 35)
-    .slice(0, 2); // Reduced to 2 to make room for No Food Allowed
+  const staffAdaProduct = allProducts.find(p => p.id === "staff-ada-sign");
+  const roofAccessProduct = allProducts.find(p => p.id === "roof-access-stainless-steel-sign");
   
-  const premiumProducts = noFoodProduct 
-    ? [noFoodProduct, ...otherPremiumProducts]
-    : otherPremiumProducts;
+  // Build premium products array with required products
+  const premiumProducts = [
+    noFoodProduct,
+    staffAdaProduct,
+    roofAccessProduct
+  ].filter(Boolean); // Remove any undefined products
   
   // Get budget-friendly options - reduced to make space
   const budgetProducts = bestSellersProducts
