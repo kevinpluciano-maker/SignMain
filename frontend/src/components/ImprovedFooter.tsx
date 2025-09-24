@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import acrylicBrailleLogo from "@/assets/acrylic-braille-logo.png";
 
 const ImprovedFooter = () => {
-  const { footerData, updateFooterData } = useEditor();
+  const { headerData, footerData, updateFooterData } = useEditor();
   const navigate = useNavigate();
   
   const quickLinks = [
