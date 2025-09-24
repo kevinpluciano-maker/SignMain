@@ -37,7 +37,8 @@ const FeaturedProducts = () => {
   const trendingProductIds = [
     "door-number-wood-stainless-steel",
     "no-bicycles-stainless-steel-sign", 
-    "no-guns-allowed-stainless-steel-sign"
+    "no-guns-allowed-stainless-steel-sign",
+    "no-loitering-stainless-steel-sign"
   ];
   
   const trendingProducts = allProducts.filter(p => trendingProductIds.includes(p.id));
