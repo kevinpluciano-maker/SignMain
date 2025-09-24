@@ -388,13 +388,17 @@ export const productsData: Record<string, Product[]> = {
     {
       id: "no-loitering-stainless-steel-sign",
       name: "No Loitering Stainless Steel Sign",
-      image: "/assets/no-loitering-sign.png",
+      image: "https://customer-assets.emergentagent.com/job_coderecon/artifacts/hsllkut0_d6b662cb.jpg",
+      slug: "no-loitering-stainless-steel-sign",
       description: "Professional no loitering signage with premium stainless steel construction and optional braille. Perfect for commercial properties, parking areas, and retail spaces requiring clear access control messaging.",
       price: "from $75.00",
       originalPrice: "",
       rating: 4.8,
       reviews: 89,
       category: "prohibitory-signs",
+      subcategory: "no-loitering-signs",
+      materials: ["Stainless Steel", "Raised Characters", "Braille Dots"],
+      designs: ["ADA Compliant"],
       badges: ["ADA Compliant", "No Loitering", "Professional"],
       sizeOptions: [
         {
@@ -408,7 +412,7 @@ export const productsData: Record<string, Product[]> = {
       ],
       brailleOptions: ["Yes", "No"],
       gallery: [
-        "/assets/no-loitering-sign.png"
+        "https://customer-assets.emergentagent.com/job_coderecon/artifacts/hsllkut0_d6b662cb.jpg"
       ],
       hasCustomSize: false
     },
