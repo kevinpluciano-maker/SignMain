@@ -176,7 +176,8 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/c5345240-0a2b-489c-9170-5e6da30bd0cd.png",
         "/lovable-uploads/b59f1141-5985-4e89-b44d-31537031de9e.png"
       ],
-      hasCustomSize: true
+      hasCustomSize: true,
+      hasCustomNumberField: true
     }
   ],
   "info-signs": [
