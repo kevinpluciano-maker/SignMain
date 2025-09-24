@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, StarHalf, Minus, Plus, ShoppingCart, Share2, ArrowLeft, Edit3 } from "lucide-react";
+import { Star, StarHalf, Minus, Plus, ShoppingCart, Share2, ArrowLeft, Edit3, CreditCard } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
