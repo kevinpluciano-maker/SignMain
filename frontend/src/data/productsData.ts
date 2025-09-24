@@ -212,7 +212,8 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/9e1f7f2d-93fd-4706-9fdf-3a162a9cf873.png",
         "/lovable-uploads/a629cea7-8d9b-487c-8f52-1077092d149a.png"
       ],
-      hasCustomSize: true
+      hasCustomSize: true,
+      hasCustomNumberField: true
     },
     {
       id: "meeting-room-ada-sign",
