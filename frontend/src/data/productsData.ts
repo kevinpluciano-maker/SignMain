@@ -141,7 +141,8 @@ export const productsData: Record<string, Product[]> = {
         "/lovable-uploads/a1180aa1-483f-40b2-afbe-e89f615d60fe.png",
         "/lovable-uploads/f13a17ac-6d43-4677-aa5f-0151203c3e1a.png"
       ],
-      hasCustomSize: true
+      hasCustomSize: true,
+      hasCustomNumberField: true
     }
   ],
   "door-number-signs": [
