@@ -451,11 +451,23 @@ const ProductDetail = () => {
                   selectedSize,
                   selectedColor,
                   selectedBraille,
-                  selectedShape
+                  selectedShape,
+                  customizations: product.hasCustomNumberField ? { roomNumber } : undefined
                 })}
               >
                 <ShoppingCart className="h-5 w-5 mr-2" />
                 {isInCart(product.id) ? 'Add More to Cart' : 'Add to Cart'} - ${(totalPrice * quantity).toFixed(2)}
+              </Button>
+              
+              {/* Buy Now Button */}
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="w-full"
+                onClick={handleBuyNow}
+              >
+                <CreditCard className="h-5 w-5 mr-2" />
+                Buy Now - ${(totalPrice * quantity).toFixed(2)}
               </Button>
               
               {/* Custom Size Request Button */}
