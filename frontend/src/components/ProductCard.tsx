@@ -7,21 +7,12 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { useCart } from "@/contexts/CartContext";
+import { Product } from "@/data/productsData";
 
-interface ProductCardProps {
-  id: string;
-  name: string;
-  image: string;
-  price: string | number;
-  originalPrice?: string | number;
-  rating: number;
-  reviews?: number;
-  reviewCount?: number;
+interface ProductCardProps extends Product {
+  // Additional props that may be passed from other components
   colors?: string[];
   isNew?: boolean;
-  badges?: string[];
-  materials?: string[];
-  designs?: string[];
   glbUrl?: string;
   lazy?: boolean;
 }
