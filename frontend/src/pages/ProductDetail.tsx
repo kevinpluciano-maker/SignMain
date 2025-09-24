@@ -450,13 +450,13 @@ const ProductDetail = () => {
               <Button 
                 size="lg" 
                 className="w-full"
-                onClick={() => addToCart(product, {
+                onClick={() => addToCart(foundProduct, {
                   quantity,
                   selectedSize,
                   selectedColor,
                   selectedBraille,
                   selectedShape,
-                  customizations: product.hasCustomNumberField ? { roomNumber } : undefined
+                  customizations: foundProduct?.hasCustomNumberField ? { roomNumber } : undefined
                 })}
               >
                 <ShoppingCart className="h-5 w-5 mr-2" />
