@@ -309,10 +309,10 @@ const ModernAbout = () => {
 
           {/* CTA Section */}
           <div className="text-center">
-            <Card className="bg-gradient-to-r from-blue-600/30 to-purple-600/30 backdrop-blur-lg border-white/20">
+            <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-2xl rounded-3xl">
               <CardContent className="p-12">
                 <h2 className="text-4xl font-bold text-white mb-6">Ready to Create Something Amazing?</h2>
-                <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
                   Join thousands of satisfied clients who trust us with their most important signage projects. Let's bring your vision to life.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
@@ -330,17 +330,21 @@ const ModernAbout = () => {
                 </div>
                 
                 <div className="flex flex-wrap justify-center gap-6 mt-8 pt-8 border-t border-white/20">
-                  <div className="flex items-center gap-2 text-blue-200">
+                  <div className="flex items-center gap-2 text-slate-300">
                     <CheckCircle className="h-5 w-5 text-green-400" />
                     <span>Free consultation</span>
                   </div>
-                  <div className="flex items-center gap-2 text-blue-200">
+                  <div className="flex items-center gap-2 text-slate-300">
                     <CheckCircle className="h-5 w-5 text-green-400" />
                     <span>24-hour quotes</span>
                   </div>
-                  <div className="flex items-center gap-2 text-blue-200">
+                  <div className="flex items-center gap-2 text-slate-300">
                     <CheckCircle className="h-5 w-5 text-green-400" />
-                    <span>Lifetime warranty</span>
+                    <span>Canada & USA service</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span>100% ADA compliant</span>
                   </div>
                 </div>
               </CardContent>
