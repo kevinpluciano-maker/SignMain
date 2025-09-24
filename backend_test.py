@@ -447,7 +447,7 @@ class BSignBackendTester:
         try:
             # Test preflight request
             headers = {
-                "Origin": "https://init-project-4.preview.emergentagent.com",
+                "Origin": "https://coderecon.preview.emergentagent.com",
                 "Access-Control-Request-Method": "POST",
                 "Access-Control-Request-Headers": "Content-Type"
             }
