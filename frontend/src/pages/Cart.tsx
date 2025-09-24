@@ -119,6 +119,9 @@ const Cart = () => {
                           {item.selectedShape && (
                             <div>Shape: {item.selectedShape}</div>
                           )}
+                          {item.customizations?.roomNumber && (
+                            <div>{item.category === "door-number-signs" ? "Door Number" : "Custom Number"}: {item.customizations.roomNumber}</div>
+                          )}
                         </div>
 
                         <div className="flex items-center justify-between">
