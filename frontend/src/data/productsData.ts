@@ -479,37 +479,6 @@ export const productsData: Record<string, Product[]> = {
         "https://customer-assets.emergentagent.com/job_coderecon/artifacts/hkao4lc1_4bda01e1.jpg"
       ],
       hasCustomSize: false
-    },
-    {
-      id: "roof-access-stainless-steel-sign",
-      name: "Roof Access — Stainless Steel",
-      image: "https://customer-assets.emergentagent.com/job_coderecon/artifacts/c21i1mwb_b7b8bb37%20%281%29.jpg",
-      slug: "roof-access-stainless-steel-sign",
-      description: "Professional roof access signage with ladder pictogram and premium stainless steel construction. Features clear directional indication with optional braille. Essential for commercial buildings, offices, and industrial facilities requiring clear roof access identification.",
-      price: "from $27.00",
-      originalPrice: "",
-      rating: 4.8,
-      reviews: 67,
-      category: "info-signs",
-      subcategory: "access-signs",
-      materials: ["Stainless Steel", "Raised Characters", "Braille Dots"],
-      designs: ["Modern", "ADA Compliant"],
-      badges: ["Roof Access", "ADA Compliant", "Professional"],
-      sizeOptions: [
-        {
-          size: "3.9 x 3.9 in",
-          price: "$27.00"
-        },
-        {
-          size: "5.9 x 5.9 in",
-          price: "$40.00"
-        }
-      ],
-      brailleOptions: ["Yes", "No"],
-      gallery: [
-        "https://customer-assets.emergentagent.com/job_coderecon/artifacts/c21i1mwb_b7b8bb37%20%281%29.jpg"
-      ],
-      hasCustomSize: false
     }
   ]
 };
