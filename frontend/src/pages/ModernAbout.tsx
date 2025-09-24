@@ -274,7 +274,7 @@ const ModernAbout = () => {
 
           {/* Certifications & Awards */}
           <div className="mb-20">
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+            <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-2xl rounded-3xl">
               <CardContent className="p-12">
                 <h2 className="text-4xl font-bold text-white text-center mb-8">Recognition & Certifications</h2>
                 
@@ -284,7 +284,7 @@ const ModernAbout = () => {
                       <Award className="h-10 w-10 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">ADA Certified</h3>
-                    <p className="text-blue-200">Official ADA compliance certification for accessibility design</p>
+                    <p className="text-slate-300">Official ADA compliance certification for accessibility design</p>
                   </div>
                   
                   <div className="text-center">
@@ -292,7 +292,7 @@ const ModernAbout = () => {
                       <Shield className="h-10 w-10 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">ISO 9001</h3>
-                    <p className="text-blue-200">International quality management system certification</p>
+                    <p className="text-slate-300">International quality management system certification</p>
                   </div>
                   
                   <div className="text-center">
@@ -300,7 +300,7 @@ const ModernAbout = () => {
                       <TrendingUp className="h-10 w-10 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Industry Leader</h3>
-                    <p className="text-blue-200">Recognized as top 10 signage company in North America</p>
+                    <p className="text-slate-300">Recognized as top 10 signage company in Canada & USA</p>
                   </div>
                 </div>
               </CardContent>
