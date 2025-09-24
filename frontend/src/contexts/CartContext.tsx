@@ -46,7 +46,9 @@ const calculateShipping = (subtotal: number, itemCount: number): number => {
 };
 
 // Extract numeric price from string like "from $58.00" or "$45.99"
-const extractPrice = (priceString: string): number => {
+const extractPrice = (priceString: string | number): number => {
+  if (typeof priceString === 'number') return priceString;
+  if (!priceString || typeof priceString !== 'string') return 0;
   const numStr = priceString.replace(/[^0-9.]/g, '');
   return parseFloat(numStr) || 0;
 };
