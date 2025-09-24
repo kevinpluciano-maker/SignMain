@@ -36,15 +36,13 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Tax rate (8.25% - typical US rate)
-const TAX_RATE = 0.0825;
+// Tax rate (13% HST for Canada)
+const TAX_RATE = 0.13;
 
-// Shipping calculation
+// Shipping calculation - $15 CAD flat rate for orders below $85 CAD
 const calculateShipping = (subtotal: number, itemCount: number): number => {
-  if (subtotal >= 100) return 0; // Free shipping over $100
-  if (itemCount <= 2) return 8.99;
-  if (itemCount <= 5) return 12.99;
-  return 16.99;
+  if (subtotal >= 85) return 0; // Free shipping over $85 CAD
+  return 15; // $15 CAD flat shipping fee
 };
 
 // Extract numeric price from string like "from $58.00" or "$45.99"
