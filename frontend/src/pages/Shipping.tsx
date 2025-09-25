@@ -155,22 +155,43 @@ const Shipping = () => {
               </CardContent>
             </Card>
 
-            {/* International Shipping */}
+            {/* Canada & USA Shipping */}
             <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-8 text-center">International Shipping</h2>
+              <h2 className="text-3xl font-bold mb-8 text-center">Canada & USA Shipping</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {internationalZones.map((zone, index) => (
+                {[
+                  {
+                    region: "Canada",
+                    timeframe: "3-5 Business Days",
+                    cost: "Free shipping over $85 CAD",
+                    description: "Standard shipping across all Canadian provinces and territories"
+                  },
+                  {
+                    region: "United States",
+                    timeframe: "5-7 Business Days", 
+                    cost: "$15 CAD flat rate",
+                    description: "Reliable shipping to all 50 states including Alaska and Hawaii"
+                  }
+                ].map((zone, index) => (
                   <Card key={index} className="border-0 shadow-lg">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
-                        <MapPin className="h-6 w-6 text-primary mt-1" />
-                        <div className="space-y-2">
-                          <h3 className="font-bold text-lg">{zone.zone}</h3>
-                          <div className="flex items-center gap-4 text-sm">
-                            <span className="font-semibold text-primary">{zone.time}</span>
-                            <span className="font-semibold">{zone.cost}</span>
+                        <div className="p-3 rounded-full bg-primary/10">
+                          <Truck className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-xl mb-2">{zone.region}</h3>
+                          <div className="space-y-2 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-4 w-4" />
+                              <span>{zone.timeframe}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Package className="h-4 w-4" />
+                              <span>{zone.cost}</span>
+                            </div>
                           </div>
-                          <p className="text-muted-foreground text-sm">{zone.description}</p>
+                          <p className="text-sm mt-3">{zone.description}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -182,14 +203,14 @@ const Shipping = () => {
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                     <Shield className="h-5 w-5 text-amber-600" />
-                    International Shipping Notes
+                    Canada & USA Shipping Notes
                   </h4>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Customs duties and taxes may apply and are the responsibility of the recipient</li>
-                    <li>• Some countries may have restrictions on certain materials</li>
-                    <li>• Delivery times may vary due to customs processing</li>
-                    <li>• All international orders include tracking information</li>
-                    <li>• We declare accurate values for all international shipments</li>
+                    <li>• Free shipping to Canada on orders over $85 CAD</li>
+                    <li>• Flat $15 CAD shipping rate to USA</li>
+                    <li>• Express shipping options available at checkout</li>
+                    <li>• All orders include tracking information</li>
+                    <li>• HST/taxes included for Canadian customers</li>
                   </ul>
                 </CardContent>
               </Card>
