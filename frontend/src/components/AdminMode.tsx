@@ -77,7 +77,7 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
     
     // Content fields
     heroTitle: 'Professional Door Signs & Signage Solutions',
-    heroSubtitle: 'Quality guaranteed with worldwide shipping',
+    heroSubtitle: 'Quality guaranteed with Canada & USA service',
     
     // Contact info
     address: '123 Business Ave, Suite 100, City, ST 12345',
