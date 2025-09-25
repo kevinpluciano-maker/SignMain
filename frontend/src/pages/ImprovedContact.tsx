@@ -311,7 +311,7 @@ const ImprovedContact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Do you ship internationally?</h3>
                     <p className="text-muted-foreground">
-                      Yes, we ship worldwide. International shipping costs and delivery times vary by location.
+                      Yes, we serve customers throughout Canada and the United States. Shipping costs and delivery times vary by location within our service area.
                     </p>
                   </div>
                   
