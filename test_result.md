@@ -288,6 +288,9 @@
         - working: false
           agent: "testing"
           comment: "❌ CRITICAL: Navigation dropdowns completely broken. Found navigation triggers for Door Number Signs, Restroom Signs, and Info Signs but NO dropdown content appears on hover. Prohibitory Signs trigger not found. User cannot access product categories through navigation - this is a fundamental UX failure blocking core site functionality."
+        - working: false
+          agent: "testing"
+          comment: "❌ EMERGENCY TEST CONFIRMED: Navigation dropdowns still broken. Door Number Signs dropdown shows 27 items but Restroom Signs dropdown found but not visible, Prohibitory Signs trigger not found. Only 1 out of 3 dropdowns working properly. Critical navigation failure persists."
 
   - task: "Braille Dynamic Pricing System"
     implemented: false
