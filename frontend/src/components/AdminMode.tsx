@@ -73,7 +73,7 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
     
     // New SEO fields
     metaTitle: 'Premium ADA Compliant Braille Signs | Acrylic Braille Signs Canada & USA',
-    metaDescription: 'Premium door number signs, restroom signs, office signage and custom architectural signage. ADA compliant, worldwide shipping, quality guaranteed.',
+    metaDescription: 'Professional ADA compliant acrylic braille signage for offices, healthcare, and commercial spaces. Premium quality door numbers, restroom signs, and custom signage. Serving Canada & USA.',
     
     // Content fields
     heroTitle: 'Professional Door Signs & Signage Solutions',
