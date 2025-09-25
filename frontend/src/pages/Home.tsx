@@ -19,10 +19,11 @@ const Home = () => {
     <>
       <CriticalCSS />
       <SEO
-        title="Professional Door Signs & Signage Solutions | Bsign Store"
-        description="Premium door number signs, restroom signs, office signage and custom architectural signage. ADA compliant, worldwide shipping, quality guaranteed."
+        title="Premium ADA Compliant Braille Signs | Acrylic Braille Signs Canada & USA"
+        description="Professional ADA compliant acrylic braille signage for offices, healthcare, and commercial spaces. Premium quality door numbers, restroom signs, and custom signage. Serving Canada & USA with expert installation."
         canonical="/"
         type="website"
+        keywords={["ADA compliant signs", "braille signage", "acrylic signs", "door number signs", "restroom signs", "office signage", "custom braille signs", "accessibility signage", "professional signage Canada", "braille door signs", "tactile signage"]}
       />
       <div className="min-h-screen bg-background">
         {/* AccessibilityEnhancer removed per requirements */}
