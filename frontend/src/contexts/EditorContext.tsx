@@ -22,6 +22,7 @@ interface EditorData {
     phone: string;
     email: string;
     businessHours: string;
+    year: string;
   };
 }
 
