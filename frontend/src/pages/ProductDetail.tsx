@@ -154,6 +154,28 @@ const ProductDetail = () => {
     { name: "Standard Size", value: "standard", price: product.price }
   ];
 
+  // Calculate total price including Braille surcharge
+  const calculateTotalPrice = () => {
+    let basePrice = product.price;
+    
+    // Use selected size price if available
+    if (selectedSize) {
+      const sizeOption = sizeOptions.find(opt => opt.value === selectedSize);
+      if (sizeOption) {
+        basePrice = sizeOption.price;
+      }
+    }
+    
+    // Add Braille surcharge if selected
+    const brailleSurcharge = (selectedBraille && 
+      (selectedBraille.toLowerCase().includes('yes') || selectedBraille.toLowerCase().includes('with braille'))) 
+      ? 10 : 0;
+    
+    return basePrice + brailleSurcharge;
+  };
+
+  const totalPrice = calculateTotalPrice();
+
   const renderStars = (rating: number) => {
     const stars = [];
     const fullStars = Math.floor(rating);
