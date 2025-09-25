@@ -307,7 +307,7 @@ const ProductDetail = () => {
               </div>
               
               {/* Price Breakdown */}
-              {selectedBraille && (selectedBraille.toLowerCase().includes('yes') || selectedBraille.toLowerCase().includes('with braille')) && (
+              {selectedBraille && selectedBraille.toLowerCase() === 'yes' && (
                 <div className="text-sm text-muted-foreground border-l-2 border-primary/20 pl-3">
                   <div className="space-y-1">
                     <div className="flex justify-between">
