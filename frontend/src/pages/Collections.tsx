@@ -15,6 +15,11 @@ import { useEffect } from "react";
 const Collections = () => {
   const { category } = useParams();
   
+  // Scroll to top when navigating to collections
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [category]);
+  
   const getPageTitle = () => {
     if (!category) return "All Products";
     return getCategoryTitle(category);
@@ -25,65 +30,8 @@ const Collections = () => {
     if (category === "best-sellers") return bestSellersProducts;
     if (category === "new") return getAllProducts().slice(0, 12); // Show newest products
     
-    // Handle hyphenated category URLs - convert back to original category keys
-    const categoryKey = category.toLowerCase();
-    
-    // For Info Signs subcategories, show all info-signs products
-    if (['exam-room-signs', 'meeting-room-ada-signs', 'reception-signs'].includes(categoryKey)) {
-      return getCategoryProducts('info-signs');
-    }
-    
-    // Try direct match first
-    let products = getCategoryProducts(categoryKey);
-    
-    // If no direct match, try mapping common URL patterns back to data keys
-    if (products.length === 0) {
-      // Map specific URL patterns to data keys
-      const categoryMappings: Record<string, string> = {
-        'unisex-restroom-signs': 'restroom-signs',
-        'women-restroom-signs': 'restroom-signs', 
-        'men-restroom-signs': 'restroom-signs',
-        'office-door-numbers': 'door-number-signs',
-        'house-number-signs': 'door-number-signs',
-        'hotel-door-numbers': 'door-number-signs',
-        'apartment-door-numbers': 'door-number-signs',
-        'interior-door-signs': 'door-signs',
-        'medical-office-door-signs': 'door-signs',
-        'hotel-door-signs': 'door-signs',
-        'no-smoking-signs': 'prohibitory-signs',
-        'staff-only-signs': 'prohibitory-signs',
-        'elevator-signs': 'info-signs',
-        'cafeteria-signs': 'info-signs',
-        'exam-room-signs': 'info-signs',
-        'meeting-room-ada-signs': 'info-signs', 
-        'reception-signs': 'info-signs',
-        'directional-exit-signs': 'directional-signs',
-        'hospital-directional-signs': 'directional-signs',
-        'ada-braille-signs': 'ada-signs',
-        'ada-room-name-signs': 'ada-signs',
-        'conference-room-signs': 'room-signs',
-        'meeting-room-signs': 'room-signs',
-        'nameplate-desk-signs': 'desk-signs',
-        'executive-desk-signs': 'desk-signs'
-      };
-      
-      const mappedCategory = categoryMappings[categoryKey];
-      if (mappedCategory) {
-        products = getCategoryProducts(mappedCategory);
-        
-        // Filter by subcategory if it exists
-        if (products.length > 0) {
-          const subcategoryFilter = categoryKey.replace(/-/g, '-');
-          products = products.filter(product => 
-            product.subcategory === subcategoryFilter || 
-            product.category === categoryKey ||
-            product.name.toLowerCase().includes(subcategoryFilter.replace(/-/g, ' '))
-          );
-        }
-      }
-    }
-    
-    return products;
+    // Use smart category assignment for better product matching
+    return getCategoryProductsSmart(category);
   };
 
   const products = getProducts();
