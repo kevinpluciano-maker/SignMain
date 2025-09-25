@@ -65,7 +65,7 @@ export const productsData: Record<string, Product[]> = {
         "White on Dark Blue",
         "Dark Blue on White"
       ],
-      brailleOptions: ["With Braille", "Without Braille"],
+      brailleOptions: ["Yes", "No"],
       gallery: [
         "/lovable-uploads/91055f4b-ab58-45a7-8a16-66b44899231a.png",
         "/lovable-uploads/a2821ed3-1fb0-41c5-816e-6cfe71e71f5a.png"
