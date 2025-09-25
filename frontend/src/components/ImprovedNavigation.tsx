@@ -2,21 +2,12 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { getAllProducts, getCategoryProducts, getCategoryTitle } from "@/data/productsData";
-import { useEffect } from "react";
 
 const ImprovedNavigation = () => {
   const navigate = useNavigate();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  // Static navigation items that actually work
+  // Static navigation items that work
   const navItems = [
     {
       title: "Door Number Signs",
@@ -71,6 +62,7 @@ const ImprovedNavigation = () => {
   const handleCategoryClick = (categoryTitle: string, categoryKey: string) => {
     navigate(`/collections/${categoryKey}`);
     window.scrollTo(0, 0);
+    setOpenDropdown(null);
   };
 
   const handleItemClick = (item: string, categoryKey: string) => {
@@ -82,35 +74,46 @@ const ImprovedNavigation = () => {
     
     navigate(`/products/${slug}`);
     window.scrollTo(0, 0);
+    setOpenDropdown(null);
   };
 
   return (
-    <nav className="bg-background border-b shadow-sm hidden md:block relative z-50">
-      <div className="container mx-auto px-4">
-        <NavigationMenu className="w-full">
-          <NavigationMenuList className="flex space-x-0 w-full justify-center">
+    <nav className="bg-card border-b sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-6">
+        <div className="flex justify-center">
+          <div className="flex space-x-0">
             {navItems.map((category) => (
-              <NavigationMenuItem key={category.title} className="relative">
-                <NavigationMenuTrigger 
-                  className="h-16 px-6 hover:bg-muted/50 data-[state=open]:bg-muted text-base font-medium bg-transparent border-0 focus:ring-0"
+              <div
+                key={category.title}
+                className="relative"
+                onMouseEnter={() => setOpenDropdown(category.title)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <Button
+                  variant="ghost"
+                  className="h-16 px-6 hover:bg-muted/50 text-base font-medium bg-transparent border-0 focus:ring-0 flex items-center gap-1"
+                  onClick={() => handleCategoryClick(category.title, category.category)}
                 >
                   {category.title}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="absolute top-full left-0 mt-0 bg-card border border-border text-card-foreground shadow-xl z-[200] min-w-[400px]">
-                  <div className="grid gap-1 p-4 w-[400px]">
-                    {category.items.map((item) => (
-                      <NavigationMenuLink key={item} asChild>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+
+                {/* Dropdown Content */}
+                {openDropdown === category.title && (
+                  <div className="absolute top-full left-0 mt-0 bg-card border border-border text-card-foreground shadow-xl z-[200] min-w-[400px]">
+                    <div className="grid gap-1 p-4 w-[400px]">
+                      {category.items.map((item) => (
                         <Button
+                          key={item}
                           variant="ghost"
                           className="justify-start h-auto p-3 font-normal hover:bg-muted text-left whitespace-normal w-full text-sm"
                           onClick={() => handleItemClick(item, category.category)}
                         >
                           {item}
                         </Button>
-                      </NavigationMenuLink>
-                    ))}
-                    {/* View All Category Link */}
-                    <NavigationMenuLink asChild>
+                      ))}
+                      
+                      {/* View All Category Link */}
                       <Button
                         variant="outline"
                         className="justify-center h-auto p-3 font-medium hover:bg-primary hover:text-primary-foreground text-center w-full text-sm mt-2"
@@ -118,13 +121,13 @@ const ImprovedNavigation = () => {
                       >
                         View All {category.title}
                       </Button>
-                    </NavigationMenuLink>
+                    </div>
                   </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                )}
+              </div>
             ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+          </div>
+        </div>
       </div>
     </nav>
   );
