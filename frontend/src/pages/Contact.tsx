@@ -11,7 +11,7 @@ const Contact = () => {
     <>
       <SEO 
         title="Contact Us - Professional Signage Solutions | Signassist"
-        description="Get in touch with Signassist for premium architectural signage, door numbers, and ADA-compliant signs. Expert consultation and worldwide shipping available."
+        description="Get in touch with Acrylic Braille Signs for premium architectural signage, door numbers, and ADA-compliant signs. Expert consultation and Canada & USA service available."
         keywords="contact signage company, professional signs quote, ADA compliance consultation, architectural signage support"
       />
       
