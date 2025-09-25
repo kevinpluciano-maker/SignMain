@@ -108,7 +108,7 @@ const About = () => {
                   For over a decade, <strong>Signassist</strong> has been at the forefront of architectural signage innovation, transforming how businesses present themselves through premium door numbers, office signs, and ADA-compliant solutions.
                 </p>
                 <p>
-                  Our journey began with a simple mission: to create signage that doesn't just inform, but elevates the entire aesthetic of professional environments. Today, we're trusted by Fortune 500 companies, luxury hotels, and modern office complexes worldwide.
+                  Our journey began with a simple mission: to create signage that doesn't just inform, but elevates the entire aesthetic of professional environments. Today, we're trusted by Fortune 500 companies, luxury hotels, and modern office complexes across Canada & USA.
                 </p>
               </div>
             </div>
