@@ -77,7 +77,6 @@ const ImprovedNavigation = () => {
               <NavigationMenuItem key={category.title} className="relative">
                 <NavigationMenuTrigger 
                   className="h-16 px-6 hover:bg-muted/50 data-[state=open]:bg-muted text-base font-medium bg-transparent border-0 focus:ring-0"
-                  onClick={() => handleCategoryClick(category.title, category.category)}
                 >
                   {category.title}
                 </NavigationMenuTrigger>
