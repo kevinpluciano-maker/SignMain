@@ -24,7 +24,8 @@ const ImprovedNavigation = () => {
         { key: 'door-number-signs', title: 'Door Number Signs' },
         { key: 'restroom-signs', title: 'Restroom Signs' },
         { key: 'info-signs', title: 'Info Signs' },
-        { key: 'prohibitory-signs', title: 'Prohibitory Signs' }
+        { key: 'prohibitory-signs', title: 'Prohibitory Signs' },
+        { key: 'di-noc', title: 'Di-Noc' }
       ];
 
       const dynamicNavItems = categories.map(cat => {
