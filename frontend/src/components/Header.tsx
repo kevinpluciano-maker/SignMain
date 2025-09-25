@@ -89,7 +89,8 @@ const Header = ({ showFilters = false }: HeaderProps) => {
               <img
                 src={headerData.logo || acrylicBrailleLogo}
                 alt="Acrylic Braille Signs"
-                className={`h-6 md:h-8 lg:h-10 w-auto max-w-[160px] md:max-w-[180px] lg:max-w-[200px] transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-110 contrast-125' : ''}`}
+                className={`h-6 md:h-8 lg:h-10 w-auto object-contain transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-110 contrast-125' : ''}`}
+                style={{ maxWidth: 'none', aspectRatio: 'auto' }}
               />
             </a>
           </div>
