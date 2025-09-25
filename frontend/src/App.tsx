@@ -34,6 +34,7 @@ import ModernAbout from "./pages/ModernAbout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Account from "./pages/Account";
+import DiNocPage from "./pages/DiNocPage";
 
 // Initialize performance optimizations
 if (typeof window !== 'undefined') {
