@@ -12,6 +12,7 @@ import { PreloadManager } from "@/components/PreloadManager";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import { PerformanceOptimizations, inlineCriticalCSS, monitorPerformance } from "@/components/PerformanceOptimizations";
 import { ResponsiveOptimizations, addResponsiveCSS } from "@/components/ResponsiveOptimizations";
+import { useScrollToTop } from "@/components/ScrollToTopLink";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import AllProducts from "./pages/AllProducts";
@@ -42,6 +43,12 @@ if (typeof window !== 'undefined') {
 }
 
 const queryClient = new QueryClient();
+
+// Component to handle scroll to top on route changes
+const ScrollToTopHandler = () => {
+  useScrollToTop();
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
