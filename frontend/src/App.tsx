@@ -63,8 +63,8 @@ const App = () => (
           <ResponsiveOptimizations />
           <PreloadManager 
             criticalImages={[
-              "/src/assets/hero-office.jpg",
-              "/src/assets/acrylic-braille-logo.png"
+              "/assets/hero-office.jpg",
+              "/assets/acrylic-braille-logo.png"
             ]}
           />
           <PerformanceMonitor />
