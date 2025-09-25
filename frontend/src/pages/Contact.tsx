@@ -125,7 +125,7 @@ const Contact = () => {
                     icon: <MapPin className="w-6 h-6" />,
                     title: "Headquarters",
                     info: "Los Angeles, CA",
-                    subtitle: "Worldwide shipping available",
+                    subtitle: "Canada & USA service available",
                     gradient: "from-green-500 to-teal-600"
                   },
                   {
