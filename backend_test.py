@@ -13,7 +13,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 # Configuration
-BACKEND_URL = "http://localhost:8001/api"
+BACKEND_URL = "https://coderecon.preview.emergentagent.com/api"
 TEST_CLIENT_NAME = "BSignStore_TestClient"
 
 class BSignBackendTester:
