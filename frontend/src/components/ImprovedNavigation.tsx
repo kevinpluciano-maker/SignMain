@@ -15,56 +15,72 @@ import { useEffect } from "react";
 
 const ImprovedNavigation = () => {
   const navigate = useNavigate();
-  const [navItems, setNavItems] = useState<Array<{title: string, items: string[], category: string}>>([]);
 
-  useEffect(() => {
-    // Generate navigation items dynamically from product data
-    const generateNavItems = () => {
-      const categories = [
-        { key: 'door-number-signs', title: 'Door Number Signs' },
-        { key: 'restroom-signs', title: 'Restroom Signs' },
-        { key: 'info-signs', title: 'Info Signs' },
-        { key: 'prohibitory-signs', title: 'Prohibitory Signs' },
-        { key: 'di-noc', title: 'Di-Noc' }
-      ];
-
-      const dynamicNavItems = categories.map(cat => {
-        const products = getCategoryProducts(cat.key);
-        // Get unique product names for the dropdown, limited to 8 items
-        const items = products.length > 0 
-          ? products.slice(0, 8).map(product => product.name)
-          : [`${cat.title} Collection`]; // Fallback text
-        
-        return {
-          title: cat.title,
-          category: cat.key,
-          items: items
-        };
-      });
-
-      console.log('Generated navigation items:', dynamicNavItems); // Debug log
-      setNavItems(dynamicNavItems);
-    };
-
-    generateNavItems();
-  }, []);
+  // Static navigation items that actually work
+  const navItems = [
+    {
+      title: "Door Number Signs",
+      category: 'door-number-signs',
+      items: [
+        "Door Number: Wood & Stainless Steel",
+        "Modern Door Numbers",
+        "Custom Door Numbers"
+      ]
+    },
+    {
+      title: "Restroom Signs",
+      category: 'restroom-signs',
+      items: [
+        "All-Gender Restroom Signs",
+        "Staff ADA Signs", 
+        "Men's Restroom Signs",
+        "Women's Restroom Signs"
+      ]
+    },
+    {
+      title: "Info Signs",
+      category: 'info-signs',
+      items: [
+        "Exam Room Signs",
+        "Meeting Room ADA Signs",
+        "Reception Signs",
+        "Roof Access Signs"
+      ]
+    },
+    {
+      title: "Prohibitory Signs",
+      category: 'prohibitory-signs',
+      items: [
+        "No Guns Allowed Signs",
+        "No Loitering Signs",
+        "No Food Allowed Signs",
+        "Pull Door Signs"
+      ]
+    },
+    {
+      title: "Di-Noc",
+      category: 'di-noc',
+      items: [
+        "Wood Grain Film",
+        "Stone Texture Film", 
+        "Brushed Metal Film"
+      ]
+    }
+  ];
 
   const handleCategoryClick = (categoryTitle: string, categoryKey: string) => {
     navigate(`/collections/${categoryKey}`);
-    // Scroll to top of page
     window.scrollTo(0, 0);
   };
 
   const handleItemClick = (item: string, categoryKey: string) => {
-    // If it's a "View All" item, navigate to category
-    if (item.startsWith('View All')) {
-      navigate(`/collections/${categoryKey}`);
-    } else {
-      // Navigate to specific product or create a search query
-      const slug = item.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/products/${slug}`);
-    }
-    // Scroll to top of page
+    // Convert item name to product slug
+    const slug = item.toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-'); // Replace multiple hyphens with single
+    
+    navigate(`/products/${slug}`);
     window.scrollTo(0, 0);
   };
 
