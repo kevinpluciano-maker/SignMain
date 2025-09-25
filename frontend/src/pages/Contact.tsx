@@ -336,8 +336,8 @@ const Contact = () => {
                 icon: "🎯"
               },
               {
-                title: "Worldwide Shipping",
-                description: "Premium packaging and reliable delivery to over 50 countries worldwide.",
+                title: "Canada & USA Service",
+                description: "Professional delivery and support throughout Canada and the United States.",
                 icon: "🌍"
               }
             ].map((feature, index) => (
