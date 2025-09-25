@@ -199,7 +199,6 @@ const ProductDetail = () => {
 
   const selectedColorOption = colorOptions.find(c => c.value === selectedColor);
   const selectedSizeOption = sizeOptions.find(s => s.value === selectedSize);
-  const totalPrice = selectedSizeOption?.price || product.price;
 
 // Get current product data (original + any edits)
   const currentProductData = editorProductData[product.id];
