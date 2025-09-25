@@ -73,7 +73,7 @@ const SEO = ({
           contactType: "customer service",
           email: "info@acrylicbraillesigns.com",
           availableLanguage: ["English"],
-          areaServed: "Worldwide"
+          areaServed: ["Canada", "United States"]
         }
       ],
       address: {
