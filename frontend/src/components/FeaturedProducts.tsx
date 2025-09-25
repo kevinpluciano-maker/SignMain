@@ -114,7 +114,7 @@ const FeaturedProducts = () => {
           </div>
           <div className="max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-6">
-              Discover our most popular door signs and numbers, trusted by thousands of customers worldwide.
+              Discover our most popular door signs and numbers, trusted by thousands of customers in Canada & USA.
             </p>
             <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
               <div className="flex items-center">
