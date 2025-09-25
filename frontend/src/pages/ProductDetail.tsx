@@ -307,6 +307,26 @@ const ProductDetail = () => {
                   </span>
                 )}
               </div>
+              
+              {/* Price Breakdown */}
+              {selectedBraille && (selectedBraille.toLowerCase().includes('yes') || selectedBraille.toLowerCase().includes('with braille')) && (
+                <div className="text-sm text-muted-foreground border-l-2 border-primary/20 pl-3">
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span>Base price:</span>
+                      <span>{convertPrice(totalPrice - 10)} {selectedCurrency}</span>
+                    </div>
+                    <div className="flex justify-between text-primary">
+                      <span>Braille option:</span>
+                      <span>+{convertPrice(10)} {selectedCurrency}</span>
+                    </div>
+                    <div className="flex justify-between border-t pt-1 font-semibold">
+                      <span>Total:</span>
+                      <span>{convertPrice(totalPrice)} {selectedCurrency}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <Separator />
