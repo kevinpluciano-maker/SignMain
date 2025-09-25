@@ -63,7 +63,7 @@ const App = () => (
           <PreloadManager 
             criticalImages={[
               "/src/assets/hero-office.jpg",
-              "/src/assets/bsign-logo.png"
+              "/src/assets/acrylic-braille-logo.png"
             ]}
           />
           <PerformanceMonitor />
