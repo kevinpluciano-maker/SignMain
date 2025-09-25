@@ -85,6 +85,7 @@ const App = () => (
               <Route path="/collections/new" element={<Collections />} />
               <Route path="/collections/best-sellers" element={<Collections />} />
               <Route path="/collections/:category" element={<Collections />} />
+              <Route path="/collections/di-noc" element={<DiNocPage />} />
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/about" element={<ModernAbout />} />
               <Route path="/contact" element={<ModernContact />} />
