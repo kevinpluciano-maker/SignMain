@@ -526,6 +526,53 @@ export const getProductById = (id: string): Product | undefined => {
   return getAllProducts().find(product => product.id === id);
 };
 
+// Smart category assignment based on product names and keywords
+export const assignCategoryByName = (productName: string): string => {
+  const name = productName.toLowerCase();
+  
+  // Door number signs
+  if (name.includes('door number') || name.includes('room number') || name.includes('suite number')) {
+    return 'door-number-signs';
+  }
+  
+  // Restroom signs
+  if (name.includes('restroom') || name.includes('bathroom') || name.includes('staff') || name.includes('all-gender')) {
+    return 'restroom-signs';
+  }
+  
+  // Info signs
+  if (name.includes('exam room') || name.includes('meeting room') || name.includes('conference') || 
+      name.includes('reception') || name.includes('office') || name.includes('roof access')) {
+    return 'info-signs';
+  }
+  
+  // Prohibitory signs
+  if (name.includes('no ') || name.includes('prohibited') || name.includes('not allowed') || 
+      name.includes('pull door') || name.includes('push door')) {
+    return 'prohibitory-signs';
+  }
+  
+  // Default fallback
+  return 'info-signs';
+};
+
+// Enhanced category products retrieval with smart fallback
+export const getCategoryProductsSmart = (category: string): Product[] => {
+  // Try direct category match first
+  let products = productsData[category] || [];
+  
+  // If no products found, try to find products by auto-assignment
+  if (products.length === 0) {
+    const allProducts = getAllProducts();
+    products = allProducts.filter(product => {
+      const assignedCategory = assignCategoryByName(product.name);
+      return assignedCategory === category;
+    });
+  }
+  
+  return products;
+};
+
 export const getCategoryTitle = (category: string): string => {
   const titles: Record<string, string> = {
     'door-number-signs': 'Door Number Signs', 
