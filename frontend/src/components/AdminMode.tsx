@@ -72,7 +72,7 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
     companyDescription: footerData.companyDescription,
     
     // New SEO fields
-    metaTitle: 'Professional Door Signs & Signage Solutions | Bsign Store',
+    metaTitle: 'Premium ADA Compliant Braille Signs | Acrylic Braille Signs Canada & USA',
     metaDescription: 'Premium door number signs, restroom signs, office signage and custom architectural signage. ADA compliant, worldwide shipping, quality guaranteed.',
     
     // Content fields
