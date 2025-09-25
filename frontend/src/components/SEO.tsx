@@ -57,8 +57,8 @@ const SEO = ({
     const organizationData = {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "Bsign Store",
-      description: "Professional signage solutions for businesses worldwide",
+      name: "Acrylic Braille Signs",
+      description: "Professional ADA compliant signage solutions for Canada & USA",
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
