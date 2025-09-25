@@ -76,7 +76,7 @@ const ImprovedAbout = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-success" />
-                  <span className="text-lg">Global shipping available</span>
+                  <span className="text-lg">Canada & USA service available</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-success" />
