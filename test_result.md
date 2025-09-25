@@ -333,12 +333,12 @@
 
 ## test_plan:
   current_focus:
-    - "New Product Placements - Homepage Sections"
-    - "Door Number Personalization"
-    - "Buy Now Functionality"
-    - "About Page Canada/USA Service Mentions"
-    - "JavaScript Error - Price String"
+    - "Navigation Dropdowns Functionality"
+    - "Braille Dynamic Pricing System"
+    - "Di-Noc Products Display"
   stuck_tasks:
+    - "Navigation Dropdowns Functionality"
+    - "Braille Dynamic Pricing System"
     - "New Product Placements - Homepage Sections"
     - "Door Number Personalization"
     - "Buy Now Functionality"
