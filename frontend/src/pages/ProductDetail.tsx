@@ -399,7 +399,7 @@ const ProductDetail = () => {
                       >
                         <div className="flex flex-col items-center space-y-1">
                           <span className="font-medium">{option}</span>
-                          {option === "With Braille" && (
+                          {option === "Yes" && (
                             <div className="flex flex-col items-center">
                               <span className="text-xs text-green-600 bg-green-50 px-1.5 py-0.5 rounded-full">
                                 ADA Compliant
@@ -408,11 +408,6 @@ const ProductDetail = () => {
                                 +$10 CAD
                               </span>
                             </div>
-                          )}
-                          {(option === "Yes" || option.toLowerCase().includes('braille')) && option !== "With Braille" && (
-                            <span className="text-xs text-blue-600">
-                              +$10 CAD
-                            </span>
                           )}
                         </div>
                       </button>
