@@ -22,8 +22,8 @@ export const FAQ = ({ variant = "full", category }: FAQProps) => {
           answer: "Standard shipping takes 3-5 business days. Express shipping (2-3 days) and overnight shipping are also available at checkout. Custom signs may require additional 1-2 days for production."
         },
         {
-          question: "Do you offer international shipping?",
-          answer: "Yes, we ship internationally to most countries. International shipping typically takes 7-14 business days. Additional customs fees may apply depending on your country's regulations."
+          question: "Do you serve Canada and USA?",
+          answer: "Yes, we proudly serve customers throughout Canada and the United States. Shipping typically takes 3-5 business days within Canada and 5-7 business days to the USA. Express shipping options are available at checkout."
         },
         {
           question: "Can I track my order?",
