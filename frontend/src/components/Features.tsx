@@ -21,8 +21,8 @@ const Features = () => {
     },
     {
       icon: Truck,
-      title: "Worldwide Shipping", 
-      description: "Fast and reliable shipping worldwide. Ready for bulk orders with expedited processing."
+      title: "Canada & USA Service", 
+      description: "Fast and reliable shipping to Canada & USA. Ready for bulk orders with expedited processing."
     },
     {
       icon: Award,
