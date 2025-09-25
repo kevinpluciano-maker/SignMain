@@ -731,6 +731,7 @@ export const getCategoryTitle = (category: string): string => {
     'restroom-signs': 'Restroom Signs',
     'info-signs': 'Info Signs',
     'prohibitory-signs': 'Prohibitory Signs',
+    'di-noc': 'Di-Noc Architectural Film',
     'best-sellers': 'Best Sellers',
     'new': 'New Products'
   };
