@@ -71,7 +71,10 @@ const ImprovedNavigation = () => {
           <NavigationMenuList className="flex space-x-0 w-full justify-center">
             {navItems.map((category) => (
               <NavigationMenuItem key={category.title} className="relative">
-                <NavigationMenuTrigger className="h-16 px-6 hover:bg-muted/50 data-[state=open]:bg-muted text-base font-medium bg-transparent border-0 focus:ring-0">
+                <NavigationMenuTrigger 
+                  className="h-16 px-6 hover:bg-muted/50 data-[state=open]:bg-muted text-base font-medium bg-transparent border-0 focus:ring-0"
+                  onClick={() => handleCategoryClick(category.title, category.category)}
+                >
                   {category.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="absolute top-full left-0 mt-0 bg-card border border-border text-card-foreground shadow-xl z-[200] min-w-[400px]">
@@ -81,12 +84,22 @@ const ImprovedNavigation = () => {
                         <Button
                           variant="ghost"
                           className="justify-start h-auto p-3 font-normal hover:bg-muted text-left whitespace-normal w-full text-sm"
-                          onClick={() => handleItemClick(item)}
+                          onClick={() => handleItemClick(item, category.category)}
                         >
                           {item}
                         </Button>
                       </NavigationMenuLink>
                     ))}
+                    {/* View All Category Link */}
+                    <NavigationMenuLink asChild>
+                      <Button
+                        variant="outline"
+                        className="justify-center h-auto p-3 font-medium hover:bg-primary hover:text-primary-foreground text-center w-full text-sm mt-2"
+                        onClick={() => handleCategoryClick(category.title, category.category)}
+                      >
+                        View All {category.title}
+                      </Button>
+                    </NavigationMenuLink>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
