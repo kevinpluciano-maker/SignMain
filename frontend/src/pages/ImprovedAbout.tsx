@@ -46,7 +46,7 @@ const ImprovedAbout = () => {
     <>
       <SEO
         title="About Signassist - Professional Signage Solutions | Quality & Service"
-        description="Learn about Signassist's commitment to quality signage solutions. 13+ years of experience delivering professional door signs, office signage, and custom architectural signs worldwide."
+        description="Learn about Acrylic Braille Signs' commitment to quality signage solutions. 13+ years of experience delivering professional door signs, office signage, and custom architectural signs in Canada & USA."
         canonical="/about"
       />
       
