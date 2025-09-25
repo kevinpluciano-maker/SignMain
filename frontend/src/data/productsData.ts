@@ -526,34 +526,79 @@ export const getProductById = (id: string): Product | undefined => {
   return getAllProducts().find(product => product.id === id);
 };
 
-// Smart category assignment based on product names and keywords
+// Enhanced smart category assignment based on product names and keywords
 export const assignCategoryByName = (productName: string): string => {
   const name = productName.toLowerCase();
   
-  // Door number signs
-  if (name.includes('door number') || name.includes('room number') || name.includes('suite number')) {
+  // Door number signs - comprehensive matching
+  if (name.includes('door number') || name.includes('room number') || name.includes('suite number') || 
+      name.includes('office number') || name.includes('apartment number') || name.includes('hotel number') ||
+      name.includes('wood & stainless steel') || name.includes('door numbers')) {
     return 'door-number-signs';
   }
   
-  // Restroom signs
-  if (name.includes('restroom') || name.includes('bathroom') || name.includes('staff') || name.includes('all-gender')) {
+  // Restroom signs - comprehensive matching
+  if (name.includes('restroom') || name.includes('bathroom') || name.includes('staff') || 
+      name.includes('all-gender') || name.includes('unisex') || name.includes('washroom') ||
+      name.includes('men') || name.includes('women') || name.includes('toilet')) {
     return 'restroom-signs';
   }
   
-  // Info signs
+  // Info signs - comprehensive matching
   if (name.includes('exam room') || name.includes('meeting room') || name.includes('conference') || 
-      name.includes('reception') || name.includes('office') || name.includes('roof access')) {
+      name.includes('reception') || name.includes('office') || name.includes('roof access') ||
+      name.includes('emergency') || name.includes('exit') || name.includes('entrance') ||
+      name.includes('information') || name.includes('directory')) {
     return 'info-signs';
   }
   
-  // Prohibitory signs
+  // Prohibitory signs - comprehensive matching
   if (name.includes('no ') || name.includes('prohibited') || name.includes('not allowed') || 
-      name.includes('pull door') || name.includes('push door')) {
+      name.includes('pull door') || name.includes('push door') || name.includes('do not') ||
+      name.includes('forbidden') || name.includes('restricted') || name.includes('ban') ||
+      name.includes('loitering') || name.includes('smoking') || name.includes('food') ||
+      name.includes('bicycles') || name.includes('guns')) {
     return 'prohibitory-signs';
   }
   
   // Default fallback
   return 'info-signs';
+};
+
+// Function to automatically categorize all products
+export const autoCategorizAllProducts = (): void => {
+  const allProducts = getAllProducts();
+  let categorizedCount = 0;
+  
+  allProducts.forEach(product => {
+    const suggestedCategory = assignCategoryByName(product.name);
+    if (product.category !== suggestedCategory) {
+      // In a real app, this would update the database
+      console.log(`Product "${product.name}" should be moved from "${product.category}" to "${suggestedCategory}"`);
+      categorizedCount++;
+    }
+  });
+  
+  console.log(`Auto-categorization complete. ${categorizedCount} products need category updates.`);
+};
+
+// Function to validate product placement
+export const validateProductCategories = (): Array<{product: string, current: string, suggested: string}> => {
+  const allProducts = getAllProducts();
+  const mismatches = [];
+  
+  allProducts.forEach(product => {
+    const suggestedCategory = assignCategoryByName(product.name);
+    if (product.category !== suggestedCategory) {
+      mismatches.push({
+        product: product.name,
+        current: product.category,
+        suggested: suggestedCategory
+      });
+    }
+  });
+  
+  return mismatches;
 };
 
 // Enhanced category products retrieval with smart fallback
