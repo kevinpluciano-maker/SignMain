@@ -17,6 +17,10 @@ const DiNocPage = () => {
   const [videoError, setVideoError] = useState(false);
   
   const products = getCategoryProducts('di-noc');
+  
+  // Debug log
+  console.log('Di-Noc products:', products);
+  console.log('Products length:', products.length);
 
   useEffect(() => {
     const video = videoRef.current;
