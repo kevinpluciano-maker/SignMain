@@ -75,6 +75,7 @@ const App = () => (
               v7_relativeSplatPath: true
             }}
           >
+            <ScrollToTopHandler />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<AllProductsSimple />} />
