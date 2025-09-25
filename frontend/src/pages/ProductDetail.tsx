@@ -385,11 +385,11 @@ const ProductDetail = () => {
               )}
 
               {/* Braille Option */}
-              {product.brailleOptions && product.brailleOptions.length > 0 && (
+              {foundProduct && foundProduct.brailleOptions && foundProduct.brailleOptions.length > 0 && (
                 <div>
                   <h3 className="text-sm font-semibold text-foreground mb-2">Braille Option</h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {product.brailleOptions.map((option, index) => (
+                    {foundProduct.brailleOptions.map((option, index) => (
                       <button
                         key={index}
                         className={`p-2.5 text-center text-sm border rounded-md transition-all duration-200 hover:shadow-sm ${
