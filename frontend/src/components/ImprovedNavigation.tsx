@@ -10,6 +10,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { getAllProducts, getCategoryProducts, getCategoryTitle } from "@/data/productsData";
+import { useEffect } from "react";
 
 const ImprovedNavigation = () => {
   const navigate = useNavigate();
