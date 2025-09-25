@@ -17,11 +17,15 @@ const ImprovedNavigation = () => {
   const handleCategoryClick = (categoryTitle: string) => {
     const slug = categoryTitle.toLowerCase().replace(/\s+/g, '-');
     navigate(`/collections/${slug}`);
+    // Scroll to top of page
+    window.scrollTo(0, 0);
   };
 
   const handleItemClick = (item: string) => {
     const slug = item.toLowerCase().replace(/\s+/g, '-');
     navigate(`/collections/${slug}`);
+    // Scroll to top of page
+    window.scrollTo(0, 0);
   };
 
   const navItems = [
