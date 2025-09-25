@@ -511,6 +511,113 @@ export const productsData: Record<string, Product[]> = {
       ],
       hasCustomSize: false
     }
+  ],
+  "di-noc": [
+    {
+      id: "wood-grain-architectural-film",
+      name: "Wood Grain Architectural Film",
+      image: "https://customer-assets.emergentagent.com/job_coderecon/artifacts/qly5lu5i_202509191706%20%281%29%20%281%29.mp4",
+      slug: "wood-grain-architectural-film",
+      description: "Premium architectural film with realistic wood grain texture. Self-adhesive and easy to install on flat and curved surfaces. Perfect for doors, furniture, walls, and interior design applications.",
+      price: "from $45.00",
+      originalPrice: "$65.00",
+      rating: 4.9,
+      reviews: 124,
+      category: "di-noc",
+      subcategory: "wood-finishes",
+      materials: ["Architectural Film", "Self-Adhesive", "Fire Resistant"],
+      designs: ["Wood Grain", "Natural Texture", "Modern"],
+      badges: ["Eco-Friendly", "Fire Resistant", "10+ Year Durability"],
+      sizeOptions: [
+        {
+          size: "24 x 48 in",
+          price: "$45.00"
+        },
+        {
+          size: "36 x 60 in", 
+          price: "$75.00"
+        },
+        {
+          size: "48 x 96 in",
+          price: "$125.00"
+        }
+      ],
+      colorOptions: ["Natural Oak", "Dark Walnut", "Cherry Wood", "Maple", "Teak"],
+      gallery: [
+        "https://customer-assets.emergentagent.com/job_coderecon/artifacts/qly5lu5i_202509191706%20%281%29%20%281%29.mp4"
+      ],
+      hasCustomSize: true
+    },
+    {
+      id: "stone-texture-architectural-film",
+      name: "Stone Texture Architectural Film",
+      image: "https://customer-assets.emergentagent.com/job_coderecon/artifacts/qly5lu5i_202509191706%20%281%29%20%281%29.mp4",
+      slug: "stone-texture-architectural-film",
+      description: "High-quality architectural film replicating natural stone textures. Antimicrobial properties and low VOC emissions for healthy indoor environments. Ideal for wall panels, furniture, and commercial applications.",
+      price: "from $52.00",
+      originalPrice: "",
+      rating: 4.8,
+      reviews: 89,
+      category: "di-noc",
+      subcategory: "stone-finishes",
+      materials: ["Architectural Film", "Antimicrobial", "Low VOC"],
+      designs: ["Stone Texture", "Natural Pattern", "Contemporary"],
+      badges: ["Antimicrobial", "Eco-Friendly", "Commercial Grade"],
+      sizeOptions: [
+        {
+          size: "24 x 48 in",
+          price: "$52.00"
+        },
+        {
+          size: "36 x 60 in",
+          price: "$85.00"
+        },
+        {
+          size: "48 x 96 in",
+          price: "$140.00"
+        }
+      ],
+      colorOptions: ["Marble White", "Granite Gray", "Slate Black", "Sandstone Beige"],
+      gallery: [
+        "https://customer-assets.emergentagent.com/job_coderecon/artifacts/qly5lu5i_202509191706%20%281%29%20%281%29.mp4"
+      ],
+      hasCustomSize: true
+    },
+    {
+      id: "brushed-metal-architectural-film",
+      name: "Brushed Metal Architectural Film",
+      image: "https://customer-assets.emergentagent.com/job_coderecon/artifacts/qly5lu5i_202509191706%20%281%29%20%281%29.mp4",
+      slug: "brushed-metal-architectural-film",
+      description: "Professional brushed metal architectural film with realistic metallic finish. Class A fire safety rating and superior durability. Perfect for elevator panels, door frames, and modern interior accents.",
+      price: "from $48.00",
+      originalPrice: "",
+      rating: 4.7,
+      reviews: 76,
+      category: "di-noc",
+      subcategory: "metal-finishes",
+      materials: ["Architectural Film", "Fire Resistant", "Scratch Resistant"],
+      designs: ["Brushed Metal", "Industrial", "Modern"],
+      badges: ["Fire Resistant", "Scratch Resistant", "Professional Grade"],
+      sizeOptions: [
+        {
+          size: "24 x 48 in",
+          price: "$48.00"
+        },
+        {
+          size: "36 x 60 in",
+          price: "$78.00"
+        },
+        {
+          size: "48 x 96 in",
+          price: "$135.00"
+        }
+      ],
+      colorOptions: ["Brushed Aluminum", "Stainless Steel", "Bronze", "Copper"],
+      gallery: [
+        "https://customer-assets.emergentagent.com/job_coderecon/artifacts/qly5lu5i_202509191706%20%281%29%20%281%29.mp4"
+      ],
+      hasCustomSize: true
+    }
   ]
 };
 
