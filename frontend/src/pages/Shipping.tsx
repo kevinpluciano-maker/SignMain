@@ -62,7 +62,7 @@ const Shipping = () => {
     <>
       <SEO
         title="Shipping Information | Fast & Reliable Delivery | Bsign Store"
-        description="Learn about our shipping options, delivery times, and international shipping policies. Free shipping on orders over $50. Express and overnight delivery available."
+        description="Learn about our shipping options, delivery times, and service policies. Free shipping on orders over $85 CAD. Express delivery available within Canada & USA."
         canonical="/shipping"
       />
       <div className="min-h-screen bg-background">
