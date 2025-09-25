@@ -277,6 +277,54 @@
           agent: "testing"
           comment: "❌ JavaScript error detected: 'priceString.replace is not a function' appearing on product pages. This error occurs in price processing logic and may affect cart functionality or price display. Error appears multiple times in console logs."
 
+  - task: "Navigation Dropdowns Functionality"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/components/ModernNavigation.tsx"
+    stuck_count: 2
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ CRITICAL: Navigation dropdowns completely broken. Found navigation triggers for Door Number Signs, Restroom Signs, and Info Signs but NO dropdown content appears on hover. Prohibitory Signs trigger not found. User cannot access product categories through navigation - this is a fundamental UX failure blocking core site functionality."
+
+  - task: "Braille Dynamic Pricing System"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/pages/ProductDetail.tsx"
+    stuck_count: 2
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ CRITICAL: Braille pricing system completely broken on /products/door-number-wood-stainless-steel. No Braille option buttons found (should show 'With Braille' and 'Without Braille'). The +$10 CAD surcharge logic is not working. This is a core product feature that's completely non-functional."
+
+  - task: "Di-Noc Products Display"
+    implemented: true
+    working: false
+    file: "/app/frontend/src/pages/DiNocPage.tsx"
+    stuck_count: 1
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "❌ Di-Noc page loads successfully with background video, but shows 0 products when it should display 3 Di-Noc products. Page structure is correct but product data is not being rendered properly."
+
+  - task: "Logo Size Optimization"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Header.tsx"
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ Logo sizing working correctly. Desktop: 173x64px, Mobile: 86x32px. Logo is appropriately sized and responsive across devices. This meets the requirement for larger logo size."
+
 ## metadata:
   created_by: "main_agent"
   version: "1.0"
