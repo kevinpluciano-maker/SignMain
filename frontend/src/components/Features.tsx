@@ -52,7 +52,7 @@ const Features = () => {
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             <InlineEditor
-              value="Trusted by thousands of businesses worldwide for professional signage solutions"
+              value="Trusted by thousands of businesses in Canada & USA for professional signage solutions"
               onSave={handleDescriptionSave}
               placeholder="Enter section description"
               className="text-muted-foreground inline-block"
