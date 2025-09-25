@@ -10,7 +10,7 @@ const About = () => {
     <>
       <SEO 
         title="About Us - Professional Signage Solutions | Signassist"
-        description="Learn about Signassist's mission to provide premium architectural signage, door numbers, and ADA-compliant signs for modern workspaces worldwide."
+        description="Learn about Acrylic Braille Signs' mission to provide premium architectural signage, door numbers, and ADA-compliant signs for modern workspaces in Canada & USA."
         keywords="about signage company, professional signs, ADA compliance, architectural signage, door numbers"
       />
       
