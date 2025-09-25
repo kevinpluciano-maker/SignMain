@@ -8,8 +8,9 @@ import ProductCard from "@/components/ProductCard";
 import ProductGrid from "@/components/ProductGrid";
 import ImprovedFooter from "@/components/ImprovedFooter";
 import EditorToolbar from "@/components/editor/EditorToolbar";
-import { getCategoryProducts, getCategoryTitle, getAllProducts } from "@/data/productsData";
+import { getCategoryProducts, getCategoryTitle, getAllProducts, getCategoryProductsSmart } from "@/data/productsData";
 import { bestSellersProducts } from "@/data/bestSellersProducts";
+import { useEffect } from "react";
 
 const Collections = () => {
   const { category } = useParams();
