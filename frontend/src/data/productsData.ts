@@ -371,7 +371,7 @@ export const productsData: Record<string, Product[]> = {
         }
       ],
       shapeOptions: ["Circle", "Square"],
-      brailleOptions: ["With Braille", "Without Braille"],
+      brailleOptions: ["Yes", "No"],
       gallery: [
         "/lovable-uploads/3621ad29-43c8-4cdd-9264-fe430c72044e.png",
         "/lovable-uploads/a562b8d1-1b48-405b-9d3c-4cb0d3fa3873.png"
