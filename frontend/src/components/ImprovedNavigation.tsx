@@ -30,16 +30,19 @@ const ImprovedNavigation = () => {
 
       const dynamicNavItems = categories.map(cat => {
         const products = getCategoryProducts(cat.key);
-        // Get unique product names for the dropdown, limited to 6 items
-        const items = products.slice(0, 6).map(product => product.name);
+        // Get unique product names for the dropdown, limited to 8 items
+        const items = products.length > 0 
+          ? products.slice(0, 8).map(product => product.name)
+          : [`${cat.title} Collection`]; // Fallback text
         
         return {
           title: cat.title,
           category: cat.key,
-          items: items.length > 0 ? items : [`View All ${cat.title}`] // Fallback if no products
+          items: items
         };
       });
 
+      console.log('Generated navigation items:', dynamicNavItems); // Debug log
       setNavItems(dynamicNavItems);
     };
 
