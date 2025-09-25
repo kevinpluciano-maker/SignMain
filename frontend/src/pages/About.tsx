@@ -70,7 +70,7 @@ const About = () => {
                 textShadow: '0 2px 10px rgba(0,0,0,0.3)'
               }}
             >
-              We're the leading innovators in architectural signage, crafting premium solutions that define modern professional spaces worldwide.
+              We're the leading innovators in architectural signage, crafting premium solutions that define modern professional spaces across Canada & USA.
             </p>
           </div>
         </div>
