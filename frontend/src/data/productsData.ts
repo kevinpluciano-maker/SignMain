@@ -98,7 +98,7 @@ export const productsData: Record<string, Product[]> = {
         }
       ],
       colorOptions: ["Clear Acrylic", "Frosted Acrylic"],
-      brailleOptions: ["With Braille", "Without Braille"],
+      brailleOptions: ["Yes", "No"],
       gallery: [
         "/lovable-uploads/bb344bd6-4279-4063-971c-8980eb40b607.png",
         "/lovable-uploads/54b498ee-7663-49ff-9ba3-62df22803645.png",
