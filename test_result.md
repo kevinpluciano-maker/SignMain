@@ -306,6 +306,9 @@
         - working: true
           agent: "testing"
           comment: "✅ EMERGENCY TEST SUCCESS: Braille options now working correctly! Found 'Braille Option' section with both 'With Braille' and 'Without Braille' buttons. '+$10 CAD' indicator properly displayed. Braille pricing system has been fixed and is fully functional."
+        - working: true
+          agent: "testing"
+          comment: "✅ BRAILLE OPTIONS FORMAT UPDATE VERIFIED: Successfully tested Door Number product (/products/door-number-wood-stainless-steel). CONFIRMED: Braille options now show 'Yes' and 'No' format (CORRECT - no longer 'With Braille'/'Without Braille'). '+$10 CAD' indicator appears when 'Yes' selected. 'ADA Compliant' badge displays correctly. Price breakdown section working with Base price: C$51.68 + Braille option: +C$13.60 = Total: C$65.28. Size selection (9.8 x 4.7 in and 12 x 6 in options) working correctly. Minor: Toggle functionality has slight delay but core functionality working. Format update successfully implemented as requested."
 
   - task: "Di-Noc Products Display"
     implemented: true
