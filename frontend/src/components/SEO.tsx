@@ -23,17 +23,17 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Professional Door Signs & Signage Solutions | Bsign Store",
-  description = "Premium door number signs, restroom signs, office signage and custom architectural signage. ADA compliant, worldwide shipping, quality guaranteed.",
+  title = "Premium ADA Compliant Braille Signs | Acrylic Braille Signs Canada & USA",
+  description = "Professional ADA compliant acrylic braille signage for offices, healthcare, and commercial spaces. Premium quality door numbers, restroom signs, and custom signage. Serving Canada & USA with expert installation.",
   canonical,
   image = "https://78cdd8dc-3c6a-4e4f-9f85-841f2f509702.lovableproject.com/assets/hero-office.jpg",
   type = "website",
   price,
   availability,
-  brand = "Bsign Store",
+  brand = "Acrylic Braille Signs",
   category,
   sku,
-  keywords = ["door signs", "office signage", "restroom signs", "custom signs", "ADA compliant", "professional signage"],
+  keywords = ["ADA compliant signs", "braille signage", "acrylic signs", "door number signs", "restroom signs", "office signage", "custom braille signs", "accessibility signage", "professional signage Canada USA"],
   author,
   publishedTime,
   modifiedTime,
