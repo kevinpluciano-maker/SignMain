@@ -104,6 +104,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         itemPrice = extractPrice(sizeOption.price);
       }
     }
+    
+    // Add $10 CAD surcharge for Braille option
+    if (selectedBraille && (selectedBraille.toLowerCase().includes('yes') || selectedBraille.toLowerCase().includes('with braille'))) {
+      itemPrice += 10;
+    }
 
     const cartItem: CartItem = {
       ...product,
