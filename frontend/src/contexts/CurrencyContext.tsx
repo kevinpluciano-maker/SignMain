@@ -28,7 +28,7 @@ interface CurrencyProviderProps {
 }
 
 export const CurrencyProvider: React.FC<CurrencyProviderProps> = ({ children }) => {
-  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+  const [selectedCurrency, setSelectedCurrency] = useState("CAD");
 
   const extractNumericPrice = (price: string | number): number => {
     if (typeof price === "number") return price;
