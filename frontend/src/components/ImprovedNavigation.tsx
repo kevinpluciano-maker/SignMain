@@ -15,54 +15,54 @@ import { useEffect } from "react";
 
 const ImprovedNavigation = () => {
   const navigate = useNavigate();
+  const [navItems, setNavItems] = useState<Array<{title: string, items: string[], category: string}>>([]);
 
-  const handleCategoryClick = (categoryTitle: string) => {
-    const slug = categoryTitle.toLowerCase().replace(/\s+/g, '-');
-    navigate(`/collections/${slug}`);
+  useEffect(() => {
+    // Generate navigation items dynamically from product data
+    const generateNavItems = () => {
+      const categories = [
+        { key: 'door-number-signs', title: 'Door Number Signs' },
+        { key: 'restroom-signs', title: 'Restroom Signs' },
+        { key: 'info-signs', title: 'Info Signs' },
+        { key: 'prohibitory-signs', title: 'Prohibitory Signs' }
+      ];
+
+      const dynamicNavItems = categories.map(cat => {
+        const products = getCategoryProducts(cat.key);
+        // Get unique product names for the dropdown, limited to 6 items
+        const items = products.slice(0, 6).map(product => product.name);
+        
+        return {
+          title: cat.title,
+          category: cat.key,
+          items: items.length > 0 ? items : [`View All ${cat.title}`] // Fallback if no products
+        };
+      });
+
+      setNavItems(dynamicNavItems);
+    };
+
+    generateNavItems();
+  }, []);
+
+  const handleCategoryClick = (categoryTitle: string, categoryKey: string) => {
+    navigate(`/collections/${categoryKey}`);
     // Scroll to top of page
     window.scrollTo(0, 0);
   };
 
-  const handleItemClick = (item: string) => {
-    const slug = item.toLowerCase().replace(/\s+/g, '-');
-    navigate(`/collections/${slug}`);
-    // Scroll to top of page
-    window.scrollTo(0, 0);
-  };
-
-  const navItems = [
-    {
-      title: "Door Number Signs",
-      items: [
-        "Modern Door Numbers",
-        "Wood & Stainless Steel Door Numbers"
-      ]
-    },
-    {
-      title: "Restroom Signs", 
-      items: [
-        "All-Gender Restroom Signs",
-        "Staff ADA Signs",
-        "Acrylic All-Gender Signs",
-        "Stainless Steel All-Gender Signs"
-      ]
-    },
-    {
-      title: "Info Signs",
-      items: [
-        "Exam Room Signs",
-        "Meeting Room ADA Signs",
-        "Reception Signs"
-      ]
-    },
-    {
-      title: "Prohibitory Signs",
-      items: [
-        "No Bicycles Signs",
-        "No Guns Allowed Signs"
-      ]
+  const handleItemClick = (item: string, categoryKey: string) => {
+    // If it's a "View All" item, navigate to category
+    if (item.startsWith('View All')) {
+      navigate(`/collections/${categoryKey}`);
+    } else {
+      // Navigate to specific product or create a search query
+      const slug = item.toLowerCase().replace(/\s+/g, '-');
+      navigate(`/products/${slug}`);
     }
-  ];
+    // Scroll to top of page
+    window.scrollTo(0, 0);
+  };
 
   return (
     <nav className="bg-background border-b shadow-sm hidden md:block relative z-50">
