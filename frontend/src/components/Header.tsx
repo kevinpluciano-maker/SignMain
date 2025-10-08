@@ -83,13 +83,13 @@ const Header = ({ showFilters = false }: HeaderProps) => {
           {/* Mobile Menu Button - Uses UnifiedMobileNavigation with conditional filters */}
           <UnifiedMobileNavigation cartItems={totalItems} showFilters={showFilters} />
 
-          {/* Logo Section */}
+          {/* Logo Section - Enhanced mobile visibility */}
           <div className="flex-1 flex justify-center md:justify-start md:flex-none">
             <a href="/" className="group">
               <img
                 src={headerData.logo || acrylicBrailleLogo}
                 alt="Acrylic Braille Signs"
-                className={`h-8 md:h-12 lg:h-16 w-auto object-contain transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-110 contrast-125' : ''}`}
+                className={`h-8 md:h-12 lg:h-16 w-auto object-contain transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-125 contrast-125 md:brightness-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]' : ''}`}
                 style={{ maxWidth: 'none', aspectRatio: 'auto' }}
               />
             </a>
