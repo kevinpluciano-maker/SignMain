@@ -78,7 +78,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-[60vh] min-h-[500px] overflow-hidden" id="main-content">
-      {/* Video Background */}
+      {/* Video Background - Optimized for Mobile */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -88,8 +88,17 @@ const HeroSection = () => {
           playsInline
           controls={false}
           disablePictureInPicture
+          webkit-playsinline="true"
+          x5-playsinline="true"
           className="w-full h-full object-cover"
           preload="metadata"
+          style={{
+            // Ensure smooth playback on mobile
+            objectFit: 'cover',
+            width: '100%',
+            height: '100%',
+            pointerEvents: 'none'
+          }}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -100,9 +109,9 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900" />
         )}
         
-        {/* Luxurious gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/8 to-transparent" />
+        {/* Luxurious gradient overlay - Darker on mobile for better logo visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/50 md:from-black/25 md:via-black/15 md:to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/12 to-transparent md:via-black/8" />
       </div>
 
       {/* Hero Content - Moved down to align with button */}
