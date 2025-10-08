@@ -140,6 +140,184 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
 
             <Separator />
 
+            {/* Product Categories Section */}
+            <div className="space-y-2 pb-4">
+              <h4 className="text-sm font-semibold text-muted-foreground px-2 uppercase tracking-wider">Categories</h4>
+              
+              {/* Door Number Signs */}
+              <div>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between p-3 h-auto font-medium text-left"
+                  onClick={() => {
+                    setExpandedItems(prev =>
+                      prev.includes("Door Number Signs")
+                        ? prev.filter(i => i !== "Door Number Signs")
+                        : [...prev, "Door Number Signs"]
+                    );
+                  }}
+                >
+                  Door Number Signs
+                  <ChevronRight 
+                    className={`h-4 w-4 transition-transform ${
+                      expandedItems.includes("Door Number Signs") ? 'rotate-90' : ''
+                    }`} 
+                  />
+                </Button>
+                {expandedItems.includes("Door Number Signs") && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {["Office Door Numbers", "House Number Signs", "Hotel Door Numbers", "Room Door Numbers", "Apartment Door Numbers", "Interior Door Numbers", "Elegant Door Numbers", "Round Door Numbers"].map((item) => (
+                      <Button
+                        key={item}
+                        variant="ghost"
+                        className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
+                        onClick={() => {
+                          const slug = item.toLowerCase().replace(/\s+/g, '-');
+                          navigate(`/collections/${slug}`);
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Door Signs */}
+              <div>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between p-3 h-auto font-medium text-left"
+                  onClick={() => {
+                    setExpandedItems(prev =>
+                      prev.includes("Door Signs")
+                        ? prev.filter(i => i !== "Door Signs")
+                        : [...prev, "Door Signs"]
+                    );
+                  }}
+                >
+                  Door Signs
+                  <ChevronRight 
+                    className={`h-4 w-4 transition-transform ${
+                      expandedItems.includes("Door Signs") ? 'rotate-90' : ''
+                    }`} 
+                  />
+                </Button>
+                {expandedItems.includes("Door Signs") && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {["Interior Door Signs", "Room Door Signs", "Hotel Door Signs", "School Door Signs", "Office Door Signs", "Medical Office Door Signs", "Receptionist Signs", "Bespoke House Signs"].map((item) => (
+                      <Button
+                        key={item}
+                        variant="ghost"
+                        className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
+                        onClick={() => {
+                          const slug = item.toLowerCase().replace(/\s+/g, '-');
+                          navigate(`/collections/${slug}`);
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Restroom Signs */}
+              <div>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between p-3 h-auto font-medium text-left"
+                  onClick={() => {
+                    setExpandedItems(prev =>
+                      prev.includes("Restroom Signs")
+                        ? prev.filter(i => i !== "Restroom Signs")
+                        : [...prev, "Restroom Signs"]
+                    );
+                  }}
+                >
+                  Restroom Signs
+                  <ChevronRight 
+                    className={`h-4 w-4 transition-transform ${
+                      expandedItems.includes("Restroom Signs") ? 'rotate-90' : ''
+                    }`} 
+                  />
+                </Button>
+                {expandedItems.includes("Restroom Signs") && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {["Women Restroom Signs", "Men Restroom Signs", "Unisex Restroom Signs", "Wheelchair Restroom Signs", "All-Gender Restroom Signs", "Clean Restroom Signs", "Shower Signs", "Washroom Signs"].map((item) => (
+                      <Button
+                        key={item}
+                        variant="ghost"
+                        className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
+                        onClick={() => {
+                          const slug = item.toLowerCase().replace(/\s+/g, '-');
+                          navigate(`/collections/${slug}`);
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Info Signs */}
+              <div>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between p-3 h-auto font-medium text-left"
+                  onClick={() => {
+                    setExpandedItems(prev =>
+                      prev.includes("Info Signs")
+                        ? prev.filter(i => i !== "Info Signs")
+                        : [...prev, "Info Signs"]
+                    );
+                  }}
+                >
+                  Info Signs
+                  <ChevronRight 
+                    className={`h-4 w-4 transition-transform ${
+                      expandedItems.includes("Info Signs") ? 'rotate-90' : ''
+                    }`} 
+                  />
+                </Button>
+                {expandedItems.includes("Info Signs") && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {["Exam Room Signs", "Meeting Room ADA Signs", "Reception Signs"].map((item) => (
+                      <Button
+                        key={item}
+                        variant="ghost"
+                        className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
+                        onClick={() => {
+                          const slug = item.toLowerCase().replace(/\s+/g, '-');
+                          navigate(`/collections/${slug}`);
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Additional Category Items */}
+              {["Custom Door Plates", "ADA Signs", "Room Signs", "Desk Signs"].map((item) => (
+                <Button
+                  key={item}
+                  variant="ghost"
+                  className="w-full justify-start p-3 h-auto font-medium text-left"
+                  onClick={() => {
+                    const slug = item.toLowerCase().replace(/\s+/g, '-');
+                    navigate(`/collections/${slug}`);
+                  }}
+                >
+                  {item}
+                </Button>
+              ))}
+            </div>
+
+            <Separator />
+
             {/* Navigation Items */}
             <div className="space-y-2">
               {navigationItems.map((item) => (
