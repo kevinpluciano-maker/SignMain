@@ -22,24 +22,41 @@ const HeroSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      // Enhanced video playback for mobile devices
+      const playVideo = async () => {
+        try {
+          // Set video attributes for optimal mobile playback
+          video.muted = true;
+          video.playsInline = true;
+          video.setAttribute('playsinline', '');
+          video.setAttribute('webkit-playsinline', '');
+          video.setAttribute('x5-playsinline', '');
+          video.preload = "auto"; // Preload for smoother playback
+          
+          // Attempt to play
+          await video.play();
+          console.log('Video started playing successfully');
+          setVideoLoaded(true);
+        } catch (error) {
+          console.error('Video autoplay failed:', error);
+          // Try again after a short delay for mobile browsers
+          setTimeout(async () => {
+            try {
+              await video.play();
+              console.log('Video started on retry');
+              setVideoLoaded(true);
+            } catch (retryError) {
+              console.error('Video retry failed:', retryError);
+              setVideoError(true);
+            }
+          }, 500);
+        }
+      };
+
       // Lazy load video only when in viewport
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const playVideo = async () => {
-              try {
-                video.muted = true;
-                video.playsInline = true;
-                video.preload = "metadata"; // Only load metadata initially
-                await video.play();
-                console.log('Video started playing successfully');
-                setVideoLoaded(true);
-              } catch (error) {
-                console.error('Video autoplay failed:', error);
-                setVideoError(true);
-              }
-            };
-
             const handleCanPlay = () => {
               console.log('Video can play');
               playVideo();
@@ -58,6 +75,9 @@ const HeroSection = () => {
             video.addEventListener('canplay', handleCanPlay);
             video.addEventListener('loadeddata', handleLoadedData);
             video.addEventListener('error', handleError);
+            
+            // Start loading immediately
+            playVideo();
             
             observer.unobserve(video);
             
