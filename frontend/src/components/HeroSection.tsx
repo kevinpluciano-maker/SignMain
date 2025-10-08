@@ -136,8 +136,8 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/12 to-transparent md:via-black/8" />
       </div>
 
-      {/* Hero Content - Moved down to align with button */}
-      <div className="relative z-10 container mx-auto px-6 h-full flex items-end justify-center pb-24">
+      {/* Hero Content - Positioned lower for better video visibility */}
+      <div className="relative z-10 container mx-auto px-6 h-full flex items-end justify-center pb-16 md:pb-20">
         <div className="max-w-5xl text-center text-white">
           <h1 
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]"
@@ -172,7 +172,7 @@ const HeroSection = () => {
             }}
           >
             <InlineEditor
-              value="ADA compliant acrylic braille signage solutions with raised braille dots. Professional quality door signs, restroom signs, and custom architectural signage for modern workspaces."
+              value="Professional quality door signs, restroom signs, and custom architectural signage for modern workspaces."
               onSave={handleDescriptionSave}
               placeholder="Enter hero description"
               className="inline-block"
