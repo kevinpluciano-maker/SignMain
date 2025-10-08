@@ -22,11 +22,12 @@ const HeroSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Enhanced video playback for mobile devices
+      // Enhanced video playback for mobile and desktop
       const playVideo = async () => {
         try {
-          // Set video attributes for optimal mobile playback
+          // Set video attributes for optimal playback on all devices
           video.muted = true;
+          video.loop = true; // Ensure loop is set
           video.playsInline = true;
           video.setAttribute('playsinline', '');
           video.setAttribute('webkit-playsinline', '');
@@ -34,26 +35,51 @@ const HeroSection = () => {
           video.preload = "auto"; // Preload for smoother playback
           
           // Attempt to play
-          await video.play();
-          console.log('Video started playing successfully');
-          setVideoLoaded(true);
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            await playPromise;
+            console.log('Video started playing successfully');
+            setVideoLoaded(true);
+          }
         } catch (error) {
           console.error('Video autoplay failed:', error);
-          // Try again after a short delay for mobile browsers
-          setTimeout(async () => {
-            try {
-              await video.play();
-              console.log('Video started on retry');
-              setVideoLoaded(true);
-            } catch (retryError) {
-              console.error('Video retry failed:', retryError);
-              setVideoError(true);
+          // Mobile-specific retry logic with multiple attempts
+          let retryCount = 0;
+          const maxRetries = 3;
+          
+          const retryPlay = async () => {
+            if (retryCount < maxRetries) {
+              retryCount++;
+              setTimeout(async () => {
+                try {
+                  await video.play();
+                  console.log(`Video started on retry ${retryCount}`);
+                  setVideoLoaded(true);
+                } catch (retryError) {
+                  console.error(`Video retry ${retryCount} failed:`, retryError);
+                  if (retryCount < maxRetries) {
+                    retryPlay();
+                  } else {
+                    setVideoError(true);
+                  }
+                }
+              }, 500 * retryCount); // Increase delay with each retry
             }
-          }, 500);
+          };
+          
+          retryPlay();
         }
       };
 
-      // Lazy load video only when in viewport
+      // Handle visibility change to restart video on mobile when page becomes visible
+      const handleVisibilityChange = () => {
+        if (!document.hidden && video.paused) {
+          console.log('Page became visible, attempting to play video');
+          playVideo();
+        }
+      };
+
+      // Lazy load video when in viewport
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -71,10 +97,19 @@ const HeroSection = () => {
               console.error('Video loading error:', e);
               setVideoError(true);
             };
+
+            const handleEnded = () => {
+              // Ensure loop continues on mobile
+              console.log('Video ended, restarting');
+              video.currentTime = 0;
+              playVideo();
+            };
             
             video.addEventListener('canplay', handleCanPlay);
             video.addEventListener('loadeddata', handleLoadedData);
             video.addEventListener('error', handleError);
+            video.addEventListener('ended', handleEnded);
+            document.addEventListener('visibilitychange', handleVisibilityChange);
             
             // Start loading immediately
             playVideo();
@@ -85,6 +120,8 @@ const HeroSection = () => {
               video.removeEventListener('canplay', handleCanPlay);
               video.removeEventListener('loadeddata', handleLoadedData);
               video.removeEventListener('error', handleError);
+              video.removeEventListener('ended', handleEnded);
+              document.removeEventListener('visibilitychange', handleVisibilityChange);
             };
           }
         });
@@ -92,7 +129,10 @@ const HeroSection = () => {
       
       observer.observe(video);
       
-      return () => observer.disconnect();
+      return () => {
+        observer.disconnect();
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      };
     }
   }, []);
 
