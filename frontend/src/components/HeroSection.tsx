@@ -108,16 +108,18 @@ const HeroSection = () => {
           playsInline
           controls={false}
           disablePictureInPicture
-          webkit-playsinline="true"
-          x5-playsinline="true"
           className="w-full h-full object-cover"
-          preload="metadata"
+          preload="auto"
           style={{
             // Ensure smooth playback on mobile
             objectFit: 'cover',
             width: '100%',
             height: '100%',
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            // Fix for iOS Safari video rendering
+            transform: 'translateZ(0)',
+            WebkitTransform: 'translateZ(0)',
+            willChange: 'transform'
           }}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
