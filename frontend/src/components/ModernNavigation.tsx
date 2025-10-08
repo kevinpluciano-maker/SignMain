@@ -297,8 +297,8 @@ const ModernNavigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation - Reduced Size */}
-        <div className="lg:hidden">
+        {/* Mobile Navigation - HIDDEN: Categories moved to hamburger menu in Header */}
+        <div className="lg:hidden hidden">
           <div className="flex items-center justify-between h-12 py-2">
             <Button
               variant="ghost"
