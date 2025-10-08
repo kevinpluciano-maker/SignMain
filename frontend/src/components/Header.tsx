@@ -52,9 +52,9 @@ const Header = ({ showFilters = false }: HeaderProps) => {
     { label: "Installation Guide", path: "/installation-guide" }
   ];
 
-  // Dynamic styling based on page
+  // Dynamic styling based on page - Enhanced mobile visibility
   const headerClasses = isHomePage 
-    ? "bg-transparent backdrop-blur-sm absolute top-0 left-0 right-0 z-50 text-white"
+    ? "bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-sm absolute top-0 left-0 right-0 z-50 text-white shadow-lg md:shadow-none"
     : "bg-background border-b sticky top-0 z-50";
 
   const topBarClasses = isHomePage
