@@ -21,9 +21,12 @@ interface UnifiedMobileNavigationProps {
 const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: UnifiedMobileNavigationProps) => {
   const { headerData, updateHeaderData } = useEditor();
   const navigate = useNavigate();
+  const location = useLocation();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [expandedSections, setExpandedSections] = useState<string[]>(["product-type"]);
   const [priceRange, setPriceRange] = useState([6, 152]);
+  
+  const isHomePage = location.pathname === '/';
 
   const navigationItems = [
     {
