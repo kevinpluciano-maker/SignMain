@@ -76,7 +76,15 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="sm" className="md:hidden p-2">
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className={`md:hidden p-2 ${isHomePage ? 'bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:bg-white/20' : ''}`}
+          style={isHomePage ? {
+            minWidth: '44px',
+            minHeight: '44px'
+          } : {}}
+        >
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
