@@ -37,7 +37,6 @@ export const ProductImageGallery = ({
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowLeft") prevImage();
     if (e.key === "ArrowRight") nextImage();
-    if (e.key === "Escape") setIsZoomed(false);
   };
 
   useEffect(() => {
