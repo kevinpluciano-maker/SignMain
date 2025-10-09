@@ -57,6 +57,10 @@ async def get_status_checks():
 # Include the router in the main app
 app.include_router(api_router)
 
+# Add GZip compression middleware
+app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
@@ -64,6 +68,28 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Add caching headers for static assets
+@app.middleware("http")
+async def add_cache_headers(request, call_next):
+    response = await call_next(request)
+    
+    # Cache static assets for 1 year
+    if request.url.path.startswith('/assets/'):
+        response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
+    # Cache images for 30 days
+    elif any(ext in request.url.path for ext in ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico']):
+        response.headers['Cache-Control'] = 'public, max-age=2592000'
+    # Cache other static files for 1 week
+    elif any(ext in request.url.path for ext in ['.css', '.js', '.woff', '.woff2', '.ttf', '.eot']):
+        response.headers['Cache-Control'] = 'public, max-age=604800'
+    # Don't cache API responses
+    elif request.url.path.startswith('/api/'):
+        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '0'
+    
+    return response
 
 # Configure logging
 logging.basicConfig(
