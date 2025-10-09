@@ -72,16 +72,15 @@ const ModernNavigation = () => {
       ]
     },
     {
-      title: "Door Signs",
+      title: "Di-Noc",
       items: [
-        "Interior Door Signs",
-        "Room Door Signs",
-        "Hotel Door Signs", 
-        "School Door Signs",
-        "Office Door Signs",
-        "Medical Office Door Signs",
-        "Receptionist Signs",
-        "Bespoke House Signs"
+        "Di-Noc Architectural Finishes",
+        "Wood Grain Finishes",
+        "Metallic Finishes",
+        "Stone & Marble Finishes",
+        "Abstract Patterns",
+        "Solid Colors",
+        "Custom Di-Noc Solutions"
       ]
     },
     {
