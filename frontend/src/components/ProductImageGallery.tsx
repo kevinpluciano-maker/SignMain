@@ -60,10 +60,7 @@ export const ProductImageGallery = ({
       <div className="relative group">
         <div
           ref={imageRef}
-          className="aspect-square overflow-hidden rounded-2xl bg-muted/20 cursor-zoom-in relative"
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          className="aspect-square overflow-hidden rounded-2xl bg-muted/20 relative"
           onMouseDown={is360Active ? handle360Drag : undefined}
         >
           <OptimizedImage
@@ -71,14 +68,8 @@ export const ProductImageGallery = ({
             alt={`${productName} - Image ${currentImageIndex + 1}`}
             width={600}
             height={600}
-            className={`w-full h-full object-cover transition-transform duration-300 ${
-              isZoomed ? "scale-150" : "scale-100"
-            } ${is360Active ? "cursor-grab active:cursor-grabbing" : ""}`}
+            className={`w-full h-full object-cover ${is360Active ? "cursor-grab active:cursor-grabbing" : ""}`}
             style={
-              isZoomed
-                ? {
-                    transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
-                  }
                 : is360Active
                 ? {
                     transform: `rotate(${rotation}deg)`,
