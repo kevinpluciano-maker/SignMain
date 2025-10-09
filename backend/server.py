@@ -37,6 +37,22 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class ContentSection(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    section_id: str
+    content: str
+    font_size: str
+    font_family: str
+    plain_text: str
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+
+class ContentSectionCreate(BaseModel):
+    section_id: str
+    content: str
+    font_size: str
+    font_family: str
+    plain_text: str
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
