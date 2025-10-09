@@ -1,6 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -8,6 +6,9 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Save, Eye, EyeOff, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
+
+// Lazy load ReactQuill to avoid SSR issues
+const ReactQuill = lazy(() => import('react-quill'));
 
 interface WYSIWYGEditorProps {
   sectionId: string;
