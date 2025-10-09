@@ -62,6 +62,7 @@ const App = () => (
           <MobilePerformanceOptimizer />
           <PerformanceOptimizations />
           <ResponsiveOptimizations />
+          <EnhancedPerformance />
           <PreloadManager 
             criticalImages={[
               "/assets/hero-office.jpg",
