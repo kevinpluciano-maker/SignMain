@@ -58,7 +58,7 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
 
   const productTypes = [
     { id: "door-numbers", label: "Door Numbers Signs", count: 245 },
-    { id: "door-signs", label: "Door Signs", count: 189 },
+    { id: "di-noc", label: "Di-Noc Finishes", count: 189 },
     { id: "restroom-signs", label: "Restroom Signs", count: 156 },
     { id: "info-signs", label: "Information Signs", count: 134 },
     { id: "house-numbers", label: "House Numbers", count: 98 },
