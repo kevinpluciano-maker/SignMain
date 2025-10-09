@@ -64,12 +64,7 @@ const App = () => (
           <PerformanceOptimizations />
           <ResponsiveOptimizations />
           <EnhancedPerformance />
-          <PreloadManager 
-            criticalImages={[
-              "/assets/hero-office.jpg",
-              "/assets/acrylic-braille-logo.png"
-            ]}
-          />
+          {/* PreloadManager removed from global - each page preloads its own resources */}
           <PerformanceMonitor />
           <Toaster />
           <Sonner />
