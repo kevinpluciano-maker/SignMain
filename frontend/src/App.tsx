@@ -13,6 +13,7 @@ import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import { PerformanceOptimizations, inlineCriticalCSS, monitorPerformance } from "@/components/PerformanceOptimizations";
 import { ResponsiveOptimizations, addResponsiveCSS } from "@/components/ResponsiveOptimizations";
 import { useScrollToTop } from "@/components/ScrollToTopLink";
+import EnhancedPerformance from "@/components/EnhancedPerformance";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import AllProducts from "./pages/AllProducts";
