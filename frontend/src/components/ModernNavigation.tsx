@@ -38,8 +38,20 @@ const ModernNavigation = () => {
   };
 
   const handleItemClick = (item: string) => {
-    const slug = item.toLowerCase().replace(/\s+/g, '-');
-    navigate(`/collections/${slug}`);
+    // Check if item is from Di-Noc category
+    if (item.toLowerCase().includes('di-noc') || 
+        item.toLowerCase().includes('wood grain') || 
+        item.toLowerCase().includes('metallic') || 
+        item.toLowerCase().includes('stone') || 
+        item.toLowerCase().includes('marble') ||
+        item.toLowerCase().includes('abstract patterns') ||
+        item.toLowerCase().includes('solid colors') ||
+        item.toLowerCase().includes('custom di-noc')) {
+      navigate('/di-noc');
+    } else {
+      const slug = item.toLowerCase().replace(/\s+/g, '-');
+      navigate(`/collections/${slug}`);
+    }
     setActiveDropdown(null);
     setIsMobileMenuOpen(false);
   };
