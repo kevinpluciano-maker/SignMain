@@ -226,19 +226,21 @@ const WYSIWYGEditor = ({
               />
             ) : (
               <div className="relative">
-                <ReactQuill
-                  theme="snow"
-                  value={content}
-                  onChange={handleContentChange}
-                  modules={modules}
-                  formats={formats}
-                  placeholder="Start typing your content here..."
-                  className="min-h-64"
-                  style={{
-                    fontSize,
-                    fontFamily,
-                  }}
-                />
+                <Suspense fallback={<div className="h-64 bg-muted animate-pulse rounded-md flex items-center justify-center"><span className="text-muted-foreground">Loading editor...</span></div>}>
+                  <ReactQuill
+                    theme="snow"
+                    value={content}
+                    onChange={handleContentChange}
+                    modules={modules}
+                    formats={formats}
+                    placeholder="Start typing your content here..."
+                    className="min-h-64"
+                    style={{
+                      fontSize,
+                      fontFamily,
+                    }}
+                  />
+                </Suspense>
               </div>
             )}
 
