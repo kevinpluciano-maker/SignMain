@@ -194,36 +194,36 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
                 )}
               </div>
 
-              {/* Door Signs */}
+              {/* Di-Noc */}
               <div>
                 <Button
                   variant="ghost"
                   className="w-full justify-between p-3 h-auto font-medium text-left"
                   onClick={() => {
                     setExpandedItems(prev =>
-                      prev.includes("Door Signs")
-                        ? prev.filter(i => i !== "Door Signs")
-                        : [...prev, "Door Signs"]
+                      prev.includes("Di-Noc")
+                        ? prev.filter(i => i !== "Di-Noc")
+                        : [...prev, "Di-Noc"]
                     );
                   }}
                 >
-                  Door Signs
+                  Di-Noc
                   <ChevronRight 
                     className={`h-4 w-4 transition-transform ${
-                      expandedItems.includes("Door Signs") ? 'rotate-90' : ''
+                      expandedItems.includes("Di-Noc") ? 'rotate-90' : ''
                     }`} 
                   />
                 </Button>
-                {expandedItems.includes("Door Signs") && (
+                {expandedItems.includes("Di-Noc") && (
                   <div className="ml-4 mt-2 space-y-1">
-                    {["Interior Door Signs", "Room Door Signs", "Hotel Door Signs", "School Door Signs", "Office Door Signs", "Medical Office Door Signs", "Receptionist Signs", "Bespoke House Signs"].map((item) => (
+                    {["Di-Noc Architectural Finishes", "Wood Grain Finishes", "Metallic Finishes", "Stone & Marble Finishes", "Abstract Patterns", "Solid Colors", "Custom Di-Noc Solutions"].map((item) => (
                       <Button
                         key={item}
                         variant="ghost"
                         className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
                         onClick={() => {
-                          const slug = item.toLowerCase().replace(/\s+/g, '-');
-                          navigate(`/collections/${slug}`);
+                          // Navigate to Di-Noc page
+                          navigate('/di-noc');
                         }}
                       >
                         {item}
