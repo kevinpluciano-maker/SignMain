@@ -8,7 +8,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Lock, Settings, FileText, Image as ImageIcon, Home } from 'lucide-react';
 import { toast } from 'sonner';
 import SEO from '@/components/SEO';
-import 'react-quill/dist/quill.snow.css';
 
 interface ContentSection {
   id: string;
