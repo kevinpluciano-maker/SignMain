@@ -16,6 +16,8 @@ export const PreloadManager: React.FC<PreloadManagerProps> = ({
   criticalScripts = []
 }) => {
   useEffect(() => {
+    const preloadLinks: HTMLLinkElement[] = [];
+
     // Preload critical images
     criticalImages.forEach(src => {
       if (!document.querySelector(`link[href="${src}"]`)) {
@@ -23,8 +25,13 @@ export const PreloadManager: React.FC<PreloadManagerProps> = ({
         link.rel = 'preload';
         link.as = 'image';
         link.href = src;
-        link.crossOrigin = 'anonymous';
+        link.fetchPriority = 'high';
         document.head.appendChild(link);
+        preloadLinks.push(link);
+
+        // Also preload the actual image to ensure it's used
+        const img = new Image();
+        img.src = src;
       }
     });
 
@@ -38,6 +45,7 @@ export const PreloadManager: React.FC<PreloadManagerProps> = ({
         link.href = href;
         link.crossOrigin = 'anonymous';
         document.head.appendChild(link);
+        preloadLinks.push(link);
       }
     });
 
@@ -49,8 +57,21 @@ export const PreloadManager: React.FC<PreloadManagerProps> = ({
         link.as = 'script';
         link.href = src;
         document.head.appendChild(link);
+        preloadLinks.push(link);
       }
     });
+
+    // Cleanup function to remove preload links after they're no longer needed
+    return () => {
+      // Remove preload links after a delay to allow resources to load
+      setTimeout(() => {
+        preloadLinks.forEach(link => {
+          if (link.parentNode) {
+            link.parentNode.removeChild(link);
+          }
+        });
+      }, 5000);
+    };
 
     // Prefetch DNS lookups for external domains
     const externalDomains = [
