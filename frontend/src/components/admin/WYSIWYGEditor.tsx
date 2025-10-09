@@ -1,20 +1,13 @@
 import { useState, useEffect, useMemo } from 'react';
-import dynamic from 'next/dynamic';
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Save, Eye, EyeOff, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
-
-// Dynamically import ReactQuill to avoid SSR issues
-const ReactQuill = dynamic(() => import('react-quill'), { 
-  ssr: false,
-  loading: () => <div className="h-64 bg-muted animate-pulse rounded-md" />
-});
 
 interface WYSIWYGEditorProps {
   sectionId: string;
