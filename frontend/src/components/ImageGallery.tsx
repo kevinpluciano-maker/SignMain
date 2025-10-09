@@ -42,9 +42,7 @@ const ImageGallery = ({ images, productName, selectedIndex, onIndexChange }: Ima
             loading="eager"
             sizes="(max-width: 768px) 100vw, 600px"
           />
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-            <ZoomIn className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
+          {/* Zoom icon removed as requested */}
         </div>
 
         {/* Thumbnail Grid */}
