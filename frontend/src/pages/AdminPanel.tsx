@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import ImprovedFooter from '@/components/ImprovedFooter';
-import WYSIWYGEditor from '@/components/admin/WYSIWYGEditor';
+import SimpleWYSIWYGEditor from '@/components/admin/SimpleWYSIWYGEditor';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Lock, Settings, FileText, Image as ImageIcon, Home } from 'lucide-react';
