@@ -27,6 +27,13 @@ const Home = () => {
         keywords={["ADA compliant signs", "braille signage", "acrylic signs", "door number signs", "restroom signs", "office signage", "custom braille signs", "accessibility signage", "professional signage Canada", "braille door signs", "tactile signage"]}
       />
       <div className="min-h-screen bg-background">
+        {/* Preload critical homepage resources only */}
+        <PreloadManager 
+          criticalImages={[
+            "/assets/hero-office.jpg",
+            "/assets/acrylic-braille-logo.png"
+          ]}
+        />
         {/* AccessibilityEnhancer removed per requirements */}
         <MobilePerformanceOptimizer />
         <EditorToolbar />
