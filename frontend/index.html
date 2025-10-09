@@ -114,7 +114,8 @@
       .hero-content { position: relative; z-index: 10; height: 100%; display: flex; align-items: center; }
     </style>
     
-    <script type="module" src="/src/main.tsx" defer></script>
+    <!-- Load main script at the end for better performance -->
+    <script type="module" src="/src/main.tsx"></script>
     
     <!-- Performance monitoring -->
     <script>
