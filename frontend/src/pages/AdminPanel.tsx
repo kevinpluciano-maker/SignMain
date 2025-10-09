@@ -239,7 +239,7 @@ const AdminPanel = () => {
                 <CardContent>
                   <div className="space-y-8">
                     {sections.filter(s => s.id.includes('hero')).map((section) => (
-                      <WYSIWYGEditor
+                      <SimpleWYSIWYGEditor
                         key={section.id}
                         sectionId={section.id}
                         sectionName={section.name}
