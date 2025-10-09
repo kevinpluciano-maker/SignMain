@@ -8,7 +8,6 @@ import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { MobilePerformanceOptimizer } from "@/components/MobilePerformanceOptimizer";
-import { PreloadManager } from "@/components/PreloadManager";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import { PerformanceOptimizations, inlineCriticalCSS, monitorPerformance } from "@/components/PerformanceOptimizations";
 import { ResponsiveOptimizations, addResponsiveCSS } from "@/components/ResponsiveOptimizations";
