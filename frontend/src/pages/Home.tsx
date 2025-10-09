@@ -11,6 +11,7 @@ import PageEditor from "@/components/editor/PageEditor";
 import DraggableSection from "@/components/editor/DraggableSection";
 import EditorToolbar from "@/components/editor/EditorToolbar";
 import CurrencySwitcher from "@/components/CurrencySwitcher";
+import { PreloadManager } from "@/components/PreloadManager";
 // AccessibilityEnhancer removed per requirements
 import { MobilePerformanceOptimizer } from "@/components/MobilePerformanceOptimizer";
 
