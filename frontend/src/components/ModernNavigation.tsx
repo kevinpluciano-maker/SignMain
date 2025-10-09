@@ -31,8 +31,13 @@ const ModernNavigation = () => {
   }, []);
 
   const handleCategoryClick = (categoryTitle: string) => {
-    const slug = categoryTitle.toLowerCase().replace(/\s+/g, '-');
-    navigate(`/collections/${slug}`);
+    // Check if category is Di-Noc
+    if (categoryTitle.toLowerCase() === 'di-noc') {
+      navigate('/di-noc');
+    } else {
+      const slug = categoryTitle.toLowerCase().replace(/\s+/g, '-');
+      navigate(`/collections/${slug}`);
+    }
     setActiveDropdown(null);
     setIsMobileMenuOpen(false);
   };
