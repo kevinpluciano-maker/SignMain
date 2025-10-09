@@ -70,6 +70,39 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+@api_router.post("/content/{section_id}", response_model=ContentSection)
+async def save_content_section(section_id: str, input: ContentSectionCreate):
+    # Check if section already exists
+    existing = await db.content_sections.find_one({"section_id": section_id})
+    
+    content_dict = input.dict()
+    content_dict["section_id"] = section_id
+    content_obj = ContentSection(**content_dict)
+    
+    if existing:
+        # Update existing section
+        await db.content_sections.update_one(
+            {"section_id": section_id},
+            {"$set": content_obj.dict()}
+        )
+    else:
+        # Insert new section
+        await db.content_sections.insert_one(content_obj.dict())
+    
+    return content_obj
+
+@api_router.get("/content/{section_id}", response_model=ContentSection)
+async def get_content_section(section_id: str):
+    content = await db.content_sections.find_one({"section_id": section_id})
+    if content:
+        return ContentSection(**content)
+    return None
+
+@api_router.get("/content", response_model=List[ContentSection])
+async def get_all_content():
+    contents = await db.content_sections.find().to_list(1000)
+    return [ContentSection(**content) for content in contents]
+
 # Include the router in the main app
 app.include_router(api_router)
 
