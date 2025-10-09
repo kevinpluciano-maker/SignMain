@@ -22,6 +22,20 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' &&
     componentTagger(),
+    // Gzip compression for production
+    mode === 'production' && viteCompression({
+      algorithm: 'gzip',
+      ext: '.gz',
+      threshold: 1024, // Only compress files larger than 1kb
+      deleteOriginFile: false,
+    }),
+    // Brotli compression for production (better compression than gzip)
+    mode === 'production' && viteCompression({
+      algorithm: 'brotliCompress',
+      ext: '.br',
+      threshold: 1024,
+      deleteOriginFile: false,
+    }),
     // Bundle analyzer for production builds
     mode === 'production' && visualizer({
       filename: './dist/stats.html',
