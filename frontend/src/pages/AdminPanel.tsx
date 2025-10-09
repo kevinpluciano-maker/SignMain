@@ -213,7 +213,7 @@ const AdminPanel = () => {
                 <CardContent>
                   <div className="space-y-8">
                     {sections.map((section) => (
-                      <WYSIWYGEditor
+                      <SimpleWYSIWYGEditor
                         key={section.id}
                         sectionId={section.id}
                         sectionName={section.name}
