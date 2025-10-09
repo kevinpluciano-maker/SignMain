@@ -16,29 +16,11 @@ export const ProductImageGallery = ({
   has360View = false 
 }: ProductImageGalleryProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isZoomed, setIsZoomed] = useState(false);
-  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   const [is360Active, setIs360Active] = useState(false);
   const [rotation, setRotation] = useState(0);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isZoomed || !imageRef.current) return;
-
-    const rect = imageRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-    setZoomPosition({ x, y });
-  };
-
-  const handleMouseEnter = () => {
-    setIsZoomed(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsZoomed(false);
-  };
+  // Zoom feature removed as requested
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
