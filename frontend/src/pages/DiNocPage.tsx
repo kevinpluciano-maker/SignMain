@@ -212,11 +212,11 @@ const DiNocPage = () => {
           <div className="relative z-10 container mx-auto px-6 h-full flex items-center justify-center">
             <div className="max-w-4xl text-center text-white">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   Di-Noc
                 </span>
                 <br />
-                <span className="text-3xl md:text-4xl lg:text-5xl font-light">
+                <span className="text-3xl md:text-4xl lg:text-5xl font-light text-white/90">
                   Architectural Film
                 </span>
               </h1>
