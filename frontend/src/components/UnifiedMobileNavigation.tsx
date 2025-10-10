@@ -194,44 +194,16 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
                 )}
               </div>
 
-              {/* Di-Noc */}
-              <div>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between p-3 h-auto font-medium text-left"
-                  onClick={() => {
-                    setExpandedItems(prev =>
-                      prev.includes("Di-Noc")
-                        ? prev.filter(i => i !== "Di-Noc")
-                        : [...prev, "Di-Noc"]
-                    );
-                  }}
-                >
-                  Di-Noc
-                  <ChevronRight 
-                    className={`h-4 w-4 transition-transform ${
-                      expandedItems.includes("Di-Noc") ? 'rotate-90' : ''
-                    }`} 
-                  />
-                </Button>
-                {expandedItems.includes("Di-Noc") && (
-                  <div className="ml-4 mt-2 space-y-1">
-                    {["Di-Noc Architectural Finishes", "Wood Grain Finishes", "Metallic Finishes", "Stone & Marble Finishes", "Abstract Patterns", "Solid Colors", "Custom Di-Noc Solutions"].map((item) => (
-                      <Button
-                        key={item}
-                        variant="ghost"
-                        className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
-                        onClick={() => {
-                          // Navigate to Di-Noc page
-                          navigate('/di-noc');
-                        }}
-                      >
-                        {item}
-                      </Button>
-                    ))}
-                  </div>
-                )}
-              </div>
+              {/* Di-Noc - Simple link without dropdown */}
+              <Button
+                variant="ghost"
+                className="w-full justify-start p-3 h-auto font-medium text-left"
+                onClick={() => {
+                  navigate('/di-noc');
+                }}
+              >
+                Di-Noc
+              </Button>
 
               {/* Restroom Signs */}
               <div>
