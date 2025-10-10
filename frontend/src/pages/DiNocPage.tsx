@@ -87,8 +87,17 @@ const DiNocPage = () => {
         <Header />
         <ModernNavigation />
 
-        {/* Hero Section with Background Video */}
-        <section className="relative h-[70vh] min-h-[600px] overflow-hidden bg-slate-900">
+        {/* Hero Section with Background Video - Futuristic Design */}
+        <section className="relative h-[80vh] min-h-[700px] overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
+          {/* Animated Grid Background */}
+          <div className="absolute inset-0 z-0 opacity-20">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)',
+              backgroundSize: '50px 50px',
+              animation: 'grid-flow 20s linear infinite'
+            }}></div>
+          </div>
+
           {/* Background Video */}
           <div className="absolute inset-0 z-0">
             <video
@@ -99,7 +108,7 @@ const DiNocPage = () => {
               playsInline
               controls={false}
               disablePictureInPicture
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover opacity-70"
               preload="auto"
               style={{
                 objectFit: 'cover',
@@ -114,16 +123,21 @@ const DiNocPage = () => {
             
             {/* Fallback gradient if video fails */}
             {videoError && (
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center z-10">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-cyan-900 flex items-center justify-center z-10">
                 <div className="text-white text-center">
                   <p className="text-xl mb-4">Video unavailable</p>
-                  <p className="text-sm text-white/70">Displaying static background</p>
+                  <p className="text-sm text-cyan-300/70">Displaying futuristic background</p>
                 </div>
               </div>
             )}
             
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10" />
+            {/* Futuristic Gradient Overlay with Blue Tones */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-transparent to-cyan-900/50 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-blue-950/60 z-10" />
+            
+            {/* Glowing Accents */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl z-10 animate-pulse"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl z-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           {/* Hero Content */}
