@@ -47,15 +47,6 @@ const ImprovedNavigation = () => {
         "No Food Allowed Signs",
         "Pull Door Signs"
       ]
-    },
-    {
-      title: "Di-Noc",
-      category: 'di-noc',
-      items: [
-        "Wood Grain Film",
-        "Stone Texture Film", 
-        "Brushed Metal Film"
-      ]
     }
   ];
 
