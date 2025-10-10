@@ -374,27 +374,27 @@ class BSignBackendTester:
 
     def test_invalid_endpoints(self):
         """Test invalid endpoints return proper 404 errors"""
-        invalid_endpoints = [
-            "/nonexistent",
+        # Test invalid API endpoints (should return 404)
+        invalid_api_endpoints = [
             "/api/invalid",
             "/api/status/invalid",
             "/api/content/invalid/extra"
         ]
         
-        for endpoint in invalid_endpoints:
+        for endpoint in invalid_api_endpoints:
             try:
                 response = requests.get(f"{BACKEND_URL.replace('/api', '')}{endpoint}", timeout=10)
                 
                 if response.status_code == 404:
                     self.log_result(
-                        f"Invalid Endpoint {endpoint}", 
+                        f"Invalid API Endpoint {endpoint}", 
                         True, 
-                        f"Properly returned 404 for invalid endpoint",
+                        f"Properly returned 404 for invalid API endpoint",
                         {"endpoint": endpoint, "status_code": response.status_code}
                     )
                 else:
                     self.log_result(
-                        f"Invalid Endpoint {endpoint}", 
+                        f"Invalid API Endpoint {endpoint}", 
                         False, 
                         f"Expected 404, got {response.status_code}",
                         {"endpoint": endpoint, "status_code": response.status_code}
@@ -402,11 +402,38 @@ class BSignBackendTester:
                     
             except requests.exceptions.RequestException as e:
                 self.log_result(
-                    f"Invalid Endpoint {endpoint}", 
+                    f"Invalid API Endpoint {endpoint}", 
                     False, 
                     f"Connection error: {str(e)}",
                     {"endpoint": endpoint, "error": str(e)}
                 )
+        
+        # Test non-API endpoint (should return 200 with React app for SPA routing)
+        try:
+            response = requests.get(f"{BACKEND_URL.replace('/api', '')}/nonexistent", timeout=10)
+            
+            if response.status_code == 200 and "<!DOCTYPE html>" in response.text:
+                self.log_result(
+                    "Frontend SPA Routing", 
+                    True, 
+                    "Frontend properly serves React app for non-API routes (SPA behavior)",
+                    {"endpoint": "/nonexistent", "status_code": response.status_code, "content_type": "HTML"}
+                )
+            else:
+                self.log_result(
+                    "Frontend SPA Routing", 
+                    False, 
+                    f"Unexpected response for non-API route: {response.status_code}",
+                    {"endpoint": "/nonexistent", "status_code": response.status_code}
+                )
+                
+        except requests.exceptions.RequestException as e:
+            self.log_result(
+                "Frontend SPA Routing", 
+                False, 
+                f"Connection error: {str(e)}",
+                {"endpoint": "/nonexistent", "error": str(e)}
+            )
 
     def test_invalid_data_submissions(self):
         """Test API handles invalid data submissions properly"""
