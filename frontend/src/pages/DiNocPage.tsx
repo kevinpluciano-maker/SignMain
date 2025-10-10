@@ -155,10 +155,10 @@ const DiNocPage = () => {
               <p className="text-lg md:text-xl text-cyan-100/90 max-w-3xl mx-auto mb-10 leading-relaxed font-light backdrop-blur-sm bg-slate-900/30 p-6 rounded-2xl border border-cyan-500/20">
                 Transform spaces with premium <span className="text-cyan-400 font-semibold">3M™ DI-NOC™</span> architectural finishes. Endless design possibilities for modern interiors.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4"
+                  className="bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 hover:from-cyan-400 hover:via-blue-400 hover:to-cyan-500 text-white font-bold text-lg px-10 py-6 rounded-full shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_50px_rgba(6,182,212,0.8)] transform hover:scale-105 transition-all duration-300 border-2 border-cyan-300/50"
                   onClick={() => {
                     const contactSection = document.querySelector('section[class*="primary"]');
                     contactSection?.scrollIntoView({ behavior: 'smooth' });
@@ -169,7 +169,7 @@ const DiNocPage = () => {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4"
+                  className="border-2 border-cyan-400/70 text-cyan-100 hover:bg-cyan-500/20 hover:border-cyan-300 text-lg px-10 py-6 rounded-full backdrop-blur-md bg-slate-900/30 font-semibold shadow-lg hover:shadow-cyan-500/50 transform hover:scale-105 transition-all duration-300"
                   onClick={() => {
                     const featuresSection = document.querySelector('section');
                     featuresSection?.scrollIntoView({ behavior: 'smooth' });
