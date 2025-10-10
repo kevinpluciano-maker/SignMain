@@ -185,64 +185,128 @@ const DiNocPage = () => {
           </div>
         </section>
 
-        <Separator className="my-0" />
-
-        {/* Products Section */}
-        <section className="py-20">
+        {/* Di-Noc Video Showcase */}
+        <section className="py-20 bg-gradient-to-b from-background to-muted/20">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Di-Noc Collection</h2>
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+                See Di-Noc in Action
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Transform Your Space with Di-Noc</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Premium architectural films for every design vision
+                Watch how our premium architectural films bring designs to life
               </p>
             </div>
 
-            {products.length > 0 ? (
-              <ProductGrid products={products} />
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground mb-4">Products are being updated. Please check back soon.</p>
-                <Button variant="outline">Contact Us for Custom Solutions</Button>
+            {/* Video Embed */}
+            <div className="max-w-5xl mx-auto">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                <video
+                  controls
+                  className="w-full h-full"
+                  poster="/assets/di-noc-poster.jpg"
+                >
+                  <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/z4jcglp5_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
-            )}
+            </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-          <div className="container mx-auto px-6 text-center">
-            <Card className="max-w-4xl mx-auto border-0 shadow-xl">
-              <CardContent className="p-12">
-                <Star className="h-16 w-16 text-yellow-500 mx-auto mb-6" />
-                <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Space?</h2>
-                <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Get professional guidance on selecting the perfect Di-Noc architectural films for your project.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="text-lg px-8 py-4">
-                    Schedule Consultation
-                  </Button>
-                  <Button size="lg" variant="outline" className="text-lg px-8 py-4">
-                    Download Catalog
-                  </Button>
+        {/* Prominent Contact Us Section */}
+        <section className="py-24 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <MessageSquare className="h-20 w-20 mx-auto mb-6 opacity-90" />
+              <h2 className="text-4xl md:text-6xl font-black mb-6">
+                Let's Discuss Your Project
+              </h2>
+              <p className="text-2xl md:text-3xl mb-8 text-white/90 font-light leading-relaxed">
+                Contact us directly to inquire about our Di-Noc architectural films, get expert advice, or request product information.
+              </p>
+              <p className="text-xl mb-12 text-white/80 max-w-2xl mx-auto">
+                Our team of specialists is ready to help you select the perfect finishes for your commercial or residential project.
+              </p>
+
+              {/* Contact Options */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all">
+                  <CardContent className="p-8 text-center">
+                    <Phone className="h-12 w-12 mx-auto mb-4 text-white" />
+                    <h3 className="text-xl font-bold mb-2 text-white">Call Us</h3>
+                    <p className="text-white/80 mb-4">Speak with our experts</p>
+                    <Button variant="secondary" size="lg" className="w-full">
+                      (555) 123-4567
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all">
+                  <CardContent className="p-8 text-center">
+                    <Mail className="h-12 w-12 mx-auto mb-4 text-white" />
+                    <h3 className="text-xl font-bold mb-2 text-white">Email Us</h3>
+                    <p className="text-white/80 mb-4">Get a detailed response</p>
+                    <Button variant="secondary" size="lg" className="w-full">
+                      info@bsignstore.com
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all">
+                  <CardContent className="p-8 text-center">
+                    <MessageSquare className="h-12 w-12 mx-auto mb-4 text-white" />
+                    <h3 className="text-xl font-bold mb-2 text-white">Contact Form</h3>
+                    <p className="text-white/80 mb-4">Send us a message</p>
+                    <Button variant="secondary" size="lg" className="w-full">
+                      Fill Out Form
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* CTA Button */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  className="text-xl px-12 py-8 h-auto font-bold shadow-2xl hover:scale-105 transition-transform"
+                >
+                  Request Product Information
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="text-xl px-12 py-8 h-auto font-bold border-white/30 text-white hover:bg-white/10 shadow-2xl hover:scale-105 transition-transform"
+                >
+                  Schedule Consultation
+                </Button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center gap-8 mt-12 pt-12 border-t border-white/20">
+                <div className="flex items-center gap-2 text-white/90">
+                  <CheckCircle className="h-6 w-6" />
+                  <span className="text-lg">Expert Guidance</span>
                 </div>
-                
-                <div className="flex flex-wrap justify-center gap-6 mt-8 pt-8 border-t">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Free samples</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Expert installation</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>10+ year warranty</span>
-                  </div>
+                <div className="flex items-center gap-2 text-white/90">
+                  <CheckCircle className="h-6 w-6" />
+                  <span className="text-lg">Free Samples Available</span>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-center gap-2 text-white/90">
+                  <CheckCircle className="h-6 w-6" />
+                  <span className="text-lg">Fast Response Time</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
