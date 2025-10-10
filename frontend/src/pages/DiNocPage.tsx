@@ -205,13 +205,13 @@ const DiNocPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               {features.map((feature, index) => (
-                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-8 text-center">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
-                      <feature.icon className="h-8 w-8 text-white" />
+                <Card key={index} className="border-2 border-cyan-500/30 bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-xl hover:border-cyan-400/60 hover:shadow-[0_0_40px_rgba(6,182,212,0.3)] transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 group">
+                  <CardContent className="p-10 text-center">
+                    <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 group-hover:from-cyan-400/30 group-hover:to-blue-400/30 transition-all">
+                      <feature.icon className="h-12 w-12 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                    <h3 className="text-2xl font-bold mb-4 text-cyan-100 group-hover:text-cyan-50 transition-colors">{feature.title}</h3>
+                    <p className="text-slate-300/80 leading-relaxed group-hover:text-slate-200 transition-colors">{feature.description}</p>
                   </CardContent>
                 </Card>
               ))}
