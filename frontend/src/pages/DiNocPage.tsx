@@ -143,16 +143,15 @@ const DiNocPage = () => {
           {/* Hero Content */}
           <div className="relative z-20 container mx-auto px-6 h-full flex items-center justify-center">
             <div className="max-w-4xl text-center text-white">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 leading-tight">
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-pulse">
                   Di-Noc
                 </span>
-                <br />
-                <span className="text-2xl md:text-4xl lg:text-5xl font-light bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
-                  Architectural Film
-                </span>
               </h1>
-              <p className="text-lg md:text-xl text-cyan-100/90 max-w-3xl mx-auto mb-10 leading-relaxed font-light backdrop-blur-sm bg-slate-900/30 p-6 rounded-2xl border border-cyan-500/20">
+              <p className="text-base md:text-lg lg:text-xl font-light text-cyan-200/70 mb-12 tracking-wide">
+                Architectural Film
+              </p>
+              <p className="text-lg md:text-xl text-cyan-100/90 max-w-3xl mx-auto mb-10 leading-relaxed font-light backdrop-blur-sm bg-slate-900/30 p-6 rounded-2xl border border-cyan-500/20 mt-8">
                 Transform spaces with premium <span className="text-cyan-400 font-semibold">3M™ DI-NOC™</span> architectural finishes. Endless design possibilities for modern interiors.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
