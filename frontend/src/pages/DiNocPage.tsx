@@ -235,40 +235,55 @@ const DiNocPage = () => {
                 Our team of specialists is ready to help you select the perfect finishes for your commercial or residential project.
               </p>
 
-              {/* Contact Options */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all">
-                  <CardContent className="p-8 text-center">
-                    <Phone className="h-12 w-12 mx-auto mb-4 text-white" />
-                    <h3 className="text-xl font-bold mb-2 text-white">Call Us</h3>
-                    <p className="text-white/80 mb-4">Speak with our experts</p>
-                    <Button variant="secondary" size="lg" className="w-full">
-                      (555) 123-4567
-                    </Button>
-                  </CardContent>
-                </Card>
+              {/* Contact Options - Redesigned */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                {/* Phone Card */}
+                <a href="tel:+15551234567" className="group">
+                  <Card className="bg-white/10 backdrop-blur-md border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    <CardContent className="p-10 text-center">
+                      <div className="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all">
+                        <Phone className="h-10 w-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-white">Call Us</h3>
+                      <p className="text-white/90 mb-6 text-lg">Speak with our experts</p>
+                      <div className="bg-white text-primary font-bold text-xl py-4 px-6 rounded-xl group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
+                        (555) 123-4567
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
 
-                <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all">
-                  <CardContent className="p-8 text-center">
-                    <Mail className="h-12 w-12 mx-auto mb-4 text-white" />
-                    <h3 className="text-xl font-bold mb-2 text-white">Email Us</h3>
-                    <p className="text-white/80 mb-4">Get a detailed response</p>
-                    <Button variant="secondary" size="lg" className="w-full">
-                      info@bsignstore.com
-                    </Button>
-                  </CardContent>
-                </Card>
+                {/* Email Card */}
+                <a href="mailto:info@bsignstore.com" className="group">
+                  <Card className="bg-white/10 backdrop-blur-md border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    <CardContent className="p-10 text-center">
+                      <div className="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all">
+                        <Mail className="h-10 w-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-white">Email Us</h3>
+                      <p className="text-white/90 mb-6 text-lg">Get a detailed response</p>
+                      <div className="bg-white text-primary font-bold text-lg py-4 px-6 rounded-xl group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg break-all">
+                        info@bsignstore.com
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
 
-                <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all">
-                  <CardContent className="p-8 text-center">
-                    <MessageSquare className="h-12 w-12 mx-auto mb-4 text-white" />
-                    <h3 className="text-xl font-bold mb-2 text-white">Contact Form</h3>
-                    <p className="text-white/80 mb-4">Send us a message</p>
-                    <Button variant="secondary" size="lg" className="w-full">
-                      Fill Out Form
-                    </Button>
-                  </CardContent>
-                </Card>
+                {/* Contact Form Card */}
+                <a href="/contact" className="group">
+                  <Card className="bg-white/10 backdrop-blur-md border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    <CardContent className="p-10 text-center">
+                      <div className="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all">
+                        <MessageSquare className="h-10 w-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-white">Contact Form</h3>
+                      <p className="text-white/90 mb-6 text-lg">Send us a message</p>
+                      <div className="bg-white text-primary font-bold text-xl py-4 px-6 rounded-xl group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
+                        Fill Out Form
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
               </div>
 
               {/* CTA Button */}
