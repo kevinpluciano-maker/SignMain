@@ -116,16 +116,16 @@ const DiNocPage = () => {
             
             {/* Fallback gradient if video fails */}
             {videoError && (
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-cyan-900 flex items-center justify-center z-10">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center z-10">
                 <div className="text-white text-center">
                   <p className="text-xl mb-4">Video unavailable</p>
-                  <p className="text-sm text-cyan-300/70">Displaying futuristic background</p>
+                  <p className="text-sm text-slate-300">Displaying neutral background</p>
                 </div>
               </div>
             )}
             
-            {/* Subtle dark overlay for text readability - only at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
+            {/* Very subtle overlay for text readability - only at bottom where text is */}
+            <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent z-10" />
           </div>
 
           {/* Hero Content */}
