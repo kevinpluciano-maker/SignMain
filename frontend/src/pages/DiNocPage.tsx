@@ -87,16 +87,9 @@ const DiNocPage = () => {
         <Header />
         <ModernNavigation />
 
-        {/* Hero Section with Background Video - Futuristic Design */}
-        <section className="relative h-[80vh] min-h-[700px] overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
-          {/* Animated Grid Background */}
-          <div className="absolute inset-0 z-0 opacity-20">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)',
-              backgroundSize: '50px 50px',
-              animation: 'grid-flow 20s linear infinite'
-            }}></div>
-          </div>
+        {/* Hero Section with Background Video */}
+        <section className="relative h-[80vh] min-h-[700px] overflow-hidden bg-black">
+          {/* Fallback background color if video doesn't load */}
 
           {/* Background Video */}
           <div className="absolute inset-0 z-0">
