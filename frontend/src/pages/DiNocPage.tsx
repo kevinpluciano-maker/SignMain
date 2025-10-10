@@ -182,7 +182,7 @@ const DiNocPage = () => {
                   className="w-full h-full object-cover"
                   preload="auto"
                 >
-                  <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/1geiodo0_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
+                  <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/ubju0k36_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
