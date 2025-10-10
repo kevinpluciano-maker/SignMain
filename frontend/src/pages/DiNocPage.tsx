@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
-import ImprovedNavigation from "@/components/ImprovedNavigation";
+import ModernNavigation from "@/components/ModernNavigation";
 import ImprovedFooter from "@/components/ImprovedFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
