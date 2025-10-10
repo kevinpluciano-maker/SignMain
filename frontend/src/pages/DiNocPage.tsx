@@ -2,13 +2,10 @@ import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import ImprovedNavigation from "@/components/ImprovedNavigation";
 import ImprovedFooter from "@/components/ImprovedFooter";
-import ProductGrid from "@/components/ProductGrid";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { getCategoryProducts } from "@/data/productsData";
-import { CheckCircle, Palette, Shield, Wrench, Leaf, Star } from "lucide-react";
+import { CheckCircle, Palette, Shield, Wrench, Leaf, Phone, Mail, MessageSquare } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const DiNocPage = () => {
