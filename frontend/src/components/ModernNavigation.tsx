@@ -89,18 +89,6 @@ const ModernNavigation = () => {
       ]
     },
     {
-      title: "Di-Noc",
-      items: [
-        "Di-Noc Architectural Finishes",
-        "Wood Grain Finishes",
-        "Metallic Finishes",
-        "Stone & Marble Finishes",
-        "Abstract Patterns",
-        "Solid Colors",
-        "Custom Di-Noc Solutions"
-      ]
-    },
-    {
       title: "Restroom Signs",
       items: [
         "Women Restroom Signs",
