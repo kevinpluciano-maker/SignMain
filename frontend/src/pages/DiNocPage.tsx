@@ -171,9 +171,17 @@ const DiNocPage = () => {
         <ModernNavigation />
 
         {/* Hero Section with Background Video */}
-        <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
+        <section className="relative h-[70vh] min-h-[600px] overflow-hidden bg-slate-900">
           {/* Background Video */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 z-0">
+            {!videoLoaded && !videoError && (
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
+                  <p>Loading video...</p>
+                </div>
+              </div>
+            )}
             <video
               ref={videoRef}
               autoPlay
@@ -189,6 +197,7 @@ const DiNocPage = () => {
                 width: '100%',
                 height: '100%',
                 pointerEvents: 'none',
+                display: videoLoaded ? 'block' : 'none',
                 // Fix for iOS Safari video rendering
                 transform: 'translateZ(0)',
                 WebkitTransform: 'translateZ(0)',
@@ -201,11 +210,18 @@ const DiNocPage = () => {
             
             {/* Fallback gradient if video fails */}
             {videoError && (
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900" />
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <p className="text-xl mb-4">Video unavailable</p>
+                  <p className="text-sm text-white/70">Displaying static background</p>
+                </div>
+              </div>
             )}
             
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+            {/* Overlay - only show when video is loaded */}
+            {videoLoaded && (
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10" />
+            )}
           </div>
 
           {/* Hero Content */}
