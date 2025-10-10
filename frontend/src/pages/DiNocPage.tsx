@@ -108,7 +108,7 @@ const DiNocPage = () => {
                 pointerEvents: 'none'
               }}
             >
-              <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/xrwy80f0_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
+              <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/ubju0k36_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
