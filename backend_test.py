@@ -885,25 +885,58 @@ class BSignBackendTester:
         print(f"🎯 Testing backend at: {BACKEND_URL}")
         print("=" * 80)
         
-        # Core API Tests
+        # 1. API Health Check Tests
+        print("\n📋 1. API HEALTH CHECK TESTS")
+        print("-" * 40)
         self.test_api_root_endpoint()
+        
+        # 2. Content API Tests
+        print("\n📋 2. CONTENT API TESTS")
+        print("-" * 40)
+        created_section_id = self.test_content_post_endpoint()
+        self.test_content_get_by_section_endpoint(created_section_id)
+        self.test_content_get_all_endpoint()
+        
+        # 3. Status API Tests
+        print("\n📋 3. STATUS API TESTS")
+        print("-" * 40)
         created_id = self.test_status_post_endpoint()
         self.test_status_get_endpoint(created_id)
         
-        # Integration Tests
+        # 4. Database Connection Tests
+        print("\n📋 4. DATABASE CONNECTION TESTS")
+        print("-" * 40)
+        self.test_database_connectivity()
+        
+        # 5. Performance Tests
+        print("\n📋 5. PERFORMANCE TESTS")
+        print("-" * 40)
+        self.test_api_performance()
+        self.test_concurrent_requests()
+        
+        # 6. Error Handling Tests
+        print("\n📋 6. ERROR HANDLING TESTS")
+        print("-" * 40)
+        self.test_invalid_endpoints()
+        self.test_invalid_data_submissions()
+        
+        # 7. CORS and Headers Tests
+        print("\n📋 7. CORS AND HEADERS TESTS")
+        print("-" * 40)
+        self.test_cors_configuration()
+        self.test_gzip_compression()
+        
+        # 8. Integration Tests
+        print("\n📋 8. INTEGRATION TESTS")
+        print("-" * 40)
         self.test_cart_system_integration()
         self.test_contact_form_handling()
         self.test_product_categorization_system()
         self.test_admin_mode_autosave()
         
-        # Infrastructure Tests
-        self.test_database_connectivity()
-        self.test_cors_configuration()
-        self.test_api_performance()
-        
         # Summary
         print("\n" + "=" * 80)
-        print("📊 TEST SUMMARY")
+        print("📊 COMPREHENSIVE TEST SUMMARY")
         print("=" * 80)
         print(f"Total Tests: {self.total_tests}")
         print(f"✅ Passed: {self.passed_tests}")
@@ -915,6 +948,8 @@ class BSignBackendTester:
             for result in self.results:
                 if "❌ FAIL" in result["status"]:
                     print(f"  • {result['test']}: {result['message']}")
+        else:
+            print("\n🎉 ALL TESTS PASSED! Backend is fully operational.")
         
         print("\n" + "=" * 80)
         return self.failed_tests == 0
