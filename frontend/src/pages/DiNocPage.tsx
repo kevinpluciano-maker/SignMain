@@ -139,9 +139,6 @@ const DiNocPage = () => {
               <p className="text-base md:text-lg lg:text-xl font-light text-cyan-200/70 mb-12 tracking-wide">
                 Architectural Film
               </p>
-              <p className="text-lg md:text-xl text-cyan-100/90 max-w-3xl mx-auto mb-10 leading-relaxed font-light backdrop-blur-sm bg-slate-900/30 p-6 rounded-2xl border border-cyan-500/20 mt-8">
-                Transform spaces with premium <span className="text-cyan-400 font-semibold">3M™ DI-NOC™</span> architectural finishes. Endless design possibilities for modern interiors.
-              </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
                   size="lg" 
