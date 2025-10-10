@@ -16,28 +16,117 @@ const DiNocPage = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      // Enhanced video playback for mobile and desktop - same as homepage
+      const playVideo = async () => {
+        try {
+          // Set video attributes for optimal playback on all devices
+          video.muted = true;
+          video.loop = true; // Ensure loop is set
+          video.playsInline = true;
+          video.setAttribute('playsinline', '');
+          video.setAttribute('webkit-playsinline', '');
+          video.setAttribute('x5-playsinline', '');
+          video.preload = "auto"; // Preload for smoother playback
+          
+          // Attempt to play
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            await playPromise;
+            console.log('Di-Noc video started playing successfully');
+            setVideoLoaded(true);
+          }
+        } catch (error) {
+          console.error('Di-Noc video autoplay failed:', error);
+          // Mobile-specific retry logic with multiple attempts
+          let retryCount = 0;
+          const maxRetries = 3;
+          
+          const retryPlay = async () => {
+            if (retryCount < maxRetries) {
+              retryCount++;
+              setTimeout(async () => {
+                try {
+                  await video.play();
+                  console.log(`Di-Noc video started on retry ${retryCount}`);
+                  setVideoLoaded(true);
+                } catch (retryError) {
+                  console.error(`Di-Noc video retry ${retryCount} failed:`, retryError);
+                  if (retryCount < maxRetries) {
+                    retryPlay();
+                  } else {
+                    setVideoError(true);
+                  }
+                }
+              }, 500 * retryCount);
+            }
+          };
+          
+          retryPlay();
+        }
+      };
+
+      // Handle visibility change to restart video on mobile when page becomes visible
+      const handleVisibilityChange = () => {
+        if (!document.hidden && video.paused) {
+          console.log('Di-Noc page became visible, attempting to play video');
+          playVideo();
+        }
+      };
+
+      // Lazy load video when in viewport
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const playVideo = async () => {
-              try {
-                video.muted = true;
-                video.playsInline = true;
-                video.preload = "metadata";
-                await video.play();
-                setVideoLoaded(true);
-              } catch (error) {
-                console.error('Video autoplay failed:', error);
-                setVideoError(true);
-              }
+            const handleCanPlay = () => {
+              console.log('Di-Noc video can play');
+              playVideo();
             };
+
+            const handleLoadedData = () => {
+              console.log('Di-Noc video data loaded');
+              setVideoLoaded(true);
+            };
+
+            const handleError = (e: any) => {
+              console.error('Di-Noc video loading error:', e);
+              setVideoError(true);
+            };
+
+            const handleEnded = () => {
+              // Ensure loop continues on mobile
+              console.log('Di-Noc video ended, restarting');
+              video.currentTime = 0;
+              playVideo();
+            };
+            
+            video.addEventListener('canplay', handleCanPlay);
+            video.addEventListener('loadeddata', handleLoadedData);
+            video.addEventListener('error', handleError);
+            video.addEventListener('ended', handleEnded);
+            document.addEventListener('visibilitychange', handleVisibilityChange);
+            
+            // Start loading immediately
             playVideo();
+            
+            observer.unobserve(video);
+            
+            return () => {
+              video.removeEventListener('canplay', handleCanPlay);
+              video.removeEventListener('loadeddata', handleLoadedData);
+              video.removeEventListener('error', handleError);
+              video.removeEventListener('ended', handleEnded);
+              document.removeEventListener('visibilitychange', handleVisibilityChange);
+            };
           }
         });
       }, { threshold: 0.1 });
       
       observer.observe(video);
-      return () => observer.disconnect();
+      
+      return () => {
+        observer.disconnect();
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      };
     }
   }, []);
 
