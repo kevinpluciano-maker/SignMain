@@ -91,14 +91,6 @@ const DiNocPage = () => {
         <section className="relative h-[70vh] min-h-[600px] overflow-hidden bg-slate-900">
           {/* Background Video */}
           <div className="absolute inset-0 z-0">
-            {!videoLoaded && !videoError && (
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
-                  <p>Loading video...</p>
-                </div>
-              </div>
-            )}
             <video
               ref={videoRef}
               autoPlay
@@ -113,12 +105,7 @@ const DiNocPage = () => {
                 objectFit: 'cover',
                 width: '100%',
                 height: '100%',
-                pointerEvents: 'none',
-                display: videoLoaded ? 'block' : 'none',
-                // Fix for iOS Safari video rendering
-                transform: 'translateZ(0)',
-                WebkitTransform: 'translateZ(0)',
-                willChange: 'transform'
+                pointerEvents: 'none'
               }}
             >
               <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/xrwy80f0_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
@@ -127,7 +114,7 @@ const DiNocPage = () => {
             
             {/* Fallback gradient if video fails */}
             {videoError && (
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center z-10">
                 <div className="text-white text-center">
                   <p className="text-xl mb-4">Video unavailable</p>
                   <p className="text-sm text-white/70">Displaying static background</p>
@@ -135,10 +122,8 @@ const DiNocPage = () => {
               </div>
             )}
             
-            {/* Overlay - only show when video is loaded */}
-            {videoLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10" />
-            )}
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10" />
           </div>
 
           {/* Hero Content */}
