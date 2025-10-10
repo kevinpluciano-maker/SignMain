@@ -15,9 +15,9 @@ const criticalImages = [
   "/assets/hero-office.jpg"
 ];
 
-const criticalFonts = [
-  "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-];
+// Note: Fonts are already loaded via Google Fonts CSS in index.html
+// No need to preload individual font files as it causes warnings
+const criticalFonts: string[] = [];
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
