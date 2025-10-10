@@ -234,7 +234,7 @@ const DiNocPage = () => {
         </section>
 
         {/* Prominent Contact Us Section */}
-        <section className="py-24 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-600 text-white relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -244,30 +244,30 @@ const DiNocPage = () => {
           </div>
 
           <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <MessageSquare className="h-20 w-20 mx-auto mb-6 opacity-90" />
-              <h2 className="text-4xl md:text-6xl font-black mb-6">
+            <div className="max-w-5xl mx-auto text-center">
+              <MessageSquare className="h-16 w-16 mx-auto mb-4 opacity-90" />
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Let's Discuss Your Project
               </h2>
-              <p className="text-2xl md:text-3xl mb-8 text-white/90 font-light leading-relaxed">
+              <p className="text-lg md:text-xl mb-4 text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
                 Contact us directly to inquire about our Di-Noc architectural films, get expert advice, or request product information.
               </p>
-              <p className="text-xl mb-12 text-white/80 max-w-2xl mx-auto">
+              <p className="text-base mb-10 text-white/80 max-w-2xl mx-auto">
                 Our team of specialists is ready to help you select the perfect finishes for your commercial or residential project.
               </p>
 
-              {/* Contact Options - Redesigned */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {/* Contact Options - Refined and Delicate */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
                 {/* Phone Card */}
                 <a href="tel:+15551234567" className="group">
-                  <Card className="bg-white/10 backdrop-blur-md border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <CardContent className="p-10 text-center">
-                      <div className="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all">
-                        <Phone className="h-10 w-10 text-white" />
+                  <Card className="bg-white/15 backdrop-blur-sm border-white/20 hover:bg-white/25 hover:border-white/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+                    <CardContent className="p-6 text-center">
+                      <div className="bg-white/25 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-4 group-hover:bg-white/35 transition-all">
+                        <Phone className="h-7 w-7 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-3 text-white">Call Us</h3>
-                      <p className="text-white/90 mb-6 text-lg">Speak with our experts</p>
-                      <div className="bg-white text-primary font-bold text-xl py-4 px-6 rounded-xl group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
+                      <h3 className="text-lg font-semibold mb-2 text-white">Call Us</h3>
+                      <p className="text-white/80 mb-4 text-sm">Speak with our experts</p>
+                      <div className="bg-white text-blue-600 font-semibold text-base py-2.5 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-md">
                         (555) 123-4567
                       </div>
                     </CardContent>
@@ -276,14 +276,14 @@ const DiNocPage = () => {
 
                 {/* Email Card */}
                 <a href="mailto:info@bsignstore.com" className="group">
-                  <Card className="bg-white/10 backdrop-blur-md border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <CardContent className="p-10 text-center">
-                      <div className="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all">
-                        <Mail className="h-10 w-10 text-white" />
+                  <Card className="bg-white/15 backdrop-blur-sm border-white/20 hover:bg-white/25 hover:border-white/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+                    <CardContent className="p-6 text-center">
+                      <div className="bg-white/25 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-4 group-hover:bg-white/35 transition-all">
+                        <Mail className="h-7 w-7 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-3 text-white">Email Us</h3>
-                      <p className="text-white/90 mb-6 text-lg">Get a detailed response</p>
-                      <div className="bg-white text-primary font-bold text-lg py-4 px-6 rounded-xl group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg break-all">
+                      <h3 className="text-lg font-semibold mb-2 text-white">Email Us</h3>
+                      <p className="text-white/80 mb-4 text-sm">Get a detailed response</p>
+                      <div className="bg-white text-blue-600 font-semibold text-sm py-2.5 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-md break-all">
                         info@bsignstore.com
                       </div>
                     </CardContent>
@@ -292,14 +292,14 @@ const DiNocPage = () => {
 
                 {/* Contact Form Card */}
                 <a href="/contact" className="group">
-                  <Card className="bg-white/10 backdrop-blur-md border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <CardContent className="p-10 text-center">
-                      <div className="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all">
-                        <MessageSquare className="h-10 w-10 text-white" />
+                  <Card className="bg-white/15 backdrop-blur-sm border-white/20 hover:bg-white/25 hover:border-white/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+                    <CardContent className="p-6 text-center">
+                      <div className="bg-white/25 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-4 group-hover:bg-white/35 transition-all">
+                        <MessageSquare className="h-7 w-7 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-3 text-white">Contact Form</h3>
-                      <p className="text-white/90 mb-6 text-lg">Send us a message</p>
-                      <div className="bg-white text-primary font-bold text-xl py-4 px-6 rounded-xl group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
+                      <h3 className="text-lg font-semibold mb-2 text-white">Contact Form</h3>
+                      <p className="text-white/80 mb-4 text-sm">Send us a message</p>
+                      <div className="bg-white text-blue-600 font-semibold text-base py-2.5 px-4 rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-md">
                         Fill Out Form
                       </div>
                     </CardContent>
@@ -308,36 +308,35 @@ const DiNocPage = () => {
               </div>
 
               {/* CTA Button */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10 max-w-3xl mx-auto">
                 <Button 
                   size="lg" 
-                  variant="secondary"
-                  className="text-xl px-12 py-8 h-auto font-bold shadow-2xl hover:scale-105 transition-transform"
+                  className="bg-white text-blue-600 hover:bg-blue-50 font-semibold text-base px-8 py-5 h-auto shadow-lg hover:scale-[1.02] transition-all"
                 >
                   Request Product Information
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="text-xl px-12 py-8 h-auto font-bold border-white/30 text-white hover:bg-white/10 shadow-2xl hover:scale-105 transition-transform"
+                  className="border-2 border-white/40 text-white hover:bg-white/15 hover:border-white/60 font-semibold text-base px-8 py-5 h-auto shadow-lg hover:scale-[1.02] transition-all"
                 >
                   Schedule Consultation
                 </Button>
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center gap-8 mt-12 pt-12 border-t border-white/20">
+              <div className="flex flex-wrap justify-center gap-6 pt-8 border-t border-white/20">
                 <div className="flex items-center gap-2 text-white/90">
-                  <CheckCircle className="h-6 w-6" />
-                  <span className="text-lg">Expert Guidance</span>
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Expert Guidance</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/90">
-                  <CheckCircle className="h-6 w-6" />
-                  <span className="text-lg">Free Samples Available</span>
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Free Samples Available</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/90">
-                  <CheckCircle className="h-6 w-6" />
-                  <span className="text-lg">Fast Response Time</span>
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Fast Response Time</span>
                 </div>
               </div>
             </div>
