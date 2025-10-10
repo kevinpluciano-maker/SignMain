@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from "react";
 
 const DiNocPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(true); // Show video immediately
   const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
