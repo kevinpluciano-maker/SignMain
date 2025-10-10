@@ -200,6 +200,349 @@ class BSignBackendTester:
                 f"Connection error: {str(e)}",
                 {"error": str(e)}
             )
+
+    def test_content_post_endpoint(self):
+        """Test POST /api/content/{section_id} endpoint"""
+        try:
+            section_id = "test_section_homepage_hero"
+            payload = {
+                "section_id": section_id,
+                "content": "<h1>Test Content for BSign Store</h1><p>Professional signage solutions.</p>",
+                "font_size": "16px",
+                "font_family": "Arial, sans-serif",
+                "plain_text": "Test Content for BSign Store. Professional signage solutions."
+            }
+            
+            response = requests.post(
+                f"{BACKEND_URL}/content/{section_id}", 
+                json=payload,
+                headers={"Content-Type": "application/json"},
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                required_fields = ["id", "section_id", "content", "font_size", "font_family", "plain_text", "timestamp"]
+                
+                if all(field in data for field in required_fields):
+                    if data["section_id"] == section_id and data["content"] == payload["content"]:
+                        self.log_result(
+                            "Content POST Endpoint", 
+                            True, 
+                            "Content creation successful with correct data",
+                            {"response": data, "status_code": response.status_code}
+                        )
+                        return section_id  # Return section_id for GET test
+                    else:
+                        self.log_result(
+                            "Content POST Endpoint", 
+                            False, 
+                            f"Content data mismatch in response",
+                            {"response": data}
+                        )
+                else:
+                    missing_fields = [f for f in required_fields if f not in data]
+                    self.log_result(
+                        "Content POST Endpoint", 
+                        False, 
+                        f"Missing required fields: {missing_fields}",
+                        {"response": data, "missing_fields": missing_fields}
+                    )
+            else:
+                self.log_result(
+                    "Content POST Endpoint", 
+                    False, 
+                    f"HTTP {response.status_code}: {response.text}",
+                    {"status_code": response.status_code, "response": response.text}
+                )
+                
+        except requests.exceptions.RequestException as e:
+            self.log_result(
+                "Content POST Endpoint", 
+                False, 
+                f"Connection error: {str(e)}",
+                {"error": str(e)}
+            )
+        
+        return None
+
+    def test_content_get_by_section_endpoint(self, section_id: Optional[str] = None):
+        """Test GET /api/content/{section_id} endpoint"""
+        if not section_id:
+            section_id = "test_section_homepage_hero"
+            
+        try:
+            response = requests.get(f"{BACKEND_URL}/content/{section_id}", timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                if data and isinstance(data, dict):
+                    required_fields = ["id", "section_id", "content", "font_size", "font_family", "plain_text", "timestamp"]
+                    if all(field in data for field in required_fields):
+                        if data["section_id"] == section_id:
+                            self.log_result(
+                                "Content GET by Section Endpoint", 
+                                True, 
+                                f"Retrieved content for section '{section_id}' successfully",
+                                {"section_id": section_id, "content_length": len(data.get("content", ""))}
+                            )
+                        else:
+                            self.log_result(
+                                "Content GET by Section Endpoint", 
+                                False, 
+                                f"Section ID mismatch: expected {section_id}, got {data['section_id']}",
+                                {"expected": section_id, "actual": data["section_id"]}
+                            )
+                    else:
+                        missing_fields = [f for f in required_fields if f not in data]
+                        self.log_result(
+                            "Content GET by Section Endpoint", 
+                            False, 
+                            f"Missing required fields: {missing_fields}",
+                            {"response": data, "missing_fields": missing_fields}
+                        )
+                else:
+                    # Check if it's a 404-like response (null/empty for non-existent section)
+                    if data is None:
+                        self.log_result(
+                            "Content GET by Section Endpoint", 
+                            True, 
+                            f"No content found for section '{section_id}' (expected behavior)",
+                            {"section_id": section_id, "response": "null"}
+                        )
+                    else:
+                        self.log_result(
+                            "Content GET by Section Endpoint", 
+                            False, 
+                            f"Unexpected response format: {type(data)}",
+                            {"response_type": str(type(data)), "response": data}
+                        )
+            else:
+                self.log_result(
+                    "Content GET by Section Endpoint", 
+                    False, 
+                    f"HTTP {response.status_code}: {response.text}",
+                    {"status_code": response.status_code, "response": response.text}
+                )
+                
+        except requests.exceptions.RequestException as e:
+            self.log_result(
+                "Content GET by Section Endpoint", 
+                False, 
+                f"Connection error: {str(e)}",
+                {"error": str(e)}
+            )
+
+    def test_content_get_all_endpoint(self):
+        """Test GET /api/content endpoint"""
+        try:
+            response = requests.get(f"{BACKEND_URL}/content", timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                if isinstance(data, list):
+                    self.log_result(
+                        "Content GET All Endpoint", 
+                        True, 
+                        f"Retrieved {len(data)} content sections successfully",
+                        {"content_count": len(data)}
+                    )
+                else:
+                    self.log_result(
+                        "Content GET All Endpoint", 
+                        False, 
+                        f"Expected list response, got: {type(data)}",
+                        {"response_type": str(type(data)), "response": data}
+                    )
+            else:
+                self.log_result(
+                    "Content GET All Endpoint", 
+                    False, 
+                    f"HTTP {response.status_code}: {response.text}",
+                    {"status_code": response.status_code, "response": response.text}
+                )
+                
+        except requests.exceptions.RequestException as e:
+            self.log_result(
+                "Content GET All Endpoint", 
+                False, 
+                f"Connection error: {str(e)}",
+                {"error": str(e)}
+            )
+
+    def test_invalid_endpoints(self):
+        """Test invalid endpoints return proper 404 errors"""
+        invalid_endpoints = [
+            "/nonexistent",
+            "/api/invalid",
+            "/api/status/invalid",
+            "/api/content/invalid/extra"
+        ]
+        
+        for endpoint in invalid_endpoints:
+            try:
+                response = requests.get(f"{BACKEND_URL.replace('/api', '')}{endpoint}", timeout=10)
+                
+                if response.status_code == 404:
+                    self.log_result(
+                        f"Invalid Endpoint {endpoint}", 
+                        True, 
+                        f"Properly returned 404 for invalid endpoint",
+                        {"endpoint": endpoint, "status_code": response.status_code}
+                    )
+                else:
+                    self.log_result(
+                        f"Invalid Endpoint {endpoint}", 
+                        False, 
+                        f"Expected 404, got {response.status_code}",
+                        {"endpoint": endpoint, "status_code": response.status_code}
+                    )
+                    
+            except requests.exceptions.RequestException as e:
+                self.log_result(
+                    f"Invalid Endpoint {endpoint}", 
+                    False, 
+                    f"Connection error: {str(e)}",
+                    {"endpoint": endpoint, "error": str(e)}
+                )
+
+    def test_invalid_data_submissions(self):
+        """Test API handles invalid data submissions properly"""
+        # Test invalid JSON for status endpoint
+        try:
+            response = requests.post(
+                f"{BACKEND_URL}/status", 
+                json={"invalid_field": "test"},  # Missing required client_name
+                headers={"Content-Type": "application/json"},
+                timeout=10
+            )
+            
+            if response.status_code in [400, 422]:  # Bad Request or Unprocessable Entity
+                self.log_result(
+                    "Invalid Data Validation", 
+                    True, 
+                    f"Properly rejected invalid data with status {response.status_code}",
+                    {"status_code": response.status_code}
+                )
+            else:
+                self.log_result(
+                    "Invalid Data Validation", 
+                    False, 
+                    f"Expected 400/422 for invalid data, got {response.status_code}",
+                    {"status_code": response.status_code, "response": response.text}
+                )
+                
+        except requests.exceptions.RequestException as e:
+            self.log_result(
+                "Invalid Data Validation", 
+                False, 
+                f"Connection error during invalid data test: {str(e)}",
+                {"error": str(e)}
+            )
+
+    def test_gzip_compression(self):
+        """Test GZip compression is working"""
+        try:
+            headers = {"Accept-Encoding": "gzip, deflate"}
+            response = requests.get(f"{BACKEND_URL}/", headers=headers, timeout=10)
+            
+            content_encoding = response.headers.get("Content-Encoding", "")
+            
+            if "gzip" in content_encoding.lower():
+                self.log_result(
+                    "GZip Compression", 
+                    True, 
+                    "GZip compression is enabled",
+                    {"content_encoding": content_encoding}
+                )
+            else:
+                # Check if response is small (might not be compressed due to size threshold)
+                content_length = len(response.content)
+                if content_length < 1000:  # Minimum size threshold
+                    self.log_result(
+                        "GZip Compression", 
+                        True, 
+                        f"GZip not applied due to small content size ({content_length} bytes < 1000 bytes threshold)",
+                        {"content_length": content_length, "threshold": 1000}
+                    )
+                else:
+                    self.log_result(
+                        "GZip Compression", 
+                        False, 
+                        f"GZip compression not detected for large content ({content_length} bytes)",
+                        {"content_length": content_length, "content_encoding": content_encoding}
+                    )
+                
+        except requests.exceptions.RequestException as e:
+            self.log_result(
+                "GZip Compression", 
+                False, 
+                f"GZip compression test error: {str(e)}",
+                {"error": str(e)}
+            )
+
+    def test_concurrent_requests(self):
+        """Test API handles concurrent requests properly"""
+        import threading
+        import queue
+        
+        results_queue = queue.Queue()
+        
+        def make_request(request_id):
+            try:
+                start_time = time.time()
+                response = requests.get(f"{BACKEND_URL}/", timeout=10)
+                end_time = time.time()
+                
+                results_queue.put({
+                    "request_id": request_id,
+                    "status_code": response.status_code,
+                    "response_time": (end_time - start_time) * 1000,
+                    "success": response.status_code == 200
+                })
+            except Exception as e:
+                results_queue.put({
+                    "request_id": request_id,
+                    "error": str(e),
+                    "success": False
+                })
+        
+        # Create 5 concurrent requests
+        threads = []
+        for i in range(5):
+            thread = threading.Thread(target=make_request, args=(i,))
+            threads.append(thread)
+            thread.start()
+        
+        # Wait for all threads to complete
+        for thread in threads:
+            thread.join()
+        
+        # Collect results
+        results = []
+        while not results_queue.empty():
+            results.append(results_queue.get())
+        
+        successful_requests = [r for r in results if r.get("success", False)]
+        
+        if len(successful_requests) == 5:
+            avg_response_time = sum(r["response_time"] for r in successful_requests) / len(successful_requests)
+            self.log_result(
+                "Concurrent Requests", 
+                True, 
+                f"All 5 concurrent requests successful, avg response time: {avg_response_time:.2f}ms",
+                {"successful_requests": len(successful_requests), "total_requests": 5, "avg_response_time": avg_response_time}
+            )
+        else:
+            failed_count = 5 - len(successful_requests)
+            self.log_result(
+                "Concurrent Requests", 
+                False, 
+                f"{failed_count} out of 5 concurrent requests failed",
+                {"successful_requests": len(successful_requests), "failed_requests": failed_count, "results": results}
+            )
     
     def test_cart_system_integration(self):
         """Test cart system integration (localStorage-based frontend functionality)"""
