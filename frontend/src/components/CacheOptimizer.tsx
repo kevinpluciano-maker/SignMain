@@ -51,27 +51,11 @@ export const CacheOptimizer = () => {
       }
     };
 
-    // Optimize font loading
+    // Font optimization removed - fonts are loaded via Google Fonts CSS
+    // Preloading individual font files causes 404 errors and is unnecessary
     const optimizeFonts = () => {
-      // Preload critical font subsets
-      const fontPreloads = [
-        {
-          href: 'https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2',
-          type: 'font/woff2'
-        }
-      ];
-
-      fontPreloads.forEach(font => {
-        if (!document.querySelector(`link[href="${font.href}"]`)) {
-          const link = document.createElement('link');
-          link.rel = 'preload';
-          link.as = 'font';
-          link.type = font.type;
-          link.href = font.href;
-          link.crossOrigin = 'anonymous';
-          document.head.appendChild(link);
-        }
-      });
+      // Fonts are handled by the preconnect in index.html
+      // No manual preloading needed
     };
 
     // Resource hints for third-party domains
