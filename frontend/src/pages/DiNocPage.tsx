@@ -108,7 +108,7 @@ const DiNocPage = () => {
               playsInline
               controls={false}
               disablePictureInPicture
-              className="w-full h-full object-cover opacity-70"
+              className="w-full h-full object-cover"
               preload="auto"
               style={{
                 objectFit: 'cover',
@@ -131,13 +131,8 @@ const DiNocPage = () => {
               </div>
             )}
             
-            {/* Futuristic Gradient Overlay with Blue Tones */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-transparent to-cyan-900/50 z-10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-blue-950/60 z-10" />
-            
-            {/* Glowing Accents */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl z-10 animate-pulse"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl z-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            {/* Subtle dark overlay for text readability - only at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
           </div>
 
           {/* Hero Content */}
