@@ -195,7 +195,7 @@ const DiNocPage = () => {
                 willChange: 'transform'
               }}
             >
-              <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/z4jcglp5_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
+              <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/xrwy80f0_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
@@ -315,7 +315,7 @@ const DiNocPage = () => {
                   className="w-full h-full"
                   poster="/assets/di-noc-poster.jpg"
                 >
-                  <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/z4jcglp5_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
+                  <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/xrwy80f0_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
