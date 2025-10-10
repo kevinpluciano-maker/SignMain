@@ -225,7 +225,7 @@ const DiNocPage = () => {
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 container mx-auto px-6 h-full flex items-center justify-center">
+          <div className="relative z-20 container mx-auto px-6 h-full flex items-center justify-center">
             <div className="max-w-4xl text-center text-white">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
                 <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
