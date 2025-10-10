@@ -94,9 +94,14 @@ const DiNocPage = () => {
               controls={false}
               disablePictureInPicture
               className="w-full h-full object-cover"
-              preload="metadata"
+              preload="auto"
+              style={{
+                objectFit: 'cover',
+                width: '100%',
+                height: '100%'
+              }}
             >
-              <source src="https://customer-assets.emergentagent.com/job_coderecon/artifacts/qly5lu5i_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
+              <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/z4jcglp5_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
