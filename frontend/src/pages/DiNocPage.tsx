@@ -79,7 +79,7 @@ const DiNocPage = () => {
       
       <div className="min-h-screen bg-background">
         <Header />
-        <ImprovedNavigation />
+        <ModernNavigation />
 
         {/* Hero Section with Background Video */}
         <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
