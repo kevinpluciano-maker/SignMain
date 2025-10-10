@@ -239,11 +239,11 @@ const DiNocPage = () => {
                   variant="outline" 
                   className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4"
                   onClick={() => {
-                    const videoSection = document.querySelector('video[controls]');
-                    videoSection?.scrollIntoView({ behavior: 'smooth' });
+                    const featuresSection = document.querySelector('section');
+                    featuresSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Watch Video
+                  Learn More
                 </Button>
               </div>
             </div>
