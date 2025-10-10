@@ -130,11 +130,26 @@ const DiNocPage = () => {
                 Transform your spaces with premium architectural films. Over 450 design finishes that realistically mimic wood, stone, metal, and fabric textures.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4">
-                  Explore Products
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4"
+                  onClick={() => {
+                    const contactSection = document.querySelector('section[class*="primary"]');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Contact Us Today
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4">
-                  Request Samples
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4"
+                  onClick={() => {
+                    const videoSection = document.querySelector('video[controls]');
+                    videoSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Watch Video
                 </Button>
               </div>
             </div>
