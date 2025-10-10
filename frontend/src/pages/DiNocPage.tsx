@@ -294,35 +294,6 @@ const DiNocPage = () => {
           </div>
         </section>
 
-        {/* Di-Noc Video Showcase */}
-        <section className="py-20 bg-gradient-to-b from-background to-muted/20">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-                See Di-Noc in Action
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Transform Your Space with Di-Noc</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Watch how our premium architectural films bring designs to life
-              </p>
-            </div>
-
-            {/* Video Embed */}
-            <div className="max-w-5xl mx-auto">
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                <video
-                  controls
-                  className="w-full h-full"
-                  poster="/assets/di-noc-poster.jpg"
-                >
-                  <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/xrwy80f0_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Prominent Contact Us Section */}
         <section className="py-24 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-white relative overflow-hidden">
           {/* Background Pattern */}
