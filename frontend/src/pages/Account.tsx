@@ -59,8 +59,15 @@ const Account = () => {
     }
   ]);
 
+  // Redirect to login if not authenticated - use useEffect to avoid render-time navigation
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, navigate]);
+
+  // Show nothing while redirecting
   if (!isAuthenticated) {
-    navigate('/login');
     return null;
   }
 
