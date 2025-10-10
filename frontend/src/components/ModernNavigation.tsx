@@ -270,6 +270,30 @@ const ModernNavigation = () => {
               </div>
             ))}
             
+            {/* Di-Noc as a simple link without dropdown */}
+            <Button
+              variant="ghost"
+              className={buttonClasses}
+              onClick={() => navigate('/di-noc')}
+              style={{...luxuryButtonStyle, ...premiumTextStyle}}
+              onMouseEnter={(e) => {
+                if (isHomePage) {
+                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (isHomePage) {
+                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }
+              }}
+            >
+              Di-Noc
+            </Button>
+            
             {additionalItems.map((item) => (
               <Button
                 key={item}
