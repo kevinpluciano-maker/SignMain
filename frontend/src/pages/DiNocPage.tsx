@@ -187,7 +187,12 @@ const DiNocPage = () => {
               style={{
                 objectFit: 'cover',
                 width: '100%',
-                height: '100%'
+                height: '100%',
+                pointerEvents: 'none',
+                // Fix for iOS Safari video rendering
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)',
+                willChange: 'transform'
               }}
             >
               <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/z4jcglp5_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
