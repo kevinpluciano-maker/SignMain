@@ -240,56 +240,62 @@ const DiNocPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto">
                 {/* Phone Card */}
                 <a href="tel:+15551234567" className="group block">
-                  <div className="relative p-6 bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl hover:border-white/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-white/20 rounded-xl border border-white/30">
-                        <Phone className="h-5 w-5 text-white" />
+                  <Card className="bg-white/95 hover:bg-white border-white/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                    <CardContent className="p-6 text-center">
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="p-3 bg-primary/10 rounded-xl">
+                          <Phone className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-semibold text-slate-900 mb-1">Call Us</h3>
+                          <p className="text-xs text-slate-600">Direct Line</p>
+                        </div>
+                        <div className="text-base font-mono text-primary bg-primary/10 px-4 py-2 rounded-lg">
+                          (555) 123-4567
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-white mb-1">Call Us</h3>
-                        <p className="text-xs text-white/70">Direct Line</p>
-                      </div>
-                      <div className="text-base font-mono text-white bg-black/30 px-4 py-2 rounded-lg border border-white/20">
-                        (555) 123-4567
-                      </div>
-                    </div>
-                  </div>
+                    </CardContent>
+                  </Card>
                 </a>
 
                 {/* Email Card */}
                 <a href="mailto:info@bsignstore.com" className="group block">
-                  <div className="relative p-6 bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl hover:border-white/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-white/20 rounded-xl border border-white/30">
-                        <Mail className="h-5 w-5 text-white" />
+                  <Card className="bg-white/95 hover:bg-white border-white/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                    <CardContent className="p-6 text-center">
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="p-3 bg-primary/10 rounded-xl">
+                          <Mail className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-semibold text-slate-900 mb-1">Email Us</h3>
+                          <p className="text-xs text-slate-600">Quick Response</p>
+                        </div>
+                        <div className="text-xs font-mono text-primary bg-primary/10 px-3 py-2 rounded-lg break-all">
+                          info@bsignstore.com
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-white mb-1">Email Us</h3>
-                        <p className="text-xs text-white/70">Quick Response</p>
-                      </div>
-                      <div className="text-xs font-mono text-white bg-black/30 px-3 py-2 rounded-lg border border-white/20 break-all">
-                        info@bsignstore.com
-                      </div>
-                    </div>
-                  </div>
+                    </CardContent>
+                  </Card>
                 </a>
 
                 {/* Contact Form Card */}
                 <a href="/contact" className="group block">
-                  <div className="relative p-6 bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl hover:border-white/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-white/20 rounded-xl border border-white/30">
-                        <MessageSquare className="h-5 w-5 text-white" />
+                  <Card className="bg-white/95 hover:bg-white border-white/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                    <CardContent className="p-6 text-center">
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="p-3 bg-primary/10 rounded-xl">
+                          <MessageSquare className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-semibold text-slate-900 mb-1">Message Us</h3>
+                          <p className="text-xs text-slate-600">Detailed Inquiry</p>
+                        </div>
+                        <div className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-lg group-hover:bg-primary/20 transition-all">
+                          Contact Form →
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-white mb-1">Message Us</h3>
-                        <p className="text-xs text-white/70">Detailed Inquiry</p>
-                      </div>
-                      <div className="text-sm font-semibold text-white bg-black/30 px-4 py-2 rounded-lg border border-white/20 group-hover:bg-white/20 transition-all">
-                        Contact Form →
-                      </div>
-                    </div>
-                  </div>
+                    </CardContent>
+                  </Card>
                 </a>
               </div>
 
