@@ -288,33 +288,33 @@ const DiNocPage = () => {
                 </a>
               </div>
 
-              {/* CTA Buttons - Futuristic */}
+              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 max-w-3xl mx-auto">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-bold text-base px-8 py-4 h-auto rounded-xl shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] hover:scale-[1.02] transition-all border border-cyan-400/50"
+                  className="bg-white text-slate-900 hover:bg-white/90 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-[1.02] transition-all"
                 >
                   Request Product Information
                 </Button>
                 <Button 
                   size="lg" 
-                  className="bg-slate-800/80 backdrop-blur-sm text-cyan-100 hover:bg-slate-700/80 font-bold text-base px-8 py-4 h-auto rounded-xl border-2 border-cyan-500/40 hover:border-cyan-400/60 shadow-lg hover:scale-[1.02] transition-all"
+                  className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-bold text-base px-8 py-4 h-auto rounded-xl border-2 border-white/40 hover:border-white/60 shadow-lg hover:scale-[1.02] transition-all"
                 >
                   Schedule Consultation
                 </Button>
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-cyan-500/20">
-                <div className="flex items-center gap-2 text-white/90">
+              <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-white/20">
+                <div className="flex items-center gap-2 text-white">
                   <CheckCircle className="h-5 w-5" />
                   <span className="text-sm font-medium">Expert Guidance</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/90">
+                <div className="flex items-center gap-2 text-white">
                   <CheckCircle className="h-5 w-5" />
                   <span className="text-sm font-medium">Free Samples Available</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/90">
+                <div className="flex items-center gap-2 text-white">
                   <CheckCircle className="h-5 w-5" />
                   <span className="text-sm font-medium">Fast Response Time</span>
                 </div>
@@ -323,7 +323,10 @@ const DiNocPage = () => {
           </div>
         </section>
 
-        <ImprovedFooter />
+        {/* Footer with transparent background */}
+        <div className="bg-black/40 backdrop-blur-md border-t border-white/20">
+          <ImprovedFooter />
+        </div>
       </div>
     </>
   );
