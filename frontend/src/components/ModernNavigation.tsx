@@ -247,14 +247,14 @@ const ModernNavigation = () => {
                           }}
                           onMouseEnter={(e) => {
                             if (isHomePage) {
-                              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
-                              e.currentTarget.style.transform = 'translateX(3px)';
-                              e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+                              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.15))';
+                              e.currentTarget.style.transform = 'translateX(4px)';
+                              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
                             }
                           }}
                           onMouseLeave={(e) => {
                             if (isHomePage) {
-                              e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                              e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
                               e.currentTarget.style.transform = 'translateX(0)';
                               e.currentTarget.style.boxShadow = 'none';
                             }
