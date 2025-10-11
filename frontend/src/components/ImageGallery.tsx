@@ -12,18 +12,7 @@ interface ImageGalleryProps {
 }
 
 const ImageGallery = ({ images, productName, selectedIndex, onIndexChange }: ImageGalleryProps) => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const openFullscreen = () => setIsFullscreen(true);
-  const closeFullscreen = () => setIsFullscreen(false);
-
-  const nextImage = () => {
-    onIndexChange((selectedIndex + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    onIndexChange((selectedIndex - 1 + images.length) % images.length);
-  };
+  // Fullscreen functionality removed per user request
 
   return (
     <>
