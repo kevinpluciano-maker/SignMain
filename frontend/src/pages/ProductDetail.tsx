@@ -458,26 +458,29 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {/* Quantity */}
-              <div>
-                <h3 className="text-sm font-semibold text-foreground mb-2">Quantity</h3>
-                <div className="flex items-center space-x-3">
+              {/* Quantity - Refined Design */}
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-4 border border-primary/20">
+                <h3 className="text-xs font-bold text-primary uppercase tracking-wider mb-3">Quantity</h3>
+                <div className="flex items-center justify-center space-x-4">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="h-8 w-8 p-0"
+                    className="h-10 w-10 p-0 rounded-lg bg-white hover:bg-primary hover:text-white transition-all border-primary/30 shadow-sm"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   >
-                    <Minus className="h-3 w-3" />
+                    <Minus className="h-4 w-4" />
                   </Button>
-                  <span className="w-12 text-center text-sm font-medium bg-muted/30 py-1 px-2 rounded">{quantity}</span>
+                  <div className="flex flex-col items-center">
+                    <span className="text-2xl font-bold text-primary">{quantity}</span>
+                    <span className="text-xs text-muted-foreground">Items</span>
+                  </div>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="h-8 w-8 p-0"
+                    className="h-10 w-10 p-0 rounded-lg bg-white hover:bg-primary hover:text-white transition-all border-primary/30 shadow-sm"
                     onClick={() => setQuantity(quantity + 1)}
                   >
-                    <Plus className="h-3 w-3" />
+                    <Plus className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
