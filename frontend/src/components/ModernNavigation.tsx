@@ -162,18 +162,18 @@ const ModernNavigation = () => {
     ? "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-xl shadow-xl overflow-hidden transition-all duration-300 z-[100] border"
     : "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-background border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]";
 
-  const luxuryDropdownStyle = isHomePage ? {
+  const luxuryDropdownStyle = isTransparentPage ? {
     background: 'linear-gradient(145deg, rgba(0,0,0,0.98) 0%, rgba(15,23,42,0.98) 50%, rgba(0,0,0,0.98) 100%)',
     backdropFilter: 'blur(20px) saturate(180%)',
     border: '1px solid rgba(255,255,255,0.2)',
     boxShadow: '0 20px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)'
   } : {};
 
-  const dropdownItemClasses = isHomePage
+  const dropdownItemClasses = isTransparentPage
     ? "w-full justify-start h-auto p-3 font-medium text-sm text-white hover:text-white rounded-lg transition-all duration-200 border-0 relative overflow-hidden group"
     : "w-full justify-start h-auto p-3 font-normal text-sm text-foreground/80 hover:text-foreground hover:bg-accent/60 rounded-lg transition-all duration-150 border-0";
 
-  const luxuryItemStyle = isHomePage ? {
+  const luxuryItemStyle = isTransparentPage ? {
     background: 'rgba(255,255,255,0.08)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     borderRadius: '8px',
