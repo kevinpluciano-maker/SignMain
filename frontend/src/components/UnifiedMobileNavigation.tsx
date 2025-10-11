@@ -308,6 +308,7 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
                   )}
                 </div>
               ))}
+              </div>
             </div>
             
             {/* Bottom Section - Contact Info */}
