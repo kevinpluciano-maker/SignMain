@@ -309,6 +309,42 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
                 </div>
               ))}
             </div>
+            
+            {/* Bottom Section - Contact Info */}
+            <div className="mt-auto pt-4 border-t border-border">
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 space-y-3">
+                <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-3">Get In Touch</h4>
+                <div className="flex items-center space-x-3">
+                  <div className="p-2 bg-primary/20 rounded-lg">
+                    <Phone className="h-4 w-4 text-primary" />
+                  </div>
+                  <InlineEditor
+                    value={headerData.phone}
+                    onSave={(value) => updateHeaderData({ phone: value })}
+                    placeholder="Phone number"
+                    className="text-sm font-semibold"
+                  />
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="p-2 bg-primary/20 rounded-lg">
+                    <Mail className="h-4 w-4 text-primary" />
+                  </div>
+                  <InlineEditor
+                    value={headerData.email}
+                    onSave={(value) => updateHeaderData({ email: value })}
+                    placeholder="Email address"
+                    className="text-sm font-semibold"
+                  />
+                </div>
+                <div className="text-xs text-muted-foreground pt-2 border-t border-primary/10">
+                  <InlineEditor
+                    value={headerData.businessHours}
+                    onSave={(value) => updateHeaderData({ businessHours: value })}
+                    placeholder="Business hours"
+                  />
+                </div>
+              </div>
+            </div>
           </TabsContent>
           
           {showFilters && (
