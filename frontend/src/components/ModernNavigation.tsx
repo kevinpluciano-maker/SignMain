@@ -249,14 +249,14 @@ const ModernNavigation = () => {
                             letterSpacing: '0.2px'
                           }}
                           onMouseEnter={(e) => {
-                            if (isHomePage) {
+                            if (isTransparentPage) {
                               e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.15))';
                               e.currentTarget.style.transform = 'translateX(4px)';
                               e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
                             }
                           }}
                           onMouseLeave={(e) => {
-                            if (isHomePage) {
+                            if (isTransparentPage) {
                               e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
                               e.currentTarget.style.transform = 'translateX(0)';
                               e.currentTarget.style.boxShadow = 'none';
