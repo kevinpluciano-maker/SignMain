@@ -254,12 +254,12 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
                   {item}
                 </Button>
               ))}
-            </div>
+              </div>
 
-            <Separator />
+              <Separator />
 
-            {/* Navigation Items */}
-            <div className="space-y-2">
+              {/* Navigation Items */}
+              <div className="space-y-2">
               {navigationItems.map((item) => (
                 <div key={item.label}>
                   {item.hasSubMenu ? (
