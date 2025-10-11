@@ -83,51 +83,48 @@ const DiNocPage = () => {
         keywords={["di-noc", "architectural film", "interior design", "surface materials", "wood grain film", "stone texture film", "metal finish film"]}
       />
       
-      {/* Fixed Full-Page Video Background */}
-      <div className="fixed inset-0 z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-          disablePictureInPicture
-          className="w-full h-full object-cover"
-          preload="auto"
-          style={{
-            objectFit: 'cover',
-            width: '100%',
-            height: '100%',
-            pointerEvents: 'none'
-          }}
-        >
-          <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/ubju0k36_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Fallback gradient if video fails */}
-        {videoError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center">
-            <div className="text-white text-center">
-              <p className="text-xl mb-4">Video unavailable</p>
-              <p className="text-sm text-slate-300">Displaying neutral background</p>
-            </div>
-          </div>
-        )}
-        
-        {/* Subtle overlay for readability */}
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
-
-      {/* Main Content with Transparent Background */}
-      <div className="relative z-10 min-h-screen">
+      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
         <Header />
         <ModernNavigation />
 
-        {/* Hero Section - Transparent */}
+        {/* Hero Section with Video Background - Contained */}
         <section className="relative h-[80vh] min-h-[700px] overflow-hidden">
-          {/* Removed video container - now using fixed background */}
+          {/* Video Background - Only in Hero Section */}
+          <div className="absolute inset-0 z-0">
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls={false}
+              disablePictureInPicture
+              className="w-full h-full object-cover"
+              preload="auto"
+              style={{
+                objectFit: 'cover',
+                width: '100%',
+                height: '100%',
+                pointerEvents: 'none'
+              }}
+            >
+              <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/ubju0k36_202509191706%20%281%29%20%281%29.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Fallback gradient if video fails */}
+            {videoError && (
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <p className="text-xl mb-4">Video unavailable</p>
+                  <p className="text-sm text-slate-300">Displaying neutral background</p>
+                </div>
+              </div>
+            )}
+            
+            {/* Subtle overlay for readability */}
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
 
           {/* Hero Content - Transparent with white text */}
           <div className="container mx-auto px-6 h-full flex items-center justify-center">
