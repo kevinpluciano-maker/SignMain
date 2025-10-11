@@ -298,10 +298,10 @@ const ProductDetail = () => {
             {/* Price */}
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
-                <span className="text-3xl font-bold">{convertPrice(totalPrice)} {selectedCurrency}</span>
+                <span className="text-3xl font-bold">{convertPrice(totalPrice * quantity)} {selectedCurrency}</span>
                 {product.originalPrice && (
                   <span className="text-xl text-muted-foreground line-through">
-                    {convertPrice(product.originalPrice)} {selectedCurrency}
+                    {convertPrice(product.originalPrice * quantity)} {selectedCurrency}
                   </span>
                 )}
               </div>
@@ -311,16 +311,16 @@ const ProductDetail = () => {
                 <div className="text-sm text-muted-foreground border-l-2 border-primary/20 pl-3">
                   <div className="space-y-1">
                     <div className="flex justify-between">
-                      <span>Base price:</span>
-                      <span>{convertPrice(totalPrice - 10)} {selectedCurrency}</span>
+                      <span>Base price ({quantity}x):</span>
+                      <span>{convertPrice((totalPrice - 10) * quantity)} {selectedCurrency}</span>
                     </div>
                     <div className="flex justify-between text-primary">
-                      <span>Braille option:</span>
-                      <span>+{convertPrice(10)} {selectedCurrency}</span>
+                      <span>Braille option ({quantity}x):</span>
+                      <span>+{convertPrice(10 * quantity)} {selectedCurrency}</span>
                     </div>
                     <div className="flex justify-between border-t pt-1 font-semibold">
                       <span>Total:</span>
-                      <span>{convertPrice(totalPrice)} {selectedCurrency}</span>
+                      <span>{convertPrice(totalPrice * quantity)} {selectedCurrency}</span>
                     </div>
                   </div>
                 </div>
