@@ -522,13 +522,6 @@ const ProductDetail = () => {
               {product.hasCustomSize && (
                 <CustomSizeRequest productName={displayName} />
               )}
-              
-              <div className="flex space-x-3">
-                <Button variant="outline" size="sm" className="flex-1">
-                  <Share2 className="h-4 w-4 mr-2" />
-                  Share
-                </Button>
-              </div>
             </div>
           </div>
         </div>
