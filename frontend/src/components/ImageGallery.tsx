@@ -58,64 +58,7 @@ const ImageGallery = ({ images, productName, selectedIndex, onIndexChange }: Ima
         )}
       </div>
 
-      {/* Fullscreen Modal */}
-      {isFullscreen && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center">
-          <div className="relative w-full h-full flex items-center justify-center p-4">
-            {/* Close Button */}
-            <Button
-              variant="outline"
-              size="sm"
-              className="absolute top-4 right-4 z-10 bg-black/50 text-white border-white/20 hover:bg-white/10"
-              onClick={closeFullscreen}
-            >
-              <X className="h-4 w-4" />
-            </Button>
-
-            {/* Navigation Arrows */}
-            {images.length > 1 && (
-              <>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white border-white/20 hover:bg-white/10"
-                  onClick={prevImage}
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white border-white/20 hover:bg-white/10"
-                  onClick={nextImage}
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </>
-            )}
-
-            {/* Main Image */}
-            <div onClick={closeFullscreen} className="cursor-pointer">
-              <OptimizedImage
-                src={images[selectedIndex]}
-                alt={`${productName} - Fullscreen view`}
-                className="max-w-full max-h-full object-contain"
-                width={1200}
-                height={1200}
-                priority={true}
-                loading="eager"
-              />
-            </div>
-
-            {/* Image Counter */}
-            {images.length > 1 && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                {selectedIndex + 1} / {images.length}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      {/* Fullscreen modal removed - click on images disabled per user request */}
     </>
   );
 };
