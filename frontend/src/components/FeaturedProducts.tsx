@@ -96,42 +96,7 @@ const FeaturedProducts = () => {
       <div className="absolute bottom-10 right-10 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Enhanced Hero Header */}
-        <div className="text-center mb-20 animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-3 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full shadow-lg mr-4">
-              <Award className="h-8 w-8 text-white" />
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-primary via-primary-glow to-primary bg-clip-text text-transparent">
-              <InlineEditor
-                value="Best Sellers Collection"
-                onSave={handleSectionTitleSave}
-                placeholder="Enter section title"
-                className="inline-block"
-                maxLength={50}
-              />
-            </h2>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-6">
-              Discover our most popular door signs and numbers, trusted by thousands of customers in Canada & USA.
-            </p>
-            <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                Premium Quality
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                Innovative Designs
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                Unmatched Craftsmanship
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Enhanced Hero Header - Removed per user request */}
 
         {/* Enhanced Featured Hero Product */}
         <div className="mb-24">
