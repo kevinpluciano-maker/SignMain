@@ -134,11 +134,6 @@ const Header = ({ showFilters = false }: HeaderProps) => {
             
             {/* Action Buttons - Better styling */}
             <div className="flex items-center space-x-2">
-              {/* Search - Hidden on mobile, shown in menu */}
-              <Button variant="ghost" size="sm" className={`hidden md:flex ${isHomePage ? 'hover:bg-white/20 text-white' : 'hover:bg-primary/10'}`}>
-                <Search className="h-4 w-4" />
-              </Button>
-
               {/* User Account */}
               {isAuthenticated ? (
                 <Button 
