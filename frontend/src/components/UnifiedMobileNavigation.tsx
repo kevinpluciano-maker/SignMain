@@ -99,48 +99,17 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
             {showFilters && <TabsTrigger value="filters">Filters</TabsTrigger>}
           </TabsList>
           
-          <TabsContent value="menu" className="p-4 space-y-6">
-            {/* Contact Info */}
-            <div className="space-y-3 pb-4 border-b">
-              <div className="flex items-center space-x-3 text-sm">
-                <div className="p-1.5 bg-primary/10 rounded-full">
-                  <Phone className="h-3.5 w-3.5 text-primary" />
-                </div>
-                <InlineEditor
-                  value={headerData.phone}
-                  onSave={(value) => updateHeaderData({ phone: value })}
-                  placeholder="Phone number"
-                  className="font-medium"
-                />
+          <TabsContent value="menu" className="p-4 space-y-4 flex flex-col h-full">
+            {/* Top Section - Categories */}
+            <div className="flex-1 overflow-y-auto space-y-4">
+              {/* Currency Switcher */}
+              <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg p-3 border border-primary/10">
+                <h4 className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">Currency</h4>
+                <CurrencySwitcher />
               </div>
-              <div className="flex items-center space-x-3 text-sm">
-                <div className="p-1.5 bg-primary/10 rounded-full">
-                  <Mail className="h-3.5 w-3.5 text-primary" />
-                </div>
-                <InlineEditor
-                  value={headerData.email}
-                  onSave={(value) => updateHeaderData({ email: value })}
-                  placeholder="Email address"
-                  className="font-medium"
-                />
-              </div>
-              <div className="text-sm text-muted-foreground pl-8">
-                <InlineEditor
-                  value={headerData.businessHours}
-                  onSave={(value) => updateHeaderData({ businessHours: value })}
-                  placeholder="Business hours"
-                />
-              </div>
-            </div>
 
-            {/* Currency Switcher */}
-            <div className="py-2">
-              <h4 className="text-sm font-medium mb-2">Currency</h4>
-              <CurrencySwitcher />
-            </div>
-
-            {/* Product Categories Section */}
-            <div className="space-y-2 pb-4">
+              {/* Product Categories Section */}
+              <div className="space-y-2">
               <h4 className="text-sm font-semibold text-muted-foreground px-2 uppercase tracking-wider">Categories</h4>
               
               {/* Door Number Signs */}
