@@ -211,19 +211,27 @@ const DiNocPage = () => {
           </div>
         </section>
 
-        {/* Contact Section - Transparent */}
-        <section className="py-24 text-white relative overflow-hidden">
+        {/* Contact Section - With Solid Background */}
+        <section className="py-24 bg-gradient-to-br from-primary to-primary/90 text-white relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+
           <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-5xl mx-auto bg-black/40 backdrop-blur-xl rounded-3xl p-12 border border-white/20">
+            <div className="max-w-5xl mx-auto">
               {/* Centered Icon and Title */}
               <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 bg-white/20 rounded-2xl backdrop-blur-sm border border-white/30">
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 bg-white/20 rounded-2xl border border-white/30">
                   <MessageSquare className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black mb-4 text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+                <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
                   Let's Discuss Your Project
                 </h2>
-                <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
                   Connect with our Di-Noc specialists for expert guidance and tailored solutions
                 </p>
               </div>
