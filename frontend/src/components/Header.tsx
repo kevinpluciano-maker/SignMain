@@ -54,16 +54,16 @@ const Header = ({ showFilters = false }: HeaderProps) => {
   ];
 
   // Dynamic styling based on page - Enhanced mobile visibility
-  const headerClasses = isHomePage 
+  const headerClasses = (isHomePage || isDiNocPage)
     ? "bg-black/30 md:bg-transparent backdrop-blur-md md:backdrop-blur-sm absolute top-0 left-0 right-0 z-50 text-white shadow-lg md:shadow-none"
     : "bg-background border-b sticky top-0 z-50";
 
-  const topBarClasses = isHomePage
+  const topBarClasses = (isHomePage || isDiNocPage)
     ? "bg-black/20 backdrop-blur-sm py-2 hidden md:block"
     : "bg-muted/50 py-2 hidden md:block";
 
-  const textClasses = isHomePage ? "text-white" : "text-foreground";
-  const mutedTextClasses = isHomePage ? "text-white/90" : "text-muted-foreground";
+  const textClasses = (isHomePage || isDiNocPage) ? "text-white" : "text-foreground";
+  const mutedTextClasses = (isHomePage || isDiNocPage) ? "text-white/90" : "text-muted-foreground";
 
   return (
     <header className={headerClasses}>
