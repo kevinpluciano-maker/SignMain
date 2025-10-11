@@ -303,20 +303,21 @@ const DiNocPage = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 max-w-3xl mx-auto">
                 <Button 
                   size="lg" 
-                  className="bg-white text-slate-900 hover:bg-white/90 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-[1.02] transition-all"
+                  className="bg-white text-primary hover:bg-white/90 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
                 >
                   Request Product Information
                 </Button>
                 <Button 
                   size="lg" 
-                  className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-bold text-base px-8 py-4 h-auto rounded-xl border-2 border-white/40 hover:border-white/60 shadow-lg hover:scale-[1.02] transition-all"
+                  variant="outline"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-lg hover:scale-[1.02] transition-all"
                 >
                   Schedule Consultation
                 </Button>
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-white/20">
+              <div className="flex flex-wrap justify-center gap-8 pt-8 border-t border-white/30">
                 <div className="flex items-center gap-2 text-white">
                   <CheckCircle className="h-5 w-5" />
                   <span className="text-sm font-medium">Expert Guidance</span>
@@ -334,10 +335,8 @@ const DiNocPage = () => {
           </div>
         </section>
 
-        {/* Footer with transparent background */}
-        <div className="bg-black/40 backdrop-blur-md border-t border-white/20">
-          <ImprovedFooter />
-        </div>
+        {/* Footer */}
+        <ImprovedFooter />
       </div>
     </>
   );
