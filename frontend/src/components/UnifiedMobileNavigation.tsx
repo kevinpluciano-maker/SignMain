@@ -133,23 +133,17 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
               </div>
             </div>
 
-            <Separator />
-
             {/* Currency Switcher */}
             <div className="py-2">
               <h4 className="text-sm font-medium mb-2">Currency</h4>
               <CurrencySwitcher />
             </div>
 
-            <Separator />
-
             {/* Search */}
             <Button className="w-full" variant="outline">
               <Search className="h-4 w-4 mr-2" />
               Search
             </Button>
-
-            <Separator />
 
             {/* Product Categories Section */}
             <div className="space-y-2 pb-4">
