@@ -288,10 +288,6 @@ const ProductDetail = () => {
                 <div className="flex items-center">
                   {renderStars(product.rating)}
                 </div>
-                <span className="text-sm text-muted-foreground">
-                  ({product.reviewCount} reviews)
-                </span>
-                <span className="text-sm text-muted-foreground">SKU: {product.sku}</span>
               </div>
             </div>
 
