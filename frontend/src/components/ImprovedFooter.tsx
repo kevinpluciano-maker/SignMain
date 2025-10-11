@@ -37,12 +37,9 @@ const ImprovedFooter = () => {
               <img
                 src={acrylicBrailleLogo}
                 alt="Acrylic Braille Signs"
-                className="h-10 w-auto max-w-[200px] mb-3"
+                className="h-10 w-auto max-w-[200px] mb-6"
               />
             </div>
-            <h3 className="font-semibold text-lg mb-4">
-              {footerData.companyName}
-            </h3>
             <p className="text-muted-foreground mb-4 text-sm">
               {footerData.companyDescription}
             </p>
