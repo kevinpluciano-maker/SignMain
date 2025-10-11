@@ -19,7 +19,7 @@ const ImageGallery = ({ images, productName, selectedIndex, onIndexChange }: Ima
       {/* Main Gallery */}
       <div className="space-y-4">
         {/* Main Image - Click disabled per user request */}
-        <div className="relative aspect-square overflow-hidden rounded-lg bg-muted/30 group">
+        <div className="relative aspect-square overflow-hidden rounded-lg group">
           <OptimizedImage
             src={images[selectedIndex]}
             alt={`${productName} - Main view`}
