@@ -218,31 +218,38 @@ const DiNocPage = () => {
           </div>
         </section>
 
-        {/* Prominent Contact Us Section */}
-        <section className="py-20 bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-600 text-white relative overflow-hidden">
-          {/* Background Pattern */}
+        {/* Futuristic Contact Section */}
+        <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white relative overflow-hidden">
+          {/* Animated Grid Background */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
+              backgroundImage: 'linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)',
+              backgroundSize: '50px 50px',
+              animation: 'grid-flow 20s linear infinite'
             }}></div>
           </div>
+          
+          {/* Glowing Orbs */}
+          <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
           <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-5xl mx-auto text-center">
-              <MessageSquare className="h-16 w-16 mx-auto mb-4 opacity-90" />
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Let's Discuss Your Project
-              </h2>
-              <p className="text-lg md:text-xl mb-4 text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-                Contact us directly to inquire about our Di-Noc architectural films, get expert advice, or request product information.
-              </p>
-              <p className="text-base mb-10 text-white/80 max-w-2xl mx-auto">
-                Our team of specialists is ready to help you select the perfect finishes for your commercial or residential project.
-              </p>
+            <div className="max-w-5xl mx-auto">
+              {/* Centered Icon and Title */}
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl backdrop-blur-sm border border-cyan-500/30">
+                  <MessageSquare className="h-8 w-8 text-cyan-400" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Let's Discuss Your Project
+                </h2>
+                <p className="text-lg text-cyan-100/70 max-w-2xl mx-auto leading-relaxed">
+                  Connect with our Di-Noc specialists for expert guidance and tailored solutions
+                </p>
+              </div>
 
-              {/* Contact Options - Refined and Delicate */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
+              {/* Contact Cards - Futuristic Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto">
                 {/* Phone Card */}
                 <a href="tel:+15551234567" className="group">
                   <Card className="bg-white/15 backdrop-blur-sm border-white/20 hover:bg-white/25 hover:border-white/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
