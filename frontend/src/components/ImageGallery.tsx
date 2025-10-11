@@ -29,20 +29,18 @@ const ImageGallery = ({ images, productName, selectedIndex, onIndexChange }: Ima
     <>
       {/* Main Gallery */}
       <div className="space-y-4">
-        {/* Main Image */}
-        <div className="relative aspect-square overflow-hidden rounded-lg bg-muted/30 group cursor-pointer" 
-             onClick={openFullscreen}>
+        {/* Main Image - Click disabled per user request */}
+        <div className="relative aspect-square overflow-hidden rounded-lg bg-muted/30 group">
           <OptimizedImage
             src={images[selectedIndex]}
             alt={`${productName} - Main view`}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover"
             width={600}
             height={600}
             priority={true}
             loading="eager"
             sizes="(max-width: 768px) 100vw, 600px"
           />
-          {/* Zoom icon removed as requested */}
         </div>
 
         {/* Thumbnail Grid */}
