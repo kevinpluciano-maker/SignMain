@@ -302,8 +302,7 @@ const DiNocPage = () => {
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline"
-                  className="border-2 border-white/40 text-white hover:bg-white/15 hover:border-white/60 font-semibold text-base px-8 py-5 h-auto shadow-lg hover:scale-[1.02] transition-all"
+                  className="bg-white/90 text-blue-600 hover:bg-white font-semibold text-base px-8 py-5 h-auto shadow-lg hover:scale-[1.02] transition-all border-2 border-white"
                 >
                   Schedule Consultation
                 </Button>
