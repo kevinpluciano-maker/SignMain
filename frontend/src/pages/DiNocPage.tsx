@@ -171,34 +171,34 @@ const DiNocPage = () => {
         {/* Features Section - Transparent with backdrop blur */}
         <section className="py-24 relative overflow-hidden">
           <div className="container mx-auto px-6 relative z-10">
-            <div className="text-center mb-20">
-              <Badge className="mb-6 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/50 text-lg px-6 py-2 backdrop-blur-sm">
+            <div className="text-center mb-20 bg-black/40 backdrop-blur-md rounded-3xl p-10 border border-white/20">
+              <Badge className="mb-6 bg-white/10 text-white border border-white/30 text-lg px-6 py-2 backdrop-blur-sm">
                 Why Choose Di-Noc
               </Badge>
-              <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <h2 className="text-5xl md:text-6xl font-black mb-6 text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
                 Premium Features
               </h2>
-              <p className="text-xl text-cyan-100/70 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                 Experience the perfect blend of aesthetics and functionality
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               {features.map((feature, index) => (
-                <Card key={index} className="border-2 border-cyan-500/30 bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-xl hover:border-cyan-400/60 hover:shadow-[0_0_40px_rgba(6,182,212,0.3)] transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 group">
+                <Card key={index} className="border-2 border-white/30 bg-black/40 backdrop-blur-xl hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 group">
                   <CardContent className="p-10 text-center">
-                    <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 group-hover:from-cyan-400/30 group-hover:to-blue-400/30 transition-all">
-                      <feature.icon className="h-12 w-12 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
+                    <div className="bg-white/20 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-all">
+                      <feature.icon className="h-12 w-12 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-cyan-100 group-hover:text-cyan-50 transition-colors">{feature.title}</h3>
-                    <p className="text-slate-300/80 leading-relaxed group-hover:text-slate-200 transition-colors">{feature.description}</p>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{feature.title}</h3>
+                    <p className="text-white/80 leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
             {/* Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center bg-black/40 backdrop-blur-md rounded-3xl p-10 border border-white/20">
               {[
                 { value: "450+", label: "Design Options" },
                 { value: "10+", label: "Years Durability" },
@@ -206,8 +206,8 @@ const DiNocPage = () => {
                 { value: "Low VOC", label: "Eco-Friendly" }
               ].map((stat, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className="text-3xl md:text-4xl font-black text-primary mb-2">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                  <div className="text-3xl md:text-4xl font-black text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">{stat.value}</div>
+                  <div className="text-sm text-white/80 font-medium">{stat.label}</div>
                 </div>
               ))}
             </div>
