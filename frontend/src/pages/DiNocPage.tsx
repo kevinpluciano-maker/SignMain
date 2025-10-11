@@ -214,32 +214,19 @@ const DiNocPage = () => {
           </div>
         </section>
 
-        {/* Futuristic Contact Section */}
-        <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white relative overflow-hidden">
-          {/* Animated Grid Background */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)',
-              backgroundSize: '50px 50px',
-              animation: 'grid-flow 20s linear infinite'
-            }}></div>
-          </div>
-          
-          {/* Glowing Orbs */}
-          <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-
+        {/* Contact Section - Transparent */}
+        <section className="py-24 text-white relative overflow-hidden">
           <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto bg-black/40 backdrop-blur-xl rounded-3xl p-12 border border-white/20">
               {/* Centered Icon and Title */}
               <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl backdrop-blur-sm border border-cyan-500/30">
-                  <MessageSquare className="h-8 w-8 text-cyan-400" />
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 bg-white/20 rounded-2xl backdrop-blur-sm border border-white/30">
+                  <MessageSquare className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <h2 className="text-4xl md:text-5xl font-black mb-4 text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
                   Let's Discuss Your Project
                 </h2>
-                <p className="text-lg text-cyan-100/70 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   Connect with our Di-Noc specialists for expert guidance and tailored solutions
                 </p>
               </div>
