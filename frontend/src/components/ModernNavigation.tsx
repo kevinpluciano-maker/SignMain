@@ -171,7 +171,7 @@ const ModernNavigation = () => {
     : "w-full justify-start h-auto p-3 font-normal text-sm text-foreground/80 hover:text-foreground hover:bg-accent/60 rounded-lg transition-all duration-150 border-0";
 
   const luxuryItemStyle = isHomePage ? {
-    background: 'transparent',
+    background: 'rgba(255,255,255,0.03)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     borderRadius: '8px',
     letterSpacing: '0.3px'
