@@ -131,12 +131,13 @@ const DiNocPage = () => {
           {/* Hero Content */}
           <div className="relative z-20 container mx-auto px-6 h-full flex items-center justify-center">
             <div className="max-w-4xl text-center">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 leading-tight">
-                <span className="text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-3 leading-none tracking-tight" style={{ fontFamily: '"Inter", "Helvetica Neue", sans-serif' }}>
+                <span className="text-slate-900 drop-shadow-[0_4px_12px_rgba(255,255,255,0.9)] relative">
                   Di-Noc
+                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent rounded-full"></span>
                 </span>
               </h1>
-              <p className="text-base md:text-lg lg:text-xl font-light text-gray-700 mb-12 tracking-wide drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-slate-800 mb-12 tracking-widest uppercase drop-shadow-[0_2px_4px_rgba(255,255,255,0.9)]" style={{ fontFamily: '"Inter", sans-serif', letterSpacing: '0.15em' }}>
                 Architectural Film
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
