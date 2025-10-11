@@ -13,6 +13,7 @@ const ModernNavigation = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const isHomePage = location.pathname === '/';
+  const isDiNocPage = location.pathname === '/di-noc';
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
