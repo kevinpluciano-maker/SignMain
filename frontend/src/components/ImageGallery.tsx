@@ -38,7 +38,7 @@ const ImageGallery = ({ images, productName, selectedIndex, onIndexChange }: Ima
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`aspect-square overflow-hidden rounded-lg bg-muted/30 cursor-pointer hover:opacity-75 transition-all ${
+                className={`aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-75 transition-all ${
                   selectedIndex === index ? 'ring-2 ring-primary shadow-lg' : ''
                 }`}
                 onClick={() => onIndexChange(index)}
