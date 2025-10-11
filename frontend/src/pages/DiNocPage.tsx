@@ -235,16 +235,16 @@ const DiNocPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto">
                 {/* Phone Card */}
                 <a href="tel:+15551234567" className="group block">
-                  <div className="relative p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-cyan-500/20 rounded-2xl hover:border-cyan-400/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:-translate-y-1">
+                  <div className="relative p-6 bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl hover:border-white/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
                     <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl border border-cyan-500/30">
-                        <Phone className="h-5 w-5 text-cyan-400" />
+                      <div className="p-3 bg-white/20 rounded-xl border border-white/30">
+                        <Phone className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-sm font-semibold text-cyan-100 mb-1">Call Us</h3>
-                        <p className="text-xs text-cyan-300/60">Direct Line</p>
+                        <h3 className="text-sm font-semibold text-white mb-1">Call Us</h3>
+                        <p className="text-xs text-white/70">Direct Line</p>
                       </div>
-                      <div className="text-base font-mono text-white bg-slate-900/50 px-4 py-2 rounded-lg border border-cyan-500/20">
+                      <div className="text-base font-mono text-white bg-black/30 px-4 py-2 rounded-lg border border-white/20">
                         (555) 123-4567
                       </div>
                     </div>
@@ -253,16 +253,16 @@ const DiNocPage = () => {
 
                 {/* Email Card */}
                 <a href="mailto:info@bsignstore.com" className="group block">
-                  <div className="relative p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-cyan-500/20 rounded-2xl hover:border-cyan-400/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:-translate-y-1">
+                  <div className="relative p-6 bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl hover:border-white/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
                     <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl border border-cyan-500/30">
-                        <Mail className="h-5 w-5 text-cyan-400" />
+                      <div className="p-3 bg-white/20 rounded-xl border border-white/30">
+                        <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-sm font-semibold text-cyan-100 mb-1">Email Us</h3>
-                        <p className="text-xs text-cyan-300/60">Quick Response</p>
+                        <h3 className="text-sm font-semibold text-white mb-1">Email Us</h3>
+                        <p className="text-xs text-white/70">Quick Response</p>
                       </div>
-                      <div className="text-xs font-mono text-white bg-slate-900/50 px-3 py-2 rounded-lg border border-cyan-500/20 break-all">
+                      <div className="text-xs font-mono text-white bg-black/30 px-3 py-2 rounded-lg border border-white/20 break-all">
                         info@bsignstore.com
                       </div>
                     </div>
@@ -271,16 +271,16 @@ const DiNocPage = () => {
 
                 {/* Contact Form Card */}
                 <a href="/contact" className="group block">
-                  <div className="relative p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-cyan-500/20 rounded-2xl hover:border-cyan-400/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:-translate-y-1">
+                  <div className="relative p-6 bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl hover:border-white/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
                     <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl border border-cyan-500/30">
-                        <MessageSquare className="h-5 w-5 text-cyan-400" />
+                      <div className="p-3 bg-white/20 rounded-xl border border-white/30">
+                        <MessageSquare className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-sm font-semibold text-cyan-100 mb-1">Message Us</h3>
-                        <p className="text-xs text-cyan-300/60">Detailed Inquiry</p>
+                        <h3 className="text-sm font-semibold text-white mb-1">Message Us</h3>
+                        <p className="text-xs text-white/70">Detailed Inquiry</p>
                       </div>
-                      <div className="text-sm font-semibold text-cyan-400 bg-slate-900/50 px-4 py-2 rounded-lg border border-cyan-500/20 group-hover:bg-cyan-500/10 transition-all">
+                      <div className="text-sm font-semibold text-white bg-black/30 px-4 py-2 rounded-lg border border-white/20 group-hover:bg-white/20 transition-all">
                         Contact Form →
                       </div>
                     </div>
