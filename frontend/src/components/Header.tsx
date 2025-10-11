@@ -21,8 +21,9 @@ const Header = ({ showFilters = false }: HeaderProps) => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Check if we're on the home page
+  // Check if we're on the home page or Di-Noc page
   const isHomePage = location.pathname === '/';
+  const isDiNocPage = location.pathname === '/di-noc';
 
   const navigationItems = [
     {
