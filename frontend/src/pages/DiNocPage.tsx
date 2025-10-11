@@ -130,13 +130,13 @@ const DiNocPage = () => {
 
           {/* Hero Content */}
           <div className="relative z-20 container mx-auto px-6 h-full flex items-center justify-center">
-            <div className="max-w-4xl text-center text-white">
+            <div className="max-w-4xl text-center">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 leading-tight">
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-pulse">
+                <span className="text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]">
                   Di-Noc
                 </span>
               </h1>
-              <p className="text-base md:text-lg lg:text-xl font-light text-cyan-200/70 mb-12 tracking-wide">
+              <p className="text-base md:text-lg lg:text-xl font-light text-gray-700 mb-12 tracking-wide drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
                 Architectural Film
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
