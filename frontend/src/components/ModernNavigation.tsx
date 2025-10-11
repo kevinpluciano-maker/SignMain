@@ -119,12 +119,14 @@ const ModernNavigation = () => {
     'Desk Signs'
   ];
 
-  // Reduced size luxury styling for home page - moved down for better visibility
-  const navClasses = isHomePage 
+  // Reduced size luxury styling for home page and Di-Noc page - moved down for better visibility
+  const isTransparentPage = isHomePage || isDiNocPage;
+  
+  const navClasses = isTransparentPage
     ? "absolute top-0 left-0 right-0 z-40 text-white mt-32 md:mt-36 lg:mt-40"
     : "bg-background/98 backdrop-blur-md border-b border-border/40 shadow-sm sticky top-0 z-[60]";
 
-  const luxuryNavBackground = isHomePage ? {
+  const luxuryNavBackground = isTransparentPage ? {
     background: 'linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(30,41,59,0.88) 50%, rgba(0,0,0,0.82) 100%)',
     backdropFilter: 'blur(16px) saturate(160%)',
     borderTop: '1px solid rgba(255,255,255,0.08)',
@@ -132,7 +134,7 @@ const ModernNavigation = () => {
     boxShadow: '0 6px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)'
   } : {};
 
-  const premiumTextStyle = isHomePage ? {
+  const premiumTextStyle = isTransparentPage ? {
     fontFamily: '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
     fontWeight: '600',
     fontSize: '13px',
@@ -144,11 +146,11 @@ const ModernNavigation = () => {
     textRendering: 'optimizeLegibility'
   } : {};
 
-  const buttonClasses = isHomePage
+  const buttonClasses = isTransparentPage
     ? "h-11 px-4 font-semibold text-white hover:text-white transition-all duration-300 rounded-lg relative overflow-hidden group"
     : "h-12 px-4 font-medium text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-all duration-200 rounded-lg";
 
-  const luxuryButtonStyle = isHomePage ? {
+  const luxuryButtonStyle = isTransparentPage ? {
     background: 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))',
     border: '1px solid rgba(255,255,255,0.12)',
     backdropFilter: 'blur(8px)',
@@ -156,7 +158,7 @@ const ModernNavigation = () => {
     position: 'relative' as const
   } : {};
 
-  const dropdownClasses = isHomePage
+  const dropdownClasses = isTransparentPage
     ? "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-xl shadow-xl overflow-hidden transition-all duration-300 z-[100] border"
     : "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 bg-background border border-border rounded-xl shadow-xl overflow-hidden transition-all duration-200 z-[100]";
 
