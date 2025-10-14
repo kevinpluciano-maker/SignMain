@@ -265,14 +265,18 @@ const Contact = () => {
                 </CardHeader>
                 
                 <CardContent className="p-0">
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
                           First Name *
                         </label>
                         <Input 
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
                           placeholder="John"
+                          required
                           className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
                           style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
                         />
@@ -282,7 +286,11 @@ const Contact = () => {
                           Last Name *
                         </label>
                         <Input 
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
                           placeholder="Doe"
+                          required
                           className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
                           style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
                         />
@@ -295,8 +303,12 @@ const Contact = () => {
                           Email Address *
                         </label>
                         <Input 
+                          name="email"
                           type="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
                           placeholder="john@company.com"
+                          required
                           className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
                           style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
                         />
@@ -306,7 +318,10 @@ const Contact = () => {
                           Phone Number
                         </label>
                         <Input 
+                          name="phone"
                           type="tel"
+                          value={formData.phone}
+                          onChange={handleInputChange}
                           placeholder="+1 (555) 123-4567"
                           className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
                           style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
@@ -319,7 +334,24 @@ const Contact = () => {
                         Company Name
                       </label>
                       <Input 
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
                         placeholder="Your Company"
+                        className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
+                        style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Subject
+                      </label>
+                      <Input 
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        placeholder="What can we help you with?"
                         className="h-12 border-2 border-gray-200 focus:border-blue-500 rounded-xl"
                         style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
                       />
