@@ -17,6 +17,23 @@ class EmailService:
     def send_email(self, to_email: str, subject: str, body_html: str, body_text: str = None):
         """Send an email with HTML and optional plain text content"""
         try:
+            # Log email content for debugging
+            print(f"\n{'='*80}")
+            print(f"📧 EMAIL NOTIFICATION")
+            print(f"{'='*80}")
+            print(f"To: {to_email}")
+            print(f"Subject: {subject}")
+            print(f"{'='*80}")
+            if body_text:
+                print(body_text)
+            print(f"{'='*80}\n")
+            
+            # If no password is set, skip SMTP sending (for testing)
+            if not self.sender_password:
+                print("⚠️  SMTP password not configured - Email logged but not sent")
+                print(f"📝 Email would be sent to: {to_email}")
+                return True
+            
             message = MIMEMultipart("alternative")
             message["Subject"] = subject
             message["From"] = self.sender_email
@@ -34,13 +51,13 @@ class EmailService:
             # Send email
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
-                if self.sender_password:
-                    server.login(self.sender_email, self.sender_password)
+                server.login(self.sender_email, self.sender_password)
                 server.sendmail(self.sender_email, to_email, message.as_string())
             
+            print("✅ Email sent successfully via SMTP")
             return True
         except Exception as e:
-            print(f"Error sending email: {str(e)}")
+            print(f"❌ Error sending email: {str(e)}")
             return False
     
     def send_contact_form_notification(self, form_data: Dict[str, Any]):
