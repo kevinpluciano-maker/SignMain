@@ -375,56 +375,26 @@ const Checkout = () => {
                   </CardContent>
                 </Card>
 
-                {/* Payment Information */}
-                <Card>
+                {/* Order Notice - Payment Not Required */}
+                <Card className="border-2 border-green-500 bg-green-50">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <CreditCard className="h-5 w-5" />
-                      Payment Information
+                    <CardTitle className="flex items-center gap-2 text-green-800">
+                      <CheckCircle className="h-5 w-5" />
+                      Order Processing
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <Label htmlFor="cardName">Name on Card *</Label>
-                      <Input
-                        id="cardName"
-                        required
-                        value={formData.cardName}
-                        onChange={(e) => handleInputChange('cardName', e.target.value)}
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="cardNumber">Card Number *</Label>
-                      <Input
-                        id="cardNumber"
-                        required
-                        placeholder="1234 5678 9012 3456"
-                        value={formData.cardNumber}
-                        onChange={(e) => handleInputChange('cardNumber', e.target.value)}
-                      />
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="expiryDate">Expiry Date *</Label>
-                        <Input
-                          id="expiryDate"
-                          required
-                          placeholder="MM/YY"
-                          value={formData.expiryDate}
-                          onChange={(e) => handleInputChange('expiryDate', e.target.value)}
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="cvv">CVV *</Label>
-                        <Input
-                          id="cvv"
-                          required
-                          placeholder="123"
-                          value={formData.cvv}
-                          onChange={(e) => handleInputChange('cvv', e.target.value)}
-                        />
+                  <CardContent>
+                    <div className="space-y-3">
+                      <p className="text-green-900 font-semibold">
+                        ✓ No payment required at this time
+                      </p>
+                      <p className="text-sm text-green-800">
+                        Your order will be processed and you'll receive an email with payment instructions and order details within 24 hours.
+                      </p>
+                      <div className="bg-white rounded-lg p-3 border border-green-200">
+                        <p className="text-xs text-gray-600">
+                          <strong>Next Steps:</strong> Complete your order information, review your items, and click "Place Order" to submit your request. We'll contact you via email with payment options and production timeline.
+                        </p>
                       </div>
                     </div>
                   </CardContent>
