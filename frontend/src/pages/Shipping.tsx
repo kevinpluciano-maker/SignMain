@@ -300,7 +300,7 @@ const Shipping = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <div className="text-center">
                     <div className="font-semibold">Email Support</div>
-                    <div className="text-muted-foreground">shipping@bsignstore.com</div>
+                    <div className="text-muted-foreground">shipping@absigns.com</div>
                   </div>
                   <div className="text-center">
                     <div className="font-semibold">Phone Support</div>
