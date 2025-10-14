@@ -71,29 +71,7 @@ const Shipping = () => {
               </CardContent>
             </Card>
 
-            {/* Domestic Shipping Options */}
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-8 text-center">U.S. Shipping Options</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {shippingOptions.map((option, index) => (
-                  <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <CardHeader className="text-center pb-4">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <option.icon className="h-8 w-8 text-primary" />
-                      </div>
-                      <CardTitle className="text-xl">{option.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="text-center space-y-4">
-                      <div className="space-y-2">
-                        <div className="text-2xl font-bold text-primary">{option.time}</div>
-                        <div className="text-lg font-semibold">{option.cost}</div>
-                      </div>
-                      <p className="text-muted-foreground">{option.description}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
+            {/* Simplified - Removed per user request */}
 
             {/* Processing Time */}
             <Card className="mb-12 border-0 shadow-lg">
