@@ -24,6 +24,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import InstallationGuide from "./pages/InstallationGuide";
 import Privacy from "./pages/Privacy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Shipping from "./pages/Shipping";
 import Returns from "./pages/Returns";
 import NotFound from "./pages/NotFound";
