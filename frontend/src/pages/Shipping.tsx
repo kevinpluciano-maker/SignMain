@@ -63,10 +63,10 @@ const Shipping = () => {
                   </h2>
                 </div>
                 <p className="text-lg text-green-700 dark:text-green-300 mb-4">
-                  On all orders over $50 within the United States
+                  On all orders over $75 USD across Canada & USA
                 </p>
                 <Badge variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                  No minimum order quantity required for custom signs
+                  Standard Shipping Only - Reliable 5-7 Business Day Delivery
                 </Badge>
               </CardContent>
             </Card>
