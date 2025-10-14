@@ -10,51 +10,25 @@ const Shipping = () => {
   const shippingOptions = [
     {
       name: "Standard Shipping",
-      time: "3-5 Business Days",
-      cost: "FREE on orders $50+",
-      description: "Our most popular shipping option with reliable delivery",
+      time: "5-7 Business Days",
+      cost: "FREE on orders $75+ USD",
+      description: "Our only shipping option - reliable delivery across Canada and USA",
       icon: Package
-    },
-    {
-      name: "Express Shipping",
-      time: "2-3 Business Days",
-      cost: "$9.99",
-      description: "Faster delivery for when you need your signs quickly",
-      icon: Truck
-    },
-    {
-      name: "Overnight Shipping",
-      time: "1 Business Day",
-      cost: "$24.99",
-      description: "Next business day delivery for urgent orders",
-      icon: Clock
     }
   ];
 
-  const internationalZones = [
+  const deliveryZones = [
+    {
+      zone: "United States",
+      time: "5-7 Business Days",
+      cost: "Calculated at checkout (FREE over $75 USD)",
+      description: "Standard shipping to all 50 states"
+    },
     {
       zone: "Canada",
       time: "5-7 Business Days",
-      cost: "$15.99",
-      description: "Reliable shipping to all Canadian provinces"
-    },
-    {
-      zone: "Europe (EU)",
-      time: "7-10 Business Days", 
-      cost: "$22.99",
-      description: "Shipping to all European Union countries"
-    },
-    {
-      zone: "Australia & New Zealand",
-      time: "8-12 Business Days",
-      cost: "$25.99",
-      description: "Express shipping to Australia and New Zealand"
-    },
-    {
-      zone: "Asia Pacific",
-      time: "10-14 Business Days",
-      cost: "$28.99",
-      description: "Shipping to Japan, South Korea, Singapore, and more"
+      cost: "Calculated at checkout (FREE over $75 USD)",
+      description: "Standard shipping to all provinces and territories"
     }
   ];
 
