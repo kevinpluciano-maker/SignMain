@@ -99,7 +99,7 @@ const ImprovedFooter = () => {
                 <Button 
                   variant="link" 
                   className="p-0 h-auto text-sm text-muted-foreground hover:text-primary justify-start"
-                  onClick={() => navigate("/privacy")}
+                  onClick={() => navigate("/privacy-policy")}
                 >
                   Privacy Policy
                 </Button>
