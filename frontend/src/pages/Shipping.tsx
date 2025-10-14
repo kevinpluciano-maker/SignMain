@@ -224,34 +224,64 @@ const Shipping = () => {
               </CardContent>
             </Card>
 
-            {/* Shipping Calculator */}
+            {/* Simple Shipping Rates */}
             <Card className="mb-12 border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-2xl">
-                  <Calculator className="h-6 w-6 text-primary" />
-                  Shipping Calculator
+                  <DollarSign className="h-6 w-6 text-primary" />
+                  Shipping Rates
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-muted/30 rounded-lg p-6 text-center">
-                  <p className="text-lg mb-4">
-                    Get exact shipping costs and delivery estimates for your order
-                  </p>
-                  <p className="text-muted-foreground mb-6">
-                    Shipping costs are automatically calculated at checkout based on your location and selected items.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="text-center p-4 bg-background rounded-lg">
-                      <div className="font-semibold">Step 1</div>
-                      <div className="text-sm text-muted-foreground">Add items to cart</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                  {/* Free Shipping */}
+                  <div className="border-2 border-green-500 bg-green-50 rounded-lg p-6 text-center">
+                    <div className="bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                      <Truck className="h-8 w-8" />
                     </div>
-                    <div className="text-center p-4 bg-background rounded-lg">
-                      <div className="font-semibold">Step 2</div>
-                      <div className="text-sm text-muted-foreground">Enter shipping address</div>
+                    <h3 className="text-2xl font-bold text-green-800 mb-2">FREE</h3>
+                    <p className="text-sm text-green-700 mb-4">
+                      On orders <strong>$75 USD+</strong>
+                    </p>
+                    <div className="bg-white rounded-lg p-3">
+                      <div className="text-xs text-muted-foreground mb-1">Delivery Time</div>
+                      <div className="font-semibold">5-7 Business Days</div>
                     </div>
-                    <div className="text-center p-4 bg-background rounded-lg">
-                      <div className="font-semibold">Step 3</div>
-                      <div className="text-sm text-muted-foreground">View shipping options</div>
+                  </div>
+
+                  {/* Flat Rate */}
+                  <div className="border-2 border-primary/30 bg-primary/5 rounded-lg p-6 text-center">
+                    <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                      <DollarSign className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-primary mb-2">$12</h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Flat rate on orders <strong>under $75</strong>
+                    </p>
+                    <div className="bg-white rounded-lg p-3">
+                      <div className="text-xs text-muted-foreground mb-1">Delivery Time</div>
+                      <div className="font-semibold">5-7 Business Days</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+                  <h4 className="font-bold text-blue-900 mb-3 text-center">How Shipping Works</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                    <div className="text-center">
+                      <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">1</div>
+                      <div className="text-sm font-medium text-blue-900">Add to Cart</div>
+                      <div className="text-xs text-blue-700">Shop our products</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">2</div>
+                      <div className="text-sm font-medium text-blue-900">Proceed to Checkout</div>
+                      <div className="text-xs text-blue-700">Shipping calculated automatically</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">3</div>
+                      <div className="text-sm font-medium text-blue-900">Receive Your Order</div>
+                      <div className="text-xs text-blue-700">5-7 business days</div>
                     </div>
                   </div>
                 </div>
