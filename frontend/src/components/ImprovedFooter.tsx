@@ -81,6 +81,7 @@ const ImprovedFooter = () => {
                 <Button 
                   variant="link" 
                   className="p-0 h-auto text-sm text-muted-foreground hover:text-primary justify-start"
+                  onClick={() => navigate("/shipping")}
                 >
                   Shipping Info
                 </Button>
@@ -89,16 +90,18 @@ const ImprovedFooter = () => {
                 <Button 
                   variant="link" 
                   className="p-0 h-auto text-sm text-muted-foreground hover:text-primary justify-start"
+                  onClick={() => navigate("/refund-returns")}
                 >
-                  Returns & FAQs
+                  Refund & Returns
                 </Button>
               </li>
               <li>
                 <Button 
                   variant="link" 
                   className="p-0 h-auto text-sm text-muted-foreground hover:text-primary justify-start"
+                  onClick={() => navigate("/privacy")}
                 >
-                  Size Guide
+                  Privacy Policy
                 </Button>
               </li>
             </ul>
