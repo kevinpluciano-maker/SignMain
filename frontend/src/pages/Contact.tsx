@@ -362,8 +362,12 @@ const Contact = () => {
                         Project Details *
                       </label>
                       <Textarea 
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
                         placeholder="Tell us about your signage needs, project scope, timeline, and any specific requirements..."
                         rows={6}
+                        required
                         className="border-2 border-gray-200 focus:border-blue-500 rounded-xl resize-none"
                         style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
                       />
@@ -372,9 +376,10 @@ const Contact = () => {
                     <Button 
                       type="submit"
                       size="lg"
+                      disabled={isSubmitting}
                       className="w-full py-4 text-lg font-bold transition-all duration-300 hover:scale-[1.02]"
                       style={{
-                        background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                        background: isSubmitting ? '#9ca3af' : 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
                         borderRadius: '12px',
                         boxShadow: '0 10px 25px rgba(59,130,246,0.3)',
                         fontFamily: '"Inter", system-ui, sans-serif',
@@ -383,7 +388,7 @@ const Contact = () => {
                       }}
                     >
                       <Send className="w-5 h-5 mr-2" />
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </CardContent>
