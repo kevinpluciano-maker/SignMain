@@ -91,6 +91,7 @@ const App = () => (
               <Route path="/contact" element={<ModernContact />} />
               <Route path="/installation-guide" element={<InstallationGuide />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/returns" element={<Returns />} />
               <Route path="/refund-returns" element={<RefundReturns />} />
