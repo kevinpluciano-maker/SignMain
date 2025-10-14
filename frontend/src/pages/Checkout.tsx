@@ -500,7 +500,7 @@ const Checkout = () => {
                         <Lock className="h-4 w-4" />
                         <span>Secure 256-bit SSL encryption</span>
                       </div>
-                      <div>Your payment information is safe and secure</div>
+                      <div>Your information is safe and secure</div>
                     </div>
 
                     <Link to="/cart" className="block">
