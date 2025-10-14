@@ -189,6 +189,40 @@ const Shipping = () => {
                 </CardContent>
               </Card>
             </div>
+            {/* Delivery Zones */}
+            <Card className="mb-12">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <MapPin className="h-6 w-6" />
+                  Delivery Areas
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {deliveryZones.map((zone, index) => (
+                    <div key={index} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+                      <h3 className="text-xl font-semibold mb-2">{zone.zone}</h3>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Delivery Time:</span>
+                          <span className="font-medium">{zone.time}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Shipping Cost:</span>
+                          <span className="font-medium text-xs">{zone.cost}</span>
+                        </div>
+                        <p className="text-muted-foreground mt-3">{zone.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <p className="text-sm text-blue-900">
+                    <strong>Note:</strong> We currently only ship to Canada and the United States. For international inquiries, please contact us at info@absigns.com
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Shipping Calculator */}
             <Card className="mb-12 border-0 shadow-lg">
