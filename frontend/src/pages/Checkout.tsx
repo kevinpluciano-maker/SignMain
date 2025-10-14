@@ -95,7 +95,7 @@ const Checkout = () => {
     return (
       <>
         <SEO
-          title="Checkout | Bsign Store"
+          title="Checkout | AB Signs"
           description="Complete your order for professional door signs and signage"
           canonical="/checkout"
           type="website"
@@ -130,7 +130,7 @@ const Checkout = () => {
     return (
       <>
         <SEO
-          title="Order Complete | Bsign Store"
+          title="Order Complete | AB Signs"
           description="Your order has been successfully placed"
           canonical="/checkout"
           type="website"
@@ -204,7 +204,7 @@ const Checkout = () => {
   return (
     <>
       <SEO
-        title="Checkout | Bsign Store"
+        title="Checkout | AB Signs"
         description="Complete your order for professional door signs and signage"
         canonical="/checkout"
         type="website"

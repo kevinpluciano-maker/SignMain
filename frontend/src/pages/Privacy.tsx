@@ -8,8 +8,8 @@ const Privacy = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy | Bsign Store"
-        description="Learn about how we collect, use, and protect your personal information at Bsign Store."
+        title="Privacy Policy | AB Signs"
+        description="Learn about how we collect, use, and protect your personal information at AB Signs."
         canonical="/privacy"
       />
       <div className="min-h-screen bg-background">
@@ -29,15 +29,15 @@ const Privacy = () => {
               <CardContent className="p-8">
                 <div className="prose prose-gray max-w-none">
                   <p className="text-lg mb-6">
-                    At Bsign Store, we do not store credit card details, nor do we share customer details with any 3rd parties.
+                    At AB Signs, we do not store credit card details, nor do we share customer details with any 3rd parties.
                   </p>
 
                   <p className="mb-6">
-                    Our privacy policy sets out how Bsign Store uses and protects any sensitive information you give us when you use this website. Please read this privacy policy carefully before using the site or submitting any personal information. By using this website, you are accepting the practices set out below.
+                    Our privacy policy sets out how AB Signs uses and protects any sensitive information you give us when you use this website. Please read this privacy policy carefully before using the site or submitting any personal information. By using this website, you are accepting the practices set out below.
                   </p>
 
                   <p className="mb-8">
-                    Bsign Store is committed to ensuring that your privacy is protected. If we ask you to provide certain information by which you can be identified when using this website, you can be assured that it will only be used in accordance with this privacy policy. We may change this policy from time to time, but any changes will be posted and the changes will only apply to activities and information on going forward, never on a retroactive basis.
+                    AB Signs is committed to ensuring that your privacy is protected. If we ask you to provide certain information by which you can be identified when using this website, you can be assured that it will only be used in accordance with this privacy policy. We may change this policy from time to time, but any changes will be posted and the changes will only apply to activities and information on going forward, never on a retroactive basis.
                   </p>
 
                   <p className="mb-8 text-sm text-muted-foreground">
@@ -62,7 +62,7 @@ const Privacy = () => {
                   </ul>
 
                   <p className="mb-6">
-                    All such information is held on secure servers. Bsign Store complies fully with all applicable Data Protection and consumer legislation, and will treat all your personal information as fully confidential. We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:
+                    All such information is held on secure servers. AB Signs complies fully with all applicable Data Protection and consumer legislation, and will treat all your personal information as fully confidential. We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:
                   </p>
 
                   <ul className="list-disc pl-6 mb-8 space-y-2">

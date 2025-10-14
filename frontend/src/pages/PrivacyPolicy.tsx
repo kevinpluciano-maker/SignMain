@@ -12,8 +12,8 @@ const PrivacyPolicy = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy | BSign Store"
-        description="Learn how BSign Store collects, uses, and protects your personal information. We are committed to safeguarding your privacy and data security."
+        title="Privacy Policy | AB Signs"
+        description="Learn how AB Signs collects, uses, and protects your personal information. We are committed to safeguarding your privacy and data security."
         canonical="/privacy-policy"
         keywords={["privacy policy", "data protection", "personal information", "privacy rights", "GDPR"]}
       />
@@ -114,7 +114,7 @@ const PrivacyPolicy = () => {
                         <h2 className="text-2xl font-bold text-slate-900 mb-4">Introduction</h2>
                         <div className="space-y-4 text-slate-700">
                           <p className="leading-relaxed">
-                            At BSign Store, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+                            At AB Signs, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
                           </p>
                           <p className="leading-relaxed">
                             By using our website, you agree to the collection and use of information in accordance with this policy. If you do not agree with the terms of this privacy policy, please do not access the site.
@@ -481,7 +481,7 @@ const PrivacyPolicy = () => {
                     </div>
                     <div className="mt-6 p-4 bg-slate-50 rounded-lg">
                       <p className="text-sm text-slate-700">
-                        To exercise any of these rights, please contact us at <a href="mailto:privacy@bsignstore.com" className="text-primary font-semibold hover:underline">privacy@bsignstore.com</a>
+                        To exercise any of these rights, please contact us at <a href="mailto:privacy@absigns.com" className="text-primary font-semibold hover:underline">privacy@absigns.com</a>
                       </p>
                     </div>
                   </CardContent>
@@ -561,19 +561,19 @@ const PrivacyPolicy = () => {
                       <div className="bg-white p-4 rounded-lg shadow-sm">
                         <p className="font-semibold text-slate-900 mb-2">Privacy Department</p>
                         <a 
-                          href="mailto:privacy@bsignstore.com"
+                          href="mailto:privacy@absigns.com"
                           className="text-primary hover:underline font-semibold"
                         >
-                          privacy@bsignstore.com
+                          privacy@absigns.com
                         </a>
                       </div>
                       <div className="bg-white p-4 rounded-lg shadow-sm">
                         <p className="font-semibold text-slate-900 mb-2">General Inquiries</p>
                         <a 
-                          href="mailto:info@bsignstore.com"
+                          href="mailto:info@absigns.com"
                           className="text-primary hover:underline font-semibold"
                         >
-                          info@bsignstore.com
+                          info@absigns.com
                         </a>
                       </div>
                       <p className="text-sm text-slate-600 mt-4">

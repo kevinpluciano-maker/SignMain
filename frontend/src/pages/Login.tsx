@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <>
       <SEO
-        title="Login | Bsign Store"
+        title="Login | AB Signs"
         description="Sign in to your account to access your orders and personalized experience."
         canonical="/login"
         type="website"

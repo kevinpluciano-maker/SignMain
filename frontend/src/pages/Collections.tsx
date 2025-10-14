@@ -49,7 +49,7 @@ const Collections = () => {
   return (
     <>
       <SEO
-        title={`${pageTitle} | Professional Signage | Bsign Store`}
+        title={`${pageTitle} | Professional Signage | AB Signs`}
         description={getPageDescription()}
         canonical={`/collections/${category || 'all'}`}
         type="website"

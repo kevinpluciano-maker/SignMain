@@ -65,7 +65,7 @@ const Returns = () => {
   return (
     <>
       <SEO
-        title="Return & Refund Policy | Easy Returns | Bsign Store"
+        title="Return & Refund Policy | Easy Returns | AB Signs"
         description="Learn about our 30-day return policy, easy return process, and refund procedures. Hassle-free returns with prepaid shipping labels for eligible items."
         canonical="/returns"
       />
@@ -315,12 +315,12 @@ const Returns = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="text-center">
                     <div className="font-semibold">Email Returns</div>
-                    <div className="text-muted-foreground">returns@bsignstore.com</div>
+                    <div className="text-muted-foreground">returns@absigns.com</div>
                     <div className="text-sm text-muted-foreground mt-1">Include order number</div>
                   </div>
                   <div className="text-center">
                     <div className="font-semibold">Phone Support</div>
-                    <div className="text-muted-foreground">1-800-BSIGN-1</div>
+                    <div className="text-muted-foreground">(555) 123-4567</div>
                     <div className="text-sm text-muted-foreground mt-1">Mon-Fri 9AM-6PM EST</div>
                   </div>
                   <div className="text-center">

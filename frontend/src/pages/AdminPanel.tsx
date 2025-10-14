@@ -162,7 +162,7 @@ const AdminPanel = () => {
   return (
     <>
       <SEO 
-        title="Admin Panel - BSign Store"
+        title="Admin Panel - AB Signs"
         description="Admin panel for managing content"
         noIndex={true}
       />

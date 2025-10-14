@@ -26,7 +26,7 @@ const Cart = () => {
     return (
       <>
         <SEO
-          title="Shopping Cart | Bsign Store"
+          title="Shopping Cart | AB Signs"
           description="Your shopping cart for professional door signs and signage"
           canonical="/cart"
           type="website"
@@ -61,7 +61,7 @@ const Cart = () => {
   return (
     <>
       <SEO
-        title={`Shopping Cart (${totalItems} items) | Bsign Store`}
+        title={`Shopping Cart (${totalItems} items) | AB Signs`}
         description="Review your selected professional door signs and signage before checkout"
         canonical="/cart"
         type="website"

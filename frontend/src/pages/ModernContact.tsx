@@ -57,7 +57,7 @@ const ModernContact = () => {
     return (
       <>
         <SEO
-          title="Thank You | Contact Submitted | Bsign Store"
+          title="Thank You | Contact Submitted | AB Signs"
           description="Thank you for contacting us. We'll get back to you within 24 hours."
           canonical="/contact"
           type="website"

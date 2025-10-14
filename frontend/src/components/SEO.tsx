@@ -83,9 +83,9 @@ const SEO = ({
         addressRegion: "CA"
       },
       sameAs: [
-        "https://www.facebook.com/bsignstore",
-        "https://www.instagram.com/bsignstore",
-        "https://www.linkedin.com/company/bsignstore"
+        "https://www.facebook.com/absigns",
+        "https://www.instagram.com/absigns",
+        "https://www.linkedin.com/company/absigns"
       ]
     };
 
@@ -94,7 +94,7 @@ const SEO = ({
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "Bsign Store",
+      name: "AB Signs",
       description: "Professional Door Signs & Signage Solutions",
       publisher: { "@id": `${siteUrl}/#organization` },
       potentialAction: {
@@ -238,7 +238,7 @@ const SEO = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={`${title} - Preview Image`} />
-      <meta property="og:site_name" content="Bsign Store" />
+      <meta property="og:site_name" content="AB Signs" />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -246,8 +246,8 @@ const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={`${title} - Preview Image`} />
-      <meta name="twitter:creator" content="@bsignstore" />
-      <meta name="twitter:site" content="@bsignstore" />
+      <meta name="twitter:creator" content="@absigns" />
+      <meta name="twitter:site" content="@absigns" />
       
       {/* Article specific meta tags */}
       {author && <meta name="author" content={author} />}
@@ -266,7 +266,7 @@ const SEO = ({
       <meta name="theme-color" content="#007cf0" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content="Bsign Store" />
+      <meta name="apple-mobile-web-app-title" content="AB Signs" />
       
       {/* PWA Meta Tags */}
       <link rel="manifest" href="/manifest.json" />

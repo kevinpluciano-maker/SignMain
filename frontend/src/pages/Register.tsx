@@ -42,7 +42,7 @@ const Register = () => {
   return (
     <>
       <SEO
-        title="Register | Bsign Store"
+        title="Register | AB Signs"
         description="Create your account to access personalized features and track your orders."
         canonical="/register"
         type="website"

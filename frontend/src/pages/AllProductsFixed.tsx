@@ -81,7 +81,7 @@ const AllProductsFixed = () => {
   return (
     <>
       <SEO
-        title="All Products | Complete Signage Collection | Bsign Store"
+        title="All Products | Complete Signage Collection | AB Signs"
         description="Browse our complete collection of professional door signs, restroom signs, office signage and custom architectural signage. Find the perfect sign for your needs."
         canonical="/products"
         type="website"

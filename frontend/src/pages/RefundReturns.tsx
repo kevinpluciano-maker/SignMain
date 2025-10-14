@@ -10,7 +10,7 @@ const RefundReturns = () => {
   return (
     <>
       <SEO
-        title="Refund & Returns Policy | BSign Store"
+        title="Refund & Returns Policy | AB Signs"
         description="Learn about our refund and returns policy for acrylic signs, door numbers, and Di-Noc films. We stand behind our quality with a 30-day satisfaction guarantee."
         canonical="/refund-returns"
         keywords={["refund policy", "returns", "sign returns", "acrylic sign refund", "customer satisfaction"]}
@@ -236,7 +236,7 @@ const RefundReturns = () => {
                         <li>Check your bank account again</li>
                         <li>Contact your credit card company (processing may take time)</li>
                         <li>Contact your bank about processing times</li>
-                        <li>If still unresolved, email us at info@bsignstore.com</li>
+                        <li>If still unresolved, email us at info@absigns.com</li>
                       </ol>
                     </div>
 
@@ -256,7 +256,7 @@ const RefundReturns = () => {
                 <Card>
                   <CardContent className="p-8 space-y-4">
                     <p className="text-slate-700 leading-relaxed">
-                      We replace items only if they are defective or damaged during shipping. If you need an exchange for the same product, please contact us at info@bsignstore.com with your order number and photos of the issue.
+                      We replace items only if they are defective or damaged during shipping. If you need an exchange for the same product, please contact us at info@absigns.com with your order number and photos of the issue.
                     </p>
                     <div className="bg-primary/5 p-4 rounded-lg">
                       <p className="text-sm text-slate-700">
@@ -314,10 +314,10 @@ const RefundReturns = () => {
                     </p>
                     <div className="space-y-3">
                       <a 
-                        href="mailto:info@bsignstore.com"
+                        href="mailto:info@absigns.com"
                         className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all hover:scale-105"
                       >
-                        Email: info@bsignstore.com
+                        Email: info@absigns.com
                       </a>
                       <p className="text-sm text-slate-600">
                         Response time: Within 24 hours on business days

@@ -230,7 +230,7 @@ const ProductDetail = () => {
   return (
     <>
       <SEO
-        title={`${displayName} | Professional Signage | Bsign Store`}
+        title={`${displayName} | Professional Signage | AB Signs`}
         description={displayDescription}
         canonical={`/products/${id}`}
         type="product"

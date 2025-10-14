@@ -89,7 +89,7 @@ const Account = () => {
   return (
     <>
       <SEO
-        title="My Account | Bsign Store"
+        title="My Account | AB Signs"
         description="Manage your account, view order history, and track your signage orders."
         canonical="/account"
         type="website"
