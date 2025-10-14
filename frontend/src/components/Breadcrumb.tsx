@@ -6,7 +6,7 @@ const Breadcrumb = () => {
     <nav className="container mx-auto px-4 py-4">
       <div className="flex items-center space-x-2 text-sm text-muted-foreground">
         <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary">
-          Bsign store
+          AB Signs
         </Button>
         <ChevronRight className="h-4 w-4" />
         <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-primary">
