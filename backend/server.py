@@ -104,6 +104,86 @@ async def get_all_content():
     contents = await db.content_sections.find().to_list(1000)
     return [ContentSection(**content) for content in contents]
 
+
+# Email Models
+class ContactFormData(BaseModel):
+    name: str
+    email: EmailStr
+    phone: Optional[str] = None
+    subject: Optional[str] = None
+    message: str
+
+class OrderItem(BaseModel):
+    name: str
+    quantity: int
+    price: str
+    specifications: Optional[Dict[str, Any]] = None
+
+class ShippingAddress(BaseModel):
+    address: str
+    city: str
+    state: str
+    zip: str
+    country: str
+
+class OrderData(BaseModel):
+    order_id: str
+    customer_name: str
+    customer_email: EmailStr
+    customer_phone: Optional[str] = None
+    shipping_address: ShippingAddress
+    items: List[OrderItem]
+    subtotal: str
+    shipping: str
+    tax: str
+    total: str
+    notes: Optional[str] = None
+
+# Email Endpoints
+@api_router.post("/contact")
+async def submit_contact_form(form_data: ContactFormData):
+    """Handle contact form submissions and send email notification"""
+    try:
+        # Save to database
+        contact_dict = form_data.dict()
+        contact_dict['id'] = str(uuid.uuid4())
+        contact_dict['timestamp'] = datetime.utcnow()
+        await db.contact_submissions.insert_one(contact_dict)
+        
+        # Send email notification
+        success = email_service.send_contact_form_notification(form_data.dict())
+        
+        if success:
+            return {"status": "success", "message": "Contact form submitted successfully"}
+        else:
+            return {"status": "warning", "message": "Form submitted but email notification failed"}
+    except Exception as e:
+        logging.error(f"Error submitting contact form: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to submit contact form")
+
+@api_router.post("/orders/notify")
+async def notify_order(order_data: OrderData):
+    """Send email notification for new orders"""
+    try:
+        # Save order to database
+        order_dict = order_data.dict()
+        order_dict['id'] = str(uuid.uuid4())
+        order_dict['timestamp'] = datetime.utcnow()
+        order_dict['status'] = 'pending'
+        await db.orders.insert_one(order_dict)
+        
+        # Send email notification
+        success = email_service.send_order_notification(order_data.dict())
+        
+        if success:
+            return {"status": "success", "message": "Order notification sent successfully", "order_id": order_data.order_id}
+        else:
+            return {"status": "warning", "message": "Order saved but email notification failed", "order_id": order_data.order_id}
+    except Exception as e:
+        logging.error(f"Error processing order notification: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to process order notification")
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
