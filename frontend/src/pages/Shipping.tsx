@@ -4,7 +4,7 @@ import ModernNavigation from "@/components/ModernNavigation";
 import ImprovedFooter from "@/components/ImprovedFooter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Truck, Package, Clock, MapPin, Shield, Calculator } from "lucide-react";
+import { Truck, Package, Clock, MapPin, Shield, DollarSign } from "lucide-react";
 
 const Shipping = () => {
   const shippingOptions = [
