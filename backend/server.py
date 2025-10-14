@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from fastapi.responses import Response
 from fastapi.middleware.gzip import GZipMiddleware
 from dotenv import load_dotenv
@@ -7,10 +7,11 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field
-from typing import List
+from pydantic import BaseModel, Field, EmailStr
+from typing import List, Dict, Any, Optional
 import uuid
 from datetime import datetime
+from email_service import email_service
 
 
 ROOT_DIR = Path(__file__).parent
