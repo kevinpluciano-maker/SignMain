@@ -70,21 +70,57 @@ const Checkout = () => {
 
     setIsProcessing(true);
 
-    // Simulate order processing
+    // Process order without payment (for testing)
     try {
-      // In a real app, this would integrate with payment processor
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      
       // Generate order ID
-      const newOrderId = 'BSG-' + Date.now().toString().slice(-8);
-      setOrderId(newOrderId);
+      const newOrderId = 'ABS-' + Date.now().toString().slice(-8);
       
-      // Clear cart and show success
-      clearCart();
-      setOrderComplete(true);
+      // Prepare order data
+      const orderData = {
+        order_id: newOrderId,
+        customer_name: `${formData.firstName} ${formData.lastName}`,
+        customer_email: formData.email,
+        customer_phone: formData.phone,
+        shipping_address: {
+          address: formData.address + (formData.address2 ? `, ${formData.address2}` : ''),
+          city: formData.city,
+          state: formData.state,
+          zip: formData.zipCode,
+          country: formData.country
+        },
+        items: items.map(item => ({
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price,
+          specifications: item.selectedOptions || {}
+        })),
+        subtotal: subtotal.toFixed(2),
+        shipping: shipping.toFixed(2),
+        tax: tax.toFixed(2),
+        total: totalPrice.toFixed(2),
+        notes: `Payment not required - Testing mode. Order placed via website checkout.`
+      };
+
+      // Send order notification to backend
+      const response = await fetch(`${import.meta.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL}/api/orders/notify`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (response.ok) {
+        setOrderId(newOrderId);
+        clearCart();
+        setOrderComplete(true);
+      } else {
+        throw new Error('Failed to process order');
+      }
       
     } catch (error) {
-      alert('Order processing failed. Please try again.');
+      alert('Order processing failed. Please try again or contact us directly.');
+      console.error('Order error:', error);
     } finally {
       setIsProcessing(false);
     }
