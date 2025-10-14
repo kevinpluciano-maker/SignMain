@@ -304,7 +304,7 @@ const Shipping = () => {
                   </div>
                   <div className="text-center">
                     <div className="font-semibold">Phone Support</div>
-                    <div className="text-muted-foreground">1-800-BSIGN-1</div>
+                    <div className="text-muted-foreground">(555) 123-4567</div>
                   </div>
                   <div className="text-center">
                     <div className="font-semibold">Support Hours</div>
