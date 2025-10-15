@@ -31,19 +31,6 @@ const ImprovedNavigation = () => {
   const handleCategoryClick = (categoryTitle: string, categoryKey: string) => {
     navigate(`/collections/${categoryKey}`);
     window.scrollTo(0, 0);
-    setOpenDropdown(null);
-  };
-
-  const handleItemClick = (item: string, categoryKey: string) => {
-    // Convert item name to product slug
-    const slug = item.toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-      .replace(/\s+/g, '-') // Replace spaces with hyphens
-      .replace(/-+/g, '-'); // Replace multiple hyphens with single
-    
-    navigate(`/products/${slug}`);
-    window.scrollTo(0, 0);
-    setOpenDropdown(null);
   };
 
   return (
