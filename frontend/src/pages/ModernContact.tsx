@@ -18,39 +18,129 @@ import {
   Shield,
   Star,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Upload,
+  AlertCircle
 } from "lucide-react";
 import Header from "@/components/Header";
 import ImprovedNavigation from "@/components/ImprovedNavigation";
 import ImprovedFooter from "@/components/ImprovedFooter";
+import { useNavigate } from "react-router-dom";
 
 const ModernContact = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
-    projectDetails: '',
+    subject: 'General Inquiry',
+    message: '',
     urgency: 'standard',
     budget: '',
     source: ''
   });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+    
+    // File size validation (max 5MB)
+    if (selectedFile && selectedFile.size > 5 * 1024 * 1024) {
+      newErrors.file = 'File size must be less than 5MB';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      const contactData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || 'Not provided',
+        subject: formData.subject,
+        message: formData.message,
+        company: formData.company || 'Not provided',
+        urgency: formData.urgency,
+        budget: formData.budget || 'Not specified',
+        source: formData.source || 'Website contact form'
+      };
+
+      const response = await fetch(
+        `${import.meta.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL}/api/contact`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(contactData),
+        }
+      );
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Failed to submit contact form');
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      alert('Failed to submit contact form. Please try again or email us directly at acrylicbraillesigns@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }));
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        setErrors(prev => ({ ...prev, file: 'File size must be less than 5MB' }));
+        return;
+      }
+      setSelectedFile(file);
+      setErrors(prev => ({ ...prev, file: '' }));
+    }
   };
 
   if (isSubmitted) {
