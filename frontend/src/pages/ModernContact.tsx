@@ -99,8 +99,12 @@ const ModernContact = () => {
         source: formData.source || 'Website contact form'
       };
 
+      console.log('Submitting contact form...', contactData);
+      const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL;
+      console.log('Backend URL:', backendUrl);
+
       const response = await fetch(
-        `${import.meta.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL}/api/contact`,
+        `${backendUrl}/api/contact`,
         {
           method: 'POST',
           headers: {
@@ -110,14 +114,19 @@ const ModernContact = () => {
         }
       );
 
+      console.log('Response status:', response.status);
+      const responseData = await response.json();
+      console.log('Response data:', responseData);
+
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        throw new Error('Failed to submit contact form');
+        throw new Error(responseData.detail || 'Failed to submit contact form');
       }
     } catch (error) {
       console.error('Error submitting contact form:', error);
-      alert('Failed to submit contact form. Please try again or email us directly at acrylicbraillesigns@gmail.com');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Failed to submit contact form: ${errorMessage}\n\nPlease try again or email us directly at acrylicbraillesigns@gmail.com`);
     } finally {
       setIsSubmitting(false);
     }
