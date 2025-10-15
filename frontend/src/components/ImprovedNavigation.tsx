@@ -42,7 +42,7 @@ const ImprovedNavigation = () => {
               <Button
                 key={category.title}
                 variant="ghost"
-                className="h-16 px-6 hover:bg-muted/50 text-base font-medium bg-transparent border-0 focus:ring-0"
+                className="h-16 px-6 hover:bg-cyan-50 hover:text-foreground text-base font-medium bg-transparent border-0 focus:ring-0 text-foreground"
                 onClick={() => handleCategoryClick(category.title, category.category)}
               >
                 {category.title}
