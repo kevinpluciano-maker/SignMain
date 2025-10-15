@@ -19,6 +19,7 @@ const Checkout = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState('');
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Form state
   const [formData, setFormData] = useState({
@@ -45,19 +46,67 @@ const Checkout = () => {
     billingZipCode: '',
     billingCountry: 'US',
     
-    // Payment
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
-    cardName: '',
+    // Order notes
+    orderNotes: '',
     
     // Options
     newsletter: false,
     terms: false
   });
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    // Name validation
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+    }
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+    }
+    
+    // Phone validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    }
+    
+    // Shipping address validation
+    if (!formData.address.trim()) {
+      newErrors.address = 'Address is required';
+    }
+    if (!formData.city.trim()) {
+      newErrors.city = 'City is required';
+    }
+    if (!formData.state.trim()) {
+      newErrors.state = 'State is required';
+    }
+    if (!formData.zipCode.trim()) {
+      newErrors.zipCode = 'ZIP code is required';
+    }
+    
+    // Terms validation
+    if (!formData.terms) {
+      newErrors.terms = 'You must accept the terms and conditions';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
