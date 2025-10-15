@@ -217,7 +217,7 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
               )}
             </div>
             <div>
-              <Label htmlFor="height">Height</Label>
+              <Label htmlFor="height">Height *</Label>
               <Input
                 id="height"
                 type="number"
@@ -226,7 +226,14 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
                 value={formData.height}
                 onChange={(e) => handleInputChange("height", e.target.value)}
                 required
+                className={errors.height ? 'border-red-500' : ''}
               />
+              {errors.height && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.height}
+                </p>
+              )}
             </div>
           </div>
           
@@ -245,9 +252,22 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
           </div>
 
           <div>
-            <Label htmlFor="quantity">Quantity</Label>
+            <Label htmlFor="quantity">Quantity *</Label>
             <Input
               id="quantity"
+              type="number"
+              placeholder="e.g., 10"
+              value={formData.quantity}
+              onChange={(e) => handleInputChange("quantity", e.target.value)}
+              required
+              className={errors.quantity ? 'border-red-500' : ''}
+            />
+            {errors.quantity && (
+              <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                <AlertCircle className="h-3 w-3" />
+                {errors.quantity}
+              </p>
+            )}
               type="number"
               min="1"
               placeholder="e.g., 5"
