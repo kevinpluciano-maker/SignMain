@@ -352,11 +352,11 @@ const ModernContact = () => {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Monday - Friday</span>
-                      <span className="text-gray-900 font-semibold">7:00 AM - 4:00 PM CST</span>
+                      <span className="text-gray-900 font-semibold">7:00 AM - 4:00 PM EST</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Saturday</span>
-                      <span className="text-gray-900 font-semibold">9:00 AM - 2:00 PM CST</span>
+                      <span className="text-gray-900 font-semibold">9:00 AM - 2:00 PM EST</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Sunday</span>
