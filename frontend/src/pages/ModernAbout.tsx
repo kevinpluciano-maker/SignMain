@@ -245,33 +245,6 @@ const ModernAbout = () => {
             </Card>
           </div>
 
-          {/* Team Section */}
-          <div className="mb-20">
-            <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-2xl rounded-3xl">
-              <CardContent className="p-12">
-                <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-white mb-4">Meet Our Experts</h2>
-                  <p className="text-xl text-slate-300">The passionate team behind every perfect sign</p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {team.map((member, index) => (
-                    <Card key={index} className="bg-white/10 backdrop-blur-lg border-white/20 text-center hover:scale-105 transition-transform duration-300">
-                      <CardContent className="p-6">
-                        <div className="text-6xl mb-4">{member.image}</div>
-                        <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                        <Badge className="mb-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                          {member.role}
-                        </Badge>
-                        <p className="text-sm text-slate-300">{member.bio}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
           {/* Certifications & Awards */}
           <div className="mb-20">
             <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-2xl rounded-3xl">
