@@ -236,9 +236,11 @@ const FeaturedProducts = () => {
                   Can't find exactly what you're looking for? We create custom door signs tailored to your specific needs with premium materials and expert craftsmanship.
                 </p>
                 <div className="space-y-4">
-                  <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-bold shadow-lg">
-                    Request Custom Quote
-                  </Button>
+                  <a href="mailto:acrylicbraillesigns@gmail.com?subject=Custom Quote Request&body=Hello,%0D%0A%0D%0AI would like to request a custom quote for:%0D%0A%0D%0AProduct Type:%0D%0ADimensions:%0D%0AQuantity:%0D%0AAdditional Details:%0D%0A%0D%0AThank you!">
+                    <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-bold shadow-lg">
+                      Request Custom Quote
+                    </Button>
+                  </a>
                   <div className="flex items-center justify-center space-x-6 text-sm text-white/80">
                     <span>✓ Free Design Consultation</span>
                     <span>✓ Premium Materials</span>
