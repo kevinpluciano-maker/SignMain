@@ -1,11 +1,8 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const ImprovedNavigation = () => {
   const navigate = useNavigate();
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   // Static navigation items - Only main categories, no dropdown items
   const navItems = [
