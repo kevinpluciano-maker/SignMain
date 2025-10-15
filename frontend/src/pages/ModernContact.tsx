@@ -338,16 +338,6 @@ const ModernContact = () => {
                         <p className="text-cyan-600 font-semibold">info@acrylicbraillesigns.com</p>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg">
-                        <MapPin className="h-4 w-4 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-gray-900 font-semibold">Visit Our Showroom</h4>
-                        <p className="text-cyan-600 font-semibold">Los Angeles, CA</p>
-                      </div>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
