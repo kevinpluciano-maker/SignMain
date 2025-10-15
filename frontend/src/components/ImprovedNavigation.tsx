@@ -97,7 +97,7 @@ const ImprovedNavigation = () => {
                         <Button
                           key={item}
                           variant="ghost"
-                          className="justify-start h-auto p-3 font-normal hover:bg-muted text-left whitespace-normal w-full text-sm"
+                          className="justify-start h-auto p-3 font-normal hover:bg-cyan-50 hover:text-cyan-700 text-left whitespace-normal w-full text-sm"
                           onClick={() => handleItemClick(item, category.category)}
                         >
                           {item}
