@@ -454,6 +454,29 @@ const Checkout = () => {
                   </CardContent>
                 </Card>
 
+                {/* Order Notes */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Order Notes (Optional)</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div>
+                      <Label htmlFor="orderNotes">Special Instructions or Requirements</Label>
+                      <Textarea
+                        id="orderNotes"
+                        value={formData.orderNotes}
+                        onChange={(e) => handleInputChange('orderNotes', e.target.value)}
+                        placeholder="Enter any special instructions, custom text for signs, mounting preferences, or questions about your order..."
+                        rows={4}
+                        className="mt-2"
+                      />
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Include details like custom text, mounting preferences, timeline concerns, or any questions
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
                 {/* Terms and Options */}
                 <Card>
                   <CardContent className="pt-6 space-y-4">
