@@ -159,21 +159,23 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
               </div>
 
               {/* Di-Noc - Simple link without dropdown */}
-              <Button
-                variant="ghost"
-                className="w-full justify-start p-3 h-auto font-medium text-left"
-                onClick={() => {
-                  navigate('/di-noc');
-                }}
-              >
-                Di-Noc
-              </Button>
-
-              {/* Restroom Signs */}
-              <div>
+              <div className="bg-white rounded-lg shadow-sm border border-cyan-100">
                 <Button
                   variant="ghost"
-                  className="w-full justify-between p-3 h-auto font-medium text-left"
+                  className="w-full justify-start p-4 h-auto font-semibold text-left text-gray-800 hover:bg-cyan-50 transition-colors"
+                  onClick={() => {
+                    navigate('/di-noc');
+                  }}
+                >
+                  Di-Noc
+                </Button>
+              </div>
+
+              {/* Restroom Signs */}
+              <div className="bg-white rounded-lg shadow-sm border border-cyan-100 overflow-hidden">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between p-4 h-auto font-semibold text-left hover:bg-cyan-50 transition-colors"
                   onClick={() => {
                     setExpandedItems(prev =>
                       prev.includes("Restroom Signs")
@@ -182,26 +184,26 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
                     );
                   }}
                 >
-                  Restroom Signs
+                  <span className="text-gray-800">Restroom Signs</span>
                   <ChevronRight 
-                    className={`h-4 w-4 transition-transform ${
+                    className={`h-5 w-5 text-cyan-600 transition-transform ${
                       expandedItems.includes("Restroom Signs") ? 'rotate-90' : ''
                     }`} 
                   />
                 </Button>
                 {expandedItems.includes("Restroom Signs") && (
-                  <div className="ml-4 mt-2 space-y-1">
+                  <div className="bg-cyan-50/50 px-4 pb-3 space-y-1">
                     {["Women Restroom Signs", "Men Restroom Signs", "Unisex Restroom Signs", "Wheelchair Restroom Signs", "All-Gender Restroom Signs", "Clean Restroom Signs", "Shower Signs", "Washroom Signs"].map((item) => (
                       <Button
                         key={item}
                         variant="ghost"
-                        className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
+                        className="w-full justify-start p-3 h-auto text-sm text-gray-600 hover:text-cyan-600 hover:bg-white rounded-lg transition-colors"
                         onClick={() => {
                           const slug = item.toLowerCase().replace(/\s+/g, '-');
                           navigate(`/collections/${slug}`);
                         }}
                       >
-                        {item}
+                        <span className="truncate">{item}</span>
                       </Button>
                     ))}
                   </div>
