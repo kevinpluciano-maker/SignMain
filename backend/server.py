@@ -112,6 +112,10 @@ class ContactFormData(BaseModel):
     phone: Optional[str] = None
     subject: Optional[str] = None
     message: str
+    company: Optional[str] = None
+    urgency: Optional[str] = None
+    budget: Optional[str] = None
+    source: Optional[str] = None
 
 class OrderItem(BaseModel):
     name: str
