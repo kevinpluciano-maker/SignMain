@@ -108,7 +108,7 @@ const ImprovedContact = () => {
                         <div>
                           <p className="font-medium text-foreground">Phone</p>
                           <p className="text-muted-foreground">+1 (323) 843-0781</p>
-                          <p className="text-sm text-muted-foreground">Mon-Fri 7:00 AM - 4:00 PM CST</p>
+                          <p className="text-sm text-muted-foreground">Mon-Fri 7:00 AM - 4:00 PM EST</p>
                         </div>
                       </div>
                       
@@ -126,7 +126,7 @@ const ImprovedContact = () => {
                         <div>
                           <p className="font-medium text-foreground">Business Hours</p>
                           <p className="text-muted-foreground">Monday - Friday</p>
-                          <p className="text-muted-foreground">7:00 AM - 4:00 PM CST</p>
+                          <p className="text-muted-foreground">7:00 AM - 4:00 PM EST</p>
                         </div>
                       </div>
                     </CardContent>
