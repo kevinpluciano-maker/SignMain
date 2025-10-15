@@ -55,48 +55,14 @@ const ImprovedNavigation = () => {
         <div className="flex justify-center">
           <div className="flex space-x-0">
             {navItems.map((category) => (
-              <div
+              <Button
                 key={category.title}
-                className="relative"
-                onMouseEnter={() => setOpenDropdown(category.title)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                variant="ghost"
+                className="h-16 px-6 hover:bg-muted/50 text-base font-medium bg-transparent border-0 focus:ring-0"
+                onClick={() => handleCategoryClick(category.title, category.category)}
               >
-                <Button
-                  variant="ghost"
-                  className="h-16 px-6 hover:bg-muted/50 text-base font-medium bg-transparent border-0 focus:ring-0 flex items-center gap-1"
-                  onClick={() => handleCategoryClick(category.title, category.category)}
-                >
-                  {category.title}
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-
-                {/* Dropdown Content */}
-                {openDropdown === category.title && (
-                  <div className="absolute top-full left-0 mt-0 bg-card border border-border text-card-foreground shadow-xl z-[200] min-w-[400px]">
-                    <div className="grid gap-1 p-4 w-[400px]">
-                      {category.items.map((item) => (
-                        <Button
-                          key={item}
-                          variant="ghost"
-                          className="justify-start h-auto p-3 font-normal hover:bg-cyan-50 hover:text-cyan-700 text-left whitespace-normal w-full text-sm"
-                          onClick={() => handleItemClick(item, category.category)}
-                        >
-                          {item}
-                        </Button>
-                      ))}
-                      
-                      {/* View All Category Link */}
-                      <Button
-                        variant="outline"
-                        className="justify-center h-auto p-3 font-medium hover:bg-cyan-50 hover:text-cyan-600 hover:border-cyan-600 text-center w-full text-sm mt-2 border-2"
-                        onClick={() => handleCategoryClick(category.title, category.category)}
-                      >
-                        View All {category.title}
-                      </Button>
-                    </div>
-                  </div>
-                )}
-              </div>
+                {category.title}
+              </Button>
             ))}
           </div>
         </div>
