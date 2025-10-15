@@ -112,14 +112,18 @@ const Checkout = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.terms) {
-      alert('Please accept the terms and conditions');
+    if (!validateForm()) {
+      // Scroll to first error
+      const firstError = document.querySelector('.border-red-500');
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
 
     setIsProcessing(true);
 
-    // Process order without payment (for testing)
+    // Process order without payment
     try {
       // Generate order ID
       const newOrderId = 'ABS-' + Date.now().toString().slice(-8);
@@ -147,7 +151,7 @@ const Checkout = () => {
         shipping: shipping.toFixed(2),
         tax: tax.toFixed(2),
         total: totalPrice.toFixed(2),
-        notes: `Payment not required - Testing mode. Order placed via website checkout.`
+        notes: formData.orderNotes || 'No additional notes provided'
       };
 
       // Send order notification to backend
@@ -168,7 +172,7 @@ const Checkout = () => {
       }
       
     } catch (error) {
-      alert('Order processing failed. Please try again or contact us directly.');
+      alert('Order processing failed. Please try again or contact us directly at acrylicbraillesigns@gmail.com');
       console.error('Order error:', error);
     } finally {
       setIsProcessing(false);
