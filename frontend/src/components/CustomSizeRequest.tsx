@@ -272,18 +272,6 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
           </div>
 
           <div>
-            <Label htmlFor="email">Email Address</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="your@email.com"
-              value={formData.email}
-              onChange={(e) => handleInputChange("email", e.target.value)}
-              required
-            />
-          </div>
-
-          <div>
             <Label htmlFor="notes">Additional Notes (Optional)</Label>
             <Textarea
               id="notes"
@@ -295,12 +283,12 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
           </div>
 
           <div className="flex gap-3 pt-4">
-            <Button type="button" variant="outline" onClick={() => setIsOpen(false)} className="flex-1">
+            <Button type="button" variant="outline" onClick={() => setIsOpen(false)} className="flex-1" disabled={isSubmitting}>
               Cancel
             </Button>
-            <Button type="submit" className="flex-1">
+            <Button type="submit" className="flex-1" disabled={isSubmitting}>
               <Mail className="h-4 w-4 mr-2" />
-              Request Quote
+              {isSubmitting ? 'Submitting...' : 'Request Quote'}
             </Button>
           </div>
         </form>
