@@ -256,6 +256,7 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
             <Input
               id="quantity"
               type="number"
+              min="1"
               placeholder="e.g., 10"
               value={formData.quantity}
               onChange={(e) => handleInputChange("quantity", e.target.value)}
@@ -268,13 +269,6 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
                 {errors.quantity}
               </p>
             )}
-              type="number"
-              min="1"
-              placeholder="e.g., 5"
-              value={formData.quantity}
-              onChange={(e) => handleInputChange("quantity", e.target.value)}
-              required
-            />
           </div>
 
           <div>
