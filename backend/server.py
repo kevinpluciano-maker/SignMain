@@ -148,22 +148,30 @@ class OrderData(BaseModel):
 async def submit_contact_form(form_data: ContactFormData):
     """Handle contact form submissions and send email notification"""
     try:
+        print(f"📨 Contact form submission received from: {form_data.name}")
+        print(f"📧 Email: {form_data.email}")
+        
         # Save to database
         contact_dict = form_data.dict()
         contact_dict['id'] = str(uuid.uuid4())
         contact_dict['timestamp'] = datetime.utcnow()
         await db.contact_submissions.insert_one(contact_dict)
+        print(f"✅ Saved to database")
         
         # Send email notification
         success = email_service.send_contact_form_notification(form_data.dict())
+        print(f"📧 Email notification: {'Success' if success else 'Failed'}")
         
         if success:
             return {"status": "success", "message": "Contact form submitted successfully"}
         else:
             return {"status": "warning", "message": "Form submitted but email notification failed"}
     except Exception as e:
-        logging.error(f"Error submitting contact form: {str(e)}")
-        raise HTTPException(status_code=500, detail="Failed to submit contact form")
+        logging.error(f"❌ Error submitting contact form: {str(e)}")
+        print(f"❌ Full error: {e}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Failed to submit contact form: {str(e)}")
 
 @api_router.post("/orders/notify")
 async def notify_order(order_data: OrderData):
