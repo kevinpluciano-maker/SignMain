@@ -301,9 +301,15 @@ const ModernContact = () => {
                         required
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
-                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-10"
+                        className={`bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-10 ${errors.name ? 'border-red-500' : ''}`}
                         placeholder="John Smith"
                       />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                          <AlertCircle className="h-3 w-3" />
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <Label htmlFor="email" className="text-gray-900 mb-2 block font-semibold">
@@ -315,9 +321,15 @@ const ModernContact = () => {
                         required
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-10"
+                        className={`bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 h-10 ${errors.email ? 'border-red-500' : ''}`}
                         placeholder="john@company.com"
                       />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                          <AlertCircle className="h-3 w-3" />
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -350,18 +362,52 @@ const ModernContact = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="projectDetails" className="text-gray-900 mb-2 block font-semibold">
-                      Braille Signage Requirements *
+                    <Label htmlFor="message" className="text-gray-900 mb-2 block font-semibold">
+                      Your Message *
                     </Label>
                     <Textarea
-                      id="projectDetails"
+                      id="message"
                       required
-                      rows={4}
-                      value={formData.projectDetails}
-                      onChange={(e) => handleInputChange('projectDetails', e.target.value)}
-                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 min-h-[100px]"
-                      placeholder="Describe your ADA compliant braille signage needs: room types, quantities, mounting requirements, text specifications, etc."
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => handleInputChange('message', e.target.value)}
+                      className={`bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-cyan-500 focus:ring-cyan-500 min-h-[120px] ${errors.message ? 'border-red-500' : ''}`}
+                      placeholder="Tell us about your project, questions, or requirements..."
                     />
+                    {errors.message && (
+                      <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                        <AlertCircle className="h-3 w-3" />
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <Label htmlFor="file" className="text-gray-900 mb-2 block font-semibold">
+                      Attach File (Optional)
+                    </Label>
+                    <div className="relative">
+                      <Input
+                        id="file"
+                        type="file"
+                        onChange={handleFileChange}
+                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif"
+                        className="bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 h-10"
+                      />
+                      {selectedFile && (
+                        <p className="text-sm text-gray-600 mt-2 flex items-center gap-2">
+                          <Upload className="h-4 w-4 text-cyan-600" />
+                          {selectedFile.name} ({(selectedFile.size / 1024).toFixed(0)} KB)
+                        </p>
+                      )}
+                      {errors.file && (
+                        <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                          <AlertCircle className="h-3 w-3" />
+                          {errors.file}
+                        </p>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1">Max file size: 5MB. Formats: PDF, DOC, DOCX, JPG, PNG, GIF</p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
