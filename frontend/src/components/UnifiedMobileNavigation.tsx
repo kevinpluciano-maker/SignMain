@@ -102,18 +102,22 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
             {showFilters && <TabsTrigger value="filters" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-600 data-[state=active]:text-white">Filters</TabsTrigger>}
           </TabsList>
           
-          <TabsContent value="menu" className="p-4 space-y-4 flex flex-col h-full">
-            {/* Top Section - Categories */}
-            <div className="flex-1 overflow-y-auto space-y-4">
-              {/* Currency Switcher */}
-              <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg p-3 border border-primary/10">
-                <h4 className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">Currency</h4>
-                <CurrencySwitcher />
-              </div>
+          <TabsContent value="menu" className="p-4 space-y-4">
+            {/* Currency Switcher with improved styling */}
+            <div className="bg-white rounded-xl p-4 border-2 border-cyan-100 shadow-sm">
+              <h4 className="text-xs font-bold text-cyan-600 mb-3 uppercase tracking-wide flex items-center gap-2">
+                <Globe className="h-4 w-4" />
+                Currency
+              </h4>
+              <CurrencySwitcher />
+            </div>
 
-              {/* Product Categories Section */}
-              <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-muted-foreground px-2 uppercase tracking-wider">Categories</h4>
+            {/* Product Categories Section with improved styling */}
+            <div className="space-y-2">
+              <h4 className="text-sm font-bold text-gray-700 px-2 uppercase tracking-wider flex items-center gap-2">
+                <Filter className="h-4 w-4 text-cyan-600" />
+                Categories
+              </h4>
               
               {/* Door Number Signs */}
               <div>
