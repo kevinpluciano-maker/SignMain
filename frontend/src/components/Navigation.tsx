@@ -29,78 +29,36 @@ const Navigation = () => {
     {
       title: "Door Number Signs",
       items: [
-        "Office Door Numbers",
-        "House Number Signs", 
-        "Hotel Door Numbers",
-        "Room Door Numbers",
-        "Apartment Door Numbers",
-        "Interior Door Numbers",
-        "Elegant Door Numbers",
-        "Round Door Numbers"
-      ]
-    },
-    {
-      title: "Door Signs",
-      items: [
-        "Interior Door Signs",
-        "Room Door Signs",
-        "Hotel Door Signs", 
-        "School Door Signs",
-        "Office Door Signs",
-        "Medical Office Door Signs",
-        "Receptionist Signs",
-        "Bespoke House Signs"
+        "Door Number: Wood & Stainless Steel",
+        "Modern Door Numbers",
+        "Custom Door Numbers"
       ]
     },
     {
       title: "Restroom Signs",
       items: [
-        "Women Restroom Signs",
-        "Men Restroom Signs",
-        "Unisex Restroom Signs", 
-        "Wheelchair Restroom Signs",
         "All-Gender Restroom Signs",
-        "Clean Restroom Signs",
-        "Shower Signs",
-        "Washroom Signs"
-      ]
-    },
-    {
-      title: "Info Signs",
-      items: [
-        "Fire Information Signs",
-        "Stairs Information Signs",
-        "Dining Room Signs",
-        "Cleaning Room Signs",
-        "Cafeteria Signs",
-        "Lobby Signs",
-        "Elevator Signs",
-        "Wi-Fi Signs"
+        "Staff ADA Signs",
+        "Men's Restroom Signs",
+        "Women's Restroom Signs"
       ]
     },
     {
       title: "Prohibitory Signs",
       items: [
-        "No Smoking Signs",
-        "Staff Only Signs",
-        "Do Not Enter Signs",
-        "Employees Only Signs",
-        "No Food Or Drink Signs",
-        "Quiet Please Signs",
-        "No Soliciting Signs",
-        "Keep Door Closed Signs"
+        "No Guns Allowed Signs",
+        "No Loitering Signs",
+        "No Food Allowed Signs",
+        "Pull Door Signs"
       ]
     },
     {
-      title: "Directional Signs",
+      title: "Info Signs",
       items: [
-        "Directional Exit Signs",
-        "Church Directional Signs",
-        "Office Directional Signs",
-        "Restroom Directional Signs",
-        "Hospital Directional Signs",
-        "Interior Directional Signs",
-        "Hotel Directional Signs"
+        "Exam Room Signs",
+        "Meeting Room ADA Signs",
+        "Reception Signs",
+        "Roof Access Signs"
       ]
     }
   ];
