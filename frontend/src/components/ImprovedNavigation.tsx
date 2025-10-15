@@ -29,16 +29,6 @@ const ImprovedNavigation = () => {
       ]
     },
     {
-      title: "Info Signs",
-      category: 'info-signs',
-      items: [
-        "Exam Room Signs",
-        "Meeting Room ADA Signs",
-        "Reception Signs",
-        "Roof Access Signs"
-      ]
-    },
-    {
       title: "Prohibitory Signs",
       category: 'prohibitory-signs',
       items: [
@@ -46,6 +36,16 @@ const ImprovedNavigation = () => {
         "No Loitering Signs",
         "No Food Allowed Signs",
         "Pull Door Signs"
+      ]
+    },
+    {
+      title: "Info Signs",
+      category: 'info-signs',
+      items: [
+        "Exam Room Signs",
+        "Meeting Room ADA Signs",
+        "Reception Signs",
+        "Roof Access Signs"
       ]
     }
   ];
