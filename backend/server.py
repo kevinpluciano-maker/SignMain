@@ -194,11 +194,11 @@ app.include_router(api_router)
 # Add GZip compression middleware
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
-# Add CORS middleware
+# Add CORS middleware - Allow all origins for preview environment
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_origins=["*"],  # Allow all origins for Emergent preview
     allow_methods=["*"],
     allow_headers=["*"],
 )
