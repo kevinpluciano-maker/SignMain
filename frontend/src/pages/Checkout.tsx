@@ -156,7 +156,7 @@ const Checkout = () => {
       };
 
       // Send order notification to backend
-      const response = await fetch(`${import.meta.env.REACT_APP_BACKEND_URL}/api/orders/notify`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/orders/notify`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
