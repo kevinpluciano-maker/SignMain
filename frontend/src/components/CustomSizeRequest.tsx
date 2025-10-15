@@ -146,9 +146,59 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Label htmlFor="name">Your Name *</Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder="John Smith"
+              value={formData.name}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+              required
+              className={errors.name ? 'border-red-500' : ''}
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                <AlertCircle className="h-3 w-3" />
+                {errors.name}
+              </p>
+            )}
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="width">Width</Label>
+              <Label htmlFor="email">Email *</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="john@example.com"
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+                required
+                className={errors.email ? 'border-red-500' : ''}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.email}
+                </p>
+              )}
+            </div>
+            <div>
+              <Label htmlFor="phone">Phone</Label>
+              <Input
+                id="phone"
+                type="tel"
+                placeholder="(555) 123-4567"
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="width">Width *</Label>
               <Input
                 id="width"
                 type="number"
@@ -157,7 +207,14 @@ const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
                 value={formData.width}
                 onChange={(e) => handleInputChange("width", e.target.value)}
                 required
+                className={errors.width ? 'border-red-500' : ''}
               />
+              {errors.width && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.width}
+                </p>
+              )}
             </div>
             <div>
               <Label htmlFor="height">Height</Label>
