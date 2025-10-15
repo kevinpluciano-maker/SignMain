@@ -115,14 +115,6 @@ const ImprovedFooter = () => {
           <div className="text-muted-foreground mb-4 md:mb-0">
             © {footerData.year} {footerData.companyName}. All rights reserved.
           </div>
-          <div className="flex space-x-6">
-            <Button variant="link" className="text-sm text-muted-foreground p-0 h-auto">
-              Privacy Policy
-            </Button>
-            <Button variant="link" className="text-sm text-muted-foreground p-0 h-auto">
-              Terms of Service
-            </Button>
-          </div>
         </div>
       </div>
     </footer>
