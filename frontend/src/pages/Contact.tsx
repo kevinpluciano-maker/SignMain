@@ -181,7 +181,7 @@ const Contact = () => {
                     icon: <Phone className="w-6 h-6" />,
                     title: "Phone",
                     info: "+1 (323) 843-0781",
-                    subtitle: "Mon - Fri, 7:00 AM - 4:00 PM CST",
+                    subtitle: "Mon - Fri, 7:00 AM - 4:00 PM EST",
                     gradient: "from-blue-500 to-indigo-600"
                   },
                   {
@@ -201,7 +201,7 @@ const Contact = () => {
                   {
                     icon: <Clock className="w-6 h-6" />,
                     title: "Business Hours",
-                    info: "7:00 AM - 4:00 PM CST",
+                    info: "7:00 AM - 4:00 PM EST",
                     subtitle: "Monday through Friday",
                     gradient: "from-orange-500 to-red-600"
                   }
