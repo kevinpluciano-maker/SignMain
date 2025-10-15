@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Ruler, Mail } from "lucide-react";
+import { Ruler, Mail, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface CustomSizeRequestProps {
@@ -13,40 +13,121 @@ interface CustomSizeRequestProps {
 
 const CustomSizeRequest = ({ productName }: CustomSizeRequestProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
+    name: "",
     width: "",
     height: "",
     units: "inches",
     quantity: "",
     email: "",
+    phone: "",
     notes: ""
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    // Dimensions validation
+    if (!formData.width || parseFloat(formData.width) <= 0) {
+      newErrors.width = 'Width is required';
+    }
+    if (!formData.height || parseFloat(formData.height) <= 0) {
+      newErrors.height = 'Height is required';
+    }
+    
+    // Quantity validation
+    if (!formData.quantity || parseInt(formData.quantity) <= 0) {
+      newErrors.quantity = 'Quantity is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // In a real app, this would send to a backend API
-    console.log("Custom size request:", { productName, ...formData });
+    if (!validateForm()) {
+      return;
+    }
     
-    toast({
-      title: "Quote Request Submitted",
-      description: "We'll send you a custom quote within 24 hours.",
-    });
+    setIsSubmitting(true);
     
-    setIsOpen(false);
-    setFormData({
-      width: "",
-      height: "",
-      units: "inches",
-      quantity: "",
-      email: "",
-      notes: ""
-    });
+    try {
+      const quoteData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || 'Not provided',
+        subject: `Custom Quote Request from ${formData.name}`,
+        message: `Product: ${productName}\n\nCustom Size Request:\nWidth: ${formData.width} ${formData.units}\nHeight: ${formData.height} ${formData.units}\nQuantity: ${formData.quantity}\n\nAdditional Notes:\n${formData.notes || 'None'}`
+      };
+
+      const response = await fetch(
+        `${import.meta.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL}/api/contact`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(quoteData),
+        }
+      );
+
+      if (response.ok) {
+        toast({
+          title: "Quote Request Submitted",
+          description: "We'll send you a custom quote within 24 hours.",
+        });
+        
+        setIsOpen(false);
+        setFormData({
+          name: "",
+          width: "",
+          height: "",
+          units: "inches",
+          quantity: "",
+          email: "",
+          phone: "",
+          notes: ""
+        });
+        setErrors({});
+      } else {
+        throw new Error('Failed to submit quote request');
+      }
+    } catch (error) {
+      console.error('Error submitting quote request:', error);
+      toast({
+        title: "Submission Failed",
+        description: "Please try again or email us directly at acrylicbraillesigns@gmail.com",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }));
+    }
   };
 
   return (
