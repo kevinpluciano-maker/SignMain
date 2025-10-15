@@ -62,52 +62,71 @@ const ModernContact = () => {
           canonical="/contact"
           type="website"
         />
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-cyan-50">
           <Header />
           <ImprovedNavigation />
           
           <div className="container mx-auto px-4 py-16">
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="mb-8">
-                <div className="w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="h-10 w-10 text-white" />
+            <div className="max-w-3xl mx-auto">
+              {/* Success Icon and Message */}
+              <div className="text-center mb-12">
+                <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <CheckCircle className="h-14 w-14 text-white" />
                 </div>
-                <h1 className="text-4xl font-bold text-white mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                   Message Sent Successfully!
                 </h1>
-                <p className="text-xl text-blue-200">
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                   Thank you for reaching out. Our team will review your project details and respond within 24 hours.
                 </p>
               </div>
               
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-                <CardContent className="p-8">
-                  <div className="grid grid-cols-2 gap-6 text-white">
-                    <div>
-                      <div className="text-sm text-blue-200">Reference ID</div>
-                      <div className="font-mono text-lg">BSG-{Date.now().toString().slice(-6)}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm text-blue-200">Expected Response</div>
-                      <div className="text-lg">Within 24 hours</div>
-                    </div>
-                    <div>
-                      <div className="text-sm text-blue-200">Project Type</div>
-                      <div className="text-lg capitalize">{formData.urgency} Priority</div>
-                    </div>
-                    <div>
-                      <div className="text-sm text-blue-200">Next Steps</div>
-                      <div className="text-lg">Quote & Timeline</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Info Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <Card className="bg-white border-2 border-cyan-100 hover:border-cyan-300 transition-colors shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="text-sm font-semibold text-cyan-600 mb-2">Reference ID</div>
+                    <div className="font-mono text-xl font-bold text-gray-900">BSG-{Date.now().toString().slice(-6)}</div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-white border-2 border-cyan-100 hover:border-cyan-300 transition-colors shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="text-sm font-semibold text-cyan-600 mb-2">Expected Response</div>
+                    <div className="text-xl font-bold text-gray-900">Within 24 hours</div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-white border-2 border-cyan-100 hover:border-cyan-300 transition-colors shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="text-sm font-semibold text-cyan-600 mb-2">Project Type</div>
+                    <div className="text-xl font-bold text-gray-900 capitalize">{formData.urgency} Priority</div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-white border-2 border-cyan-100 hover:border-cyan-300 transition-colors shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="text-sm font-semibold text-cyan-600 mb-2">Next Steps</div>
+                    <div className="text-xl font-bold text-gray-900">Quote & Timeline</div>
+                  </CardContent>
+                </Card>
+              </div>
               
-              <div className="mt-8 flex gap-4 justify-center">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-cyan-600 text-cyan-600 hover:bg-cyan-50 font-semibold"
+                  onClick={() => navigate('/products')}
+                >
                   View Our Portfolio
                 </Button>
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-lg"
+                  onClick={() => navigate('/products')}
+                >
                   Continue Shopping
                 </Button>
               </div>
