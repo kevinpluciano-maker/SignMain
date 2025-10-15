@@ -582,18 +582,10 @@ const InstallationGuide = () => {
             <CardHeader>
               <CardTitle>Need More Help?</CardTitle>
               <p className="text-muted-foreground">
-                Download our comprehensive installation resources or contact our support team
+                Contact our support team for installation assistance
               </p>
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="outline">
-                <Download className="h-4 w-4 mr-2" />
-                Download PDF Guide
-              </Button>
-              <Button variant="outline">
-                <FileText className="h-4 w-4 mr-2" />
-                ADA Compliance Guide
-              </Button>
               <Button>
                 Contact Support
               </Button>
