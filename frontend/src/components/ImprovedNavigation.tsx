@@ -7,46 +7,27 @@ const ImprovedNavigation = () => {
   const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  // Static navigation items that work
+  // Static navigation items - Only main categories, no dropdown items
   const navItems = [
     {
       title: "Door Number Signs",
       category: 'door-number-signs',
-      items: [
-        "Door Number: Wood & Stainless Steel",
-        "Modern Door Numbers",
-        "Custom Door Numbers"
-      ]
+      items: [] // No dropdown items
     },
     {
       title: "Restroom Signs",
       category: 'restroom-signs',
-      items: [
-        "All-Gender Restroom Signs",
-        "Staff ADA Signs", 
-        "Men's Restroom Signs",
-        "Women's Restroom Signs"
-      ]
+      items: [] // No dropdown items
     },
     {
       title: "Prohibitory Signs",
       category: 'prohibitory-signs',
-      items: [
-        "No Guns Allowed Signs",
-        "No Loitering Signs",
-        "No Food Allowed Signs",
-        "Pull Door Signs"
-      ]
+      items: [] // No dropdown items
     },
     {
       title: "Info Signs",
       category: 'info-signs',
-      items: [
-        "Exam Room Signs",
-        "Meeting Room ADA Signs",
-        "Reception Signs",
-        "Roof Access Signs"
-      ]
+      items: [] // No dropdown items
     }
   ];
 
