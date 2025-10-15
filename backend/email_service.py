@@ -4,6 +4,12 @@ from email.mime.multipart import MIMEMultipart
 from typing import Dict, Any
 import os
 from datetime import datetime
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
 
 class EmailService:
     def __init__(self):
