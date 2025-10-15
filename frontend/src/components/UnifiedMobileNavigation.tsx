@@ -88,15 +88,18 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-80 bg-background p-0">
-        <SheetHeader className="border-b p-4">
-          <SheetTitle className="text-left text-lg font-semibold">Menu</SheetTitle>
+      <SheetContent side="left" className="w-80 bg-gradient-to-br from-white to-cyan-50 p-0 overflow-y-auto">
+        <SheetHeader className="bg-gradient-to-r from-cyan-500 to-blue-600 p-6 sticky top-0 z-10 shadow-lg">
+          <SheetTitle className="text-left text-xl font-bold text-white flex items-center gap-2">
+            <Menu className="h-5 w-5" />
+            Menu
+          </SheetTitle>
         </SheetHeader>
         
-        <Tabs defaultValue="menu" className="w-full h-full">
-          <TabsList className="grid w-full grid-cols-2 mx-4 mt-4">
-            <TabsTrigger value="menu">Navigation</TabsTrigger>
-            {showFilters && <TabsTrigger value="filters">Filters</TabsTrigger>}
+        <Tabs defaultValue="menu" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 mx-4 mt-4 bg-white shadow-sm">
+            <TabsTrigger value="menu" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-600 data-[state=active]:text-white">Navigation</TabsTrigger>
+            {showFilters && <TabsTrigger value="filters" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-600 data-[state=active]:text-white">Filters</TabsTrigger>}
           </TabsList>
           
           <TabsContent value="menu" className="p-4 space-y-4 flex flex-col h-full">
