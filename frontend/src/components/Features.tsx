@@ -32,7 +32,7 @@ const Features = () => {
     {
       icon: Headphones,
       title: "Expert Support",
-      description: "Our team is available 7:00 AM - 4:00 PM CST to help with custom orders and installations."
+      description: "Our team is available 7:00 AM - 4:00 PM EST to help with custom orders and installations."
     }
   ];
 
