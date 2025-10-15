@@ -79,35 +79,36 @@ const ModernNavigation = () => {
     {
       title: "Door Number Signs",
       items: [
-        "Office Door Numbers",
-        "House Number Signs", 
-        "Hotel Door Numbers",
-        "Room Door Numbers",
-        "Apartment Door Numbers",
-        "Interior Door Numbers",
-        "Elegant Door Numbers",
-        "Round Door Numbers"
+        "Door Number: Wood & Stainless Steel",
+        "Modern Door Numbers",
+        "Custom Door Numbers"
       ]
     },
     {
       title: "Restroom Signs",
       items: [
-        "Women Restroom Signs",
-        "Men Restroom Signs",
-        "Unisex Restroom Signs", 
-        "Wheelchair Restroom Signs",
         "All-Gender Restroom Signs",
-        "Clean Restroom Signs",
-        "Shower Signs",
-        "Washroom Signs"
+        "Staff ADA Signs",
+        "Men's Restroom Signs",
+        "Women's Restroom Signs"
+      ]
+    },
+    {
+      title: "Prohibitory Signs",
+      items: [
+        "No Guns Allowed Signs",
+        "No Loitering Signs",
+        "No Food Allowed Signs",
+        "Pull Door Signs"
       ]
     },
     {
       title: "Info Signs",
       items: [
         "Exam Room Signs",
-        "Meeting Room ADA Signs", 
-        "Reception Signs"
+        "Meeting Room ADA Signs",
+        "Reception Signs",
+        "Roof Access Signs"
       ]
     }
   ];
