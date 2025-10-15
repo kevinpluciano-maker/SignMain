@@ -62,14 +62,50 @@ class EmailService:
     
     def send_contact_form_notification(self, form_data: Dict[str, Any]):
         """Send notification when contact form is submitted"""
-        subject = f"New Contact Form Submission from {form_data.get('name', 'Unknown')}"
+        # Use custom subject if it's a quote request
+        is_quote_request = 'Custom Quote Request' in form_data.get('subject', '')
+        if is_quote_request:
+            subject = f"Custom Quote Request from {form_data.get('name', 'Unknown')}"
+        else:
+            subject = f"Contact Form Submission from {form_data.get('name', 'Unknown')}"
+        
+        # Build additional info section if available
+        additional_info = ""
+        if form_data.get('company') or form_data.get('urgency') or form_data.get('budget'):
+            additional_info = f"""
+            <div style="margin: 20px 0;">
+              <h3 style="color: #1e40af;">Project Details</h3>
+              <table style="width: 100%; border-collapse: collapse;">
+            """
+            if form_data.get('company') and form_data.get('company') != 'Not provided':
+                additional_info += f"""
+                <tr>
+                  <td style="padding: 8px; background-color: #f1f5f9;"><strong>Company:</strong></td>
+                  <td style="padding: 8px;">{form_data.get('company')}</td>
+                </tr>
+                """
+            if form_data.get('urgency'):
+                additional_info += f"""
+                <tr>
+                  <td style="padding: 8px; background-color: #f1f5f9;"><strong>Timeline:</strong></td>
+                  <td style="padding: 8px;">{form_data.get('urgency')}</td>
+                </tr>
+                """
+            if form_data.get('budget') and form_data.get('budget') != 'Not specified':
+                additional_info += f"""
+                <tr>
+                  <td style="padding: 8px; background-color: #f1f5f9;"><strong>Budget:</strong></td>
+                  <td style="padding: 8px;">{form_data.get('budget')}</td>
+                </tr>
+                """
+            additional_info += "</table></div>"
         
         body_html = f"""
         <html>
           <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
             <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
               <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
-                New Contact Form Submission
+                {subject}
               </h2>
               
               <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
@@ -89,24 +125,27 @@ class EmailService:
                   </tr>
                   <tr>
                     <td style="padding: 8px; background-color: #f1f5f9;"><strong>Phone:</strong></td>
-                    <td style="padding: 8px;">{form_data.get('phone', 'N/A')}</td>
+                    <td style="padding: 8px;">{form_data.get('phone', 'Not provided')}</td>
                   </tr>
-                  <tr>
+                  {f'''<tr>
                     <td style="padding: 8px; background-color: #f1f5f9;"><strong>Subject:</strong></td>
                     <td style="padding: 8px;">{form_data.get('subject', 'N/A')}</td>
-                  </tr>
+                  </tr>''' if form_data.get('subject') else ''}
                 </table>
               </div>
               
+              {additional_info}
+              
               <div style="margin: 20px 0;">
                 <h3 style="color: #1e40af;">Message</h3>
-                <div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #2563eb; border-radius: 5px;">
+                <div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #2563eb; border-radius: 5px; white-space: pre-wrap;">
                   {form_data.get('message', 'No message provided')}
                 </div>
               </div>
               
               <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
-                <p>This is an automated notification from AB Signs contact form.</p>
+                <p>This is an automated notification from AB Signs {('quote request' if is_quote_request else 'contact')} form.</p>
+                <p>Reply directly to: {form_data.get('email', 'N/A')}</p>
               </div>
             </div>
           </body>
