@@ -107,7 +107,7 @@ const ImprovedNavigation = () => {
                       {/* View All Category Link */}
                       <Button
                         variant="outline"
-                        className="justify-center h-auto p-3 font-medium hover:bg-primary hover:text-primary-foreground text-center w-full text-sm mt-2"
+                        className="justify-center h-auto p-3 font-medium hover:bg-cyan-50 hover:text-cyan-600 hover:border-cyan-600 text-center w-full text-sm mt-2 border-2"
                         onClick={() => handleCategoryClick(category.title, category.category)}
                       >
                         View All {category.title}
