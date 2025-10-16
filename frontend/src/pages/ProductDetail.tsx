@@ -592,6 +592,26 @@ const ProductDetail = () => {
             </TabsContent>
           </Tabs>
         </div>
+        
+        {/* Product Reviews Section */}
+        <div className="container mx-auto px-4 py-16">
+          <ProductReviews 
+            productId={product.id}
+            productName={product.name}
+            reviews={[]}
+            averageRating={0}
+            totalReviews={0}
+          />
+        </div>
+        
+        {/* Related Products Section */}
+        <div className="container mx-auto px-4 pb-16">
+          <RelatedProducts 
+            currentProductId={product.id}
+            currentProductCategory={product.category}
+            maxProducts={4}
+          />
+        </div>
         </div>
 
         {/* Footer */}
