@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
-import { products } from "@/data/productsData";
+import { getAllProducts } from "@/data/productsData";
 import { useNavigate } from "react-router-dom";
 import { useCurrency } from "@/contexts/CurrencyContext";
 
@@ -19,17 +19,20 @@ const RelatedProducts = ({
 }: RelatedProductsProps) => {
   const navigate = useNavigate();
   const { convertPrice, currency } = useCurrency();
+  
+  // Get all products
+  const allProducts = getAllProducts();
 
   // Get related products
   const relatedProducts = useMemo(() => {
     // Filter by same category, exclude current product
-    let related = products.filter(
+    let related = allProducts.filter(
       p => p.id !== currentProductId && p.category === currentProductCategory
     );
 
     // If not enough from same category, add popular products
     if (related.length < maxProducts) {
-      const additional = products
+      const additional = allProducts
         .filter(p => p.id !== currentProductId && p.category !== currentProductCategory)
         .slice(0, maxProducts - related.length);
       related = [...related, ...additional];
@@ -39,7 +42,7 @@ const RelatedProducts = ({
     return related
       .sort(() => Math.random() - 0.5)
       .slice(0, maxProducts);
-  }, [currentProductId, currentProductCategory, maxProducts]);
+  }, [currentProductId, currentProductCategory, maxProducts, allProducts]);
 
   if (relatedProducts.length === 0) return null;
 
