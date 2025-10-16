@@ -85,6 +85,7 @@ const App = () => (
             }}
           >
             <ScrollToTopHandler />
+            <AnalyticsTracker />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<AllProductsSimple />} />
