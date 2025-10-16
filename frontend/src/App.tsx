@@ -57,6 +57,12 @@ const ScrollToTopHandler = () => {
   return null;
 };
 
+// Component to handle analytics page tracking
+const AnalyticsTracker = () => {
+  usePageTracking();
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
