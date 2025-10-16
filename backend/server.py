@@ -210,6 +210,74 @@ async def notify_order(order_data: OrderData):
         logging.error(f"Error processing order notification: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to process order notification")
 
+@api_router.post("/reviews")
+async def submit_review(review_data: ReviewData):
+    """Handle product review submissions"""
+    try:
+        # Save to database
+        review_dict = review_data.dict()
+        review_dict['id'] = str(uuid.uuid4())
+        review_dict['status'] = 'pending'  # Reviews need approval
+        review_dict['helpful'] = 0
+        review_dict['verified'] = False
+        await db.reviews.insert_one(review_dict)
+        
+        return {"status": "success", "message": "Review submitted for moderation"}
+    except Exception as e:
+        logging.error(f"Error submitting review: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to submit review")
+
+@api_router.get("/reviews/{product_id}")
+async def get_product_reviews(product_id: str):
+    """Get approved reviews for a product"""
+    try:
+        reviews = await db.reviews.find({
+            "productId": product_id,
+            "status": "approved"
+        }).to_list(100)
+        
+        # Calculate average rating
+        if reviews:
+            avg_rating = sum(r['rating'] for r in reviews) / len(reviews)
+            return {
+                "reviews": reviews,
+                "averageRating": round(avg_rating, 1),
+                "totalReviews": len(reviews)
+            }
+        else:
+            return {
+                "reviews": [],
+                "averageRating": 0,
+                "totalReviews": 0
+            }
+    except Exception as e:
+        logging.error(f"Error fetching reviews: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch reviews")
+
+@api_router.post("/newsletter/subscribe")
+async def subscribe_newsletter(subscription: NewsletterSubscription):
+    """Handle newsletter subscriptions"""
+    try:
+        # Check if already subscribed
+        existing = await db.newsletter_subscribers.find_one({"email": subscription.email})
+        
+        if existing:
+            return {"status": "success", "message": "You're already subscribed!", "alreadySubscribed": True}
+        
+        # Save to database
+        sub_dict = subscription.dict()
+        sub_dict['id'] = str(uuid.uuid4())
+        sub_dict['status'] = 'active'
+        await db.newsletter_subscribers.insert_one(sub_dict)
+        
+        # Send welcome email (optional)
+        # email_service.send_welcome_email(subscription.email)
+        
+        return {"status": "success", "message": "Successfully subscribed to newsletter"}
+    except Exception as e:
+        logging.error(f"Error subscribing to newsletter: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to subscribe")
+
 
 # Include the router in the main app
 app.include_router(api_router)
