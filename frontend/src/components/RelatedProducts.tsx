@@ -77,11 +77,11 @@ const RelatedProducts = ({
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-2xl font-bold text-cyan-600">
                     {currency === 'CAD' ? 'CA' : ''}{currency === 'USD' ? '$' : '$'}
-                    {convertPrice(product.price)}
+                    {typeof product.price === 'string' ? product.price : convertPrice(product.price)}
                   </span>
                   {product.originalPrice && (
                     <span className="text-sm text-gray-500 line-through">
-                      ${product.originalPrice}
+                      {product.originalPrice}
                     </span>
                   )}
                 </div>
