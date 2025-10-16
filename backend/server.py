@@ -143,6 +143,21 @@ class OrderData(BaseModel):
     total: str
     notes: Optional[str] = None
 
+class ReviewData(BaseModel):
+    productId: str
+    productName: str
+    rating: int
+    title: str
+    content: str
+    author: str
+    email: EmailStr
+    timestamp: str
+
+class NewsletterSubscription(BaseModel):
+    email: EmailStr
+    source: Optional[str] = 'website'
+    subscribed_at: str
+
 # Email Endpoints
 @api_router.post("/contact")
 async def submit_contact_form(form_data: ContactFormData):
