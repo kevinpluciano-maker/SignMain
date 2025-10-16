@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
-import { products } from "@/data/products";
+import { products } from "@/data/productsData";
 import { useNavigate } from "react-router-dom";
 import { useCurrency } from "@/contexts/CurrencyContext";
 
