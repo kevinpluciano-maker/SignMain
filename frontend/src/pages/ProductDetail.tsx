@@ -11,7 +11,8 @@ import Header from "@/components/Header";
 import ModernNavigation from "@/components/ModernNavigation";
 import ImprovedFooter from "@/components/ImprovedFooter";
 import EditorToolbar from "@/components/editor/EditorToolbar";
-
+import ProductReviews from "@/components/ProductReviews";
+import RelatedProducts from "@/components/RelatedProducts";
 import CustomSizeRequest from "@/components/CustomSizeRequest";
 import ImageGallery from "@/components/ImageGallery";
 import { useEditor } from "@/contexts/EditorContext";
