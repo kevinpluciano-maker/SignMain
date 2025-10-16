@@ -46,6 +46,7 @@ if (typeof window !== 'undefined') {
   inlineCriticalCSS();
   addResponsiveCSS();
   monitorPerformance();
+  initGA(); // Initialize Google Analytics
 }
 
 const queryClient = new QueryClient();
