@@ -19,9 +19,6 @@ const ProductSearchBar = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  // Get all products
-  const allProducts = getAllProducts();
-
   // Search products
   useEffect(() => {
     if (searchTerm.trim().length < 2) {
@@ -30,6 +27,9 @@ const ProductSearchBar = () => {
     }
 
     const searchLower = searchTerm.toLowerCase();
+    // Get products inside useEffect to avoid dependency issues
+    const allProducts = getAllProducts();
+    
     const filtered = allProducts
       .filter(product => 
         product.name.toLowerCase().includes(searchLower) ||
@@ -46,7 +46,7 @@ const ProductSearchBar = () => {
       }));
 
     setResults(filtered);
-  }, [searchTerm, allProducts]);
+  }, [searchTerm]); // Only depend on searchTerm
 
   // Close on click outside
   useEffect(() => {
