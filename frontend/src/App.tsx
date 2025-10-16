@@ -14,6 +14,8 @@ import { ResponsiveOptimizations, addResponsiveCSS } from "@/components/Responsi
 import { useScrollToTop } from "@/components/ScrollToTopLink";
 import EnhancedPerformance from "@/components/EnhancedPerformance";
 import { initGA, usePageTracking } from "@/utils/analytics";
+import MobileFloatingCTA from "@/components/MobileFloatingCTA";
+import LiveChat from "@/components/LiveChat";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import AllProducts from "./pages/AllProducts";
