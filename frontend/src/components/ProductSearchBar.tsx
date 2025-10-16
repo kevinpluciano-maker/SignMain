@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import { products } from "@/data/products";
+import { products } from "@/data/productsData";
 
 interface SearchResult {
   id: string;
