@@ -22,6 +22,7 @@ import AllProductsFixed from "./pages/AllProductsFixed";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 import InstallationGuide from "./pages/InstallationGuide";
 import Privacy from "./pages/Privacy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
