@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { useEditor } from "@/contexts/EditorContext";
 import { useNavigate } from "react-router-dom";
 import acrylicBrailleLogo from "@/assets/acrylic-braille-logo.png";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const ImprovedFooter = () => {
   const { headerData, footerData, updateFooterData } = useEditor();
