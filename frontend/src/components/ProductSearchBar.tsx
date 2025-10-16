@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import { products } from "@/data/productsData";
+import { getAllProducts } from "@/data/productsData";
 
 interface SearchResult {
   id: string;
@@ -19,6 +19,9 @@ const ProductSearchBar = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
+  // Get all products
+  const allProducts = getAllProducts();
+
   // Search products
   useEffect(() => {
     if (searchTerm.trim().length < 2) {
@@ -27,7 +30,7 @@ const ProductSearchBar = () => {
     }
 
     const searchLower = searchTerm.toLowerCase();
-    const filtered = products
+    const filtered = allProducts
       .filter(product => 
         product.name.toLowerCase().includes(searchLower) ||
         product.category?.toLowerCase().includes(searchLower) ||
@@ -38,12 +41,12 @@ const ProductSearchBar = () => {
         id: p.id,
         name: p.name,
         category: p.category || 'Product',
-        price: p.price,
+        price: typeof p.price === 'string' ? parseFloat(p.price.replace(/[^0-9.]/g, '')) : p.price,
         image: p.image
       }));
 
     setResults(filtered);
-  }, [searchTerm]);
+  }, [searchTerm, allProducts]);
 
   // Close on click outside
   useEffect(() => {
