@@ -28,10 +28,8 @@ const ImprovedFooter = () => {
   return (
     <footer className="bg-muted/30 border-t mt-16">
       <div className="container mx-auto px-4 py-12">
-        {/* Newsletter Section Removed as per requirements */}
-
-        {/* Main Footer Content - Simplified & Clean */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
             <div className="mb-4">
