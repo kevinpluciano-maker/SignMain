@@ -97,22 +97,17 @@ const Header = ({ showFilters = false }: HeaderProps) => {
             </a>
           </div>
 
-          {/* Desktop Contact Info - Better organized */}
-          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+          {/* Desktop Contact Info & Search - Better organized */}
+          <div className="hidden lg:flex items-center space-x-4 flex-1 justify-center">
+            {/* Product Search Bar */}
+            <ProductSearchBar />
+            
             <div className={`flex items-center space-x-3 text-sm px-4 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm' : 'bg-muted/30'}`}>
               <div className={`p-1.5 rounded-full ${isHomePage ? 'bg-white/20' : 'bg-primary/10'}`}>
                 <Phone className={`h-3.5 w-3.5 ${isHomePage ? 'text-white' : 'text-primary'}`} />
               </div>
               <span className={`font-medium ${textClasses}`}>
                 {headerData.phone}
-              </span>
-            </div>
-            <div className={`flex items-center space-x-3 text-sm px-4 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm' : 'bg-muted/30'}`}>
-              <div className={`p-1.5 rounded-full ${isHomePage ? 'bg-white/20' : 'bg-primary/10'}`}>
-                <Mail className={`h-3.5 w-3.5 ${isHomePage ? 'text-white' : 'text-primary'}`} />
-              </div>
-              <span className={`font-medium ${textClasses}`}>
-                {headerData.email}
               </span>
             </div>
           </div>
