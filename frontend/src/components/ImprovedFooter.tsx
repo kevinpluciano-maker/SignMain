@@ -105,6 +105,11 @@ const ImprovedFooter = () => {
               </li>
             </ul>
           </div>
+          
+          {/* Newsletter Signup */}
+          <div>
+            <NewsletterSignup variant="footer" />
+          </div>
         </div>
 
         <Separator className="my-8" />
