@@ -166,6 +166,46 @@ export const productsData: Record<string, Product[]> = {
       hasCustomNumberField: true
     },
     {
+      id: "acrylic-wc-restroom-sign",
+      name: "Acrylic WC Restroom Sign",
+      price: "from $25.00",
+      rating: 4.8,
+      reviews: 45,
+      image: "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/a72j4j0r_a9ab569b-c635-4dab-bb6d-f1bc58430853%20%281%29.jpeg",
+      slug: "acrylic-wc-restroom-sign",
+      category: "restroom-signs",
+      subcategory: "wc-restroom-signs",
+      description: "Modern acrylic WC restroom sign with sleek minimalist design. Premium quality acrylic material with elegant UV-printed lettering, perfect for commercial and residential applications. Available in multiple sizes and finishes.",
+      materials: ["Premium Acrylic", "UV Printed Letters"],
+      designs: ["Modern", "Minimalist"],
+      badges: ["Modern Design", "Premium", "WC"],
+      sizeOptions: [
+        {
+          size: "3.9 in height",
+          price: "$25.00"
+        },
+        {
+          size: "5.9 in height",
+          price: "$33.00"
+        },
+        {
+          size: "8 in height", 
+          price: "$60.00"
+        }
+      ],
+      colorOptions: [
+        "Black",
+        "White",
+        "Silver",
+        "Gold"
+      ],
+      gallery: [
+        "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/a72j4j0r_a9ab569b-c635-4dab-bb6d-f1bc58430853%20%281%29.jpeg",
+        "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/xiz6hs9y_519eab9b%20%281%29.jpg"
+      ],
+      hasCustomSize: true
+    },
+    {
       id: "acrylic-all-gender-sign",
       name: "Acrylic All-Gender Sign",
       price: "from $38.00",
