@@ -44,15 +44,15 @@ const FeaturedProducts = () => {
   
   const trendingProducts = allProducts.filter(p => trendingProductIds.includes(p.id));
   
-  // Get premium products - specific products with No Food Allowed first, Staff ADA Sign, and Roof Access
+  // Get premium products - specific products with No Food Allowed first, Men Restroom Sign, and Roof Access
   const noFoodProduct = allProducts.find(p => p.id === "no-food-allowed-stainless-steel-sign");
-  const staffAdaProduct = allProducts.find(p => p.id === "staff-ada-sign");
+  const menRestroomProduct = allProducts.find(p => p.id === "men-restroom-sign");
   const roofAccessProduct = allProducts.find(p => p.id === "roof-access-stainless-steel-sign");
   
   // Build premium products array with required products
   const premiumProducts = [
     noFoodProduct,
-    staffAdaProduct,
+    menRestroomProduct,
     roofAccessProduct
   ].filter(Boolean); // Remove any undefined products
   
