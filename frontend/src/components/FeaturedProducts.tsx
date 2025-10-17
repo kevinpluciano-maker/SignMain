@@ -211,17 +211,6 @@ const FeaturedProducts = () => {
           <ProductGrid products={premiumProducts} />
         </LazySection>
 
-        {/* Enhanced Budget-Friendly Options */}
-        <LazySection className="mb-20 animate-fade-in">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 px-6 py-3 rounded-full border border-blue-200 dark:border-blue-700 shadow-lg mb-4">
-              <span className="text-2xl mr-3">💎</span>
-              <h3 className="text-3xl font-black text-blue-800 dark:text-blue-200">Great Value</h3>
-            </div>
-          </div>
-          <ProductGrid products={budgetProducts} />
-        </LazySection>
-
         {/* Enhanced Call to Action */}
         <div className="text-center mt-20 animate-fade-in">
           <Card className="max-w-4xl mx-auto overflow-hidden border-0 shadow-strong rounded-2xl">
