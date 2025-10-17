@@ -34,6 +34,33 @@ export const bestSellersProducts = [
     features: ["ADA Compliant", "Raised Characters", "Braille Text", "Durable Construction", "Easy Installation"]
   },
   {
+    id: "men-restroom-sign",
+    name: "Men Restroom Sign",
+    image: "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/w7peoy4d_e9d178e6.jpg",
+    price: 58.00,
+    rating: 4.9,
+    reviewCount: 28,
+    colors: [
+      "Black on White",
+      "Black on Silver", 
+      "Black on Gold",
+      "Silver on Black",
+      "Gold on Black",
+      "White on Black",
+      "White on Dark Blue",
+      "Dark Blue on White"
+    ],
+    isNew: true,
+    description: "Professional ADA-compliant men's restroom sign with universal accessibility symbols. Features raised characters and Braille text for full compliance with accessibility standards.",
+    materials: ["Premium Acrylic", "Raised Characters", "Braille Dots"],
+    sizes: [
+      "8x8in - $58.00",
+      "10x10in - $65.00", 
+      "12x12in - $76.00"
+    ],
+    features: ["ADA Compliant", "Raised Characters", "Braille Text", "Durable Construction", "Easy Installation"]
+  },
+  {
     id: "all-gender-stainless-steel-sign",
     name: "All Gender Stainless Steel Sign",
     image: "/lovable-uploads/ef63caba-a5d5-4f30-8a83-aaa5843a83fc.png",
