@@ -88,6 +88,29 @@ export const bestSellersProducts = [
     features: ["ADA Compliant", "Raised Characters", "Braille Text", "Durable Construction", "Easy Installation"]
   },
   {
+    id: "acrylic-wc-restroom-sign",
+    name: "Acrylic WC Restroom Sign",
+    image: "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/a72j4j0r_a9ab569b-c635-4dab-bb6d-f1bc58430853%20%281%29.jpeg",
+    price: 25.00,
+    rating: 4.8,
+    reviewCount: 45,
+    colors: [
+      "Black",
+      "White",
+      "Silver",
+      "Gold"
+    ],
+    isNew: true,
+    description: "Modern acrylic WC restroom sign with sleek minimalist design. Premium quality acrylic material with elegant lettering, perfect for commercial and residential applications.",
+    materials: ["Premium Acrylic", "UV Printed Letters"],
+    sizes: [
+      "3.9in height - $25.00",
+      "5.9in height - $33.00", 
+      "8in height - $60.00"
+    ],
+    features: ["Modern Design", "Premium Acrylic", "UV Printed", "Easy Installation", "Durable"]
+  },
+  {
     id: "all-gender-stainless-steel-sign",
     name: "All Gender Stainless Steel Sign",
     image: "/lovable-uploads/ef63caba-a5d5-4f30-8a83-aaa5843a83fc.png",
