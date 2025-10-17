@@ -84,28 +84,17 @@ const MobileFloatingCTA = () => {
         </Button>
       </div>
 
-      {/* Desktop Quick Contact Bar */}
-      <div className="hidden md:block fixed bottom-0 left-0 right-0 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 px-4 z-40 shadow-lg">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <MessageCircle className="h-5 w-5" />
-            <span className="font-semibold">Need Help? Get Your Free Quote Today!</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a 
-              href="tel:+13238430781"
-              className="flex items-center gap-2 hover:text-cyan-100 transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-              <span className="font-medium">(323) 843-0781</span>
-            </a>
-            <a href="/contact">
-              <Button variant="secondary" size="sm">
-                Request Quote
-              </Button>
-            </a>
-          </div>
-        </div>
+      {/* Desktop Quick Contact Button - Bottom Right Corner */}
+      <div className="hidden md:block fixed bottom-6 right-6 z-40">
+        <a href="/contact">
+          <Button 
+            size="lg"
+            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 rounded-full px-6 py-6 flex items-center gap-3"
+          >
+            <MessageCircle className="h-6 w-6" />
+            <span className="font-semibold">Get Quote</span>
+          </Button>
+        </a>
       </div>
     </>
   );
