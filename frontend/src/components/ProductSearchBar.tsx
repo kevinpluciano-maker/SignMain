@@ -85,7 +85,7 @@ const ProductSearchBar = () => {
             setIsOpen(true);
           }}
           onFocus={() => setIsOpen(true)}
-          className="pl-10 pr-10 h-11 w-full bg-white border-gray-300 focus:border-cyan-500"
+          className="pl-10 pr-10 h-11 w-full bg-transparent border-gray-300 focus:border-cyan-500"
         />
         {searchTerm && (
           <button
