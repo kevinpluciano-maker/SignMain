@@ -74,6 +74,52 @@ export const productsData: Record<string, Product[]> = {
       hasCustomNumberField: true
     },
     {
+      id: "men-restroom-sign",
+      name: "Men Restroom Sign",
+      price: "from $58.00",
+      rating: 4.9,
+      reviews: 28,
+      image: "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/w7peoy4d_e9d178e6.jpg",
+      slug: "men-restroom-sign",
+      category: "restroom-signs",
+      subcategory: "mens-restroom-signs",
+      description: "Professional ADA-compliant men's restroom sign with universal accessibility symbols. Features raised characters and Braille text for full compliance with accessibility standards.",
+      materials: ["Premium Acrylic", "Raised Characters", "Braille Dots"],
+      designs: ["ADA Compliant"],
+      badges: ["ADA Compliant", "Men's", "Professional"],
+      sizeOptions: [
+        {
+          size: "8 x 8 in",
+          price: "$58.00"
+        },
+        {
+          size: "10 x 10 in",
+          price: "$65.00"
+        },
+        {
+          size: "12 x 12 in", 
+          price: "$76.00"
+        }
+      ],
+      colorOptions: [
+        "Black on White",
+        "Black on Silver", 
+        "Black on Gold",
+        "Silver on Black",
+        "Gold on Black",
+        "White on Black",
+        "White on Dark Blue",
+        "Dark Blue on White"
+      ],
+      brailleOptions: ["Yes", "No"],
+      gallery: [
+        "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/w7peoy4d_e9d178e6.jpg",
+        "https://customer-assets.emergentagent.com/job_code-explorer-82/artifacts/wqwzwsoc_39f76176.jpg"
+      ],
+      hasCustomSize: true,
+      hasCustomNumberField: true
+    },
+    {
       id: "acrylic-all-gender-sign",
       name: "Acrylic All-Gender Sign",
       price: "from $38.00",
