@@ -198,7 +198,7 @@ const HeroSection = () => {
             />
           </h1>
           <p 
-            className="text-lg md:text-xl lg:text-xl mb-8 text-white/90 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-xl mb-8 text-white max-w-4xl mx-auto leading-relaxed"
             style={{
               fontFamily: '"Inter", system-ui, sans-serif',
               fontWeight: '400',
