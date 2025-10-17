@@ -180,15 +180,11 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 h-full flex items-end justify-center pb-16 md:pb-20">
         <div className="max-w-5xl text-center text-white">
           <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]"
+            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1] text-white"
             style={{
               fontFamily: '"Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
               letterSpacing: '-0.01em',
-              textShadow: '0 3px 15px rgba(0,0,0,0.8), 0 0 30px rgba(79,195,247,0.3)',
-              background: 'linear-gradient(135deg, #ffffff 0%, #4FC3F7 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              textShadow: '0 3px 15px rgba(0,0,0,0.8), 0 0 30px rgba(79,195,247,0.3)'
             }}
           >
             <InlineEditor
