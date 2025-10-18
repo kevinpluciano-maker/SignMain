@@ -945,11 +945,11 @@ class BSignBackendTester:
         
         # Expected business email content elements
         required_elements = [
-            f"Order #{order_data['order_id']}",
-            f"${order_data['total']}",
-            f"{order_data['customer_name']}",
-            f"{order_data['customer_email']}",
-            f"{order_data['customer_phone']}",
+            order_data['order_id'],
+            order_data['total'],
+            order_data['customer_name'],
+            order_data['customer_email'],
+            order_data['customer_phone'],
             "Women Restroom Sign",
             "Acrylic WC Restroom Sign",
             "10 x 10 in",
