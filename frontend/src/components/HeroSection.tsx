@@ -22,19 +22,21 @@ const HeroSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Enhanced video playback for mobile and desktop
+      // Enhanced video playback for mobile and desktop with immediate playback
       const playVideo = async () => {
         try {
           // Set video attributes for optimal playback on all devices
           video.muted = true;
-          video.loop = true; // Ensure loop is set
+          video.loop = true;
           video.playsInline = true;
           video.setAttribute('playsinline', '');
           video.setAttribute('webkit-playsinline', '');
           video.setAttribute('x5-playsinline', '');
-          video.preload = "auto"; // Preload for smoother playback
+          video.setAttribute('x-webkit-airplay', 'allow');
+          video.preload = "metadata"; // Fast initial load
+          video.defaultMuted = true;
           
-          // Attempt to play
+          // Force immediate play attempt
           const playPromise = video.play();
           if (playPromise !== undefined) {
             await playPromise;
@@ -43,15 +45,16 @@ const HeroSection = () => {
           }
         } catch (error) {
           console.error('Video autoplay failed:', error);
-          // Mobile-specific retry logic with multiple attempts
+          // Aggressive mobile retry with immediate attempts
           let retryCount = 0;
-          const maxRetries = 3;
+          const maxRetries = 5;
           
           const retryPlay = async () => {
             if (retryCount < maxRetries) {
               retryCount++;
               setTimeout(async () => {
                 try {
+                  video.muted = true; // Re-enforce muted state
                   await video.play();
                   console.log(`Video started on retry ${retryCount}`);
                   setVideoLoaded(true);
@@ -63,7 +66,7 @@ const HeroSection = () => {
                     setVideoError(true);
                   }
                 }
-              }, 500 * retryCount); // Increase delay with each retry
+              }, 200 * retryCount); // Shorter delays for faster attempts
             }
           };
           
@@ -75,9 +78,22 @@ const HeroSection = () => {
       const handleVisibilityChange = () => {
         if (!document.hidden && video.paused) {
           console.log('Page became visible, attempting to play video');
+          video.muted = true;
           playVideo();
         }
       };
+
+      // Handle page focus to restart video
+      const handlePageFocus = () => {
+        if (video.paused) {
+          console.log('Page focused, restarting video');
+          video.muted = true;
+          playVideo();
+        }
+      };
+
+      // Immediate play attempt on mount
+      playVideo();
 
       // Lazy load video when in viewport
       const observer = new IntersectionObserver((entries) => {
