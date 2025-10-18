@@ -795,6 +795,11 @@ export const getAllProducts = (): Product[] => {
   return Object.values(productsData).flat();
 };
 
+export const getAllCategories = (): string[] => {
+  // Return only categories that have products
+  return Object.keys(productsData).filter(category => productsData[category].length > 0);
+};
+
 export const getProductById = (id: string): Product | undefined => {
   return getAllProducts().find(product => product.id === id);
 };
