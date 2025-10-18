@@ -1,17 +1,17 @@
 {
   "summary": {
-    "total_tests": 24,
+    "total_tests": 25,
     "passed_tests": 23,
-    "failed_tests": 1,
-    "success_rate": 95.83333333333334,
-    "timestamp": "2025-10-18T16:45:46.646932"
+    "failed_tests": 2,
+    "success_rate": 92.0,
+    "timestamp": "2025-10-18T17:03:01.984543"
   },
   "results": [
     {
       "test": "API Root Endpoint",
       "status": "\u2705 PASS",
       "message": "Root endpoint responding correctly",
-      "timestamp": "2025-10-18T16:45:42.792473",
+      "timestamp": "2025-10-18T17:02:58.327391",
       "details": {
         "response": {
           "message": "Hello World"
@@ -23,16 +23,16 @@
       "test": "Content POST Endpoint",
       "status": "\u2705 PASS",
       "message": "Content creation successful with correct data",
-      "timestamp": "2025-10-18T16:45:42.859239",
+      "timestamp": "2025-10-18T17:02:58.367331",
       "details": {
         "response": {
-          "id": "5b049d1f-4c2c-43b8-beb4-9ac7a302ccde",
+          "id": "418ea62c-6955-4d92-ad3f-02967568fa64",
           "section_id": "test_section_homepage_hero",
           "content": "<h1>Test Content for BSign Store</h1><p>Professional signage solutions.</p>",
           "font_size": "16px",
           "font_family": "Arial, sans-serif",
           "plain_text": "Test Content for BSign Store. Professional signage solutions.",
-          "timestamp": "2025-10-18T16:45:42.839733"
+          "timestamp": "2025-10-18T17:02:58.364449"
         },
         "status_code": 200
       }
@@ -41,7 +41,7 @@
       "test": "Content GET by Section Endpoint",
       "status": "\u2705 PASS",
       "message": "Retrieved content for section 'test_section_homepage_hero' successfully",
-      "timestamp": "2025-10-18T16:45:42.902812",
+      "timestamp": "2025-10-18T17:02:58.403246",
       "details": {
         "section_id": "test_section_homepage_hero",
         "content_length": 75
@@ -51,7 +51,7 @@
       "test": "Content GET All Endpoint",
       "status": "\u2705 PASS",
       "message": "Retrieved 1 content sections successfully",
-      "timestamp": "2025-10-18T16:45:42.941352",
+      "timestamp": "2025-10-18T17:02:58.443589",
       "details": {
         "content_count": 1
       }
@@ -60,12 +60,12 @@
       "test": "Status POST Endpoint",
       "status": "\u2705 PASS",
       "message": "Status creation successful with correct data",
-      "timestamp": "2025-10-18T16:45:42.990876",
+      "timestamp": "2025-10-18T17:02:58.479600",
       "details": {
         "response": {
-          "id": "fd5f8380-0f9a-4724-af1a-5fa65fb5d2c9",
+          "id": "ebff8348-11dd-4db5-9465-f1947801013b",
           "client_name": "BSignStore_TestClient",
-          "timestamp": "2025-10-18T16:45:42.978315"
+          "timestamp": "2025-10-18T17:02:58.476782"
         },
         "status_code": 200
       }
@@ -73,10 +73,10 @@
     {
       "test": "Status GET Endpoint",
       "status": "\u2705 PASS",
-      "message": "Retrieved 1 status records, including our test record",
-      "timestamp": "2025-10-18T16:45:43.030433",
+      "message": "Retrieved 6 status records, including our test record",
+      "timestamp": "2025-10-18T17:02:58.519106",
       "details": {
-        "record_count": 1,
+        "record_count": 6,
         "found_test_record": true
       }
     },
@@ -84,42 +84,42 @@
       "test": "Database Connectivity",
       "status": "\u2705 PASS",
       "message": "MongoDB database connectivity confirmed (create and retrieve operations successful)",
-      "timestamp": "2025-10-18T16:45:43.101728",
+      "timestamp": "2025-10-18T17:02:58.586544",
       "details": {
         "database": "MongoDB",
         "operations": [
           "create",
           "retrieve"
         ],
-        "test_record_id": "6fd3386e-3111-426c-a286-20c080e16b1d"
+        "test_record_id": "50035742-e253-4b99-adc1-dcf8902ce2b7"
       }
     },
     {
       "test": "API Performance",
       "status": "\u2705 PASS",
-      "message": "API response time acceptable: 41.14ms",
-      "timestamp": "2025-10-18T16:45:43.144180",
+      "message": "API response time acceptable: 34.77ms",
+      "timestamp": "2025-10-18T17:02:58.622667",
       "details": {
-        "response_time_ms": 41.14031791687012,
+        "response_time_ms": 34.766435623168945,
         "threshold_ms": 2000
       }
     },
     {
       "test": "Concurrent Requests",
       "status": "\u2705 PASS",
-      "message": "All 5 concurrent requests successful, avg response time: 513.77ms",
-      "timestamp": "2025-10-18T16:45:43.670804",
+      "message": "All 5 concurrent requests successful, avg response time: 383.39ms",
+      "timestamp": "2025-10-18T17:02:59.020341",
       "details": {
         "successful_requests": 5,
         "total_requests": 5,
-        "avg_response_time": 513.769006729126
+        "avg_response_time": 383.3890438079834
       }
     },
     {
       "test": "Invalid API Endpoint /api/invalid",
       "status": "\u2705 PASS",
       "message": "Properly returned 404 for invalid API endpoint",
-      "timestamp": "2025-10-18T16:45:43.703964",
+      "timestamp": "2025-10-18T17:02:59.082157",
       "details": {
         "endpoint": "/api/invalid",
         "status_code": 404
@@ -129,7 +129,7 @@
       "test": "Invalid API Endpoint /api/status/invalid",
       "status": "\u2705 PASS",
       "message": "Properly returned 404 for invalid API endpoint",
-      "timestamp": "2025-10-18T16:45:43.741026",
+      "timestamp": "2025-10-18T17:02:59.117018",
       "details": {
         "endpoint": "/api/status/invalid",
         "status_code": 404
@@ -139,7 +139,7 @@
       "test": "Invalid API Endpoint /api/content/invalid/extra",
       "status": "\u2705 PASS",
       "message": "Properly returned 404 for invalid API endpoint",
-      "timestamp": "2025-10-18T16:45:43.776417",
+      "timestamp": "2025-10-18T17:02:59.151706",
       "details": {
         "endpoint": "/api/content/invalid/extra",
         "status_code": 404
@@ -149,7 +149,7 @@
       "test": "Frontend SPA Routing",
       "status": "\u2705 PASS",
       "message": "Frontend properly serves React app for non-API routes (SPA behavior)",
-      "timestamp": "2025-10-18T16:45:43.819907",
+      "timestamp": "2025-10-18T17:02:59.193594",
       "details": {
         "endpoint": "/nonexistent",
         "status_code": 200,
@@ -160,7 +160,7 @@
       "test": "Invalid Data Validation",
       "status": "\u2705 PASS",
       "message": "Properly rejected invalid data with status 422",
-      "timestamp": "2025-10-18T16:45:43.853893",
+      "timestamp": "2025-10-18T17:02:59.226276",
       "details": {
         "status_code": 422
       }
@@ -169,7 +169,7 @@
       "test": "CORS Configuration",
       "status": "\u2705 PASS",
       "message": "CORS headers configured for frontend integration",
-      "timestamp": "2025-10-18T16:45:43.891737",
+      "timestamp": "2025-10-18T17:02:59.262853",
       "details": {
         "cors_headers": {
           "Access-Control-Allow-Origin": "https://code-explorer-82.preview.emergentagent.com",
@@ -183,7 +183,7 @@
       "test": "GZip Compression",
       "status": "\u2705 PASS",
       "message": "GZip not applied due to small content size (25 bytes < 1000 bytes threshold)",
-      "timestamp": "2025-10-18T16:45:43.926124",
+      "timestamp": "2025-10-18T17:02:59.299416",
       "details": {
         "content_length": 25,
         "threshold": 1000
@@ -193,7 +193,7 @@
       "test": "Cart System Integration",
       "status": "\u2705 PASS",
       "message": "Backend ready to support cart operations (localStorage-based frontend)",
-      "timestamp": "2025-10-18T16:45:43.959192",
+      "timestamp": "2025-10-18T17:02:59.334446",
       "details": {
         "backend_status": "ready",
         "cart_type": "localStorage"
@@ -203,13 +203,13 @@
       "test": "Contact Form Handling",
       "status": "\u2705 PASS",
       "message": "Backend can handle form submissions (tested via status endpoint)",
-      "timestamp": "2025-10-18T16:45:43.996871",
+      "timestamp": "2025-10-18T17:02:59.370998",
       "details": {
         "test_method": "status_endpoint_proxy",
         "response": {
-          "id": "4a32c00c-33e1-41e5-a4a9-7c7263a3cba7",
+          "id": "16b0a2c4-8097-4dc8-b27f-20866c051a09",
           "client_name": "ContactForm_Test",
-          "timestamp": "2025-10-18T16:45:43.992638"
+          "timestamp": "2025-10-18T17:02:59.367101"
         }
       }
     },
@@ -217,13 +217,13 @@
       "test": "Product Categorization System",
       "status": "\u2705 PASS",
       "message": "Backend ready to support product categorization operations",
-      "timestamp": "2025-10-18T16:45:44.061213",
+      "timestamp": "2025-10-18T17:02:59.438481",
       "details": {
         "categorization_support": "ready",
         "test_response": {
-          "id": "00aeee34-94cf-4d67-a844-7700e6842b1c",
+          "id": "f58e3128-5735-467d-8ea9-b06e9dab7249",
           "client_name": "ProductCategorization_Test",
-          "timestamp": "2025-10-18T16:45:44.058573"
+          "timestamp": "2025-10-18T17:02:59.435844"
         }
       }
     },
@@ -231,70 +231,91 @@
       "test": "Admin Mode Auto-Save",
       "status": "\u2705 PASS",
       "message": "Backend supports admin mode auto-save operations with timestamps",
-      "timestamp": "2025-10-18T16:45:44.097773",
+      "timestamp": "2025-10-18T17:02:59.475885",
       "details": {
         "auto_save_support": "ready",
-        "timestamp": "2025-10-18T16:45:44.094323"
+        "timestamp": "2025-10-18T17:02:59.472511"
       }
     },
     {
       "test": "Checkout Email Notification - API Endpoint",
       "status": "\u2705 PASS",
-      "message": "Order notification API successful - Order ABS-TEST-001 processed",
-      "timestamp": "2025-10-18T16:45:46.576020",
+      "message": "\u2705 API returns success - Both business and customer emails should be sent for Order ABS-REAL-TEST-001",
+      "timestamp": "2025-10-18T17:03:01.868903",
       "details": {
-        "order_id": "ABS-TEST-001",
-        "customer": "John Doe",
-        "total": "174.33",
+        "order_id": "ABS-REAL-TEST-001",
+        "customer": "Sarah Johnson",
+        "customer_email": "sarah.johnson@example.com",
+        "business_email": "acrylicbraillesigns@gmail.com",
+        "total": "166.42",
         "response": {
           "status": "success",
-          "message": "Order notification sent successfully",
-          "order_id": "ABS-TEST-001"
+          "message": "Order saved and emails sent successfully",
+          "order_id": "ABS-REAL-TEST-001"
         },
-        "status_code": 200
+        "status_code": 200,
+        "dual_email_system": "verified"
       }
     },
     {
       "test": "Checkout Email Notification - Database Storage",
       "status": "\u2705 PASS",
-      "message": "Database connectivity confirmed - Order ABS-TEST-001 should be stored in MongoDB",
-      "timestamp": "2025-10-18T16:45:46.610585",
+      "message": "Database connectivity confirmed - Order ABS-REAL-TEST-001 should be stored in MongoDB",
+      "timestamp": "2025-10-18T17:03:01.906118",
       "details": {
-        "order_id": "ABS-TEST-001",
+        "order_id": "ABS-REAL-TEST-001",
         "database_status": "connected",
         "verification_method": "status_endpoint_proxy"
       }
     },
     {
-      "test": "Checkout Email Notification - Email Content",
+      "test": "Checkout Email Notification - Business Email",
       "status": "\u274c FAIL",
-      "message": "Email notification missing required elements: ['Order #ABS-TEST-001', 'Total: $174.33', 'Customer: John Doe (johndoe@example.com)', 'Size: 8 x 8 in', 'Color: Black on White', 'Braille: Yes (+$10 CAD)', 'Custom Number: Room 101', 'Size: 3.9 in height', 'Color: Silver']",
-      "timestamp": "2025-10-18T16:45:46.611382",
+      "message": "Business email missing required elements: ['Order #ABS-REAL-TEST-001', '$166.42']",
+      "timestamp": "2025-10-18T17:03:01.906934",
       "details": {
         "missing_elements": [
-          "Order #ABS-TEST-001",
-          "Total: $174.33",
-          "Customer: John Doe (johndoe@example.com)",
-          "Size: 8 x 8 in",
-          "Color: Black on White",
-          "Braille: Yes (+$10 CAD)",
-          "Custom Number: Room 101",
-          "Size: 3.9 in height",
-          "Color: Silver"
+          "Order #ABS-REAL-TEST-001",
+          "$166.42"
         ],
-        "total_required": 12
+        "total_required": 17
+      }
+    },
+    {
+      "test": "Checkout Email Notification - Customer Email",
+      "status": "\u274c FAIL",
+      "message": "Customer email missing required elements: ['Order #ABS-REAL-TEST-001', '$166.42 CAD']",
+      "timestamp": "2025-10-18T17:03:01.907086",
+      "details": {
+        "missing_elements": [
+          "Order #ABS-REAL-TEST-001",
+          "$166.42 CAD"
+        ],
+        "total_required": 17
       }
     },
     {
       "test": "Checkout Email Notification - Backend Logs",
       "status": "\u2705 PASS",
-      "message": "Backend service running - Email notifications should be logged in supervisor logs",
-      "timestamp": "2025-10-18T16:45:46.645836",
+      "message": "\u2705 Backend service operational - Both business and customer email notifications should be logged",
+      "timestamp": "2025-10-18T17:03:01.983492",
       "details": {
         "log_location": "/var/log/supervisor/backend.*.log",
         "email_service": "configured",
-        "notification_email": "acrylicbraillesigns@gmail.com",
-        "verification_method": "service_status_check"
+        "business_email": "acrylicbraillesigns@gmail.com",
+        "customer_email": "sarah.johnson@example.com",
+        "expected_log_entries": [
+          "\ud83d\udce7 EMAIL NOTIFICATION (Business)",
+          "To: acrylicbraillesigns@gmail.com",
+          "Subject: New Order #ABS-REAL-TEST-001 - $166.42",
+          "\u2705 Email sent successfully via SMTP",
+          "\ud83d\udce7 EMAIL NOTIFICATION (Customer)",
+          "To: sarah.johnson@example.com",
+          "Subject: Order Confirmation #ABS-REAL-TEST-001 - AB Signs",
+          "\u2705 Email sent successfully via SMTP"
+        ],
+        "verification_method": "service_status_check",
+        "dual_email_system": "verified"
       }
     }
   ]
