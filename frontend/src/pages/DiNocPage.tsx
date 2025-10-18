@@ -301,19 +301,23 @@ const DiNocPage = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 max-w-3xl mx-auto">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-primary hover:bg-white/90 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
-                >
-                  Request Product Information
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-lg hover:scale-[1.02] transition-all"
-                >
-                  Schedule Consultation
-                </Button>
+                <a href="/contact">
+                  <Button 
+                    size="lg" 
+                    className="bg-white text-primary hover:bg-white/90 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all w-full"
+                  >
+                    Request Product Information
+                  </Button>
+                </a>
+                <a href="/contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold text-base px-8 py-4 h-auto rounded-xl shadow-lg hover:scale-[1.02] transition-all w-full"
+                  >
+                    Schedule Consultation
+                  </Button>
+                </a>
               </div>
 
               {/* Trust Indicators */}
