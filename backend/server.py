@@ -199,13 +199,30 @@ async def notify_order(order_data: OrderData):
         order_dict['status'] = 'pending'
         await db.orders.insert_one(order_dict)
         
-        # Send email notification
-        success = email_service.send_order_notification(order_data.dict())
+        # Send email notification to business
+        business_email_success = email_service.send_order_notification(order_data.dict())
         
-        if success:
-            return {"status": "success", "message": "Order notification sent successfully", "order_id": order_data.order_id}
+        # Send confirmation email to customer
+        customer_email_success = email_service.send_customer_confirmation(order_data.dict())
+        
+        if business_email_success and customer_email_success:
+            return {
+                "status": "success", 
+                "message": "Order saved and emails sent successfully", 
+                "order_id": order_data.order_id
+            }
+        elif business_email_success:
+            return {
+                "status": "partial_success", 
+                "message": "Order saved, business notified, but customer confirmation failed", 
+                "order_id": order_data.order_id
+            }
         else:
-            return {"status": "warning", "message": "Order saved but email notification failed", "order_id": order_data.order_id}
+            return {
+                "status": "warning", 
+                "message": "Order saved but email notifications failed", 
+                "order_id": order_data.order_id
+            }
     except Exception as e:
         logging.error(f"Error processing order notification: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to process order notification")
