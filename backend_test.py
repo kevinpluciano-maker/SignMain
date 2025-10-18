@@ -1242,6 +1242,12 @@ class BSignBackendTester:
         self.test_product_categorization_system()
         self.test_admin_mode_autosave()
         
+        # 9. Checkout Email Notification Flow Test
+        print("\n📋 9. CHECKOUT EMAIL NOTIFICATION FLOW TEST")
+        print("-" * 40)
+        self.test_checkout_email_notification_flow()
+        self.check_backend_logs_for_email_confirmation()
+        
         # Summary
         print("\n" + "=" * 80)
         print("📊 COMPREHENSIVE TEST SUMMARY")
