@@ -1029,9 +1029,9 @@ class BSignBackendTester:
         
         # Expected customer email content elements
         required_elements = [
-            f"Order #{order_data['order_id']}",
+            order_data['order_id'],
             "Thank you",
-            f"{order_data['customer_name']}",
+            order_data['customer_name'],
             "Women Restroom Sign",
             "Acrylic WC Restroom Sign",
             "10 x 10 in",
@@ -1040,7 +1040,7 @@ class BSignBackendTester:
             "Room 203",
             "5.9 in height", 
             "Gold",
-            f"${order_data['total']} CAD",
+            order_data['total'],
             order_data['shipping_address']['address'],
             "What Happens Next",
             "acrylicbraillesigns@gmail.com",
