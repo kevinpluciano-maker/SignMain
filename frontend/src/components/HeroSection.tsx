@@ -126,6 +126,7 @@ const HeroSection = () => {
             video.addEventListener('error', handleError);
             video.addEventListener('ended', handleEnded);
             document.addEventListener('visibilitychange', handleVisibilityChange);
+            window.addEventListener('focus', handlePageFocus);
             
             // Start loading immediately
             playVideo();
@@ -138,6 +139,7 @@ const HeroSection = () => {
               video.removeEventListener('error', handleError);
               video.removeEventListener('ended', handleEnded);
               document.removeEventListener('visibilitychange', handleVisibilityChange);
+              window.removeEventListener('focus', handlePageFocus);
             };
           }
         });
