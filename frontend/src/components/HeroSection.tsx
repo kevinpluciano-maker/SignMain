@@ -150,6 +150,7 @@ const HeroSection = () => {
       return () => {
         observer.disconnect();
         document.removeEventListener('visibilitychange', handleVisibilityChange);
+        window.removeEventListener('focus', handlePageFocus);
       };
     }
   }, []);
