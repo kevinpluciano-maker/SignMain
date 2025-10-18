@@ -107,8 +107,8 @@ const AllProducts = () => {
               </div>
             </div>
 
-            {/* Filter Controls */}
-            <div className="mb-12">
+            {/* Filter Controls - Hidden on Mobile */}
+            <div className="mb-12 hidden md:block">
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <div className="flex flex-wrap gap-4 items-center justify-between">
