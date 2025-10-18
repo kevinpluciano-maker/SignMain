@@ -142,12 +142,43 @@ const Checkout = () => {
           zip: formData.zipCode,
           country: formData.country
         },
-        items: items.map(item => ({
-          name: item.name,
-          quantity: item.quantity,
-          price: item.price,
-          specifications: item.selectedOptions || {}
-        })),
+        items: items.map(item => {
+          const specifications: Record<string, any> = {};
+          
+          // Add size if selected
+          if (item.selectedSize) {
+            specifications['Size'] = item.selectedSize;
+          }
+          
+          // Add color if selected
+          if (item.selectedColor) {
+            specifications['Color'] = item.selectedColor;
+          }
+          
+          // Add braille option if selected
+          if (item.selectedBraille) {
+            specifications['Braille'] = item.selectedBraille === 'Yes' ? 'Yes (+$10 CAD)' : 'No';
+          }
+          
+          // Add shape if selected
+          if (item.selectedShape) {
+            specifications['Shape'] = item.selectedShape;
+          }
+          
+          // Add any customizations (like custom numbers or text)
+          if (item.customizations) {
+            Object.entries(item.customizations).forEach(([key, value]) => {
+              specifications[key] = value;
+            });
+          }
+          
+          return {
+            name: item.name,
+            quantity: item.quantity,
+            price: item.itemPrice.toFixed(2),
+            specifications: specifications
+          };
+        }),
         subtotal: subtotal.toFixed(2),
         shipping: shipping.toFixed(2),
         tax: tax.toFixed(2),
