@@ -151,11 +151,11 @@ const ProductCard = (product: ProductCardProps) => {
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
             
-            {/* Rating badge */}
-            <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 flex items-center gap-2 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            {/* Rating badge - Temporarily disabled */}
+            {/* <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 flex items-center gap-2 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
               <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
               <span className="text-sm font-bold text-gray-900">{rating}</span>
-            </div>
+            </div> */}
           </div>
 
           {/* Product Info - Flex grow to fill remaining space */}
@@ -166,15 +166,15 @@ const ProductCard = (product: ProductCardProps) => {
                 {name}
               </h3>
 
-              {/* Reviews */}
-              <div className="flex items-center gap-2 mb-3">
+              {/* Reviews - Temporarily disabled */}
+              {/* <div className="flex items-center gap-2 mb-3">
                 <div className="flex items-center gap-0.5">
                   {renderStars(rating)}
                 </div>
                 <span className="text-sm text-muted-foreground font-medium">
                   ({displayReviews})
                 </span>
-              </div>
+              </div> */}
 
               {/* Price Display */}
               <div className="space-y-2 mb-4">
