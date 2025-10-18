@@ -751,50 +751,52 @@ class BSignBackendTester:
             )
 
     def test_checkout_email_notification_flow(self):
-        """Test complete checkout email notification flow with order details"""
-        print("\n🛒 TESTING CHECKOUT EMAIL NOTIFICATION FLOW")
-        print("=" * 60)
+        """Test complete checkout email notification flow with DUAL EMAIL SYSTEM"""
+        print("\n🛒 TESTING COMPLETE CHECKOUT EMAIL NOTIFICATION FLOW")
+        print("=" * 80)
+        print("🎯 OBJECTIVE: Verify BOTH business notification AND customer confirmation emails")
+        print("=" * 80)
         
-        # Test data as specified in the review request
+        # Test data as specified in the review request - Sarah Johnson scenario
         order_test_data = {
-            "order_id": "ABS-TEST-001",
-            "customer_name": "John Doe",
-            "customer_email": "johndoe@example.com",
-            "customer_phone": "+1 (555) 123-4567",
+            "order_id": "ABS-REAL-TEST-001",
+            "customer_name": "Sarah Johnson",
+            "customer_email": "sarah.johnson@example.com",
+            "customer_phone": "+1 (555) 987-6543",
             "shipping_address": {
-                "address": "123 Main Street, Apt 4B",
-                "city": "Los Angeles",
-                "state": "CA",
-                "zip": "90001",
-                "country": "US"
+                "address": "456 Oak Avenue, Suite 200",
+                "city": "Toronto",
+                "state": "ON",
+                "zip": "M5H 2N2",
+                "country": "Canada"
             },
             "items": [
                 {
-                    "name": "Men Restroom Sign",
-                    "quantity": 2,
-                    "price": "58.00",
+                    "name": "Women Restroom Sign",
+                    "quantity": 1,
+                    "price": "68.00",
                     "specifications": {
-                        "Size": "8 x 8 in",
-                        "Color": "Black on White",
+                        "Size": "10 x 10 in",
+                        "Color": "Black on Silver",
                         "Braille": "Yes (+$10 CAD)",
-                        "Custom Number": "Room 101"
+                        "Custom Number": "Room 203"
                     }
                 },
                 {
                     "name": "Acrylic WC Restroom Sign",
-                    "quantity": 1,
-                    "price": "25.00",
+                    "quantity": 2,
+                    "price": "33.00",
                     "specifications": {
-                        "Size": "3.9 in height",
-                        "Color": "Silver"
+                        "Size": "5.9 in height",
+                        "Color": "Gold"
                     }
                 }
             ],
-            "subtotal": "141.00",
+            "subtotal": "134.00",
             "shipping": "15.00",
-            "tax": "18.33",
-            "total": "174.33",
-            "notes": "Please rush delivery - needed by Friday"
+            "tax": "17.42",
+            "total": "166.42",
+            "notes": "Please include mounting hardware. Building inspection on Friday."
         }
         
         try:
