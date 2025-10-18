@@ -292,6 +292,155 @@ class EmailService:
         """
         
         return self.send_email(self.notification_email, subject, body_html)
+    
+    def send_customer_confirmation(self, order_data: Dict[str, Any]):
+        """Send order confirmation email to customer"""
+        customer_email = order_data.get('customer_email', '')
+        customer_name = order_data.get('customer_name', 'Valued Customer')
+        order_id = order_data.get('order_id', 'N/A')
+        
+        subject = f"Order Confirmation #{order_id} - AB Signs"
+        
+        # Build items HTML for customer
+        items_html = ""
+        for item in order_data.get('items', []):
+            specs_list = ""
+            if item.get('specifications'):
+                for key, value in item.get('specifications', {}).items():
+                    specs_list += f"<li><strong>{key}:</strong> {value}</li>"
+            
+            items_html += f"""
+            <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px; margin: 10px 0; background-color: #f9fafb;">
+              <h4 style="margin: 0 0 10px 0; color: #1e40af;">{item.get('name', 'Product')}</h4>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span style="color: #666;">Quantity: {item.get('quantity', 1)}</span>
+                <span style="font-size: 18px; font-weight: bold; color: #16a34a;">${item.get('price', '0.00')}</span>
+              </div>
+              {f'<ul style="margin: 10px 0; padding-left: 20px; color: #555;">{specs_list}</ul>' if specs_list else ''}
+            </div>
+            """
+        
+        body_html = f"""
+        <html>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; margin: 0; padding: 20px;">
+            <div style="max-width: 600px; margin: 0 auto; background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+              
+              <!-- Header -->
+              <div style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 30px 20px; text-align: center;">
+                <h1 style="margin: 0; font-size: 28px;">Thank You for Your Order! 🎉</h1>
+                <p style="margin: 10px 0 0 0; opacity: 0.9; font-size: 16px;">Order #{order_id}</p>
+              </div>
+              
+              <!-- Content -->
+              <div style="padding: 30px 20px;">
+                
+                <!-- Welcome Message -->
+                <div style="background-color: #dcfce7; border-left: 4px solid #16a34a; padding: 15px; border-radius: 5px; margin-bottom: 25px;">
+                  <p style="margin: 0; color: #166534;">
+                    <strong>Hi {customer_name},</strong><br>
+                    We've received your order and we're excited to get started on your custom signage! 
+                    You'll receive an email from our team shortly to confirm the details and discuss the next steps.
+                  </p>
+                </div>
+                
+                <!-- Order Details -->
+                <div style="margin: 25px 0;">
+                  <h2 style="color: #1e40af; border-bottom: 2px solid #dbeafe; padding-bottom: 10px; margin-bottom: 15px;">Order Summary</h2>
+                  <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                    <p style="margin: 5px 0;"><strong>Order Number:</strong> {order_id}</p>
+                    <p style="margin: 5px 0;"><strong>Order Date:</strong> {datetime.now().strftime('%B %d, %Y at %I:%M %p')}</p>
+                    <p style="margin: 5px 0;"><strong>Email:</strong> {customer_email}</p>
+                  </div>
+                </div>
+                
+                <!-- Items -->
+                <div style="margin: 25px 0;">
+                  <h3 style="color: #1e40af; margin-bottom: 15px;">Your Items</h3>
+                  {items_html}
+                </div>
+                
+                <!-- Pricing -->
+                <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin: 25px 0;">
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <td style="padding: 8px; color: #666;">Subtotal:</td>
+                      <td style="padding: 8px; text-align: right;">${order_data.get('subtotal', '0.00')}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; color: #666;">Shipping:</td>
+                      <td style="padding: 8px; text-align: right;">${order_data.get('shipping', '0.00')}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px; color: #666;">Tax (HST):</td>
+                      <td style="padding: 8px; text-align: right;">${order_data.get('tax', '0.00')}</td>
+                    </tr>
+                    <tr style="border-top: 2px solid #ddd;">
+                      <td style="padding: 15px 8px; font-size: 18px; font-weight: bold;">Total:</td>
+                      <td style="padding: 15px 8px; text-align: right; font-size: 20px; font-weight: bold; color: #16a34a;">${order_data.get('total', '0.00')} CAD</td>
+                    </tr>
+                  </table>
+                </div>
+                
+                <!-- Shipping Address -->
+                <div style="margin: 25px 0;">
+                  <h3 style="color: #1e40af; margin-bottom: 10px;">Shipping Address</h3>
+                  <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+                    <p style="margin: 0; line-height: 1.6;">
+                      {order_data.get('shipping_address', {}).get('address', 'N/A')}<br>
+                      {order_data.get('shipping_address', {}).get('city', '')}, {order_data.get('shipping_address', {}).get('state', '')} {order_data.get('shipping_address', {}).get('zip', '')}<br>
+                      {order_data.get('shipping_address', {}).get('country', '')}
+                    </p>
+                  </div>
+                </div>
+                
+                {f'''
+                <div style="margin: 25px 0;">
+                  <h3 style="color: #1e40af; margin-bottom: 10px;">Special Instructions</h3>
+                  <div style="background-color: #fef3c7; padding: 15px; border-radius: 5px; border-left: 4px solid #f59e0b;">
+                    <p style="margin: 0;">{order_data.get('notes', '')}</p>
+                  </div>
+                </div>
+                ''' if order_data.get('notes') and order_data.get('notes') != 'No additional notes provided' else ''}
+                
+                <!-- Next Steps -->
+                <div style="background-color: #dbeafe; border-left: 4px solid #2563eb; padding: 15px; border-radius: 5px; margin: 25px 0;">
+                  <h3 style="margin: 0 0 10px 0; color: #1e40af;">What Happens Next?</h3>
+                  <ol style="margin: 0; padding-left: 20px; color: #1e40af;">
+                    <li style="margin: 5px 0;">Our team will review your order details</li>
+                    <li style="margin: 5px 0;">We'll contact you within 24 hours to confirm specifications</li>
+                    <li style="margin: 5px 0;">Production will begin once all details are confirmed</li>
+                    <li style="margin: 5px 0;">You'll receive tracking information when your order ships</li>
+                  </ol>
+                </div>
+                
+                <!-- Contact Info -->
+                <div style="text-align: center; margin: 30px 0; padding: 20px; background-color: #f8f9fa; border-radius: 5px;">
+                  <p style="margin: 0 0 10px 0; font-size: 16px; color: #666;">Questions about your order?</p>
+                  <p style="margin: 5px 0;">
+                    <strong>📧 Email:</strong> <a href="mailto:acrylicbraillesigns@gmail.com" style="color: #2563eb; text-decoration: none;">acrylicbraillesigns@gmail.com</a>
+                  </p>
+                  <p style="margin: 5px 0;">
+                    <strong>📞 Phone:</strong> <a href="tel:+13238430781" style="color: #2563eb; text-decoration: none;">+1 (323) 843-0781</a>
+                  </p>
+                </div>
+                
+              </div>
+              
+              <!-- Footer -->
+              <div style="background-color: #1e293b; color: white; padding: 20px; text-align: center;">
+                <p style="margin: 0 0 10px 0; font-size: 18px; font-weight: bold;">AB Signs</p>
+                <p style="margin: 5px 0; opacity: 0.8; font-size: 14px;">Professional ADA Compliant Acrylic Braille Signs</p>
+                <p style="margin: 15px 0 0 0; opacity: 0.7; font-size: 12px;">
+                  This is an automated confirmation email. Please do not reply directly to this message.
+                </p>
+              </div>
+              
+            </div>
+          </body>
+        </html>
+        """
+        
+        return self.send_email(customer_email, subject, body_html)
 
 # Create a singleton instance
 email_service = EmailService()
