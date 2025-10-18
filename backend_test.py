@@ -804,6 +804,8 @@ class BSignBackendTester:
             print(f"📋 Order ID: {order_test_data['order_id']}")
             print(f"👤 Customer: {order_test_data['customer_name']} ({order_test_data['customer_email']})")
             print(f"💰 Total: ${order_test_data['total']}")
+            print(f"📍 Shipping: {order_test_data['shipping_address']['city']}, {order_test_data['shipping_address']['country']}")
+            print(f"📦 Items: {len(order_test_data['items'])} products")
             
             # Send the order notification request
             response = requests.post(
@@ -825,25 +827,40 @@ class BSignBackendTester:
                 
                 if not missing_fields:
                     if response_data.get("order_id") == order_test_data["order_id"]:
-                        # Test passed - API endpoint working
-                        self.log_result(
-                            "Checkout Email Notification - API Endpoint",
-                            True,
-                            f"Order notification API successful - Order {order_test_data['order_id']} processed",
-                            {
-                                "order_id": order_test_data["order_id"],
-                                "customer": order_test_data["customer_name"],
-                                "total": order_test_data["total"],
-                                "response": response_data,
-                                "status_code": response.status_code
-                            }
-                        )
+                        # Verify the response indicates both emails were sent
+                        response_message = response_data.get("message", "").lower()
+                        if "emails sent successfully" in response_message or response_data.get("status") == "success":
+                            self.log_result(
+                                "Checkout Email Notification - API Endpoint",
+                                True,
+                                f"✅ API returns success - Both business and customer emails should be sent for Order {order_test_data['order_id']}",
+                                {
+                                    "order_id": order_test_data["order_id"],
+                                    "customer": order_test_data["customer_name"],
+                                    "customer_email": order_test_data["customer_email"],
+                                    "business_email": "acrylicbraillesigns@gmail.com",
+                                    "total": order_test_data["total"],
+                                    "response": response_data,
+                                    "status_code": response.status_code,
+                                    "dual_email_system": "verified"
+                                }
+                            )
+                        else:
+                            self.log_result(
+                                "Checkout Email Notification - API Endpoint",
+                                False,
+                                f"API response doesn't confirm both emails sent: {response_data.get('message')}",
+                                {"response": response_data}
+                            )
                         
                         # Now verify the order was saved to database
                         self.verify_order_database_storage(order_test_data["order_id"])
                         
-                        # Verify email notification details
-                        self.verify_email_notification_content(order_test_data)
+                        # Verify business email notification details
+                        self.verify_business_email_notification(order_test_data)
+                        
+                        # Verify customer confirmation email details
+                        self.verify_customer_confirmation_email(order_test_data)
                         
                     else:
                         self.log_result(
