@@ -536,21 +536,35 @@ const ProductDetail = () => {
             </TabsList>
             
             <TabsContent value="description" className="space-y-6 mt-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Product Description</h3>
-                <div className="text-muted-foreground leading-relaxed mb-6">
-                  {displayDescription}
+              <div className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900/20 rounded-2xl p-8 shadow-sm border border-slate-200 dark:border-slate-700">
+                <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
+                  <span className="w-1 h-8 bg-gradient-to-b from-primary to-primary/50 rounded-full"></span>
+                  Product Description
+                </h3>
+                <div className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg mb-8 space-y-4">
+                  {displayDescription.split('.').filter(Boolean).map((sentence, idx) => (
+                    <p key={idx} className="first:text-xl first:font-medium">
+                      {sentence.trim()}.
+                    </p>
+                  ))}
                 </div>
                 
-                <h4 className="font-medium mb-3">Key Features:</h4>
-                <ul className="space-y-2">
-                  {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                  <h4 className="font-bold text-lg mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Key Features:
+                  </h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {product.features.map((feature, index) => (
+                      <li key={index} className="flex items-start group">
+                        <span className="w-2 h-2 bg-gradient-to-br from-primary to-primary/50 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                        <span className="text-slate-700 dark:text-slate-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </TabsContent>
             
