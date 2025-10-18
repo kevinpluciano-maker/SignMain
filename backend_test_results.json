@@ -1,17 +1,17 @@
 {
   "summary": {
-    "total_tests": 20,
-    "passed_tests": 20,
-    "failed_tests": 0,
-    "success_rate": 100.0,
-    "timestamp": "2025-10-10T14:30:58.405939"
+    "total_tests": 24,
+    "passed_tests": 23,
+    "failed_tests": 1,
+    "success_rate": 95.83333333333334,
+    "timestamp": "2025-10-18T16:45:46.646932"
   },
   "results": [
     {
       "test": "API Root Endpoint",
       "status": "\u2705 PASS",
       "message": "Root endpoint responding correctly",
-      "timestamp": "2025-10-10T14:30:57.099730",
+      "timestamp": "2025-10-18T16:45:42.792473",
       "details": {
         "response": {
           "message": "Hello World"
@@ -23,16 +23,16 @@
       "test": "Content POST Endpoint",
       "status": "\u2705 PASS",
       "message": "Content creation successful with correct data",
-      "timestamp": "2025-10-10T14:30:57.144471",
+      "timestamp": "2025-10-18T16:45:42.859239",
       "details": {
         "response": {
-          "id": "acb3d235-99c4-417f-90ae-ebb5059f6722",
+          "id": "5b049d1f-4c2c-43b8-beb4-9ac7a302ccde",
           "section_id": "test_section_homepage_hero",
           "content": "<h1>Test Content for BSign Store</h1><p>Professional signage solutions.</p>",
           "font_size": "16px",
           "font_family": "Arial, sans-serif",
           "plain_text": "Test Content for BSign Store. Professional signage solutions.",
-          "timestamp": "2025-10-10T14:30:57.138818"
+          "timestamp": "2025-10-18T16:45:42.839733"
         },
         "status_code": 200
       }
@@ -41,7 +41,7 @@
       "test": "Content GET by Section Endpoint",
       "status": "\u2705 PASS",
       "message": "Retrieved content for section 'test_section_homepage_hero' successfully",
-      "timestamp": "2025-10-10T14:30:57.185308",
+      "timestamp": "2025-10-18T16:45:42.902812",
       "details": {
         "section_id": "test_section_homepage_hero",
         "content_length": 75
@@ -51,7 +51,7 @@
       "test": "Content GET All Endpoint",
       "status": "\u2705 PASS",
       "message": "Retrieved 1 content sections successfully",
-      "timestamp": "2025-10-10T14:30:57.225206",
+      "timestamp": "2025-10-18T16:45:42.941352",
       "details": {
         "content_count": 1
       }
@@ -60,12 +60,12 @@
       "test": "Status POST Endpoint",
       "status": "\u2705 PASS",
       "message": "Status creation successful with correct data",
-      "timestamp": "2025-10-10T14:30:57.263989",
+      "timestamp": "2025-10-18T16:45:42.990876",
       "details": {
         "response": {
-          "id": "cc4f317a-6335-496f-aba2-72f72dee31c1",
+          "id": "fd5f8380-0f9a-4724-af1a-5fa65fb5d2c9",
           "client_name": "BSignStore_TestClient",
-          "timestamp": "2025-10-10T14:30:57.259418"
+          "timestamp": "2025-10-18T16:45:42.978315"
         },
         "status_code": 200
       }
@@ -73,10 +73,10 @@
     {
       "test": "Status GET Endpoint",
       "status": "\u2705 PASS",
-      "message": "Retrieved 6 status records, including our test record",
-      "timestamp": "2025-10-10T14:30:57.303363",
+      "message": "Retrieved 1 status records, including our test record",
+      "timestamp": "2025-10-18T16:45:43.030433",
       "details": {
-        "record_count": 6,
+        "record_count": 1,
         "found_test_record": true
       }
     },
@@ -84,42 +84,42 @@
       "test": "Database Connectivity",
       "status": "\u2705 PASS",
       "message": "MongoDB database connectivity confirmed (create and retrieve operations successful)",
-      "timestamp": "2025-10-10T14:30:57.422621",
+      "timestamp": "2025-10-18T16:45:43.101728",
       "details": {
         "database": "MongoDB",
         "operations": [
           "create",
           "retrieve"
         ],
-        "test_record_id": "440a9fcd-eb3f-42df-b243-b101309f75d1"
+        "test_record_id": "6fd3386e-3111-426c-a286-20c080e16b1d"
       }
     },
     {
       "test": "API Performance",
       "status": "\u2705 PASS",
-      "message": "API response time acceptable: 34.79ms",
-      "timestamp": "2025-10-10T14:30:57.458686",
+      "message": "API response time acceptable: 41.14ms",
+      "timestamp": "2025-10-18T16:45:43.144180",
       "details": {
-        "response_time_ms": 34.79480743408203,
+        "response_time_ms": 41.14031791687012,
         "threshold_ms": 2000
       }
     },
     {
       "test": "Concurrent Requests",
       "status": "\u2705 PASS",
-      "message": "All 5 concurrent requests successful, avg response time: 323.72ms",
-      "timestamp": "2025-10-10T14:30:57.790919",
+      "message": "All 5 concurrent requests successful, avg response time: 513.77ms",
+      "timestamp": "2025-10-18T16:45:43.670804",
       "details": {
         "successful_requests": 5,
         "total_requests": 5,
-        "avg_response_time": 323.724365234375
+        "avg_response_time": 513.769006729126
       }
     },
     {
       "test": "Invalid API Endpoint /api/invalid",
       "status": "\u2705 PASS",
       "message": "Properly returned 404 for invalid API endpoint",
-      "timestamp": "2025-10-10T14:30:57.869294",
+      "timestamp": "2025-10-18T16:45:43.703964",
       "details": {
         "endpoint": "/api/invalid",
         "status_code": 404
@@ -129,7 +129,7 @@
       "test": "Invalid API Endpoint /api/status/invalid",
       "status": "\u2705 PASS",
       "message": "Properly returned 404 for invalid API endpoint",
-      "timestamp": "2025-10-10T14:30:57.904079",
+      "timestamp": "2025-10-18T16:45:43.741026",
       "details": {
         "endpoint": "/api/status/invalid",
         "status_code": 404
@@ -139,7 +139,7 @@
       "test": "Invalid API Endpoint /api/content/invalid/extra",
       "status": "\u2705 PASS",
       "message": "Properly returned 404 for invalid API endpoint",
-      "timestamp": "2025-10-10T14:30:57.942623",
+      "timestamp": "2025-10-18T16:45:43.776417",
       "details": {
         "endpoint": "/api/content/invalid/extra",
         "status_code": 404
@@ -149,7 +149,7 @@
       "test": "Frontend SPA Routing",
       "status": "\u2705 PASS",
       "message": "Frontend properly serves React app for non-API routes (SPA behavior)",
-      "timestamp": "2025-10-10T14:30:57.984234",
+      "timestamp": "2025-10-18T16:45:43.819907",
       "details": {
         "endpoint": "/nonexistent",
         "status_code": 200,
@@ -160,7 +160,7 @@
       "test": "Invalid Data Validation",
       "status": "\u2705 PASS",
       "message": "Properly rejected invalid data with status 422",
-      "timestamp": "2025-10-10T14:30:58.025084",
+      "timestamp": "2025-10-18T16:45:43.853893",
       "details": {
         "status_code": 422
       }
@@ -169,21 +169,21 @@
       "test": "CORS Configuration",
       "status": "\u2705 PASS",
       "message": "CORS headers configured for frontend integration",
-      "timestamp": "2025-10-10T14:30:58.103652",
+      "timestamp": "2025-10-18T16:45:43.891737",
       "details": {
         "cors_headers": {
-          "Access-Control-Allow-Origin": null,
+          "Access-Control-Allow-Origin": "https://code-explorer-82.preview.emergentagent.com",
           "Access-Control-Allow-Methods": "DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT",
           "Access-Control-Allow-Headers": "Content-Type"
         },
-        "status_code": 400
+        "status_code": 200
       }
     },
     {
       "test": "GZip Compression",
       "status": "\u2705 PASS",
       "message": "GZip not applied due to small content size (25 bytes < 1000 bytes threshold)",
-      "timestamp": "2025-10-10T14:30:58.142944",
+      "timestamp": "2025-10-18T16:45:43.926124",
       "details": {
         "content_length": 25,
         "threshold": 1000
@@ -193,7 +193,7 @@
       "test": "Cart System Integration",
       "status": "\u2705 PASS",
       "message": "Backend ready to support cart operations (localStorage-based frontend)",
-      "timestamp": "2025-10-10T14:30:58.178978",
+      "timestamp": "2025-10-18T16:45:43.959192",
       "details": {
         "backend_status": "ready",
         "cart_type": "localStorage"
@@ -203,13 +203,13 @@
       "test": "Contact Form Handling",
       "status": "\u2705 PASS",
       "message": "Backend can handle form submissions (tested via status endpoint)",
-      "timestamp": "2025-10-10T14:30:58.218422",
+      "timestamp": "2025-10-18T16:45:43.996871",
       "details": {
         "test_method": "status_endpoint_proxy",
         "response": {
-          "id": "f0d3614b-6ab1-43c2-8665-cad26fcc7771",
+          "id": "4a32c00c-33e1-41e5-a4a9-7c7263a3cba7",
           "client_name": "ContactForm_Test",
-          "timestamp": "2025-10-10T14:30:58.213818"
+          "timestamp": "2025-10-18T16:45:43.992638"
         }
       }
     },
@@ -217,13 +217,13 @@
       "test": "Product Categorization System",
       "status": "\u2705 PASS",
       "message": "Backend ready to support product categorization operations",
-      "timestamp": "2025-10-10T14:30:58.294654",
+      "timestamp": "2025-10-18T16:45:44.061213",
       "details": {
         "categorization_support": "ready",
         "test_response": {
-          "id": "f45e512f-31bd-47ad-95d6-ec0280b67b2b",
+          "id": "00aeee34-94cf-4d67-a844-7700e6842b1c",
           "client_name": "ProductCategorization_Test",
-          "timestamp": "2025-10-10T14:30:58.289915"
+          "timestamp": "2025-10-18T16:45:44.058573"
         }
       }
     },
@@ -231,10 +231,70 @@
       "test": "Admin Mode Auto-Save",
       "status": "\u2705 PASS",
       "message": "Backend supports admin mode auto-save operations with timestamps",
-      "timestamp": "2025-10-10T14:30:58.404907",
+      "timestamp": "2025-10-18T16:45:44.097773",
       "details": {
         "auto_save_support": "ready",
-        "timestamp": "2025-10-10T14:30:58.400183"
+        "timestamp": "2025-10-18T16:45:44.094323"
+      }
+    },
+    {
+      "test": "Checkout Email Notification - API Endpoint",
+      "status": "\u2705 PASS",
+      "message": "Order notification API successful - Order ABS-TEST-001 processed",
+      "timestamp": "2025-10-18T16:45:46.576020",
+      "details": {
+        "order_id": "ABS-TEST-001",
+        "customer": "John Doe",
+        "total": "174.33",
+        "response": {
+          "status": "success",
+          "message": "Order notification sent successfully",
+          "order_id": "ABS-TEST-001"
+        },
+        "status_code": 200
+      }
+    },
+    {
+      "test": "Checkout Email Notification - Database Storage",
+      "status": "\u2705 PASS",
+      "message": "Database connectivity confirmed - Order ABS-TEST-001 should be stored in MongoDB",
+      "timestamp": "2025-10-18T16:45:46.610585",
+      "details": {
+        "order_id": "ABS-TEST-001",
+        "database_status": "connected",
+        "verification_method": "status_endpoint_proxy"
+      }
+    },
+    {
+      "test": "Checkout Email Notification - Email Content",
+      "status": "\u274c FAIL",
+      "message": "Email notification missing required elements: ['Order #ABS-TEST-001', 'Total: $174.33', 'Customer: John Doe (johndoe@example.com)', 'Size: 8 x 8 in', 'Color: Black on White', 'Braille: Yes (+$10 CAD)', 'Custom Number: Room 101', 'Size: 3.9 in height', 'Color: Silver']",
+      "timestamp": "2025-10-18T16:45:46.611382",
+      "details": {
+        "missing_elements": [
+          "Order #ABS-TEST-001",
+          "Total: $174.33",
+          "Customer: John Doe (johndoe@example.com)",
+          "Size: 8 x 8 in",
+          "Color: Black on White",
+          "Braille: Yes (+$10 CAD)",
+          "Custom Number: Room 101",
+          "Size: 3.9 in height",
+          "Color: Silver"
+        ],
+        "total_required": 12
+      }
+    },
+    {
+      "test": "Checkout Email Notification - Backend Logs",
+      "status": "\u2705 PASS",
+      "message": "Backend service running - Email notifications should be logged in supervisor logs",
+      "timestamp": "2025-10-18T16:45:46.645836",
+      "details": {
+        "log_location": "/var/log/supervisor/backend.*.log",
+        "email_service": "configured",
+        "notification_email": "acrylicbraillesigns@gmail.com",
+        "verification_method": "service_status_check"
       }
     }
   ]
