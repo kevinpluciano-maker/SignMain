@@ -483,7 +483,8 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <Separator />
+            {/* Separator hidden per client request */}
+            {/* <Separator /> */}
 
             {/* Add to Cart */}
             <div className="space-y-4">
