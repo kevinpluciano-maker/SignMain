@@ -138,8 +138,8 @@ const ProductCard = (product: ProductCardProps) => {
         )}
         
         <CardContent className="p-0 h-full flex flex-col">
-          {/* Product Image - Centered on mobile, no white borders, transparent background */}
-          <div className="relative overflow-hidden bg-transparent aspect-square flex-shrink-0 flex items-center justify-center">
+          {/* Product Image - Centered on mobile with padding, no white borders, transparent background */}
+          <div className="relative overflow-hidden bg-transparent aspect-square flex-shrink-0 flex items-center justify-center p-4 md:p-0">
             <OptimizedImage
               src={image}
               alt={name}
