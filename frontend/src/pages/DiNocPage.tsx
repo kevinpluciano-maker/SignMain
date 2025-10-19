@@ -135,7 +135,7 @@ const DiNocPage = () => {
                   <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full"></span>
                 </span>
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-white/90 mb-12 tracking-widest uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" style={{ fontFamily: '"Inter", sans-serif', letterSpacing: '0.15em' }}>
+              <p className="hidden md:block text-lg md:text-xl lg:text-2xl font-semibold text-white/90 mb-12 tracking-widest uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" style={{ fontFamily: '"Inter", sans-serif', letterSpacing: '0.15em' }}>
                 Architectural Film
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
