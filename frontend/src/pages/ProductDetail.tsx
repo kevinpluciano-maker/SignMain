@@ -525,11 +525,9 @@ const ProductDetail = () => {
         {/* Product Details Tabs */}
         <div className="mt-16">
           <Tabs defaultValue="description" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
+            {/* Only Description tab - Specifications and Reviews removed */}
+            <TabsList className="grid w-full grid-cols-1">
               <TabsTrigger value="description">Description</TabsTrigger>
-              <TabsTrigger value="specifications">Specifications</TabsTrigger>
-              {/* Reviews temporarily disabled */}
-              {/* <TabsTrigger value="reviews">Reviews ({product.reviewCount})</TabsTrigger> */}
             </TabsList>
             
             <TabsContent value="description" className="space-y-6 mt-8">
