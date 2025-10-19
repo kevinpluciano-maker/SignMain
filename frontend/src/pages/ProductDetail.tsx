@@ -565,28 +565,6 @@ const ProductDetail = () => {
             
             {/* Specifications and Reviews sections removed per client request */}
           </Tabs>
-              <div className="space-y-6">
-                <h3 className="text-xl font-semibold">Customer Reviews</h3>
-                <div className="space-y-4">
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4 mb-3">
-                        <div className="flex items-center">
-                          {renderStars(5)}
-                        </div>
-                        <span className="font-medium">John D.</span>
-                        <span className="text-sm text-muted-foreground">Verified Purchase</span>
-                      </div>
-                      <p className="text-muted-foreground">
-                        Excellent quality sign. The acrylic is thick and the numbers are perfectly cut. 
-                        Easy to install and looks very professional on our office door.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            </TabsContent>
-          </Tabs>
         </div>
         
         {/* Product Reviews Section - Removed per client request */}
