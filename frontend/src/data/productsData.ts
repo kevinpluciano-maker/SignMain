@@ -757,6 +757,7 @@ export const getCategoryTitle = (category: string): string => {
     'info-signs': 'Info Signs',
     'prohibitory-signs': 'Prohibitory Signs',
     'ada-braille-signs': 'ADA & Braille Signs',
+    'custom-door-plates': 'Custom Door Plates',
     'di-noc': 'Di-Noc Architectural Film',
     'best-sellers': 'Best Sellers',
     'new': 'New Products'
