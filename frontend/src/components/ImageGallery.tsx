@@ -18,8 +18,8 @@ const ImageGallery = ({ images, productName, selectedIndex, onIndexChange }: Ima
     <>
       {/* Main Gallery */}
       <div className="space-y-4">
-        {/* Main Image - Centered on mobile with padding */}
-        <div className="relative aspect-square overflow-hidden rounded-lg group bg-white dark:bg-slate-900 flex items-center justify-center p-4 md:p-0">
+        {/* Main Image - Centered on mobile with extra padding */}
+        <div className="relative aspect-square overflow-hidden rounded-lg group bg-white dark:bg-slate-900 flex items-center justify-center p-6 md:p-0">
           <OptimizedImage
             src={images[selectedIndex]}
             alt={`${productName} - Main view`}
