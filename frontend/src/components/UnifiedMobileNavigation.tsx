@@ -194,130 +194,34 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
               >
                 Restroom Signs
               </Button>
-                {expandedItems.includes("Restroom Signs") && (
-                  <div className="bg-cyan-50/50 px-4 pb-3 space-y-1">
-                    {["All-Gender Restroom Signs", "Staff ADA Signs", "Men's Restroom Signs", "Women's Restroom Signs"].map((item) => (
-                      <Button
-                        key={item}
-                        variant="ghost"
-                        className="w-full justify-start p-3 h-auto text-sm text-gray-600 hover:text-cyan-600 hover:bg-white rounded-lg transition-colors"
-                        onClick={() => {
-                          const slug = item.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
-                          navigate(`/products/${slug}`);
-                        }}
-                      >
-                        <span className="truncate">{item}</span>
-                      </Button>
-                    ))}
-                  </div>
-                )}
-              </div>
+            </div>
 
-              {/* Prohibitory Signs */}
-              <div className="bg-white rounded-lg shadow-sm border border-cyan-100 overflow-hidden">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between p-4 h-auto font-semibold text-left hover:bg-cyan-50 transition-colors"
-                  onClick={() => {
-                    setExpandedItems(prev =>
-                      prev.includes("Prohibitory Signs")
-                        ? prev.filter(i => i !== "Prohibitory Signs")
-                        : [...prev, "Prohibitory Signs"]
-                    );
-                  }}
-                >
-                  <span className="text-gray-800">Prohibitory Signs</span>
-                  <ChevronRight 
-                    className={`h-5 w-5 text-cyan-600 transition-transform ${
-                      expandedItems.includes("Prohibitory Signs") ? 'rotate-90' : ''
-                    }`} 
+            <Separator className="my-4" />
+
+            {/* Contact Information */}
+            <div className="px-4 space-y-3 pb-6">
+              <h4 className="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">
+                Contact Us
+              </h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2 text-slate-600">
+                  <Phone className="h-4 w-4 text-primary flex-shrink-0" />
+                  <InlineEditor
+                    value={headerData.phone}
+                    onSave={(value) => updateHeaderData({ phone: value })}
+                    placeholder="Phone number"
                   />
-                </Button>
-                {expandedItems.includes("Prohibitory Signs") && (
-                  <div className="bg-cyan-50/50 px-4 pb-3 space-y-1">
-                    {["No Guns Allowed Signs", "No Loitering Signs", "No Food Allowed Signs", "Pull Door Signs"].map((item) => (
-                      <Button
-                        key={item}
-                        variant="ghost"
-                        className="w-full justify-start p-3 h-auto text-sm text-gray-600 hover:text-cyan-600 hover:bg-white rounded-lg transition-colors"
-                        onClick={() => {
-                          const slug = item.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
-                          navigate(`/products/${slug}`);
-                        }}
-                      >
-                        <span className="truncate">{item}</span>
-                      </Button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Info Signs */}
-              <div className="bg-white rounded-lg shadow-sm border border-cyan-100 overflow-hidden">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between p-4 h-auto font-semibold text-left hover:bg-cyan-50 transition-colors"
-                  onClick={() => {
-                    setExpandedItems(prev =>
-                      prev.includes("Info Signs")
-                        ? prev.filter(i => i !== "Info Signs")
-                        : [...prev, "Info Signs"]
-                    );
-                  }}
-                >
-                  <span className="text-gray-800">Info Signs</span>
-                  <ChevronRight 
-                    className={`h-5 w-5 text-cyan-600 transition-transform ${
-                      expandedItems.includes("Info Signs") ? 'rotate-90' : ''
-                    }`} 
+                </div>
+                <div className="flex items-center gap-2 text-slate-600">
+                  <Mail className="h-4 w-4 text-primary flex-shrink-0" />
+                  <InlineEditor
+                    value={headerData.email}
+                    onSave={(value) => updateHeaderData({ email: value })}
+                    placeholder="Email address"
                   />
-                </Button>
-                {expandedItems.includes("Info Signs") && (
-                  <div className="bg-cyan-50/50 px-4 pb-3 space-y-1">
-                    {["Exam Room Signs", "Meeting Room ADA Signs", "Reception Signs", "Roof Access Signs"].map((item) => (
-                      <Button
-                        key={item}
-                        variant="ghost"
-                        className="w-full justify-start p-3 h-auto text-sm text-gray-600 hover:text-cyan-600 hover:bg-white rounded-lg transition-colors"
-                        onClick={() => {
-                          const slug = item.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
-                          navigate(`/products/${slug}`);
-                        }}
-                      >
-                        <span className="truncate">{item}</span>
-                      </Button>
-                    ))}
-                  </div>
-                )}
+                </div>
               </div>
-              </div>
-
-              <Separator />
-
-              {/* Navigation Items */}
-              <div className="space-y-2">
-              {navigationItems.map((item) => (
-                <div key={item.label}>
-                  {item.hasSubMenu ? (
-                    <div>
-                      <Button
-                        variant="ghost"
-                        className="w-full justify-between p-3 h-auto font-medium text-left"
-                        onClick={() => {
-                          setExpandedItems(prev =>
-                            prev.includes(item.label)
-                              ? prev.filter(i => i !== item.label)
-                              : [...prev, item.label]
-                          );
-                        }}
-                      >
-                        {item.label}
-                        <ChevronRight 
-                          className={`h-4 w-4 transition-transform ${
-                            expandedItems.includes(item.label) ? 'rotate-90' : ''
-                          }`} 
-                        />
-                      </Button>
+            </div>
                       {expandedItems.includes(item.label) && item.subItems && (
                         <div className="ml-4 mt-2 space-y-1">
                           {item.subItems.map((subItem) => (
