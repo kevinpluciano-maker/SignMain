@@ -95,18 +95,27 @@ const Footer = () => {
 
         <Separator className="mb-12" />
 
-        {/* Footer Content - Improved mobile layout */}
+        {/* Footer Content - Improved mobile layout with logo */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
-          {/* Company Info */}
+          {/* Company Info with Logo */}
           <div className="lg:col-span-1 text-center sm:text-left">
-            <h3 className="font-semibold text-lg mb-4">
+            {/* Logo */}
+            <div className="mb-4 flex justify-center sm:justify-start">
+              <img
+                src={headerData.logo || "/lovable-uploads/logo.png"}
+                alt="AB Signs"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            
+            <h3 className="font-semibold text-base mb-3">
               <InlineEditor
                 value={footerData.companyName}
                 onSave={(value) => updateFooterData({ companyName: value })}
                 placeholder="Company name"
               />
             </h3>
-            <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+            <p className="text-muted-foreground mb-4 text-sm leading-relaxed max-w-xs mx-auto sm:mx-0">
               <InlineEditor
                 value={footerData.companyDescription}
                 onSave={(value) => updateFooterData({ companyDescription: value })}
@@ -114,7 +123,7 @@ const Footer = () => {
                 multiline
               />
             </p>
-            <div className="space-y-3 text-sm">
+            <div className="space-y-2.5 text-sm">
               <div className="flex items-center space-x-2 justify-center sm:justify-start">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <InlineEditor
