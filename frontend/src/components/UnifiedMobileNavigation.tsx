@@ -37,8 +37,7 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
         { label: "Di-Noc", path: "/di-noc" },
         { label: "Restroom Signs", path: "/collections/restroom-signs" },
         { label: "Information Signs", path: "/collections/info-signs" },
-        { label: "House Numbers", path: "/collections/house-numbers" },
-        { label: "World Clock Signs", path: "/collections/world-clock" }
+        { label: "Prohibitory Signs", path: "/collections/prohibitory-signs" }
       ]
     },
     { label: "Catalog", path: "/products" },
