@@ -222,35 +222,7 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
                 </div>
               </div>
             </div>
-                      {expandedItems.includes(item.label) && item.subItems && (
-                        <div className="ml-4 mt-2 space-y-1">
-                          {item.subItems.map((subItem) => (
-                            <Button
-                              key={subItem.label}
-                              variant="ghost"
-                              className="w-full justify-start p-2 h-auto text-sm text-muted-foreground hover:text-foreground"
-                              onClick={() => navigate(subItem.path)}
-                            >
-                              {subItem.label}
-                            </Button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-start p-3 h-auto font-medium text-left"
-                      onClick={() => navigate(item.path!)}
-                    >
-                      {item.label}
-                    </Button>
-                  )}
-                </div>
-              ))}
-              </div>
-            
-            {/* Bottom Section - Contact Info */}
+          </TabsContent>
             <div className="mt-auto pt-4 border-t border-border">
               <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 space-y-3">
                 <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-3">Get In Touch</h4>
