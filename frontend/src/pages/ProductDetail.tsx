@@ -282,14 +282,10 @@ const ProductDetail = () => {
                   </Link>
                 )}
               </div>
-              <h1 className="text-3xl font-bold mb-2">
+              <h1 className="text-3xl font-bold mb-4">
                 {displayName}
               </h1>
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="flex items-center">
-                  {renderStars(product.rating)}
-                </div>
-              </div>
+              {/* Reviews removed per client request */}
             </div>
 
             {/* Price */}
