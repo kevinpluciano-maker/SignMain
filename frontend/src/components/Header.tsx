@@ -85,13 +85,13 @@ const Header = ({ showFilters = false }: HeaderProps) => {
           {/* Mobile Menu Button - Uses UnifiedMobileNavigation with conditional filters */}
           <UnifiedMobileNavigation cartItems={totalItems} showFilters={showFilters} />
 
-          {/* Logo Section - Enhanced mobile visibility with border and background */}
+          {/* Logo Section - Centered and prominent on mobile, always visible */}
           <div className="flex-1 flex justify-center md:justify-start md:flex-none">
-            <a href="/" className={`group px-4 py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm border border-white/20' : 'bg-muted/30 border border-gray-200'}`}>
+            <a href="/" className={`group px-3 py-2 md:px-4 md:py-2 rounded-lg ${isHomePage ? 'bg-white/10 backdrop-blur-sm border border-white/20' : 'bg-muted/30 border border-gray-200'}`}>
               <img
                 src={headerData.logo || acrylicBrailleLogo}
                 alt="Acrylic Braille Signs"
-                className={`h-8 md:h-12 lg:h-16 w-auto object-contain transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-125 contrast-125 md:brightness-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]' : ''}`}
+                className={`h-10 md:h-12 lg:h-16 w-auto object-contain transition-transform group-hover:scale-105 ${isHomePage ? 'brightness-125 contrast-125 md:brightness-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]' : ''}`}
                 style={{ maxWidth: 'none', aspectRatio: 'auto' }}
               />
             </a>
