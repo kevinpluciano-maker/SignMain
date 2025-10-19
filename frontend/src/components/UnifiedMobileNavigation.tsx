@@ -112,72 +112,88 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
               <CurrencySwitcher />
             </div>
 
-            {/* Product Categories Section with improved styling */}
-            <div className="space-y-2">
-              <h4 className="text-sm font-bold text-gray-700 px-2 uppercase tracking-wider flex items-center gap-2">
-                <Filter className="h-4 w-4 text-cyan-600" />
+            {/* Product Categories Section - Simplified for mobile */}
+            <div className="space-y-1.5">
+              <h4 className="text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">
                 Categories
               </h4>
               
-              {/* Door Number Signs */}
-              <div className="bg-white rounded-lg shadow-sm border border-cyan-100 overflow-hidden">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between p-4 h-auto font-semibold text-left hover:bg-cyan-50 transition-colors"
-                  onClick={() => {
-                    setExpandedItems(prev =>
-                      prev.includes("Door Number Signs")
-                        ? prev.filter(i => i !== "Door Number Signs")
-                        : [...prev, "Door Number Signs"]
-                    );
-                  }}
-                >
-                  <span className="text-gray-800">Door Number Signs</span>
-                  <ChevronRight 
-                    className={`h-5 w-5 text-cyan-600 transition-transform ${
-                      expandedItems.includes("Door Number Signs") ? 'rotate-90' : ''
-                    }`} 
-                  />
-                </Button>
-                {expandedItems.includes("Door Number Signs") && (
-                  <div className="bg-cyan-50/50 px-4 pb-3 space-y-1">
-                    {["Door Number: Wood & Stainless Steel", "Modern Door Numbers", "Custom Door Numbers"].map((item) => (
+              {/* Simple category list without nesting */}
+              {navigationItems.map((item) => (
+                <div key={item.label} className="px-2">
+                  {!item.hasSubMenu ? (
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start px-3 py-2.5 h-auto text-sm font-medium text-slate-700 hover:text-primary hover:bg-slate-100 rounded-lg transition-colors"
+                      onClick={() => item.path && navigate(item.path)}
+                    >
+                      {item.label}
+                    </Button>
+                  ) : (
+                    <div className="space-y-1">
                       <Button
-                        key={item}
                         variant="ghost"
-                        className="w-full justify-start p-3 h-auto text-sm text-gray-600 hover:text-cyan-600 hover:bg-white rounded-lg transition-colors"
+                        className="w-full justify-between px-3 py-2.5 h-auto text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
                         onClick={() => {
-                          const slug = item.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
-                          navigate(`/products/${slug}`);
+                          setExpandedItems(prev =>
+                            prev.includes(item.label)
+                              ? prev.filter(i => i !== item.label)
+                              : [...prev, item.label]
+                          );
                         }}
                       >
-                        <span className="truncate">{item}</span>
+                        <span>{item.label}</span>
+                        <ChevronRight 
+                          className={`h-4 w-4 transition-transform ${
+                            expandedItems.includes(item.label) ? 'rotate-90' : ''
+                          }`} 
+                        />
                       </Button>
-                    ))}
-                  </div>
-                )}
-              </div>
+                      {expandedItems.includes(item.label) && item.subItems && (
+                        <div className="ml-3 space-y-0.5 border-l-2 border-slate-200 pl-3">
+                          {item.subItems.map((subItem) => (
+                            <Button
+                              key={subItem.label}
+                              variant="ghost"
+                              className="w-full justify-start px-3 py-2 h-auto text-sm text-slate-600 hover:text-primary hover:bg-slate-50 rounded transition-colors"
+                              onClick={() => navigate(subItem.path)}
+                            >
+                              {subItem.label}
+                            </Button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
 
-              {/* Restroom Signs */}
-              <div className="bg-white rounded-lg shadow-sm border border-cyan-100 overflow-hidden">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between p-4 h-auto font-semibold text-left hover:bg-cyan-50 transition-colors"
-                  onClick={() => {
-                    setExpandedItems(prev =>
-                      prev.includes("Restroom Signs")
-                        ? prev.filter(i => i !== "Restroom Signs")
-                        : [...prev, "Restroom Signs"]
-                    );
-                  }}
-                >
-                  <span className="text-gray-800">Restroom Signs</span>
-                  <ChevronRight 
-                    className={`h-5 w-5 text-cyan-600 transition-transform ${
-                      expandedItems.includes("Restroom Signs") ? 'rotate-90' : ''
-                    }`} 
-                  />
-                </Button>
+            <Separator className="my-4" />
+
+            {/* Quick Actions - Simplified */}
+            <div className="px-4 space-y-3">
+              <h4 className="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">
+                Quick Actions
+              </h4>
+              
+              {/* Door Number Signs - Removed nested items */}
+              <Button
+                variant="outline"
+                className="w-full justify-start text-sm hover:bg-slate-100 transition-colors py-2.5"
+                onClick={() => navigate("/collections/door-numbers")}
+              >
+                Door Number Signs
+              </Button>
+
+              {/* Restroom Signs - Removed nested items */}
+              <Button
+                variant="outline"
+                className="w-full justify-start text-sm hover:bg-slate-100 transition-colors py-2.5"
+                onClick={() => navigate("/collections/restroom-signs")}
+              >
+                Restroom Signs
+              </Button>
                 {expandedItems.includes("Restroom Signs") && (
                   <div className="bg-cyan-50/50 px-4 pb-3 space-y-1">
                     {["All-Gender Restroom Signs", "Staff ADA Signs", "Men's Restroom Signs", "Women's Restroom Signs"].map((item) => (
