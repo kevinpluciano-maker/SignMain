@@ -88,7 +88,7 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[85vw] max-w-sm bg-white dark:bg-slate-950 p-0 overflow-y-auto">
+      <SheetContent side="left" className="w-[85vw] max-w-sm bg-white dark:bg-slate-950 p-0 overflow-y-auto overflow-x-hidden">
         <SheetHeader className="bg-gradient-to-r from-cyan-500 to-blue-600 p-5 sticky top-0 z-10 shadow-md">
           <SheetTitle className="text-left text-lg font-bold text-white flex items-center gap-2">
             <Menu className="h-5 w-5" />
