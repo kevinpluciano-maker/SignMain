@@ -277,41 +277,7 @@ export const productsData: Record<string, Product[]> = {
       hasCustomNumberField: true
     }
   ],
-  "door-number-signs": [
-    {
-      id: "door-number-wood-stainless-steel",
-      name: "Door Number: Wood & Stainless Steel",
-      price: "from $38.00",
-      rating: 4.9,
-      reviews: 8,
-      image: "/lovable-uploads/c5345240-0a2b-489c-9170-5e6da30bd0cd.png",
-      slug: "door-number-wood-stainless-steel",
-      category: "door-number-signs",
-      subcategory: "modern-door-numbers",
-      description: "Premium wood and stainless steel door number sign with modern design. Features custom room numbers with ADA compliant design and braille options. Perfect for offices, hotels, and residential applications.",
-      materials: ["Wood", "Stainless Steel", "Clear Acrylic"],
-      designs: ["Modern", "ADA Compliant"],
-      badges: ["Door Number", "ADA Compliant", "Custom Sizing", "Premium"],
-      sizeOptions: [
-        {
-          size: "9.8 x 4.7 in (250 x 120 mm)",
-          price: "$38.00"
-        },
-        {
-          size: "12 x 6 in (300 x 150 mm)",
-          price: "$45.00"
-        }
-      ],
-      colorOptions: ["Wood & White", "Wood & Steel"],
-      brailleOptions: ["Yes", "No"],
-      gallery: [
-        "/lovable-uploads/c5345240-0a2b-489c-9170-5e6da30bd0cd.png",
-        "/lovable-uploads/b59f1141-5985-4e89-b44d-31537031de9e.png"
-      ],
-      hasCustomSize: true,
-      hasCustomNumberField: true
-    }
-  ],
+  "door-number-signs": [],
   "info-signs": [
     {
       id: "acrylic-exam-room-sign",
