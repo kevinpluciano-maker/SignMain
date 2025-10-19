@@ -754,6 +754,10 @@ export const productsData: Record<string, Product[]> = {
 };
 
 export const getCategoryProducts = (category: string): Product[] => {
+  // Special handling for ADA category - dynamically include all products with Braille options
+  if (category === 'ada-braille-signs') {
+    return getAllProducts().filter(product => product.brailleOptions && product.brailleOptions.length > 0);
+  }
   return productsData[category] || [];
 };
 
@@ -762,8 +766,18 @@ export const getAllProducts = (): Product[] => {
 };
 
 export const getAllCategories = (): string[] => {
-  // Return only categories that have products
-  return Object.keys(productsData).filter(category => productsData[category].length > 0);
+  // Get all non-empty categories
+  const regularCategories = Object.keys(productsData).filter(category => productsData[category].length > 0);
+  
+  // Check if there are any products with Braille options for ADA category
+  const hasBrailleProducts = getAllProducts().some(product => product.brailleOptions && product.brailleOptions.length > 0);
+  
+  // Add ada-braille-signs if there are products with Braille options and it's not already in the list
+  if (hasBrailleProducts && !regularCategories.includes('ada-braille-signs')) {
+    regularCategories.push('ada-braille-signs');
+  }
+  
+  return regularCategories;
 };
 
 export const getProductById = (id: string): Product | undefined => {
