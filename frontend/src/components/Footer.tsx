@@ -95,10 +95,10 @@ const Footer = () => {
 
         <Separator className="mb-12" />
 
-        {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        {/* Footer Content - Improved mobile layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 text-center sm:text-left">
             <h3 className="font-semibold text-lg mb-4">
               <InlineEditor
                 value={footerData.companyName}
@@ -106,7 +106,7 @@ const Footer = () => {
                 placeholder="Company name"
               />
             </h3>
-            <p className="text-muted-foreground mb-4 text-sm">
+            <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
               <InlineEditor
                 value={footerData.companyDescription}
                 onSave={(value) => updateFooterData({ companyDescription: value })}
@@ -114,25 +114,25 @@ const Footer = () => {
                 multiline
               />
             </p>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-primary" />
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center space-x-2 justify-center sm:justify-start">
+                <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <InlineEditor
                   value={footerData.phone}
                   onSave={(value) => updateFooterData({ phone: value })}
                   placeholder="Phone number"
                 />
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-primary" />
+              <div className="flex items-center space-x-2 justify-center sm:justify-start">
+                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                 <InlineEditor
                   value={footerData.email}
                   onSave={(value) => updateFooterData({ email: value })}
                   placeholder="Email address"
                 />
               </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-primary" />
+              <div className="flex items-center space-x-2 justify-center sm:justify-start">
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
                 <InlineEditor
                   value={footerData.businessHours}
                   onSave={(value) => updateFooterData({ businessHours: value })}
@@ -144,14 +144,14 @@ const Footer = () => {
 
           {/* Footer Sections */}
           {footerSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-medium mb-4">{section.title}</h4>
-              <ul className="space-y-2">
+            <div key={section.title} className="text-center sm:text-left">
+              <h4 className="font-medium mb-4 text-base">{section.title}</h4>
+              <ul className="space-y-2.5">
                 {section.links.map((link) => (
                   <li key={link}>
                     <Button 
                       variant="link" 
-                      className="p-0 h-auto text-sm text-muted-foreground hover:text-primary justify-start"
+                      className="p-0 h-auto text-sm text-muted-foreground hover:text-primary sm:justify-start justify-center w-full sm:w-auto"
                     >
                       {link}
                     </Button>
@@ -164,17 +164,17 @@ const Footer = () => {
 
         <Separator className="my-8" />
 
-        {/* Bottom Footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-muted-foreground">
+        {/* Bottom Footer - Better mobile spacing */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-sm text-muted-foreground text-center md:text-left">
             <InlineEditor
               value={footerData.copyright}
               onSave={(value) => updateFooterData({ copyright: value })}
               placeholder="Copyright text"
             />
           </div>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <Button variant="link" className="text-sm text-muted-foreground p-0">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <Button variant="link" className="text-sm text-muted-foreground p-0 h-auto">
               Terms of Service
             </Button>
             <Button variant="link" className="text-sm text-muted-foreground p-0">
