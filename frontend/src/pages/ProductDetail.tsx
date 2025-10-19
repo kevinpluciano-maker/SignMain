@@ -563,21 +563,8 @@ const ProductDetail = () => {
               </div>
             </TabsContent>
             
-            <TabsContent value="specifications" className="mt-8">
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold mb-4">Technical Specifications</h3>
-                <div className="grid gap-4">
-                  {Object.entries(product.specifications).map(([key, value]) => (
-                    <div key={key} className="flex justify-between py-2 border-b">
-                      <span className="font-medium">{key}:</span>
-                      <span className="text-muted-foreground">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="reviews" className="mt-8">
+            {/* Specifications and Reviews sections removed per client request */}
+          </Tabs>
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold">Customer Reviews</h3>
                 <div className="space-y-4">
