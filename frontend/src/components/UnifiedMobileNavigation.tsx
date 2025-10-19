@@ -96,27 +96,24 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
           </SheetTitle>
         </SheetHeader>
         
-        <Tabs defaultValue="menu" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mx-4 mt-3 mb-2 bg-slate-100 dark:bg-slate-800 shadow-sm rounded-lg">
-            <TabsTrigger value="menu" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-600 data-[state=active]:text-white">Navigation</TabsTrigger>
-            {showFilters && <TabsTrigger value="filters" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-600 data-[state=active]:text-white">Filters</TabsTrigger>}
-          </TabsList>
-          
-          <TabsContent value="menu" className="p-4 space-y-4">
-            {/* Currency Switcher with improved styling */}
-            <div className="bg-white rounded-xl p-4 border-2 border-cyan-100 shadow-sm">
-              <h4 className="text-xs font-bold text-cyan-600 mb-3 uppercase tracking-wide flex items-center gap-2">
-                <Globe className="h-4 w-4" />
-                Currency
-              </h4>
-              <CurrencySwitcher />
-            </div>
+        {/* Simplified navigation without tabs */}
+        <div className="p-4 space-y-4">
+          {/* Currency Switcher with improved styling */}
+          <div className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900/20 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm">
+            <h4 className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide flex items-center gap-2">
+              <Globe className="h-4 w-4 text-primary" />
+              Currency
+            </h4>
+            <CurrencySwitcher />
+          </div>
 
-            {/* Product Categories Section - Simplified for mobile */}
-            <div className="space-y-1.5">
-              <h4 className="text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">
-                Categories
-              </h4>
+          <Separator className="my-4" />
+
+          {/* Product Categories Section - Simplified for mobile */}
+          <div className="space-y-1.5">
+            <h4 className="text-xs font-semibold text-slate-600 dark:text-slate-400 px-3 py-2 uppercase tracking-wide">
+              Categories
+            </h4>
               
               {/* Simple category list without nesting */}
               {navigationItems.map((item) => (
