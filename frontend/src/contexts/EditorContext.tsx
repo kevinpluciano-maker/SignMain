@@ -56,8 +56,8 @@ const defaultSections = [
 ];
 
 const defaultHeaderData = {
-  phone: '+1 (323) 843-0781',
-  email: 'info@acrylicbraillesigns.com',
+  phone: '+1 (647) 278-2905',
+  email: 'acrylicbraillesigns@gmail.com',
   businessHours: '7:00 AM - 4:00 PM EST',
   topBarText: 'Nationwide ADA Compliance - Expert Braille Signage - Premium Quality Guarantee',
   quickLinks: 'ADA Guides | Braille Signs | Custom Projects'
@@ -66,8 +66,8 @@ const defaultHeaderData = {
 const defaultFooterData = {
   companyName: 'Acrylic Braille Signs',
   companyDescription: 'Professional ADA compliant acrylic braille signage solutions for offices, hospitals, and commercial spaces. Quality guaranteed with Canada & USA service.',
-  phone: '+1 (323) 843-0781',
-  email: 'info@acrylicbraillesigns.com',
+  phone: '+1 (647) 278-2905',
+  email: 'acrylicbraillesigns@gmail.com',
   businessHours: 'Business Hours: 7:00 AM - 4:00 PM EST',
   year: '2025'
 };
