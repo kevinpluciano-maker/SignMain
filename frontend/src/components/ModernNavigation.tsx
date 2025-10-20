@@ -114,7 +114,6 @@ const ModernNavigation = () => {
   ];
 
   const additionalItems = [
-    'Custom Door Plates',
     'ADA Signs',
     'Room Signs',
     'Desk Signs'
