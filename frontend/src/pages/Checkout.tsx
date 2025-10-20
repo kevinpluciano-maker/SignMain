@@ -16,10 +16,8 @@ import ImprovedFooter from "@/components/ImprovedFooter";
 import { useCart } from "@/contexts/CartContext";
 
 const Checkout = () => {
-  const { items, totalItems, subtotal, tax, shipping, totalPrice, clearCart } = useCart();
+  const { items, totalItems, subtotal, tax, shipping, totalPrice } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
-  const [orderComplete, setOrderComplete] = useState(false);
-  const [orderId, setOrderId] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Form state
