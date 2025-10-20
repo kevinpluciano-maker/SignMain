@@ -105,10 +105,10 @@ const ModernNavigation = () => {
     {
       title: "Info Signs",
       items: [
-        "Exam Room Signs",
-        "Meeting Room ADA Signs",
-        "Reception Signs",
-        "Roof Access Signs"
+        "Exam Room",
+        "Reception Sign",
+        "Meeting Room ADA Sign",
+        "Roof Access"
       ]
     }
   ];
