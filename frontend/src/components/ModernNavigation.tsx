@@ -34,13 +34,15 @@ const ModernNavigation = () => {
   const handleCategoryClick = (categoryTitle: string) => {
     // Check if category is Di-Noc
     if (categoryTitle.toLowerCase() === 'di-noc') {
-      navigate('/di-noc');
+      navigate('/di-noc', { replace: false });
     } else {
       const slug = categoryTitle.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/collections/${slug}`);
+      navigate(`/collections/${slug}`, { replace: false });
     }
     setActiveDropdown(null);
     setIsMobileMenuOpen(false);
+    // Instant scroll to top
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
   };
 
   const handleItemClick = (item: string) => {
