@@ -619,10 +619,7 @@ export const getCategoryProducts = (category: string): Product[] => {
     return getAllProducts().filter(product => product.brailleOptions && product.brailleOptions.length > 0);
   }
   
-  // Special handling for Custom Door Plates - dynamically include all products with custom number fields
-  if (category === 'custom-door-plates') {
-    return getAllProducts().filter(product => product.hasCustomNumberField === true);
-  }
+  // Custom Door Plates category removed per client request
   
   return productsData[category] || [];
 };
@@ -638,18 +635,12 @@ export const getAllCategories = (): string[] => {
   // Check if there are any products with Braille options for ADA category
   const hasBrailleProducts = getAllProducts().some(product => product.brailleOptions && product.brailleOptions.length > 0);
   
-  // Check if there are any products with custom number fields for Custom Door Plates category
-  const hasCustomNumberProducts = getAllProducts().some(product => product.hasCustomNumberField === true);
-  
   // Add ada-braille-signs if there are products with Braille options
   if (hasBrailleProducts && !regularCategories.includes('ada-braille-signs')) {
     regularCategories.push('ada-braille-signs');
   }
   
-  // Add custom-door-plates if there are products with custom number fields
-  if (hasCustomNumberProducts && !regularCategories.includes('custom-door-plates')) {
-    regularCategories.push('custom-door-plates');
-  }
+  // Custom Door Plates category removed per client request
   
   return regularCategories;
 };
