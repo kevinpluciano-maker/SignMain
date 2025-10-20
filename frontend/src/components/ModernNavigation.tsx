@@ -57,7 +57,25 @@ const ModernNavigation = () => {
         item.toLowerCase().includes('custom di-noc')) {
       navigate('/di-noc', { replace: false });
     } 
-    // Handle specific Info Signs dropdown items - route to product pages
+    // Handle Restroom Signs dropdown items
+    else if (item === 'All Gender Restroom Signs') {
+      navigate('/products/acrylic-all-gender-sign', { replace: false });
+    } else if (item === "Men's Restroom") {
+      navigate('/products/men-restroom-sign', { replace: false });
+    } else if (item === "Women's Restroom") {
+      navigate('/products/women-restroom-sign', { replace: false });
+    }
+    // Handle Prohibitory Signs dropdown items
+    else if (item === 'No Guns Allowed') {
+      navigate('/products/no-guns-allowed-stainless-steel-sign', { replace: false });
+    } else if (item === 'No Loitering') {
+      navigate('/products/no-loitering-stainless-steel-sign', { replace: false });
+    } else if (item === 'No Food Allowed') {
+      navigate('/products/no-food-allowed-stainless-steel-sign', { replace: false });
+    } else if (item === 'Pull Door') {
+      navigate('/products/pull-door-stainless-steel-sign', { replace: false });
+    }
+    // Handle Info Signs dropdown items - route to product pages
     else if (item === 'Exam Room') {
       navigate('/products/acrylic-exam-room-sign', { replace: false });
     } else if (item === 'Reception Sign') {
