@@ -422,7 +422,7 @@ export const productsData: Record<string, Product[]> = {
       rating: 4.8,
       reviews: 67,
       category: "info-signs",
-      subcategory: "access-signs",
+      subcategory: "roof-access-signs",
       materials: ["Stainless Steel", "Raised Characters", "Braille Dots"],
       designs: ["Modern", "ADA Compliant"],
       badges: ["Roof Access", "ADA Compliant", "Professional"],
