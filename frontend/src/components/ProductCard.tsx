@@ -138,15 +138,15 @@ const ProductCard = (product: ProductCardProps) => {
         )}
         
         <CardContent className="p-0 h-full flex flex-col">
-          {/* Product Image - Centered on mobile with extra padding, no white borders, transparent background */}
-          <div className="relative overflow-hidden bg-transparent aspect-square flex-shrink-0 flex items-center justify-center p-6 md:p-0">
+          {/* Product Image - Full width on mobile for better visualization, no white borders, transparent background */}
+          <div className="relative overflow-hidden bg-transparent aspect-square flex-shrink-0 flex items-center justify-center p-0">
             <OptimizedImage
               src={image}
               alt={name}
-              className="w-full h-full object-contain md:object-cover object-center group-hover:scale-105 transition-transform duration-300 bg-transparent"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300 bg-transparent"
               priority={!lazy}
               loading={lazy ? "lazy" : "eager"}
-              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 20vw"
             />
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
