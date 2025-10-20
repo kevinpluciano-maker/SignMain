@@ -453,26 +453,25 @@ const Checkout = () => {
                   </CardContent>
                 </Card>
 
-                {/* Order Notice - Payment Not Required */}
-                <Card className="border-2 border-green-500 bg-green-50">
+                {/* Secure Payment Notice */}
+                <Card className="border-2 border-blue-500 bg-blue-50">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-green-800">
-                      <CheckCircle className="h-5 w-5" />
-                      Order Processing
+                    <CardTitle className="flex items-center gap-2 text-blue-800">
+                      <Lock className="h-5 w-5" />
+                      Secure Payment
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      <p className="text-green-900 font-semibold">
-                        ✓ No payment required at this time
+                      <p className="text-blue-900 font-semibold">
+                        ✓ Stripe secure checkout
                       </p>
-                      <p className="text-sm text-green-800">
-                        Your order will be processed and you'll receive an email with payment instructions and order details within 24 hours.
+                      <p className="text-sm text-blue-800">
+                        After clicking "Proceed to Payment", you'll be securely redirected to Stripe to complete your payment with credit card.
                       </p>
-                      <div className="bg-white rounded-lg p-3 border border-green-200">
-                        <p className="text-xs text-gray-600">
-                          <strong>Next Steps:</strong> Complete your order information, review your items, and click "Place Order" to submit your request. We'll contact you via email with payment options and production timeline.
-                        </p>
+                      <div className="flex items-center gap-2 text-sm text-blue-700">
+                        <CreditCard className="h-4 w-4" />
+                        <span>Your payment information is encrypted and secure</span>
                       </div>
                     </div>
                   </CardContent>
