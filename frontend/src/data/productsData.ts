@@ -742,7 +742,8 @@ export const productsData: Record<string, Product[]> = {
       hasCustomSize: false
     }
   ],
-  "di-noc": []
+  "di-noc": [],
+  "ada-braille-signs": []
 };
 
 export const getCategoryProducts = (category: string): Product[] => {
