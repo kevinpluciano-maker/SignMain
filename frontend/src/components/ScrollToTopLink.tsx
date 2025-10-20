@@ -18,7 +18,7 @@ const ScrollToTopLink: React.FC<ScrollToTopLinkProps> = ({ to, children, onClick
     
     // Scroll to top after navigation
     setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
     }, 100);
   };
 
