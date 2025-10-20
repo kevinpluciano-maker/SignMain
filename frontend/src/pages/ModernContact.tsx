@@ -489,7 +489,7 @@ const ModernContact = () => {
                       </div>
                       <div>
                         <h4 className="text-gray-900 font-semibold">Call Our Specialists</h4>
-                        <p className="text-cyan-600 font-semibold">+1 (323) 843-0781</p>
+                        <p className="text-cyan-600 font-semibold">+1 (647) 278-2905</p>
                       </div>
                     </div>
 
