@@ -172,7 +172,7 @@
       "timestamp": "2025-10-18T17:03:28.491394",
       "details": {
         "cors_headers": {
-          "Access-Control-Allow-Origin": "https://code-explorer-82.preview.emergentagent.com",
+          "Access-Control-Allow-Origin": "https://learning-hub-88.preview.emergentagent.com",
           "Access-Control-Allow-Methods": "DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT",
           "Access-Control-Allow-Headers": "Content-Type"
         },

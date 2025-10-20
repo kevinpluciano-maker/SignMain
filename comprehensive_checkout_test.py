@@ -75,7 +75,7 @@ def test_checkout_flow():
     
     try:
         response = requests.post(
-            "https://code-explorer-82.preview.emergentagent.com/api/orders/notify",
+            "https://learning-hub-88.preview.emergentagent.com/api/orders/notify",
             json=order_test_data,
             headers={"Content-Type": "application/json"},
             timeout=15
@@ -106,7 +106,7 @@ def test_checkout_flow():
     try:
         # Verify database connectivity (orders use same MongoDB instance)
         db_response = requests.get(
-            "https://code-explorer-82.preview.emergentagent.com/api/status",
+            "https://learning-hub-88.preview.emergentagent.com/api/status",
             timeout=10
         )
         
