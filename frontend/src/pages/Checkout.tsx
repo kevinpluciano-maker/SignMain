@@ -582,15 +582,15 @@ const Checkout = () => {
                     {/* Submit Button */}
                     <Button
                       type="submit"
-                      className="w-full bg-green-600 hover:bg-green-700 text-lg py-6"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6"
                       disabled={isProcessing}
                     >
                       {isProcessing ? (
                         <>Processing...</>
                       ) : (
                         <>
-                          <Lock className="h-5 w-5 mr-2" />
-                          Complete Order
+                          <CreditCard className="h-5 w-5 mr-2" />
+                          Proceed to Payment
                         </>
                       )}
                     </Button>
