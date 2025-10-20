@@ -408,54 +408,9 @@ export const productsData: Record<string, Product[]> = {
       ],
       hasCustomSize: true,
       hasCustomNumberField: true
-    },
-    {
-      id: "reception-ada-sign",
-      name: "Reception Sign",
-      price: "from $58.00",
-      rating: 4.9,
-      reviews: 28,
-      image: "/lovable-uploads/f27933ff-b3b0-4768-a1bc-abb3400d26ff.png",
-      slug: "reception-ada-sign",
-      category: "info-signs",
-      subcategory: "room-signs",
-      description: "Professional ADA-compliant reception sign with universal accessibility symbols. Features raised characters and Braille text for full compliance with accessibility standards.",
-      materials: ["Premium Acrylic", "Raised Characters", "Braille Dots"],
-      designs: ["ADA Compliant"],
-      badges: ["ADA Compliant", "Reception", "Professional"],
-      sizeOptions: [
-        {
-          size: "8 x 8 in",
-          price: "$58.00"
-        },
-        {
-          size: "10 x 10 in",
-          price: "$65.00"
-        },
-        {
-          size: "12 x 12 in", 
-          price: "$76.00"
-        }
-      ],
-      colorOptions: [
-        "Black on White",
-        "Black on Silver", 
-        "Black on Gold",
-        "Silver on Black",
-        "Gold on Black",
-        "White on Black",
-        "White on Dark Blue",
-        "Dark Blue on White"
-      ],
-      brailleOptions: ["Yes", "No"],
-      gallery: [
-        "/lovable-uploads/f27933ff-b3b0-4768-a1bc-abb3400d26ff.png",
-        "/lovable-uploads/e277b2db-e883-447d-9fd5-cb46dfa2ac7b.png",
-        "/lovable-uploads/cd708b53-88fb-426d-9538-df1c2ea1d6f8.png"
-      ],
-      hasCustomSize: true,
-      hasCustomNumberField: true
-    },
+    }
+  ],
+  "info-signs": [
     {
       id: "roof-access-stainless-steel-sign",
       name: "Roof Access — Stainless Steel",
