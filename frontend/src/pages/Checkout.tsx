@@ -199,7 +199,7 @@ const Checkout = () => {
   };
 
   // Redirect if cart is empty
-  if (items.length === 0 && !orderComplete) {
+  if (items.length === 0) {
     return (
       <>
         <SEO
