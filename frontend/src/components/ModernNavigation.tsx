@@ -210,6 +210,36 @@ const ModernNavigation = () => {
         {/* Desktop Navigation - Reduced Size */}
         <div className="hidden lg:flex items-center justify-center h-14 py-2">
           <div className="flex items-center space-x-1">
+            {/* Home Button */}
+            <Button
+              variant="ghost"
+              className={buttonClasses}
+              onClick={() => {
+                navigate('/', { replace: false });
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+              }}
+              style={{...luxuryButtonStyle, ...premiumTextStyle}}
+              onMouseEnter={(e) => {
+                if (isHomePage) {
+                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (isHomePage) {
+                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }
+              }}
+            >
+              Home
+              {isHomePage && (
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600" />
+              )}
+            </Button>
+            
             {navItems.map((category) => (
               <div
                 key={category.title}
