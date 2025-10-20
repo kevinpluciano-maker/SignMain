@@ -27,14 +27,6 @@ const Navigation = () => {
 
   const navItems = [
     {
-      title: "Door Number Signs",
-      items: [
-        "Door Number: Wood & Stainless Steel",
-        "Modern Door Numbers",
-        "Custom Door Numbers"
-      ]
-    },
-    {
       title: "Restroom Signs",
       items: [
         "All-Gender Restroom Signs",
