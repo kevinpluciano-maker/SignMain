@@ -54,7 +54,18 @@ const ModernNavigation = () => {
         item.toLowerCase().includes('solid colors') ||
         item.toLowerCase().includes('custom di-noc')) {
       navigate('/di-noc');
-    } else {
+    } 
+    // Handle specific Info Signs dropdown items - route to product pages
+    else if (item === 'Exam Room') {
+      navigate('/products/acrylic-exam-room-sign');
+    } else if (item === 'Reception Sign') {
+      navigate('/products/reception-ada-sign');
+    } else if (item === 'Meeting Room ADA Sign') {
+      navigate('/products/meeting-room-ada-sign');
+    } else if (item === 'Roof Access') {
+      navigate('/products/roof-access-stainless-steel-sign');
+    } 
+    else {
       const slug = item.toLowerCase().replace(/\s+/g, '-');
       navigate(`/collections/${slug}`);
     }
