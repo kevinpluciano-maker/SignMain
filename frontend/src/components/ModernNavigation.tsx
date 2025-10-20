@@ -240,118 +240,125 @@ const ModernNavigation = () => {
               )}
             </Button>
             
-            {navItems.map((category) => (
-              <div
-                key={category.title}
-                className="relative group"
-                onMouseEnter={() => handleMouseEnter(category.title)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Button
-                  variant="ghost"
-                  className={buttonClasses}
-                  onClick={() => handleCategoryClick(category.title)}
-                  style={{...luxuryButtonStyle, ...premiumTextStyle}}
-                  onMouseEnter={(e) => {
-                    if (isHomePage) {
-                      e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
-                      e.currentTarget.style.transform = 'translateY(-1px)';
-                      e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (isHomePage) {
-                      e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                    }
-                  }}
-                >
-                  {category.title}
-                  <ChevronDown className={cn(
-                    "ml-1.5 h-3.5 w-3.5 transition-transform duration-300",
-                    activeDropdown === category.title && "rotate-180"
-                  )} />
-                  {isHomePage && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600" />
-                  )}
-                </Button>
-
-                <div 
-                  className={cn(
-                    dropdownClasses,
-                    activeDropdown === category.title 
-                      ? "opacity-100 visible translate-y-0 scale-100" 
-                      : "opacity-0 invisible translate-y-1 scale-98 pointer-events-none"
-                  )}
-                  style={luxuryDropdownStyle}
+            {navItems.map((category, categoryIndex) => (
+              <>
+                <div
+                  key={category.title}
+                  className="relative group"
                   onMouseEnter={() => handleMouseEnter(category.title)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <div className="p-4">
-                    <div className="grid gap-1">
-                      {category.items.map((item, index) => (
-                        <Button
-                          key={item}
-                          variant="ghost"
-                          className={dropdownItemClasses}
-                          onClick={() => handleItemClick(item)}
-                          style={{
-                            ...luxuryItemStyle,
-                            animationDelay: `${index * 40}ms`,
-                            fontFamily: '"Inter", system-ui, sans-serif',
-                            letterSpacing: '0.2px'
-                          }}
-                          onMouseEnter={(e) => {
-                            if (isTransparentPage) {
-                              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.15))';
-                              e.currentTarget.style.transform = 'translateX(4px)';
-                              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
-                            }
-                          }}
-                          onMouseLeave={(e) => {
-                            if (isTransparentPage) {
-                              e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
-                              e.currentTarget.style.transform = 'translateX(0)';
-                              e.currentTarget.style.boxShadow = 'none';
-                            }
-                          }}
-                        >
-                          {item}
-                          {isHomePage && (
-                            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/30 to-transparent group-hover:opacity-100 opacity-0 transition-opacity duration-300" />
-                          )}
-                        </Button>
-                      ))}
+                  <Button
+                    variant="ghost"
+                    className={buttonClasses}
+                    onClick={() => handleCategoryClick(category.title)}
+                    style={{...luxuryButtonStyle, ...premiumTextStyle}}
+                    onMouseEnter={(e) => {
+                      if (isHomePage) {
+                        e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
+                        e.currentTarget.style.transform = 'translateY(-1px)';
+                        e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (isHomePage) {
+                        e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }
+                    }}
+                  >
+                    {category.title}
+                    <ChevronDown className={cn(
+                      "ml-1.5 h-3.5 w-3.5 transition-transform duration-300",
+                      activeDropdown === category.title && "rotate-180"
+                    )} />
+                    {isHomePage && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600" />
+                    )}
+                  </Button>
+
+                  <div 
+                    className={cn(
+                      dropdownClasses,
+                      activeDropdown === category.title 
+                        ? "opacity-100 visible translate-y-0 scale-100" 
+                        : "opacity-0 invisible translate-y-1 scale-98 pointer-events-none"
+                    )}
+                    style={luxuryDropdownStyle}
+                    onMouseEnter={() => handleMouseEnter(category.title)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <div className="p-4">
+                      <div className="grid gap-1">
+                        {category.items.map((item, index) => (
+                          <Button
+                            key={item}
+                            variant="ghost"
+                            className={dropdownItemClasses}
+                            onClick={() => handleItemClick(item)}
+                            style={{
+                              ...luxuryItemStyle,
+                              animationDelay: `${index * 40}ms`,
+                              fontFamily: '"Inter", system-ui, sans-serif',
+                              letterSpacing: '0.2px'
+                            }}
+                            onMouseEnter={(e) => {
+                              if (isTransparentPage) {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.15))';
+                                e.currentTarget.style.transform = 'translateX(4px)';
+                                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+                              }
+                            }}
+                            onMouseLeave={(e) => {
+                              if (isTransparentPage) {
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                                e.currentTarget.style.transform = 'translateX(0)';
+                                e.currentTarget.style.boxShadow = 'none';
+                              }
+                            }}
+                          >
+                            {item}
+                            {isHomePage && (
+                              <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/30 to-transparent group-hover:opacity-100 opacity-0 transition-opacity duration-300" />
+                            )}
+                          </Button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+                
+                {/* Insert Di-Noc after Prohibitory Signs (index 1) */}
+                {categoryIndex === 1 && (
+                  <Button
+                    variant="ghost"
+                    className={buttonClasses}
+                    onClick={() => navigate('/di-noc')}
+                    style={{...luxuryButtonStyle, ...premiumTextStyle}}
+                    onMouseEnter={(e) => {
+                      if (isHomePage) {
+                        e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
+                        e.currentTarget.style.transform = 'translateY(-1px)';
+                        e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (isHomePage) {
+                        e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }
+                    }}
+                  >
+                    Di-Noc
+                    {isHomePage && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-600" />
+                    )}
+                  </Button>
+                )}
+              </>
             ))}
-            
-            {/* Di-Noc as a simple link without dropdown */}
-            <Button
-              variant="ghost"
-              className={buttonClasses}
-              onClick={() => navigate('/di-noc')}
-              style={{...luxuryButtonStyle, ...premiumTextStyle}}
-              onMouseEnter={(e) => {
-                if (isHomePage) {
-                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';
-                  e.currentTarget.style.transform = 'translateY(-1px)';
-                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (isHomePage) {
-                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }
-              }}
-            >
-              Di-Noc
-            </Button>
             
             {additionalItems.map((item) => (
               <Button
