@@ -198,9 +198,8 @@ const Checkout = () => {
       }
       
     } catch (error) {
-      alert('Order processing failed. Please try again or contact us directly at acrylicbraillesigns@gmail.com');
-      console.error('Order error:', error);
-    } finally {
+      alert('Payment processing failed. Please try again or contact us directly at acrylicbraillesigns@gmail.com');
+      console.error('Payment error:', error);
       setIsProcessing(false);
     }
   };
