@@ -49,6 +49,7 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
         { label: "Pull Door", path: "/products/pull-door-stainless-steel-sign" }
       ]
     },
+    { label: "Di-Noc", path: "/di-noc" },
     {
       label: "Info Signs",
       path: "/collections/info-signs",
@@ -60,7 +61,6 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
         { label: "Roof Access", path: "/products/roof-access-stainless-steel-sign" }
       ]
     },
-    { label: "Di-Noc", path: "/di-noc" },
     { label: "ADA Signs", path: "/collections/ada-braille-signs" },
     { label: "Room Signs", path: "/collections/room-signs" },
     { label: "Desk Signs", path: "/collections/desk-signs" },
