@@ -12,14 +12,13 @@ const Footer = () => {
     {
       title: "Product Categories",
       links: [
-        "Door Number Signs",
+        "Home",
         "Door Signs", 
         "Restroom Signs",
         "Information Signs",
         "Prohibitory Signs",
         "Directional Signs",
-        "Custom Signs",
-        "ADA Signs"
+        "Custom Signs"
       ]
     },
     {
