@@ -29,30 +29,43 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
   const isHomePage = location.pathname === '/';
 
   const navigationItems = [
+    { label: "Home", path: "/" },
     {
-      label: "Products",
+      label: "Restroom Signs",
       hasSubMenu: true,
       subItems: [
-        { label: "Door Numbers Signs", path: "/collections/door-numbers" },
-        { label: "Di-Noc", path: "/di-noc" },
-        { label: "Restroom Signs", path: "/collections/restroom-signs" },
-        { label: "Information Signs", path: "/collections/info-signs" },
-        { label: "Prohibitory Signs", path: "/collections/prohibitory-signs" }
+        { label: "All Gender Restroom Signs", path: "/products/acrylic-all-gender-sign" },
+        { label: "Men's Restroom", path: "/products/men-restroom-sign" },
+        { label: "Women's Restroom", path: "/products/women-restroom-sign" }
       ]
     },
-    { label: "Catalog", path: "/products" },
     {
-      label: "Designs",
+      label: "Prohibitory Signs",
       hasSubMenu: true,
       subItems: [
-        { label: "Custom Designs", path: "/collections/custom" },
-        { label: "Templates", path: "/collections/templates" }
+        { label: "No Guns Allowed", path: "/products/no-guns-allowed-stainless-steel-sign" },
+        { label: "No Loitering", path: "/products/no-loitering-stainless-steel-sign" },
+        { label: "No Food Allowed", path: "/products/no-food-allowed-stainless-steel-sign" },
+        { label: "Pull Door", path: "/products/pull-door-stainless-steel-sign" }
       ]
     },
-    { label: "Best sellers", path: "/collections/best-sellers" },
+    {
+      label: "Info Signs",
+      path: "/collections/info-signs",
+      hasSubMenu: true,
+      subItems: [
+        { label: "Exam Room", path: "/products/acrylic-exam-room-sign" },
+        { label: "Reception Sign", path: "/products/reception-ada-sign" },
+        { label: "Meeting Room ADA Sign", path: "/products/meeting-room-ada-sign" },
+        { label: "Roof Access", path: "/products/roof-access-stainless-steel-sign" }
+      ]
+    },
+    { label: "Di-Noc", path: "/di-noc" },
+    { label: "ADA Signs", path: "/collections/ada-braille-signs" },
+    { label: "Room Signs", path: "/collections/room-signs" },
+    { label: "Desk Signs", path: "/collections/desk-signs" },
     { label: "About Us", path: "/about" },
-    { label: "Contact", path: "/contact" },
-    { label: "Installation Guide", path: "/installation-guide" }
+    { label: "Contact", path: "/contact" }
   ];
 
   const productTypes = [
