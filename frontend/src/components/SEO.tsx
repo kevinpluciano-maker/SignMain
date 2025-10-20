@@ -71,7 +71,7 @@ const SEO = ({
           "@type": "ContactPoint",
           telephone: "+1-647-278-2905",
           contactType: "customer service",
-          email: "info@acrylicbraillesigns.com",
+          email: "acrylicbraillesigns@gmail.com",
           availableLanguage: ["English"],
           areaServed: ["Canada", "United States"]
         }
