@@ -55,24 +55,26 @@ const ModernNavigation = () => {
         item.toLowerCase().includes('abstract patterns') ||
         item.toLowerCase().includes('solid colors') ||
         item.toLowerCase().includes('custom di-noc')) {
-      navigate('/di-noc');
+      navigate('/di-noc', { replace: false });
     } 
     // Handle specific Info Signs dropdown items - route to product pages
     else if (item === 'Exam Room') {
-      navigate('/products/acrylic-exam-room-sign');
+      navigate('/products/acrylic-exam-room-sign', { replace: false });
     } else if (item === 'Reception Sign') {
-      navigate('/products/reception-ada-sign');
+      navigate('/products/reception-ada-sign', { replace: false });
     } else if (item === 'Meeting Room ADA Sign') {
-      navigate('/products/meeting-room-ada-sign');
+      navigate('/products/meeting-room-ada-sign', { replace: false });
     } else if (item === 'Roof Access') {
-      navigate('/products/roof-access-stainless-steel-sign');
+      navigate('/products/roof-access-stainless-steel-sign', { replace: false });
     } 
     else {
       const slug = item.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/collections/${slug}`);
+      navigate(`/collections/${slug}`, { replace: false });
     }
     setActiveDropdown(null);
     setIsMobileMenuOpen(false);
+    // Instant scroll to top
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
   };
 
   const handleMouseEnter = (categoryTitle: string) => {
