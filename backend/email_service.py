@@ -420,7 +420,7 @@ class EmailService:
                     <strong>📧 Email:</strong> <a href="mailto:acrylicbraillesigns@gmail.com" style="color: #2563eb; text-decoration: none;">acrylicbraillesigns@gmail.com</a>
                   </p>
                   <p style="margin: 5px 0;">
-                    <strong>📞 Phone:</strong> <a href="tel:+13238430781" style="color: #2563eb; text-decoration: none;">+1 (323) 843-0781</a>
+                    <strong>📞 Phone:</strong> <a href="tel:+16472782905" style="color: #2563eb; text-decoration: none;">+1 (647) 278-2905</a>
                   </p>
                 </div>
                 
