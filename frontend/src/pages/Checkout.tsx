@@ -192,10 +192,6 @@ const Checkout = () => {
       } else {
         throw new Error('No checkout URL received');
       }
-        setOrderComplete(true);
-      } else {
-        throw new Error('Failed to process order');
-      }
       
     } catch (error) {
       alert('Payment processing failed. Please try again or contact us directly at acrylicbraillesigns@gmail.com');
