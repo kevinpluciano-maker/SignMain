@@ -299,6 +299,7 @@ async def subscribe_newsletter(subscription: NewsletterSubscription):
 
 # Include the router in the main app
 app.include_router(api_router)
+app.include_router(payment_router)
 
 # Add GZip compression middleware
 app.add_middleware(GZipMiddleware, minimum_size=1000)
