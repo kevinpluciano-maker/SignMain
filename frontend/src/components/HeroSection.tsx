@@ -273,9 +273,9 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Luxurious scroll indicator */}
+      {/* Luxurious scroll indicator - Hidden on mobile to avoid line */}
       <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce opacity-70"
+        className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce opacity-70"
         aria-label="Scroll down to see more content"
         role="button"
         tabIndex={0}
