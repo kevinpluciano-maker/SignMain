@@ -61,7 +61,6 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
         { label: "Roof Access", path: "/products/roof-access-stainless-steel-sign" }
       ]
     },
-    { label: "ADA Signs", path: "/collections/ada-braille-signs" },
     { label: "Room Signs", path: "/collections/room-signs" },
     { label: "Desk Signs", path: "/collections/desk-signs" },
     { label: "About Us", path: "/about" },
