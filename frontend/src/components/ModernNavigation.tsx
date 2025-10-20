@@ -92,29 +92,20 @@ const ModernNavigation = () => {
 
   const navItems = [
     {
-      title: "Door Number Signs",
-      items: [
-        "Door Number: Wood & Stainless Steel",
-        "Modern Door Numbers",
-        "Custom Door Numbers"
-      ]
-    },
-    {
       title: "Restroom Signs",
       items: [
-        "All-Gender Restroom Signs",
-        "Staff ADA Signs",
-        "Men's Restroom Signs",
-        "Women's Restroom Signs"
+        "All Gender Restroom Signs",
+        "Men's Restroom",
+        "Women's Restroom"
       ]
     },
     {
       title: "Prohibitory Signs",
       items: [
-        "No Guns Allowed Signs",
-        "No Loitering Signs",
-        "No Food Allowed Signs",
-        "Pull Door Signs"
+        "No Guns Allowed",
+        "No Loitering",
+        "No Food Allowed",
+        "Pull Door"
       ]
     },
     {
