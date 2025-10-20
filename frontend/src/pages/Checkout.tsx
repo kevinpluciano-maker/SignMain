@@ -124,80 +124,74 @@ const Checkout = () => {
 
     setIsProcessing(true);
 
-    // Process order without payment
+    // Process Stripe payment
     try {
-      // Generate order ID
-      const newOrderId = 'ABS-' + Date.now().toString().slice(-8);
-      
-      // Prepare order data
-      const orderData = {
-        order_id: newOrderId,
-        customer_name: `${formData.firstName} ${formData.lastName}`,
+      // Prepare cart items for payment
+      const cartItems = items.map(item => ({
+        name: item.name,
+        quantity: item.quantity,
+        price: `$${item.itemPrice.toFixed(2)}`,
+        specifications: {
+          size: item.selectedSize || '',
+          color: item.selectedColor || '',
+          braille: item.selectedBraille || '',
+          shape: item.selectedShape || '',
+          customizations: item.customizations || {}
+        }
+      }));
+
+      // Prepare payment request
+      const paymentRequest = {
+        cart_items: cartItems,
         customer_email: formData.email,
-        customer_phone: formData.phone,
+        customer_name: `${formData.firstName} ${formData.lastName}`,
         shipping_address: {
-          address: formData.address + (formData.address2 ? `, ${formData.address2}` : ''),
+          address: formData.address,
+          address2: formData.address2,
           city: formData.city,
           state: formData.state,
           zip: formData.zipCode,
           country: formData.country
         },
-        items: items.map(item => {
-          const specifications: Record<string, any> = {};
-          
-          // Add size if selected
-          if (item.selectedSize) {
-            specifications['Size'] = item.selectedSize;
-          }
-          
-          // Add color if selected
-          if (item.selectedColor) {
-            specifications['Color'] = item.selectedColor;
-          }
-          
-          // Add braille option if selected
-          if (item.selectedBraille) {
-            specifications['Braille'] = item.selectedBraille === 'Yes' ? 'Yes (+$10 CAD)' : 'No';
-          }
-          
-          // Add shape if selected
-          if (item.selectedShape) {
-            specifications['Shape'] = item.selectedShape;
-          }
-          
-          // Add any customizations (like custom numbers or text)
-          if (item.customizations) {
-            Object.entries(item.customizations).forEach(([key, value]) => {
-              specifications[key] = value;
-            });
-          }
-          
-          return {
-            name: item.name,
-            quantity: item.quantity,
-            price: item.itemPrice.toFixed(2),
-            specifications: specifications
-          };
-        }),
-        subtotal: subtotal.toFixed(2),
-        shipping: shipping.toFixed(2),
-        tax: tax.toFixed(2),
-        total: totalPrice.toFixed(2),
-        notes: formData.orderNotes || 'No additional notes provided'
+        billing_address: formData.sameAsShipping ? {
+          address: formData.address,
+          address2: formData.address2,
+          city: formData.city,
+          state: formData.state,
+          zip: formData.zipCode,
+          country: formData.country
+        } : {
+          address: formData.billingAddress,
+          address2: formData.billingAddress2,
+          city: formData.billingCity,
+          state: formData.billingState,
+          zip: formData.billingZipCode,
+          country: formData.billingCountry
+        },
+        host_url: window.location.origin
       };
 
-      // Send order notification to backend
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/orders/notify`, {
+      // Create Stripe checkout session
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payments/create-checkout-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(orderData),
+        body: JSON.stringify(paymentRequest),
       });
 
-      if (response.ok) {
-        setOrderId(newOrderId);
-        clearCart();
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session');
+      }
+
+      const data = await response.json();
+      
+      // Redirect to Stripe checkout
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
         setOrderComplete(true);
       } else {
         throw new Error('Failed to process order');
