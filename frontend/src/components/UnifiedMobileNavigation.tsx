@@ -180,33 +180,6 @@ const UnifiedMobileNavigation = ({ cartItems = 3, showFilters = false }: Unified
 
             <Separator className="my-4" />
 
-            {/* Quick Actions - Simplified */}
-            <div className="px-4 space-y-3">
-              <h4 className="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">
-                Quick Actions
-              </h4>
-              
-              {/* Door Number Signs - Removed nested items */}
-              <Button
-                variant="outline"
-                className="w-full justify-start text-sm hover:bg-slate-100 transition-colors py-2.5"
-                onClick={() => navigate("/collections/door-numbers")}
-              >
-                Door Number Signs
-              </Button>
-
-              {/* Restroom Signs - Removed nested items */}
-              <Button
-                variant="outline"
-                className="w-full justify-start text-sm hover:bg-slate-100 transition-colors py-2.5"
-                onClick={() => navigate("/collections/restroom-signs")}
-              >
-                Restroom Signs
-              </Button>
-            </div>
-
-            <Separator className="my-4" />
-
             {/* Contact Information */}
             <div className="px-4 space-y-3 pb-6">
               <h4 className="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">
