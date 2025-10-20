@@ -7,8 +7,8 @@ const ImprovedNavigation = () => {
   // Static navigation items - Only main categories, no dropdown items
   const navItems = [
     {
-      title: "Door Number Signs",
-      category: 'door-number-signs',
+      title: "Home",
+      category: '',
       items: [] // No dropdown items
     },
     {
