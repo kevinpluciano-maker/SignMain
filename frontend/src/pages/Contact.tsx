@@ -180,7 +180,7 @@ const Contact = () => {
                   {
                     icon: <Phone className="w-6 h-6" />,
                     title: "Phone",
-                    info: "+1 (323) 843-0781",
+                    info: "+1 (647) 278-2905",
                     subtitle: "Mon - Fri, 7:00 AM - 4:00 PM EST",
                     gradient: "from-blue-500 to-indigo-600"
                   },
