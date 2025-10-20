@@ -241,9 +241,8 @@ const ModernNavigation = () => {
             </Button>
             
             {navItems.map((category, categoryIndex) => (
-              <>
+              <React.Fragment key={category.title}>
                 <div
-                  key={category.title}
                   className="relative group"
                   onMouseEnter={() => handleMouseEnter(category.title)}
                   onMouseLeave={handleMouseLeave}
