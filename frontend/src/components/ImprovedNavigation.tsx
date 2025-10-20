@@ -29,7 +29,11 @@ const ImprovedNavigation = () => {
   ];
 
   const handleCategoryClick = (categoryTitle: string, categoryKey: string) => {
-    navigate(`/collections/${categoryKey}`);
+    if (categoryKey === '') {
+      navigate('/');
+    } else {
+      navigate(`/collections/${categoryKey}`);
+    }
     window.scrollTo(0, 0);
   };
 
