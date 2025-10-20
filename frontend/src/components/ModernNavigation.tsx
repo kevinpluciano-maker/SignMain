@@ -138,7 +138,6 @@ const ModernNavigation = () => {
   ];
 
   const additionalItems = [
-    'ADA Signs',
     'Room Signs',
     'Desk Signs'
   ];
