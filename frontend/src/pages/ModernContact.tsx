@@ -499,7 +499,7 @@ const ModernContact = () => {
                       </div>
                       <div>
                         <h4 className="text-gray-900 font-semibold">Email Our Team</h4>
-                        <p className="text-cyan-600 font-semibold">info@acrylicbraillesigns.com</p>
+                        <p className="text-cyan-600 font-semibold">acrylicbraillesigns@gmail.com</p>
                       </div>
                     </div>
                   </div>
