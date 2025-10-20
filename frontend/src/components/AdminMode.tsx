@@ -90,7 +90,7 @@ const AdminMode: React.FC<AdminModeProps> = ({ isOpen, onClose }) => {
 
   const editableFields: EditableField[] = [
     // Header fields
-    { id: 'phone', label: 'Phone Number', value: formData.phone, type: 'phone', category: 'header', placeholder: '+1 (323) 843-0781' },
+    { id: 'phone', label: 'Phone Number', value: formData.phone, type: 'phone', category: 'header', placeholder: '+1 (647) 278-2905' },
     { id: 'email', label: 'Email Address', value: formData.email, type: 'email', category: 'header', placeholder: 'info@signassist.com' },
     { id: 'businessHours', label: 'Business Hours', value: formData.businessHours, type: 'text', category: 'header', placeholder: '7:00 AM - 4:00 PM EST' },
     { id: 'topBarText', label: 'Top Bar Message', value: formData.topBarText, type: 'text', category: 'header', maxLength: 200 },
