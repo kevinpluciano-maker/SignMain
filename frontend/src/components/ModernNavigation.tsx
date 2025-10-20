@@ -356,7 +356,7 @@ const ModernNavigation = () => {
                     )}
                   </Button>
                 )}
-              </>
+              </React.Fragment>
             ))}
             
             {additionalItems.map((item) => (
