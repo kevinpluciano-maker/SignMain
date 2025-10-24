@@ -17,9 +17,16 @@ import { useCurrency } from "@/contexts/CurrencyContext";
 
 const ImprovedCheckout = () => {
   const { items, totalItems, subtotal, tax, shipping, totalPrice } = useCart();
-  const { convertPrice, selectedCurrency } = useCurrency();
+  const { convertPrice, selectedCurrency, exchangeRates } = useCurrency();
   const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Convert USD amounts to selected currency
+  const exchangeRate = exchangeRates[selectedCurrency as keyof typeof exchangeRates] || 1;
+  const convertedSubtotal = subtotal * exchangeRate;
+  const convertedTax = tax * exchangeRate;
+  const convertedShipping = shipping * exchangeRate;
+  const convertedTotal = totalPrice * exchangeRate;
 
   // Form state
   const [formData, setFormData] = useState({
