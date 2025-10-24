@@ -54,9 +54,8 @@ class PaymentMethodRequest(BaseModel):
 async def create_checkout_session(payment_request: PaymentRequest):
     """Create a Stripe checkout session for the cart"""
     try:
-        # Calculate total amount from cart items
-        total_amount = sum(float(item['price'].replace('$', '').replace(',', '')) * item['quantity'] 
-                          for item in payment_request.cart_items)
+        # Use the total amount provided by frontend (includes tax and shipping)
+        total_amount = payment_request.total
         
         # Initialize Stripe Checkout
         host_url = payment_request.host_url
@@ -72,13 +71,17 @@ async def create_checkout_session(payment_request: PaymentRequest):
             "customer_email": payment_request.customer_email,
             "customer_name": payment_request.customer_name,
             "order_items": str(len(payment_request.cart_items)),
+            "subtotal": str(payment_request.subtotal),
+            "tax": str(payment_request.tax),
+            "shipping": str(payment_request.shipping),
+            "currency": payment_request.currency.upper(),
             "timestamp": datetime.utcnow().isoformat()
         }
         
-        # Create checkout session request
+        # Create checkout session request with correct currency
         checkout_request = CheckoutSessionRequest(
             amount=total_amount,
-            currency="cad",
+            currency=payment_request.currency.lower(),
             success_url=success_url,
             cancel_url=cancel_url,
             metadata=metadata
