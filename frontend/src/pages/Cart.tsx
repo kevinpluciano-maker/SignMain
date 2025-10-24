@@ -123,7 +123,7 @@ const Cart = () => {
                         {/* Product Options */}
                         <div className="text-sm text-muted-foreground space-y-1 mb-3">
                           {item.selectedSize && (
-                            <div>Size: {item.selectedSize}</div>
+                            <div>Size: {getActualSize(item)}</div>
                           )}
                           {item.selectedColor && (
                             <div>Color: {item.selectedColor}</div>
