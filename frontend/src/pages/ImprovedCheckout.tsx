@@ -17,7 +17,7 @@ import { useCurrency } from "@/contexts/CurrencyContext";
 
 const ImprovedCheckout = () => {
   const { items, totalItems, subtotal, tax, shipping, totalPrice } = useCart();
-  const { convertPrice, currency } = useCurrency();
+  const { convertPrice, currency, rate } = useCurrency();
   const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
