@@ -82,18 +82,29 @@ const ImprovedCheckout = () => {
     setIsProcessing(true);
 
     try {
-      const cartItems = items.map(item => ({
-        name: item.name,
-        quantity: item.quantity,
-        price: `$${item.itemPrice.toFixed(2)}`,
-        specifications: {
-          size: item.selectedSize || '',
-          color: item.selectedColor || '',
-          braille: item.selectedBraille || '',
-          shape: item.selectedShape || '',
-          customizations: item.customizations || {}
+      const cartItems = items.map(item => {
+        // Find the actual size text from sizeOptions
+        let actualSize = item.selectedSize || '';
+        if (item.selectedSize && item.sizeOptions && item.sizeOptions.length > 0) {
+          const sizeOption = item.sizeOptions.find(opt => opt.size === item.selectedSize);
+          if (sizeOption) {
+            actualSize = sizeOption.size;
+          }
         }
-      }));
+
+        return {
+          name: item.name,
+          quantity: item.quantity,
+          price: `$${item.itemPrice.toFixed(2)}`,
+          specifications: {
+            size: actualSize,
+            color: item.selectedColor || '',
+            braille: item.selectedBraille || '',
+            shape: item.selectedShape || '',
+            customizations: item.customizations || {}
+          }
+        };
+      });
 
       const paymentRequest = {
         cart_items: cartItems,
