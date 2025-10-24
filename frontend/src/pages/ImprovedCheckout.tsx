@@ -106,7 +106,12 @@ const ImprovedCheckout = () => {
           zip: formData.zipCode,
           country: formData.country
         },
-        host_url: window.location.origin
+        host_url: window.location.origin,
+        subtotal: subtotal,
+        tax: tax,
+        shipping: shipping,
+        total: totalPrice,
+        currency: selectedCurrency
       };
 
       console.log('Creating checkout session...', paymentRequest);
