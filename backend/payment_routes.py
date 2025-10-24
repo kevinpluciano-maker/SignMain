@@ -39,6 +39,11 @@ class PaymentRequest(BaseModel):
     shipping_address: Dict[str, str]
     billing_address: Dict[str, str]
     host_url: str
+    subtotal: float
+    tax: float
+    shipping: float
+    total: float
+    currency: str = "cad"
 
 
 class PaymentMethodRequest(BaseModel):
