@@ -175,6 +175,26 @@ async def get_checkout_status(session_id: str, request: Request):
                 )
                 
                 logger.info(f"✅ Updated payment status for session {session_id}: {checkout_status.payment_status}")
+                
+                # Send order complete email if payment is successful
+                if checkout_status.payment_status == "paid":
+                    try:
+                        order_complete_data = {
+                            "customer_name": existing_transaction.get('customer_name'),
+                            "customer_email": existing_transaction.get('customer_email'),
+                            "cart_items": existing_transaction.get('cart_items', []),
+                            "shipping_address": existing_transaction.get('shipping_address', {}),
+                            "subtotal": existing_transaction.get('subtotal', 0),
+                            "tax": existing_transaction.get('tax', 0),
+                            "shipping": existing_transaction.get('shipping', 0),
+                            "amount": checkout_status.amount_total,
+                            "currency": checkout_status.currency.upper(),
+                            "session_id": session_id
+                        }
+                        email_service.send_order_complete_notification(order_complete_data)
+                        logger.info("✅ Order complete email sent")
+                    except Exception as email_error:
+                        logger.error(f"⚠️ Order complete email failed: {str(email_error)}")
         
         return {
             "status": checkout_status.status,
