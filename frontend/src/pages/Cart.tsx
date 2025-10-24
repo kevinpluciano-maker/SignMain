@@ -167,10 +167,10 @@ const Cart = () => {
                           <div className="flex items-center gap-4">
                             <div className="text-right">
                               <div className="font-semibold">
-                                ${(item.itemPrice * item.quantity).toFixed(2)}
+                                {convertPrice(item.itemPrice * item.quantity)}
                               </div>
                               <div className="text-sm text-muted-foreground">
-                                ${item.itemPrice.toFixed(2)} each
+                                {convertPrice(item.itemPrice)} each
                               </div>
                             </div>
                             <Button
