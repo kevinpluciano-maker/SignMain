@@ -427,7 +427,7 @@ const ImprovedCheckout = () => {
                         <Separator />
                         <div className="flex justify-between text-lg font-bold">
                           <span>Total</span>
-                          <span>{convertPrice(totalPrice)} {currency}</span>
+                          <span>{convertPrice(totalPrice)} {selectedCurrency}</span>
                         </div>
                       </div>
                     </CardContent>
