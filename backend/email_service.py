@@ -595,14 +595,38 @@ NOTE: Customer is now at payment page.
             # Email to business owner
             subject = f"✅ ORDER COMPLETE - {order_data.get('customer_name', 'Customer')}"
             
-            # Format cart items
+            # Format cart items with detailed specifications
             items_html = ""
             for item in order_data.get('cart_items', []):
+                specs = item.get('specifications', {})
+                
+                # Build specifications display
+                spec_details = []
+                if specs.get('size'):
+                    spec_details.append(f"<strong>Size:</strong> {specs.get('size')}")
+                if specs.get('color'):
+                    spec_details.append(f"<strong>Color:</strong> {specs.get('color')}")
+                if specs.get('braille'):
+                    spec_details.append(f"<strong>Braille:</strong> {specs.get('braille')}")
+                if specs.get('shape'):
+                    spec_details.append(f"<strong>Shape:</strong> {specs.get('shape')}")
+                
+                # Add custom specifications
+                if specs.get('customizations'):
+                    for key, value in specs.get('customizations', {}).items():
+                        if value:
+                            spec_details.append(f"<strong>{key}:</strong> {value}")
+                
+                spec_html = "<br>".join(spec_details) if spec_details else "<em>No specifications</em>"
+                
                 items_html += f"""
                 <tr style="border-bottom: 1px solid #e5e7eb;">
-                    <td style="padding: 12px; text-align: left;">{item.get('name', 'Unknown')}</td>
-                    <td style="padding: 12px; text-align: center;">{item.get('quantity', 1)}</td>
-                    <td style="padding: 12px; text-align: right;">{item.get('price', '$0.00')}</td>
+                    <td style="padding: 12px; text-align: left; vertical-align: top;">
+                        <div style="font-weight: 600; margin-bottom: 5px;">{item.get('name', 'Unknown')}</div>
+                        <div style="font-size: 13px; color: #6b7280; line-height: 1.6;">{spec_html}</div>
+                    </td>
+                    <td style="padding: 12px; text-align: center; vertical-align: top;">{item.get('quantity', 1)}</td>
+                    <td style="padding: 12px; text-align: right; vertical-align: top; font-weight: 600;">{item.get('price', '$0.00')}</td>
                 </tr>
                 """
             
