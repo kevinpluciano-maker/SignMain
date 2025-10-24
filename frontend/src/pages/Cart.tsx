@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import ImprovedNavigation from "@/components/ImprovedNavigation";
 import ImprovedFooter from "@/components/ImprovedFooter";
 import { useCart } from "@/contexts/CartContext";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const Cart = () => {
   const { 
@@ -21,6 +22,20 @@ const Cart = () => {
     removeFromCart,
     clearCart 
   } = useCart();
+  
+  const { convertPrice, selectedCurrency } = useCurrency();
+  
+  // Helper function to get actual size text
+  const getActualSize = (item: any) => {
+    if (!item.selectedSize) return '';
+    if (item.sizeOptions && item.sizeOptions.length > 0) {
+      const sizeOption = item.sizeOptions.find((opt: any) => opt.size === item.selectedSize);
+      if (sizeOption) {
+        return sizeOption.size;
+      }
+    }
+    return item.selectedSize;
+  };
 
   if (items.length === 0) {
     return (
