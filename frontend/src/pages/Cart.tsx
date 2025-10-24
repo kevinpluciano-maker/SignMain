@@ -219,21 +219,21 @@ const Cart = () => {
                         {shipping === 0 ? (
                           <span className="text-green-600 font-medium">FREE</span>
                         ) : (
-                          `$${shipping.toFixed(2)}`
+                          convertPrice(shipping)
                         )}
                       </span>
                     </div>
                     
                     <div className="flex justify-between text-sm text-muted-foreground">
-                      <span>Tax</span>
-                      <span>${tax.toFixed(2)}</span>
+                      <span>Tax (13%)</span>
+                      <span>{convertPrice(tax)}</span>
                     </div>
                     
                     <Separator />
                     
                     <div className="flex justify-between text-lg font-bold">
                       <span>Total</span>
-                      <span>${totalPrice.toFixed(2)}</span>
+                      <span>{convertPrice(totalPrice)} {selectedCurrency}</span>
                     </div>
                   </div>
 
