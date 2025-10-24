@@ -114,10 +114,10 @@ const ImprovedCheckout = () => {
           country: formData.country
         },
         host_url: window.location.origin,
-        subtotal: subtotal,
-        tax: tax,
-        shipping: shipping,
-        total: totalPrice,
+        subtotal: Number(convertedSubtotal.toFixed(2)),
+        tax: Number(convertedTax.toFixed(2)),
+        shipping: Number(convertedShipping.toFixed(2)),
+        total: Number(convertedTotal.toFixed(2)),
         currency: selectedCurrency
       };
 
