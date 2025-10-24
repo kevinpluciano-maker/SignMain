@@ -12,8 +12,12 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime
 import logging
+from email_service import EmailService
 
 load_dotenv()
+
+# Initialize email service
+email_service = EmailService()
 
 # Initialize router
 payment_router = APIRouter(prefix="/api/payments", tags=["payments"])
