@@ -411,16 +411,23 @@ const ImprovedCheckout = () => {
                         </div>
                         <div className="flex justify-between">
                           <span>Shipping</span>
-                          <span>{convertPrice(shipping)}</span>
+                          <span className={shipping === 0 ? 'text-green-600 font-semibold' : ''}>
+                            {shipping === 0 ? 'FREE' : convertPrice(shipping)}
+                          </span>
                         </div>
+                        {shipping > 0 && subtotal < 75 && (
+                          <p className="text-xs text-muted-foreground">
+                            Add {convertPrice(75 - subtotal)} more for free shipping!
+                          </p>
+                        )}
                         <div className="flex justify-between">
-                          <span>Tax</span>
+                          <span>Tax (13%)</span>
                           <span>{convertPrice(tax)}</span>
                         </div>
                         <Separator />
                         <div className="flex justify-between text-lg font-bold">
                           <span>Total</span>
-                          <span>{convertPrice(totalPrice)}</span>
+                          <span>{convertPrice(totalPrice)} {currency}</span>
                         </div>
                       </div>
                     </CardContent>
