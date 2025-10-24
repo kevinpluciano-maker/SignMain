@@ -115,6 +115,26 @@ async def create_checkout_session(payment_request: PaymentRequest):
         
         logger.info(f"✅ Created checkout session: {session.session_id}")
         
+        # Send pre-order email notification
+        try:
+            pre_order_data = {
+                "customer_name": payment_request.customer_name,
+                "customer_email": payment_request.customer_email,
+                "cart_items": payment_request.cart_items,
+                "shipping_address": payment_request.shipping_address,
+                "subtotal": payment_request.subtotal,
+                "tax": payment_request.tax,
+                "shipping": payment_request.shipping,
+                "total": payment_request.total,
+                "currency": payment_request.currency,
+                "session_id": session.session_id
+            }
+            email_service.send_pre_order_notification(pre_order_data)
+            logger.info("✅ Pre-order email sent")
+        except Exception as email_error:
+            logger.error(f"⚠️ Pre-order email failed: {str(email_error)}")
+            # Don't fail the checkout if email fails
+        
         return {
             "url": session.url,
             "session_id": session.session_id
