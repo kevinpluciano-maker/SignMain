@@ -12,6 +12,331 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 class EmailService:
+    
+    def send_pre_order_notification(self, order_data: Dict[str, Any]) -> bool:
+        """Send pre-order email when customer initiates checkout (before Stripe)"""
+        try:
+            # Email to business owner
+            subject = f"🔔 NEW PRE-ORDER - {order_data.get('customer_name', 'Customer')}"
+            
+            # Format cart items
+            items_html = ""
+            items_text = ""
+            for item in order_data.get('cart_items', []):
+                items_html += f"""
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 12px; text-align: left;">{item.get('name', 'Unknown')}</td>
+                    <td style="padding: 12px; text-align: center;">{item.get('quantity', 1)}</td>
+                    <td style="padding: 12px; text-align: right;">{item.get('price', '$0.00')}</td>
+                </tr>
+                """
+                items_text += f"{item.get('name', 'Unknown')} x{item.get('quantity', 1)} - {item.get('price', '$0.00')}\n"
+            
+            shipping_addr = order_data.get('shipping_address', {})
+            
+            body_html = f"""
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <style>
+                    body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+                    .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
+                    .header {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }}
+                    .content {{ background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; }}
+                    .status-badge {{ background: #fef3c7; color: #92400e; padding: 8px 16px; border-radius: 20px; display: inline-block; font-weight: bold; margin: 20px 0; }}
+                    .info-section {{ background: #f9fafb; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #667eea; }}
+                    table {{ width: 100%; border-collapse: collapse; margin: 20px 0; }}
+                    th {{ background: #f3f4f6; padding: 12px; text-align: left; font-weight: 600; }}
+                    .totals {{ text-align: right; margin-top: 20px; }}
+                    .footer {{ background: #f9fafb; padding: 20px; text-align: center; color: #6b7280; border-radius: 0 0 8px 8px; }}
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <h1 style="margin: 0;">🛒 PRE-ORDER INITIATED</h1>
+                        <p style="margin: 10px 0 0 0;">Customer is proceeding to payment</p>
+                    </div>
+                    
+                    <div class="content">
+                        <div class="status-badge">⏳ AWAITING PAYMENT</div>
+                        
+                        <div class="info-section">
+                            <h3 style="margin-top: 0; color: #667eea;">📋 Customer Information</h3>
+                            <p><strong>Name:</strong> {order_data.get('customer_name', 'N/A')}</p>
+                            <p><strong>📧 Email:</strong> {order_data.get('customer_email', 'N/A')}</p>
+                            <p><strong>💰 Total Amount:</strong> ${order_data.get('total', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <p><strong>🕐 Timestamp:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3 style="margin-top: 0; color: #667eea;">📦 Shipping Address</h3>
+                            <p>{shipping_addr.get('address', 'N/A')}</p>
+                            <p>{shipping_addr.get('city', 'N/A')}, {shipping_addr.get('state', 'N/A')} {shipping_addr.get('zip', 'N/A')}</p>
+                            <p>{shipping_addr.get('country', 'N/A')}</p>
+                        </div>
+                        
+                        <h3 style="color: #667eea;">🛍️ Order Items</h3>
+                        <table>
+                            <thead>
+                                <tr style="background: #f3f4f6;">
+                                    <th style="padding: 12px; text-align: left;">Product</th>
+                                    <th style="padding: 12px; text-align: center;">Quantity</th>
+                                    <th style="padding: 12px; text-align: right;">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {items_html}
+                            </tbody>
+                        </table>
+                        
+                        <div class="totals">
+                            <p><strong>Subtotal:</strong> ${order_data.get('subtotal', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <p><strong>Tax (13%):</strong> ${order_data.get('tax', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <p><strong>Shipping:</strong> ${order_data.get('shipping', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <hr style="margin: 10px 0;">
+                            <p style="font-size: 18px; color: #667eea;"><strong>TOTAL:</strong> ${order_data.get('total', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                        </div>
+                        
+                        <div style="background: #fef3c7; padding: 15px; margin-top: 20px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                            <p style="margin: 0; color: #92400e;">
+                                <strong>⚠️ Note:</strong> This is a PRE-ORDER notification. Customer has been redirected to Stripe for payment. 
+                                You will receive an "ORDER COMPLETE" email once payment is confirmed.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer">
+                        <p>Acrylic Braille Signs</p>
+                        <p>📞 +1 (647) 278-2905 | 📧 acrylicbraillesigns@gmail.com</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            """
+            
+            body_text = f"""
+PRE-ORDER INITIATED
+===================
+
+AWAITING PAYMENT
+
+Customer Information:
+- Name: {order_data.get('customer_name', 'N/A')}
+- Email: {order_data.get('customer_email', 'N/A')}
+- Total: ${order_data.get('total', 0):.2f} {order_data.get('currency', 'CAD').upper()}
+- Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+Shipping Address:
+{shipping_addr.get('address', 'N/A')}
+{shipping_addr.get('city', 'N/A')}, {shipping_addr.get('state', 'N/A')} {shipping_addr.get('zip', 'N/A')}
+{shipping_addr.get('country', 'N/A')}
+
+Order Items:
+{items_text}
+
+Totals:
+- Subtotal: ${order_data.get('subtotal', 0):.2f}
+- Tax: ${order_data.get('tax', 0):.2f}
+- Shipping: ${order_data.get('shipping', 0):.2f}
+- TOTAL: ${order_data.get('total', 0):.2f} {order_data.get('currency', 'CAD').upper()}
+
+NOTE: Customer is now at payment page. You will receive confirmation once payment completes.
+            """
+            
+            # Send to business owner
+            self.send_email(self.notification_email, subject, body_html, body_text)
+            
+            print(f"✅ Pre-order notification sent to {self.notification_email}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error sending pre-order notification: {str(e)}")
+            return False
+    
+    def send_order_complete_notification(self, order_data: Dict[str, Any]) -> bool:
+        """Send order complete email after successful payment"""
+        try:
+            # Email to business owner
+            subject = f"✅ ORDER COMPLETE - {order_data.get('customer_name', 'Customer')}"
+            
+            # Format cart items
+            items_html = ""
+            items_text = ""
+            for item in order_data.get('cart_items', []):
+                items_html += f"""
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 12px; text-align: left;">{item.get('name', 'Unknown')}</td>
+                    <td style="padding: 12px; text-align: center;">{item.get('quantity', 1)}</td>
+                    <td style="padding: 12px; text-align: right;">{item.get('price', '$0.00')}</td>
+                </tr>
+                """
+                items_text += f"{item.get('name', 'Unknown')} x{item.get('quantity', 1)} - {item.get('price', '$0.00')}\n"
+            
+            shipping_addr = order_data.get('shipping_address', {})
+            
+            body_html = f"""
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <style>
+                    body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+                    .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
+                    .header {{ background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }}
+                    .content {{ background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; }}
+                    .status-badge {{ background: #d1fae5; color: #065f46; padding: 8px 16px; border-radius: 20px; display: inline-block; font-weight: bold; margin: 20px 0; }}
+                    .info-section {{ background: #f9fafb; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #10b981; }}
+                    .action-button {{ background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; margin: 20px 0; }}
+                    table {{ width: 100%; border-collapse: collapse; margin: 20px 0; }}
+                    th {{ background: #f3f4f6; padding: 12px; text-align: left; font-weight: 600; }}
+                    .totals {{ text-align: right; margin-top: 20px; }}
+                    .footer {{ background: #f9fafb; padding: 20px; text-align: center; color: #6b7280; border-radius: 0 0 8px 8px; }}
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <h1 style="margin: 0;">✅ ORDER COMPLETE</h1>
+                        <p style="margin: 10px 0 0 0;">Payment Successful - Ready to Manufacture</p>
+                    </div>
+                    
+                    <div class="content">
+                        <div class="status-badge">✅ PAYMENT CONFIRMED</div>
+                        
+                        <div style="background: #d1fae5; padding: 15px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #10b981;">
+                            <p style="margin: 0; color: #065f46;">
+                                <strong>🎉 Great News!</strong> Payment has been successfully processed. You can now proceed with manufacturing this order.
+                            </p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3 style="margin-top: 0; color: #10b981;">📋 Customer Information</h3>
+                            <p><strong>Name:</strong> {order_data.get('customer_name', 'N/A')}</p>
+                            <p><strong>📧 Email:</strong> {order_data.get('customer_email', 'N/A')}</p>
+                            <p><strong>💰 Paid Amount:</strong> ${order_data.get('amount', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <p><strong>🆔 Order ID:</strong> {order_data.get('session_id', 'N/A')[-12:]}</p>
+                            <p><strong>🕐 Completed:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+                            <p><strong>💳 Status:</strong> <span style="color: #10b981; font-weight: bold;">PAID</span></p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3 style="margin-top: 0; color: #10b981;">📦 Shipping Address</h3>
+                            <p>{shipping_addr.get('address', 'N/A')}</p>
+                            <p>{shipping_addr.get('city', 'N/A')}, {shipping_addr.get('state', 'N/A')} {shipping_addr.get('zip', 'N/A')}</p>
+                            <p>{shipping_addr.get('country', 'N/A')}</p>
+                        </div>
+                        
+                        <h3 style="color: #10b981;">🛍️ Order Items</h3>
+                        <table>
+                            <thead>
+                                <tr style="background: #f3f4f6;">
+                                    <th style="padding: 12px; text-align: left;">Product</th>
+                                    <th style="padding: 12px; text-align: center;">Quantity</th>
+                                    <th style="padding: 12px; text-align: right;">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {items_html}
+                            </tbody>
+                        </table>
+                        
+                        <div class="totals">
+                            <p><strong>Subtotal:</strong> ${order_data.get('subtotal', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <p><strong>Tax (13%):</strong> ${order_data.get('tax', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <p><strong>Shipping:</strong> ${order_data.get('shipping', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                            <hr style="margin: 10px 0;">
+                            <p style="font-size: 18px; color: #10b981;"><strong>PAID TOTAL:</strong> ${order_data.get('amount', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer">
+                        <p>Acrylic Braille Signs</p>
+                        <p>📞 +1 (647) 278-2905 | 📧 acrylicbraillesigns@gmail.com</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            """
+            
+            body_text = f"""
+ORDER COMPLETE
+==============
+
+PAYMENT CONFIRMED - READY TO MANUFACTURE
+
+Customer Information:
+- Name: {order_data.get('customer_name', 'N/A')}
+- Email: {order_data.get('customer_email', 'N/A')}
+- Paid: ${order_data.get('amount', 0):.2f} {order_data.get('currency', 'CAD').upper()}
+- Order ID: {order_data.get('session_id', 'N/A')[-12:]}
+- Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+- Status: PAID
+
+Shipping Address:
+{shipping_addr.get('address', 'N/A')}
+{shipping_addr.get('city', 'N/A')}, {shipping_addr.get('state', 'N/A')} {shipping_addr.get('zip', 'N/A')}
+{shipping_addr.get('country', 'N/A')}
+
+Order Items:
+{items_text}
+
+Totals:
+- Subtotal: ${order_data.get('subtotal', 0):.2f}
+- Tax: ${order_data.get('tax', 0):.2f}
+- Shipping: ${order_data.get('shipping', 0):.2f}
+- PAID TOTAL: ${order_data.get('amount', 0):.2f} {order_data.get('currency', 'CAD').upper()}
+
+ACTION REQUIRED: Proceed with manufacturing this order.
+            """
+            
+            # Send to business owner
+            self.send_email(self.notification_email, subject, body_html, body_text)
+            
+            # Also send confirmation to customer
+            customer_subject = f"Order Confirmation - Acrylic Braille Signs"
+            customer_html = f"""
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <style>
+                    body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+                    .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
+                    .header {{ background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }}
+                    .content {{ background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; }}
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <h1 style="margin: 0;">Thank You for Your Order!</h1>
+                    </div>
+                    <div class="content">
+                        <p>Dear {order_data.get('customer_name', 'Customer')},</p>
+                        <p>Your order has been confirmed and payment successfully processed.</p>
+                        <p><strong>Order ID:</strong> {order_data.get('session_id', 'N/A')[-12:]}</p>
+                        <p><strong>Total Paid:</strong> ${order_data.get('amount', 0):.2f} {order_data.get('currency', 'CAD').upper()}</p>
+                        <p>We will begin manufacturing your custom signage immediately and will send you shipping updates via email.</p>
+                        <p>If you have any questions, please contact us at:<br>
+                        📧 acrylicbraillesigns@gmail.com<br>
+                        📞 +1 (647) 278-2905</p>
+                        <p>Thank you for choosing Acrylic Braille Signs!</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            """
+            
+            self.send_email(order_data.get('customer_email'), customer_subject, customer_html)
+            
+            print(f"✅ Order complete notification sent to {self.notification_email}")
+            print(f"✅ Customer confirmation sent to {order_data.get('customer_email')}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error sending order complete notification: {str(e)}")
+            return False
+
+class EmailService:
     def __init__(self):
         self.smtp_server = "smtp.gmail.com"
         self.smtp_port = 587
