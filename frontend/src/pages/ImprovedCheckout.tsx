@@ -312,14 +312,14 @@ const ImprovedCheckout = () => {
                         {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
                       </div>
                       <div>
-                        <Label htmlFor="state">State *</Label>
+                        <Label htmlFor="state">{formData.country === 'CA' ? 'Province' : 'State'} *</Label>
                         <Select value={formData.state} onValueChange={(value) => handleInputChange('state', value)}>
                           <SelectTrigger className={errors.state ? 'border-red-500' : ''}>
                             <SelectValue placeholder="Select" />
                           </SelectTrigger>
                           <SelectContent>
-                            {usStates.map(state => (
-                              <SelectItem key={state} value={state}>{state}</SelectItem>
+                            {stateOptions.map(option => (
+                              <SelectItem key={option.code} value={option.code}>{option.name}</SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
