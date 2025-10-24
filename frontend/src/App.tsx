@@ -34,6 +34,7 @@ import Returns from "./pages/Returns";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import ImprovedCheckout from "./pages/ImprovedCheckout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import ModernContact from "./pages/ModernContact";
 import ModernAbout from "./pages/ModernAbout";
