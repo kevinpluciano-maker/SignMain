@@ -210,7 +210,7 @@ const Cart = () => {
                   <div className="space-y-4">
                     <div className="flex justify-between">
                       <span>Subtotal ({totalItems} items)</span>
-                      <span>${subtotal.toFixed(2)}</span>
+                      <span>{convertPrice(subtotal)}</span>
                     </div>
                     
                     <div className="flex justify-between">
