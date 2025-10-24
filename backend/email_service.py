@@ -11,7 +11,9 @@ from dotenv import load_dotenv
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-def send_pre_order_notification_temp(self, order_data: Dict[str, Any]) -> bool:
+# Pre-order notification has been moved to the EmailService class below
+
+def placeholder_function():
         """Send pre-order email when customer initiates checkout (before Stripe)"""
         try:
             # Email to business owner
