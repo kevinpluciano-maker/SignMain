@@ -48,6 +48,15 @@ const DiNocPage = () => {
     }
   }, []);
 
+  // Fade out title after 10 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTitleOpacity(0);
+    }, 10000); // 10 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const features = [
     {
       icon: Palette,
