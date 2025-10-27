@@ -196,7 +196,7 @@ const HeroSection = () => {
       </div>
 
       {/* Hero Content - Positioned lower for better video visibility */}
-      <div className="relative z-10 container mx-auto px-6 h-full flex items-end justify-center pb-16 md:pb-20">
+      <div className="relative z-10 container mx-auto px-6 h-full flex items-center justify-center pt-32 md:pt-40">
         <div className="max-w-5xl text-center text-white">
           <h1 
             className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1] text-white"
