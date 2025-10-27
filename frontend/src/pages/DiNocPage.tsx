@@ -136,9 +136,12 @@ const DiNocPage = () => {
             <div className="absolute inset-0 bg-black/30" />
           </div>
 
-          {/* Hero Content - No background, just text */}
+          {/* Hero Content - No background, just text with fade-out effect */}
           <div className="container mx-auto px-6 h-full flex items-center justify-center">
-            <div className="max-w-4xl text-center">
+            <div 
+              className="max-w-4xl text-center transition-opacity duration-1000"
+              style={{ opacity: titleOpacity }}
+            >
               <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-3 leading-none tracking-tight" style={{ fontFamily: '"Inter", "Helvetica Neue", sans-serif' }}>
                 <span className="text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] relative">
                   Di-Noc
