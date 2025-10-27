@@ -12,6 +12,7 @@ const DiNocPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(true); // Show video immediately
   const [videoError, setVideoError] = useState(false);
+  const [titleOpacity, setTitleOpacity] = useState(1); // Track title opacity
 
   useEffect(() => {
     const video = videoRef.current;
