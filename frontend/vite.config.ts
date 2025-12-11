@@ -15,7 +15,8 @@ export default defineConfig(({ mode }) => ({
       "127.0.0.1",
       "unzipped-preview.preview.emergentagent.com",
       ".emergentagent.com",
-      ".preview.emergentagent.com"
+      ".preview.emergentagent.com",
+      ".netlify.app"
     ],
   },
   plugins: [
