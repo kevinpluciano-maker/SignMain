@@ -1,0 +1,54 @@
+{
+  "name": "Acrylic Braille Signs - Professional ADA Compliant Signage Solutions",
+  "short_name": "Acrylic Braille Signs",
+  "description": "Premium acrylic braille signs, ADA compliant door signs, restroom signs, and custom architectural signage. Professional quality, fast shipping, guaranteed satisfaction.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4FC3F7",
+  "orientation": "portrait-primary",
+  "categories": ["business", "shopping", "productivity", "signs", "braille", "ada"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/acrylic-braille-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/acrylic-braille-logo.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/hero-office.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Professional acrylic braille signage solutions homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Products",
+      "short_name": "Products",
+      "description": "Browse our complete catalog of ADA compliant braille signage solutions",
+      "url": "/products",
+      "icons": [{ "src": "/assets/acrylic-braille-logo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact", 
+      "description": "Get in touch for custom acrylic braille signage solutions",
+      "url": "/contact",
+      "icons": [{ "src": "/assets/acrylic-braille-logo.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
