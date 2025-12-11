@@ -2,4 +2,4 @@
 environment = { NPM_FLAGS = "--legacy-peer-deps"}
 base = "frontend/"
 publish = "dist/"
-command = "npm run build"
+command = "vite build"
