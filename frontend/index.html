@@ -131,7 +131,7 @@
     <script>
       // Enhanced performance monitoring
       window.addEventListener('load', function() {
-        /*if ('performance' in window) {
+        if ('performance' in window) {
           const perfData = performance.getEntriesByType('navigation')[0];
           if (perfData) {
             const loadTime = perfData.loadEventEnd - perfData.fetchStart;
@@ -149,7 +149,7 @@
               console.log('LCP monitoring not supported');
             }
           }
-        }*/
+        }
       });
       
       // Force HTTPS
