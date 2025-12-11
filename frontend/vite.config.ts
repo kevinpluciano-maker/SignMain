@@ -68,12 +68,11 @@ export default defineConfig(({ mode }) => ({
         manualChunks: (id) => {
           // Vendor chunks
           if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
+            // Keep React and all React-related packages together to avoid context issues
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router') || id.includes('scheduler')) {
               return 'vendor-react';
             }
-            if (id.includes('react-router')) {
-              return 'vendor-router';
-            }
+            // Keep Radix UI together (depends on React context)
             if (id.includes('@radix-ui')) {
               return 'vendor-ui';
             }
@@ -83,6 +82,7 @@ export default defineConfig(({ mode }) => ({
             if (id.includes('three') || id.includes('@react-three')) {
               return 'vendor-three';
             }
+            // Other vendors
             return 'vendor-misc';
           }
         },
