@@ -110,7 +110,14 @@ export default defineConfig(({ mode }) => ({
     assetsInlineLimit: 4096, // 4kb threshold
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
+    include: [
+      'react', 
+      'react-dom', 
+      'react-dom/client',
+      'react/jsx-runtime',
+      'react-router-dom', 
+      'lucide-react'
+    ],
     exclude: ['@lovable/tagger']
   },
   esbuild: {
