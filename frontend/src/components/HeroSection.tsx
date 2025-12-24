@@ -59,7 +59,8 @@ const HeroSection = () => {
             pointerEvents: 'none'
           }}
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* Using CDN for reliable video delivery on Netlify */}
+          <source src="https://files.catbox.moe/1ahutt.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
