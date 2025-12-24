@@ -79,13 +79,20 @@ const HeroSection = () => {
             willChange: 'transform'
           }}
         >
+          <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/hero-background-video.mp4" type="video/mp4" />
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
-        {/* Fallback background if video fails */}
+        {/* Fallback background if video fails - Use hero image */}
         {videoError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900" />
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: 'url(/assets/hero-office.jpg)',
+              backgroundColor: '#1a1a1a'
+            }}
+          />
         )}
         
         {/* Luxurious gradient overlay - Darker on mobile for better logo visibility */}
