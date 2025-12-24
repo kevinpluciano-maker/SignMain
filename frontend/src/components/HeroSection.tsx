@@ -40,7 +40,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-[60vh] min-h-[500px] overflow-hidden" id="main-content">
-      {/* Video Background - Using reliable external hosting */}
+      {/* Video Background - Using GitHub Raw CDN (reliable, free) */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -52,7 +52,6 @@ const HeroSection = () => {
           disablePictureInPicture
           className="w-full h-full object-cover"
           preload="auto"
-          crossOrigin="anonymous"
           style={{
             objectFit: 'cover',
             width: '100%',
@@ -60,12 +59,10 @@ const HeroSection = () => {
             pointerEvents: 'none'
           }}
         >
-          {/* Primary source: GitHub raw (reliable) */}
-          <source src="https://github.com/yourusername/yourrepo/raw/main/frontend/public/hero-video.mp4" type="video/mp4" />
-          {/* Fallback: Local (works in dev, may fail on Netlify) */}
-          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* Primary: GitHub Raw CDN - WORKS ON NETLIFY */}
+          <source src="https://raw.githubusercontent.com/kevinluciano-maker/SignMaker/main/frontend/public/hero-video.mp4" type="video/mp4" />
           {/* Fallback: jsDelivr CDN */}
-          <source src="https://cdn.jsdelivr.net/gh/yourusername/yourrepo@main/frontend/public/hero-video.mp4" type="video/mp4" />
+          <source src="https://cdn.jsdelivr.net/gh/kevinluciano-maker/SignMaker@main/frontend/public/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
