@@ -82,7 +82,7 @@ const HeroSection = () => {
         </video>
       </div>
       
-      {/* Gradient overlay for text readability - works with both image and video */}
+      {/* Luxurious gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/50 md:from-black/25 md:via-black/15 md:to-black/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/12 to-transparent md:via-black/8" />
 
