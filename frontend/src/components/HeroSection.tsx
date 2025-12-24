@@ -6,18 +6,7 @@ import { useEditor } from "@/contexts/EditorContext";
 import { useEffect, useRef, useState } from "react";
 
 const HeroSection = () => {
-  const { isEditing, isPreviewing } = useEditor();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(true); // Show video immediately
-  const [videoError, setVideoError] = useState(false);
-
-  const handleTitleSave = (newTitle: string) => {
-    console.log('Hero title updated:', newTitle);
-  };
-
-  const handleDescriptionSave = (newDescription: string) => {
-    console.log('Hero description updated:', newDescription);
-  };
 
   useEffect(() => {
     const video = videoRef.current;
