@@ -21,53 +21,40 @@ const HeroSection = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      // Simple, direct video playback - same as DiNocPage
+    if (video && !videoError) {
+      // Try to play video, but don't break if it fails
       const playVideo = async () => {
         try {
           video.muted = true;
           video.loop = true;
           video.playsInline = true;
           
-          // Ensure video loads before playing
+          // Wait a bit for video to be ready
+          await new Promise(resolve => setTimeout(resolve, 100));
+          
           if (video.readyState >= 2) {
             await video.play();
             console.log('Hero video playing');
-            setVideoLoaded(true);
-          } else {
-            // Wait for video to be ready
-            video.addEventListener('loadeddata', async () => {
-              try {
-                await video.play();
-                console.log('Hero video playing after load');
-                setVideoLoaded(true);
-              } catch (err) {
-                console.error('Video play failed after load:', err);
-              }
-            }, { once: true });
           }
         } catch (error) {
-          console.error('Video autoplay failed:', error);
+          console.log('Video autoplay blocked or failed, using fallback image');
           setVideoError(true);
         }
       };
 
-      // Play video as soon as component mounts
       playVideo();
+      
+      // Set a timeout - if video doesn't load in 3 seconds, give up
+      const timeout = setTimeout(() => {
+        if (!videoLoaded) {
+          console.log('Video loading timeout, using fallback image');
+          setVideoError(true);
+        }
+      }, 3000);
 
-      // Handle video errors
-      const handleError = (e: any) => {
-        console.error('Video failed to load:', e);
-        setVideoError(true);
-      };
-
-      video.addEventListener('error', handleError);
-
-      return () => {
-        video.removeEventListener('error', handleError);
-      };
+      return () => clearTimeout(timeout);
     }
-  }, []);
+  }, [videoError, videoLoaded]);
 
   return (
     <section className="relative h-[60vh] min-h-[500px] overflow-hidden" id="main-content">
