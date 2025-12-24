@@ -95,7 +95,6 @@ const HeroSection = () => {
             willChange: 'transform'
           }}
         >
-          <source src="https://customer-assets.emergentagent.com/job_code-journey-79/artifacts/hero-background-video.mp4" type="video/mp4" />
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
