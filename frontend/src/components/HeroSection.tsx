@@ -21,40 +21,22 @@ const HeroSection = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video && !videoError) {
-      // Try to play video, but don't break if it fails
+    if (video) {
       const playVideo = async () => {
         try {
           video.muted = true;
           video.loop = true;
           video.playsInline = true;
-          
-          // Wait a bit for video to be ready
-          await new Promise(resolve => setTimeout(resolve, 100));
-          
-          if (video.readyState >= 2) {
-            await video.play();
-            console.log('Hero video playing');
-          }
+          await video.play();
+          console.log('Hero video playing');
         } catch (error) {
-          console.log('Video autoplay blocked or failed, using fallback image');
-          setVideoError(true);
+          console.error('Video autoplay failed:', error);
         }
       };
 
       playVideo();
-      
-      // Set a timeout - if video doesn't load in 3 seconds, give up
-      const timeout = setTimeout(() => {
-        if (!videoLoaded) {
-          console.log('Video loading timeout, using fallback image');
-          setVideoError(true);
-        }
-      }, 3000);
-
-      return () => clearTimeout(timeout);
     }
-  }, [videoError, videoLoaded]);
+  }, []);
 
   return (
     <section className="relative h-[60vh] min-h-[500px] overflow-hidden" id="main-content">
