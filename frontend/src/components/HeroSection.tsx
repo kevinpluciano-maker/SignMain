@@ -71,45 +71,50 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-[60vh] min-h-[500px] overflow-hidden" id="main-content">
-      {/* Video Background - Optimized for Mobile */}
-      <div className="absolute inset-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-          disablePictureInPicture
-          className="w-full h-full object-cover"
-          preload="metadata"
-          crossOrigin="anonymous"
-          style={{
-            // Ensure smooth playback on mobile
-            objectFit: 'cover',
-            width: '100%',
-            height: '100%',
-            pointerEvents: 'none',
-            // Fix for iOS Safari video rendering
-            transform: 'translateZ(0)',
-            WebkitTransform: 'translateZ(0)',
-            willChange: 'transform'
-          }}
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Fallback background if video fails - Use hero image */}
-        {videoError && (
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
+      {/* Background Image - Primary fallback that always shows */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/assets/hero-office.jpg)',
+          filter: videoLoaded ? 'blur(0px)' : 'blur(0px)',
+          transition: 'filter 0.3s ease-in-out'
+        }}
+      />
+      
+      {/* Video Overlay - Progressive enhancement */}
+      {!videoError && (
+        <div className="absolute inset-0">
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+            disablePictureInPicture
+            className="w-full h-full object-cover"
+            preload="metadata"
             style={{
-              backgroundImage: 'url(/assets/hero-office.jpg)',
-              backgroundColor: '#1a1a1a'
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              pointerEvents: 'none',
+              opacity: videoLoaded ? 1 : 0,
+              transition: 'opacity 0.5s ease-in-out'
             }}
-          />
-        )}
+            onError={() => {
+              console.log('Video failed to load, using fallback image');
+              setVideoError(true);
+            }}
+            onLoadedData={() => {
+              console.log('Video loaded successfully');
+              setVideoLoaded(true);
+            }}
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+        </div>
+      )}
         
         {/* Luxurious gradient overlay - Darker on mobile for better logo visibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/50 md:from-black/25 md:via-black/15 md:to-black/40" />
