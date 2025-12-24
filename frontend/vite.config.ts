@@ -64,25 +64,33 @@ export default defineConfig(({ mode }) => ({
     },
     rollupOptions: {
       output: {
-        // Optimized manual chunking for better caching
+        // Optimized manual chunking - CRITICAL: Keep React ecosystem together
         manualChunks: (id) => {
-          // Vendor chunks
           if (id.includes('node_modules')) {
-            // Keep React and all React-related packages together to avoid context issues
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router') || id.includes('scheduler')) {
+            // PRIORITY 1: React core and ALL React-dependent packages MUST stay together
+            if (
+              id.includes('react') || 
+              id.includes('react-dom') || 
+              id.includes('react-router') || 
+              id.includes('scheduler') ||
+              id.includes('@tanstack/react-query') ||
+              id.includes('@stripe/react-stripe-js') ||
+              id.includes('react-hook-form') ||
+              id.includes('react-helmet-async') ||
+              id.includes('react-day-picker') ||
+              id.includes('react-quill') ||
+              id.includes('react-resizable-panels') ||
+              id.includes('embla-carousel-react') ||
+              id.includes('@radix-ui') ||  // Radix UI uses React context heavily
+              id.includes('lucide-react')  // Icon library uses React
+            ) {
               return 'vendor-react';
             }
-            // Keep Radix UI together (depends on React context)
-            if (id.includes('@radix-ui')) {
-              return 'vendor-ui';
-            }
-            if (id.includes('lucide-react')) {
-              return 'vendor-icons';
-            }
+            // Three.js ecosystem (separate, large)
             if (id.includes('three') || id.includes('@react-three')) {
               return 'vendor-three';
             }
-            // Other vendors
+            // Everything else that doesn't depend on React context
             return 'vendor-misc';
           }
         },
