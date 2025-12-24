@@ -123,8 +123,16 @@ export default defineConfig(({ mode }) => ({
       'react-dom', 
       'react-dom/client',
       'react/jsx-runtime',
-      'react-router-dom', 
-      'lucide-react'
+      'react-router-dom',
+      '@tanstack/react-query',
+      'lucide-react',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-select',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-toast'
     ],
     exclude: ['@lovable/tagger']
   },
