@@ -79,16 +79,7 @@ const HeroSection = () => {
               lineHeight: '1.5'
             }}
           >
-            <InlineEditor
-              value="Professional quality door signs, restroom signs, and custom architectural signage for modern workspaces."
-              onSave={handleDescriptionSave}
-              placeholder="Enter hero description"
-              className="inline-block"
-              editClassName="text-black"
-              multiline
-              maxLength={250}
-              required
-            />
+            Professional quality door signs, restroom signs, and custom architectural signage for modern workspaces.
           </p>
           <div className="flex justify-center">
             <Link to="/products">
