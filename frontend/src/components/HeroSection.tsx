@@ -67,15 +67,7 @@ const HeroSection = () => {
               textShadow: '0 3px 15px rgba(0,0,0,0.8), 0 0 30px rgba(79,195,247,0.3)'
             }}
           >
-            <InlineEditor
-              value="Professional Acrylic Braille Signs"
-              onSave={handleTitleSave}
-              placeholder="Enter hero title"
-              className="inline-block"
-              editClassName="text-black"
-              maxLength={100}
-              required
-            />
+            Professional Acrylic Braille Signs
           </h1>
           <p 
             className="text-lg md:text-xl lg:text-xl mb-8 text-white max-w-4xl mx-auto leading-relaxed"
