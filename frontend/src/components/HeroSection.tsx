@@ -40,7 +40,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-[60vh] min-h-[500px] overflow-hidden" id="main-content">
-      {/* Video Background - Using GitHub Raw CDN (reliable, free) */}
+      {/* Video Background */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
