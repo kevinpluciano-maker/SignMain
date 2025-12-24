@@ -28,8 +28,24 @@ const HeroSection = () => {
           video.muted = true;
           video.loop = true;
           video.playsInline = true;
-          await video.play();
-          console.log('Hero video playing');
+          
+          // Ensure video loads before playing
+          if (video.readyState >= 2) {
+            await video.play();
+            console.log('Hero video playing');
+            setVideoLoaded(true);
+          } else {
+            // Wait for video to be ready
+            video.addEventListener('loadeddata', async () => {
+              try {
+                await video.play();
+                console.log('Hero video playing after load');
+                setVideoLoaded(true);
+              } catch (err) {
+                console.error('Video play failed after load:', err);
+              }
+            }, { once: true });
+          }
         } catch (error) {
           console.error('Video autoplay failed:', error);
           setVideoError(true);
@@ -40,8 +56,8 @@ const HeroSection = () => {
       playVideo();
 
       // Handle video errors
-      const handleError = () => {
-        console.error('Video failed to load');
+      const handleError = (e: any) => {
+        console.error('Video failed to load:', e);
         setVideoError(true);
       };
 
