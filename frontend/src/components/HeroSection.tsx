@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 const HeroSection = () => {
   const { isEditing, isPreviewing } = useEditor();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(true); // Show video immediately
   const [videoError, setVideoError] = useState(false);
 
   const handleTitleSave = (newTitle: string) => {
@@ -22,135 +22,33 @@ const HeroSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Enhanced video playback for mobile and desktop with immediate playback
+      // Simple, direct video playback - same as DiNocPage
       const playVideo = async () => {
         try {
-          // Set video attributes for optimal playback on all devices
           video.muted = true;
           video.loop = true;
           video.playsInline = true;
-          video.setAttribute('playsinline', '');
-          video.setAttribute('webkit-playsinline', '');
-          video.setAttribute('x5-playsinline', '');
-          video.setAttribute('x-webkit-airplay', 'allow');
-          video.preload = "metadata"; // Fast initial load
-          video.defaultMuted = true;
-          
-          // Force immediate play attempt
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            await playPromise;
-            console.log('Video started playing successfully');
-            setVideoLoaded(true);
-          }
+          await video.play();
+          console.log('Hero video playing');
         } catch (error) {
           console.error('Video autoplay failed:', error);
-          // Aggressive mobile retry with immediate attempts
-          let retryCount = 0;
-          const maxRetries = 5;
-          
-          const retryPlay = async () => {
-            if (retryCount < maxRetries) {
-              retryCount++;
-              setTimeout(async () => {
-                try {
-                  video.muted = true; // Re-enforce muted state
-                  await video.play();
-                  console.log(`Video started on retry ${retryCount}`);
-                  setVideoLoaded(true);
-                } catch (retryError) {
-                  console.error(`Video retry ${retryCount} failed:`, retryError);
-                  if (retryCount < maxRetries) {
-                    retryPlay();
-                  } else {
-                    setVideoError(true);
-                  }
-                }
-              }, 200 * retryCount); // Shorter delays for faster attempts
-            }
-          };
-          
-          retryPlay();
+          setVideoError(true);
         }
       };
 
-      // Handle visibility change to restart video on mobile when page becomes visible
-      const handleVisibilityChange = () => {
-        if (!document.hidden && video.paused) {
-          console.log('Page became visible, attempting to play video');
-          video.muted = true;
-          playVideo();
-        }
-      };
-
-      // Handle page focus to restart video
-      const handlePageFocus = () => {
-        if (video.paused) {
-          console.log('Page focused, restarting video');
-          video.muted = true;
-          playVideo();
-        }
-      };
-
-      // Immediate play attempt on mount
+      // Play video as soon as component mounts
       playVideo();
 
-      // Lazy load video when in viewport
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const handleCanPlay = () => {
-              console.log('Video can play');
-              playVideo();
-            };
+      // Handle video errors
+      const handleError = () => {
+        console.error('Video failed to load');
+        setVideoError(true);
+      };
 
-            const handleLoadedData = () => {
-              console.log('Video data loaded');
-              setVideoLoaded(true);
-            };
+      video.addEventListener('error', handleError);
 
-            const handleError = (e: any) => {
-              console.error('Video loading error:', e);
-              setVideoError(true);
-            };
-
-            const handleEnded = () => {
-              // Ensure loop continues on mobile
-              console.log('Video ended, restarting');
-              video.currentTime = 0;
-              playVideo();
-            };
-            
-            video.addEventListener('canplay', handleCanPlay);
-            video.addEventListener('loadeddata', handleLoadedData);
-            video.addEventListener('error', handleError);
-            video.addEventListener('ended', handleEnded);
-            document.addEventListener('visibilitychange', handleVisibilityChange);
-            window.addEventListener('focus', handlePageFocus);
-            
-            // Start loading immediately
-            playVideo();
-            
-            observer.unobserve(video);
-            
-            return () => {
-              video.removeEventListener('canplay', handleCanPlay);
-              video.removeEventListener('loadeddata', handleLoadedData);
-              video.removeEventListener('error', handleError);
-              video.removeEventListener('ended', handleEnded);
-              document.removeEventListener('visibilitychange', handleVisibilityChange);
-              window.removeEventListener('focus', handlePageFocus);
-            };
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      observer.observe(video);
-      
       return () => {
-        observer.disconnect();
-        document.removeEventListener('visibilitychange', handleVisibilityChange);
-        window.removeEventListener('focus', handlePageFocus);
+        video.removeEventListener('error', handleError);
       };
     }
   }, []);
