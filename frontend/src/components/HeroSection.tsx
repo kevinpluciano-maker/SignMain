@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
-import InlineEditor from "@/components/editor/InlineEditor";
-import { useEditor } from "@/contexts/EditorContext";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
