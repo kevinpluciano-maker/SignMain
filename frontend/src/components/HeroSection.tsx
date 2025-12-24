@@ -102,13 +102,12 @@ const HeroSection = () => {
           </video>
         </div>
       )}
-        
-        {/* Luxurious gradient overlay - Darker on mobile for better logo visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/50 md:from-black/25 md:via-black/15 md:to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/12 to-transparent md:via-black/8" />
-      </div>
+      
+      {/* Gradient overlay for text readability - works with both image and video */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/50 md:from-black/25 md:via-black/15 md:to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/12 to-transparent md:via-black/8" />
 
-      {/* Hero Content - Positioned lower for better video visibility */}
+      {/* Hero Content */}
       <div className="relative z-10 container mx-auto px-6 h-full flex items-center justify-center pt-32 md:pt-40">
         <div className="max-w-5xl text-center text-white">
           <h1 
