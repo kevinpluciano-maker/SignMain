@@ -64,36 +64,9 @@ export default defineConfig(({ mode }) => ({
     },
     rollupOptions: {
       output: {
-        // Optimized manual chunking - CRITICAL: Keep React ecosystem together
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            // PRIORITY 1: React core and ALL React-dependent packages MUST stay together
-            if (
-              id.includes('react') || 
-              id.includes('react-dom') || 
-              id.includes('react-router') || 
-              id.includes('scheduler') ||
-              id.includes('@tanstack/react-query') ||
-              id.includes('@stripe/react-stripe-js') ||
-              id.includes('react-hook-form') ||
-              id.includes('react-helmet-async') ||
-              id.includes('react-day-picker') ||
-              id.includes('react-quill') ||
-              id.includes('react-resizable-panels') ||
-              id.includes('embla-carousel-react') ||
-              id.includes('@radix-ui') ||  // Radix UI uses React context heavily
-              id.includes('lucide-react')  // Icon library uses React
-            ) {
-              return 'vendor-react';
-            }
-            // Three.js ecosystem (separate, large)
-            if (id.includes('three') || id.includes('@react-three')) {
-              return 'vendor-three';
-            }
-            // Everything else that doesn't depend on React context
-            return 'vendor-misc';
-          }
-        },
+        // SIMPLIFIED: Let Vite handle chunking automatically for better stability
+        // Manual chunking was causing React context issues on Netlify
+        manualChunks: undefined,
         // Optimized asset file names for better caching
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
