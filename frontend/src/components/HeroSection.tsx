@@ -59,10 +59,7 @@ const HeroSection = () => {
             pointerEvents: 'none'
           }}
         >
-          {/* Primary: GitHub Raw CDN - WORKS ON NETLIFY */}
-          <source src="https://raw.githubusercontent.com/kevinluciano-maker/SignMaker/main/frontend/public/hero-video.mp4" type="video/mp4" />
-          {/* Fallback: jsDelivr CDN */}
-          <source src="https://cdn.jsdelivr.net/gh/kevinluciano-maker/SignMaker@main/frontend/public/hero-video.mp4" type="video/mp4" />
+          <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
