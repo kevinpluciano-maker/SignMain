@@ -4,8 +4,20 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  # Increase timeout for large file processing
+  NODE_OPTIONS = "--max-old-space-size=4096"
 
-# Headers for video files and other assets
+# Video files - Critical for hero video
+[[headers]]
+  for = "/hero-video.mp4"
+  [headers.values]
+    Content-Type = "video/mp4"
+    Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Ranges = "bytes"
+    # Ensure video is served correctly
+    X-Content-Type-Options = "nosniff"
+
+# All video files
 [[headers]]
   for = "/*.mp4"
   [headers.values]
