@@ -13,7 +13,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 # Configuration
-BACKEND_URL = "https://codeunlock-4.preview.emergentagent.com/api"
+BACKEND_URL = "https://bsign-deploy.preview.emergentagent.com/api"
 TEST_CLIENT_NAME = "BSignStore_TestClient"
 
 class BSignBackendTester:
@@ -1228,7 +1228,7 @@ class BSignBackendTester:
         try:
             # Test preflight request
             headers = {
-                "Origin": "https://codeunlock-4.preview.emergentagent.com",
+                "Origin": "https://bsign-deploy.preview.emergentagent.com",
                 "Access-Control-Request-Method": "POST",
                 "Access-Control-Request-Headers": "Content-Type"
             }
