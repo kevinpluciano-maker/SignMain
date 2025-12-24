@@ -9,7 +9,7 @@ export const bestSellersProducts = [
   {
     id: "staff-ada-sign",
     name: "Staff ADA Sign",
-    image: "/lovable-uploads/2260f2f5-e0fe-4696-aca5-25aab8ec087b.png",
+    image: "https://files.catbox.moe/146rr4.png",
     price: 58.00,
     rating: 4.9,
     reviewCount: 28,
@@ -113,7 +113,7 @@ export const bestSellersProducts = [
   {
     id: "all-gender-stainless-steel-sign",
     name: "All Gender Stainless Steel Sign",
-    image: "/lovable-uploads/ef63caba-a5d5-4f30-8a83-aaa5843a83fc.png",
+    image: "https://files.catbox.moe/o2qnzk.png",
     price: 58.00,
     rating: 4.9,
     reviewCount: 28,
