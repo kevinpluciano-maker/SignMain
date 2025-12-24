@@ -82,7 +82,8 @@ const HeroSection = () => {
           controls={false}
           disablePictureInPicture
           className="w-full h-full object-cover"
-          preload="auto"
+          preload="metadata"
+          crossOrigin="anonymous"
           style={{
             // Ensure smooth playback on mobile
             objectFit: 'cover',
